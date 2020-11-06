@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
+    <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
+    <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@^5.1.2/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
+    <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+    <script src="../js/dsmove.js"></script>
+    <script src="../js/movetotarget.js"></script>
+    <script src="../js/items.js"></script>
+    <script src="../js/fairy.js"></script>
+    <script src="../js/inpscounter.js"></script>
+    <script src="../js/stats.js"></script>
+<script src="../js/closetime.js"></script>
+  </head>
+  <body>
+    
+    
+
+    <a-scene vr-mode-ui="enabled: false " physics='gravity: 0' restitutation="0.7" renderer="antialias: true" >
+      <a-assets>
+         <img id="woodfloor" src="https://cdn.glitch.com/c388f728-37b7-4af9-af03-1ee7430663e7%2F4727356277_66fb5f938f_o.jpg?1544178281422">
+         <img id="starsky" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2Fstarry%20night.jpg?1547158907338">
+        <!-- <img id="picasso" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2FPablo_Picasso_-_Womanwith_a_Mandolin_-_Ermitage%20(1).jpg?1547166417213">
+         <img id="bordeauxtheater" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2FOp%C3%A9ra_National_de_Bordeaux%20(1).jpg?1547235572572">
+       -->  <a-asset-item id="model" src="../assets/model/Crater.glb"
+         response-type="arraybuffer"></a-asset-item>
+        <a-asset-item id="Environment" src="../assets/model/Beach Environment.glb"
+         response-type="arraybuffer"></a-asset-item>
+       </a-assets>
+      <a-entity progressive-controls></a-entity>
+
+
+     <!--  <a-entity id="sky" geometry="primitive: sphere; radius: 5000"
+     material="shader: gradient; topColor: 235 235 245; bottomColor: 185 185 210"
+     scale="-1 1 1"></a-entity>-->
+
+      <a-entity id="ocean" ocean="density: 20; width: 50; depth: 50; speed: 4"
+      material="color: #9CE3F9; opacity: 0.75; metalness: 0; roughness: 1"
+      rotation="-90 0 0" position="2 -1 0"></a-entity>
+
+      <a-entity id="sphere"
+      position="0 0.15 -5"
+      light="type: point; intensity: 5"
+      animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 1000; to: 0 -0.10 -5; loop: true"></a-entity>
+           
+      <a-entity id="Targets" class="BoxParent">
+
+      <a-box id="box" class="boxs" position="-5 3 -5"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
+      animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false" ></a-box>    
+   <a-entity id="lol1" class="items" visible="false"  geometry="primitive:torusKnot" p: 0.5, q: 0.5, color="#EF2D5E" radiusTubular= "0.10" ></a-entity>
+  
+      <a-box id="box2" class="boxs" position="-1 3 -5"  aabb-collider="objects: a-gltf-model"  createitem color="#4CC3D9" lookat="#cam"   movetotarget
+      animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter;dur: 2000;loop:false"
+      event-set__click="_event: mouseenter; _target:#blue;  animation.property:position; animation.to:-5 4 -5; animation.easing: easeInOutBack"> </a-box> 
+      
+      <a-entity id="lol2" class="items"  visible="false"    geometry="primitive:torusKnot" p: 0.5, q: 0.5, color="#EF2D5E"  radiusTubular= "0.10" ></a-entity>
+
+      <a-box id="box1" class="boxs" position="2 3 -5"  aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"   
+      animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false"
+      event-set__click="_event: mouseenter; _target:#blue;  animation.property:position; animation.to:-1 4 -5; animation.easing: easeInOutBack" movetotarget></a-box>   
+       
+       <a-entity id="lol" class="items" visible="false"  geometry="primitive:torusKnot" p: 0.5, q: 0.5, color="#EF2D5E"  radiusTubular= "0.10" ></a-entity>
+   
+            </a-entity>
+    
+            <a-entity id="circle"  visible="false" geometry="primitive:sphere"  class="items"   radius="5.25" color="#EF2D5E" 
+></a-entity>
+     
+
+<a-box id="myDs" position="3 6 -5" dsmove clickable static-body="shape: box; mass: 0" aabb-collider="objects:.clickable"  ></a-box>
+      
+
+    <a-text id="counter" value="30" geometry="primitive:plane" closedtime ></a-text>
+
+   
+    
+    <!-- <a-plane position="0 0 -4" rotation="-90 0 0" width="100" height="100" src="#woodfloor" static-body repeat="4 4"></a-plane>-->
+ 
+      <a-gltf-model id="Taxi" src="#model" position="0 3 -5" static-body="shape: box; mass: 0" ></a-gltf-model>
+  
+
+      <!--  <a-videosphere src="image/AFrame1.mp4"></a-videosphere>wasd-controls="acceleration: 65;easing:2"-->
+      <a-entity id="light" light="type: ambient; color: #888"></a-entity>   
+
+      <a-camera id="cam" movement-controls="speed: 0.15 constrainToNavMesh:true" position="0 1.6 5" look-controls="pointerLockeEnabled:true" >
+       
+        <a-entity  animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from:0.05 0.05 0.05 ; to:0.03 0.03 0.03 "
+       cursor="fuse: trues;"
+        material="color: red; shader: flat "
+        position="0 0 -3"
+        scale="0.03 0.03 0.03"
+        geometry="primitive: ring"></a-entity>   
+
+       </a-camera>
+       <a-entity laser-controls="hand: left">
+
+       <a-entity raycaster="showLine: true; far: 100" line="color: red; opacity: 0.5"></a-entity>
+</a-entity>
+    </a-scene>
+    <!--   <script>
+
+  document.querySelector('#box1').addEventListener("mouseenter",function()
+       {
+        document.querySelector( '#lol1' ).setAttribute("visible", false,);
+           document.querySelector( '#lol2' ).setAttribute("visible", false,);
+          // document.querySelector( '#lol' ).setAttribute("visible", true,);
+       //circle.setAttribute("radius",1);
+        //   document.querySelector( '#blue' ).setAttribute("position",{x:-1,y:5,z:-5}) ;
+           document.querySelector( '#glb' ).setAttribute("position",{x:-5,y:-3,z:-3}) ;
+
+       });
+       document.querySelector('#box').addEventListener("mouseenter",function()
+       {
+        document.querySelector( '#lol1' ).setAttribute("visible", false,5000);
+        document.querySelector( '#lol' ).setAttribute("visible", false,5000);
+           document.querySelector( '#lol2' ).setAttribute("visible", true,5000);
+       //circle.setAttribute("radius",1);
+        //   document.querySelector( '#blue' ).setAttribute("position",{x:2,y:5,z:-5}) ;
+        document.querySelector( '#glb' ).setAttribute("position",{x:-3,y:-3,z:-3}) ;
+
+       });
+       document.querySelector('#box2').addEventListener("mouseenter",function()
+       {
+        document.querySelector( '#lol' ).setAttribute("visible", false,);
+        document.querySelector( '#lol2' ).setAttribute("visible", false,);
+           document.querySelector( '#lol1' ).setAttribute("visible", true,);
+       //circle.setAttribute("radius",1);
+        //   document.querySelector( '#blue' ).setAttribute("position",{x:-5,y:5,z:-5}) ;
+        document.querySelector( '#glb' ).setAttribute("position",{x:-7,y:-3,z:-3}) ;
+
+       });
+   </script>-->
+  </body>
+</html>
