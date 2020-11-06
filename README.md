@@ -10,7 +10,8 @@ assets -  a directory that contains 3d models and textures
  Beach.gltf:https://drive.google.com/file/d/1QI7H7heW761S-Un1MNy-AFDvCc9DlYxS/view?usp=sharing
 Garden.gltf:https://drive.google.com/file/d/1Os7X02KIhb5uQKyPvJ9pbYp_RHNeMDkC/view?usp=sharing
 Library.gltf:https://drive.google.com/file/d/1xFMej5Fe3EDfrUfc0tmhQzgftJG6Pwsm/view?usp=sharing
- and add the to "assets\model" folder  .
+ 
+add them to "assets\model" folder  .
  
 html\index.html - for now it's for test running code on the browser  with cubes and it will redirect to next environment after 30 mins but it in future it will be our enter point with menus .You can find it here too:
  https://glitch.com/edit/#!/illy-baics?path=index.html%3A1%3A0
