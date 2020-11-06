@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # aframe-demo
  Illytale  - aframe version
  
