@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
+    <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
+    <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@^5.1.2/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
+    <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+    <script src="../js/dsmove.js"></script>
+    <script src="../js/movetotarget.js"></script>
+    <script src="../js/items.js"></script>
+    <script src="../js/fairy.js"></script>
+    <script src="../js/inpscounter.js"></script>
+    <script src="../js/stats.js"></script>
+  </head>
+  <body>
+
+    <a-scene shadow
+             stats renderer="antialias: true;
+             colorManagement: true;
+             sortObjects: true;
+             physicallyCorrectLights: true;
+             maxCanvasWidth: 1920;
+             maxCanvasHeight: 1920;">
+      <a-assets>
+        
+        
+         <img id="starsky" src="https://i.pinimg.com/736x/a9/13/e3/a913e3cc68528dc782648bcaa56cfb00.jpg">
+        
+        <!-- <img id="picasso" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2FPablo_Picasso_-_Womanwith_a_Mandolin_-_Ermitage%20(1).jpg?1547166417213">
+         <img id="bordeauxtheater" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2FOp%C3%A9ra_National_de_Bordeaux%20(1).jpg?1547235572572">
+       --> 
+        <a-asset-item id="model" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBook%2002.glb?v=1603017376133"
+         response-type="arraybuffer"></a-asset-item>
+         <a-asset-item id="Environment" src="../assets/model/Library Environment.glb"
+         response-type="arraybuffer"></a-asset-item>
+       <!-- <a-asset-item id="Ds" src="model/Ds.glb"
+         response-type="arraybuffer"></a-asset-item>--> 
+       </a-assets>
+   
+<!-- <a-entity id="sky" geometry="primitive: sphere; radius: 5000"
+     material="shader: gradient; topColor: 235 235 245; bottomColor: 185 185 210"
+     scale="-1 1 1"></a-entity>
+        
+ -->
+      <!--enviroment-->
+      
+      <a-entity progressive-controls></a-entity>
+      <a-sky id="sky" color="#050000"></a-sky>
+     <a-entity id="myLibrary" gltf-model="#Environment"  >
+      </a-entity> 
+      
+      <a-entity light="color: #eed111; groundColor: #cecdc5; castShadow: true" position="-11.61322 136.48563 -35.54899" scale="3 3 3"></a-entity>
+      
+      <a-entity id="Targets" class="BoxParent">
+
+        <a-entity id="targetone" class="Box" gltf-model="#model" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="-32 0.3 30" scale="0.5 0.5 0.5"   showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
+             
+
+        </a-entity>   
+        <a-entity id="targettwo" class="Box" gltf-model="#model" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-28 0.3 5" scale="0.5 0.5 0.5"  showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
+             
+
+        </a-entity>
+        <a-entity id="targetthree" class="Box" gltf-model="#model" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-55 0.3 20" scale="0.5 0.5 0.5"  showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
+             
+
+        </a-entity>     
+        <a-entity id="targetfour" class="Box" gltf-model="#model" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-40 0.3 4" scale="0.5 0.5 0.5"  showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
+             
+
+        </a-entity>     
+      </a-entity>   
+
+            <!--items-->
+
+   <a-entity id="item" class="items" visible="false"  gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShark%20With%20Material.glb?v=1602763326676" scale="5000 5000 5000" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+    <a-entity particle-system="preset: Colors; particleCount:10" position="0 0 0"></a-entity>
+</a-entity>
+
+<a-entity id="itemOne" class="items" visible="false"  gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2Fnod.glb?v=1602686258177" scale="5 5 5" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+    <a-entity particle-system="preset: Colors ; particleCount:10" position="0 0 0"></a-entity>
+</a-entity>
+
+<a-entity id="itemTwo" class="items"  visible="false" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FWhale.glb?v=1602767677623" scale="5 5 5" animation="property: rotaion; to: 0 360 0; loop: true; dur: 500">
+    <a-entity particle-system="preset: Colors ; particleCount:10" position="0 0 0"></a-entity>
+</a-entity>
+
+<a-entity id="itemThree"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShrimp.glb?v=1602766713614" scale="8000 8000 8000" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+<a-entity particle-system="preset: Colors ; particleCount:10" position="0 0 0" ></a-entity>
+</a-entity>
+
+<a-entity id="itemFour"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShip%20beach.glb?v=1602764145944" scale="5 5 5" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+  <a-entity particle-system="preset: Colors ; particleCount:10" position="0 0 0" ></a-entity>
+  </a-entity>
+       
+     
+     
+<!--DS-->
+<a-entity id="myDs"  scale="3 3 3" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FNoah%20Librarian.glb?v=1603103926644"  position="-42.5 0.7 4"  lookat="#cam" dsmove clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity" rotation="0 90 0" shadow >
+ 
+</a-entity>
+      
+<!--score-->
+      
+    <a-text value="0" geometry="primitive:circle" position="-25 1 1"></a-text>
+
+ <!--TaxiFairy-->
+      
+      <a-gltf-model id="Taxi" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FIlly%2002.glb?v=1603106590183" position="-35 1.2 30" static-body="shape: box; mass: 0" scale="3 3 3" fairy lookat="#cam" >
+      </a-gltf-model>
+    
+      <a-entity id="sphere"
+      position="20 0.15 -2"
+     light="type: point; intensity: 1"
+    scale="2 2 2"></a-entity> 
+   
+
+    <a-entity camera="" position="-30.32655 2.6 15" wasd-controls="" rotation="-90 90 -90" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""> <a-entity  animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from:0.05 0.05 0.05 ; to:0.03 0.03 0.03 "
+      cursor="fuse: trues;"
+       material="color: red; shader: flat "
+       position="0 0 -3"
+       scale="0.03 0.03 0.03"
+       geometry="primitive: ring"></a-entity>
+      </a-entity>  
+
+      <a-entity oculus-quest-controls="hand: left"></a-entity>
+      
+      <a-entity oculus-quest-controls="hand: right"></a-entity>
+      
+       <a-entity laser-controls="hand: right" raycaster="objects: .boxs; far: 100"></a-entity>
+
+        </a-scene>
+        <script>
+          document.querySelector('a-scene').renderer.setTexture2D(ourTexture, 0);
+        </script>
+  </body>
+</html>

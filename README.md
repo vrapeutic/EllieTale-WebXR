@@ -1,4 +1,6 @@
+
 # AFrame
+
 
 # aframe-demo
  Illytale  - aframe version
@@ -32,5 +34,4 @@ html\index.htm - for now it's for test running code on the browser  with cubes a
  
 To start using the code, you need to start a live server extension in VSCode and open index.html or any .html page with live server.
 =======
-# AFrame
->>>>>>> fef095554f3b223892adda178675eba09f3af440
+
