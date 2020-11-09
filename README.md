@@ -16,7 +16,7 @@ add them to "assets\model" folder  .
 html\index.html - for now it's for test running code on the browser  with cubes and it will redirect to next environment after 30 mins but it in future it will be our enter point with menus .You can find it here too:
  https://glitch.com/edit/#!/illy-baics?path=index.html%3A1%3A0
  
- html\Beach.html -this contains  our beach environments' entities with full functions
+ html\Beach.html -this contains  our beach environments' entities (scene-sky- beach-fairy-distructor-score-list of items ..) with all components
  
  html\Garden.html - this for our garden environments' entities
  
