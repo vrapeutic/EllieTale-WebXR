@@ -5,6 +5,12 @@
 # aframe-demo
  Illytale  - aframe version
  
+is a module in which the player and Illy, the fairy, help uncle Noah collect his tools/objects to do his daily work.
+
+To know about this module Check this :
+
+https://drive.google.com/file/d/1Bl0U1to2vOZ4wd83phxHcwpTrgiWfMjf/view?usp=sharing
+ 
 assets -  a directory that contains 3d models and textures
  At first you need to download
  Beach.gltf:https://drive.google.com/file/d/1QI7H7heW761S-Un1MNy-AFDvCc9DlYxS/view?usp=sharing
