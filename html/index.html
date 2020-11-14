@@ -23,10 +23,15 @@
 <script src="../js/closetime.js"></script>
   </head>
   <body>
-    
+ <div>        
+<button onclick="myFunction()"> <a href="https://twitter.com/dmarcos"></a>Copy Text</button>
+</div> 
     
 
-    <a-scene vr-mode-ui="enabled: false " physics='gravity: 0' restitutation="0.7" renderer="antialias: true" >
+    <a-scene  physics='gravity: 0' restitutation="0.7" renderer="antialias: true"  vr-mode-ui="enterVRButton: #myEnterVRButton; enterARButton: #myEnterARButton">
+      <!-- Style the button with images or whatever. -->
+      <a id="myEnterVRButton" href="Beach.html"></a>
+      <a id="myEnterARButton" href="Garden.html"></a>
       <a-assets>
          <img id="woodfloor" src="https://cdn.glitch.com/c388f728-37b7-4af9-af03-1ee7430663e7%2F4727356277_66fb5f938f_o.jpg?1544178281422">
          <img id="starsky" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2Fstarry%20night.jpg?1547158907338">
@@ -56,18 +61,19 @@
       <a-entity id="Targets" class="BoxParent">
 
       <a-box id="box" class="boxs" position="-5 3 -5"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
-      animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false" ></a-box>    
+      animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false"
+      event-set__click="_event: mouseenter; _target:#level; value:2" ></a-box>    
    <a-entity id="lol1" class="items" visible="false"  geometry="primitive:torusKnot" p: 0.5, q: 0.5, color="#EF2D5E" radiusTubular= "0.10" ></a-entity>
   
       <a-box id="box2" class="boxs" position="-1 3 -5"  aabb-collider="objects: a-gltf-model"  createitem color="#4CC3D9" lookat="#cam"   movetotarget
       animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter;dur: 2000;loop:false"
-      event-set__click="_event: mouseenter; _target:#blue;  animation.property:position; animation.to:-5 4 -5; animation.easing: easeInOutBack"> </a-box> 
+      event-set__click="_event: mouseenter; _target:#selectenvironment; value:Library" > </a-box> 
       
       <a-entity id="lol2" class="items"  visible="false"    geometry="primitive:torusKnot" p: 0.5, q: 0.5, color="#EF2D5E"  radiusTubular= "0.10" ></a-entity>
 
       <a-box id="box1" class="boxs" position="2 3 -5"  aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"   
       animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false"
-      event-set__click="_event: mouseenter; _target:#blue;  animation.property:position; animation.to:-1 4 -5; animation.easing: easeInOutBack" movetotarget></a-box>   
+      event-set__click="_event: mouseenter; _target:#counter; value:0;" movetotarget></a-box>   
        
        <a-entity id="lol" class="items" visible="false"  geometry="primitive:torusKnot" p: 0.5, q: 0.5, color="#EF2D5E"  radiusTubular= "0.10" ></a-entity>
    
@@ -80,9 +86,11 @@
 <a-box id="myDs" position="3 6 -5" dsmove clickable static-body="shape: box; mass: 0" aabb-collider="objects:.clickable"  ></a-box>
       
 
-    <a-text id="counter" value="30" geometry="primitive:plane" closedtime ></a-text>
+<a-text id="counter" value="50" geometry="primitive:plane" ></a-text>
+<a-text id="level" value="3" geometry="primitive:circle" position="-5 1 1"></a-text>
+<a-text id="levelTybe" value="close" geometry="primitive:circle" position="-3 1 1"></a-text>
+<a-text id="selectenvironment" value="Beach" geometry="primitive:circle" position="-2 1 1" closedtime></a-text>
 
-   
     
     <!-- <a-plane position="0 0 -4" rotation="-90 0 0" width="100" height="100" src="#woodfloor" static-body repeat="4 4"></a-plane>-->
  
@@ -107,9 +115,9 @@
        <a-entity raycaster="showLine: true; far: 100" line="color: red; opacity: 0.5"></a-entity>
 </a-entity>
     </a-scene>
-    <!--   <script>
+      <script>
 
-  document.querySelector('#box1').addEventListener("mouseenter",function()
+  /*document.querySelector('#box1').addEventListener("mouseenter",function()
        {
         document.querySelector( '#lol1' ).setAttribute("visible", false,);
            document.querySelector( '#lol2' ).setAttribute("visible", false,);
@@ -138,7 +146,14 @@
         //   document.querySelector( '#blue' ).setAttribute("position",{x:-5,y:5,z:-5}) ;
         document.querySelector( '#glb' ).setAttribute("position",{x:-7,y:-3,z:-3}) ;
 
-       });
-   </script>-->
+       });*/
+       function myFunction() {
+  document.getElementById("counter").addEventListener("click",e =>{
+
+    document.getElementById("counter").value=50;
+
+  });
+}
+   </script>
   </body>
 </html>

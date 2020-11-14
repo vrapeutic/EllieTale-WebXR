@@ -5,20 +5,20 @@ AFRAME.registerComponent("ontriggertarget", {
 
     let triggerTarget = () => 
     {
-     
-     
-        
+     var taskcounter=document.getElementById("taskcounter").getAttribute("value");
         this.el.setAttribute("animation-mixer", "enabled:true; loop:once;repetitions: 0");
         this.el.setAttribute("showitem", "enabled",true);
 
         var el = document.createElement('a-light');
-        el.setAttribute("type", "point")
+        el.setAttribute("type", "point");
+        el.setAttribute("id","myLight");
         el.setAttribute("intensity",0.5);
         el.setAttribute("position",{x:0,y:5,z:0});
        // el.setAttribute("color", "#1dd4ed")
         this.el.appendChild(el); 
-        
-        console.log(this.el.getAttribute("animation-mixer"))
+        taskcounter++;
+        document.getElementById("taskcounter").setAttribute("value", taskcounter);
+        console.log(this.el.getAttribute("animation-mixer")+"TaskCounter"+taskcounter)
     
     }
     //level three speacial case if ds hit the target not the fairy 

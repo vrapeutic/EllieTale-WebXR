@@ -20,6 +20,8 @@
     <script src="../js/fairy.js"></script>
     <script src="../js/inpscounter.js"></script>
     <script src="../js/stats.js"></script>
+    <script src="../js/closetime.js"></script>
+    <script src="../js/ds.js"></script>
   </head>
   <body>
 
@@ -104,14 +106,20 @@
      
     
 <!--DS-->
-<a-entity id="myDs"  scale="3 3 3" gltf-model="#Ds"  position="-42.5 0.7 4"  lookat="#cam" dsmove clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity" rotation="0 90 0" shadow >
- 
+<a-entity id="myDs"  scale="3 3 3" gltf-model="#Ds"  position="-42.5 0.7 4"  lookat="#cam"   clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity" rotation="0 90 0" shadow >
+<a-entity id="dsmove"dsmove ></a-entity> <a-entity id="ds"ds ></a-entity>
+
 </a-entity>
       
 <!--score-->
       
+ <a-text id="level" value="1" geometry="primitive:circle" position="-20 1 1"></a-text>
+   <a-text id="levelTybe" value="open" geometry="primitive:circle" position="-15 1 1"></a-text>
+   <a-text id="counter" value="0" geometry="primitive:plane" closedtime ></a-text>
     <a-text id="score" value="0" geometry="primitive:circle" position="-25 1 1"></a-text>
+    <a-text id="taskcounter" value="1" geometry="primitive:circle" position="-30 1 3" ></a-text>
     <a-text id="tasktime" value="0" geometry="primitive:circle" position="-35 1 3" visible="false" ></a-text>
+    <a-text id="dscounter" value="1" geometry="primitive:circle" position="-40 1 4" ></a-text>
     <a-text id="dstime" value="0" geometry="primitive:circle" position="-45 1 4" visible="false"></a-text>
     <a-text id="inpsCounter" value="0" geometry="primitive:circle" position="-25 1 7" visible="false" inpssore></a-text>
     <a-text id="inps" value="0" geometry="primitive:circle" position="-35 1 7" visible="false" inpsscore ></a-text>
@@ -144,7 +152,31 @@
 
         </a-scene>
         <script>
+       console.log(   document.getElementById("level").getAttribute("value"))
+       console.log(document.getElementById("myDs").childElementCount);
+
+    if(  document.getElementById("level").getAttribute("value")==3){ 
+            
+            document.getElementById("ds").parentNode.removeChild( document.getElementById("ds"));
+        console.log(document.getElementById("myDs").childElementCount);
+      
+      }
+      else if(document.getElementById("level").getAttribute("value")==2){
+        document.getElementById(el.firstElementChild.id).parentNode.removeChild(document.getElementById(el.firstElementChild.id));
+      
+      console.log(document.getElementById("myDs").childElementCount);
+      
+      
+      }
+      else{
+      document.getElementById("ds").parentNode.removeChild( document.getElementById("ds"));
+      document.getElementById("dsmove").parentNode.removeChild( document.getElementById("dsmove"));
+    console.log(document.getElementById("myDs").childElementCount);
+      
+      
+      }
           document.querySelector('a-scene').renderer.setTexture2D(ourTexture, 0);
+
         </script>
   </body>
 </html>
