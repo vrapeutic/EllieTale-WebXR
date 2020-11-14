@@ -4,50 +4,17 @@ AFRAME.registerComponent("dsmove", {
   {
     
     var newpos, random;
-    var el = this.el;
+    var el = this.el.parentElement;
     var box = document.querySelectorAll(".Box");//Array of targets
     var ds = document.getElementById("myDs");// distractor element
     var time=0;
     var count=-1;
-var isCounting=true;
-    console.log(box + " this " + ds);
+    var isCounting=true;
+    console.log(box + " this " + ds+document.getElementById("level").getAttribute("value"));
 
-    // level 2
- /*let startDsMovement= function cycle(index) 
-    {
+//for level three
 
-      setTimeout(function() 
-      {
-      
-  random=Math.floor(Math.random() * Math.floor(box.length));  
-  
-   newpos=box[random].getAttribute("position");// restor next target for distractor
-   
-  ds.setAttribute("animation","property:position; to:"+(newpos.x+1)+" 0.5 "+newpos.z+" dur:1000"); 
-  
-  //ds.setAttribute("position",{x:newpos.x,y:newpos.y,z:newpos.z})  ;
-  
-  console.log(index+" here "+box[random].getAttribute("position").x+"ds "+ds.getAttribute("position").x)
-  
-       //`cycle()` 
-       // index++; // Increment the index
-  
-        if (index >= box.length) 
-        {
-             
-             index = 0; // Set it back to `0` when it reaches `3`
-          }
-          
-          cycle(index);
-    //cycle(++index % 3);
-    
-      }, 2000);
-  }
-    
-  startDsMovement( box.length);
-  */
 
-    //for level three
     if(isCounting==true) {
       count=  setInterval(function() {
        
@@ -56,7 +23,7 @@ var isCounting=true;
         }, 1000);       
   }
 
-    ds.setAttribute("position", { x: ds.getAttribute("position").x, y:ds.getAttribute("position").y, z:ds.getAttribute("position").z });
+   ds.setAttribute("position", { x:- 42.5, y:0.7, z:4});
 
     let advancedDsMovement = function newCycle() 
     {
@@ -65,7 +32,9 @@ var isCounting=true;
       
       newpos = box[random].getAttribute("position");
 
-    
+     var dscounetr=document.getElementById("dscounter").getAttribute("value");
+          dscounetr++;
+      document.getElementById("dscounter").setAttribute("value", dscounetr);
     
       ds.setAttribute(
         "animation",
@@ -75,7 +44,7 @@ var isCounting=true;
           newpos.z +
           " dur:5000"
       );
-
+     console.log("dscounter: "+dscounetr);
       document
         .getElementById("Taxi")
         .setAttribute("animation", "enabled", true);
@@ -88,7 +57,6 @@ var isCounting=true;
           ds.getAttribute("position").x
       );
     };
-
     el.addEventListener("hitstart", e => {
       console.log("col");
       console.log(
@@ -100,7 +68,9 @@ var isCounting=true;
       document
         .getElementById("Taxi")
         .setAttribute("animation", "enabled", false);// to stop fairy movement until the player respond to distractor
-       
+        console.log("i'm here 3")
+
+    
         if (isCounting==false) {
            count=  setInterval(function() {
        
@@ -116,5 +86,7 @@ var isCounting=true;
   clearInterval(count);
  isCounting=false;
     });
-  }
+ 
+}
+  
 });
