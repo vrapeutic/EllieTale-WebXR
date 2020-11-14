@@ -5,6 +5,12 @@
 # aframe-demo
  Illytale  - aframe version
  
+is a module in which the player and Illy, the fairy, help uncle Noah collect his tools/objects to do his daily work.
+
+To know about this module Check this :
+
+https://drive.google.com/file/d/1Bl0U1to2vOZ4wd83phxHcwpTrgiWfMjf/view?usp=sharing
+ 
 assets -  a directory that contains 3d models and textures
  At first you need to download
  Beach.gltf:https://drive.google.com/file/d/1QI7H7heW761S-Un1MNy-AFDvCc9DlYxS/view?usp=sharing
@@ -16,7 +22,7 @@ add them to "assets\model" folder  .
 html\index.html - for now it's for test running code on the browser  with cubes and it will redirect to next environment after 30 mins but it in future it will be our enter point with menus .You can find it here too:
  https://glitch.com/edit/#!/illy-baics?path=index.html%3A1%3A0
  
- html\Beach.html -this contains  our beach environments' entities with full functions
+ html\Beach.html -this contains  our beach environments' entities (scene-sky- beach-fairy-distructor-score-list of items ..) with all components
  
  html\Garden.html - this for our garden environments' entities
  
