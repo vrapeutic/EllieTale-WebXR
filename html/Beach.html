@@ -14,6 +14,9 @@
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
     <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script src="../js/aframe-environment-component.min.js"></script>
+    <script src="../js/aframe-spe-particles-component.js"></script>
     <script src="../js/dsmove.js"></script>
     <script src="../js/movetotarget.js"></script>
     <script src="../js/items.js"></script>
@@ -22,6 +25,7 @@
     <script src="../js/stats.js"></script>
     <script src="../js/closetime.js"></script>
     <script src="../js/ds.js"></script>
+    <script src="../js/index.js"></script>
   </head>
   <body>
 
@@ -50,12 +54,43 @@
      scale="-1 1 1"></a-entity>
         
  -->
-      <!--enviroment-->
+         <!--Menu-->
+<a-entity id="LevelsButton" menu visible="false">
+
+         <a-text value="Level one" geometry="primitive:plane; width:3"  id="boxLevel"  position="-25 6 8"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
+         animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false"
+         event-set__click="_event: mouseenter; _target:#level; value:1 " ></a-text>    
+
+         <a-text value="Level two" geometry="primitive:plane; width:3" id="boxLevel1"  position="-30 6 8"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
+         animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false"
+         event-set__click="_event: mouseenter; _target:#level; value:2 " ></a-text>  
+         
+         <a-text value="Level three" geometry="primitive:plane; width:3" id="boxLevel2"  position="-33 6 8"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
+         animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false"
+         event-set__click="_event: mouseenter; _target:#level; value:3 " ></a-text>    
+</a-entity>
+         <a-text menu value="30" geometry="primitive:plane; width:3" id="boxtimer" class="timer"  position="-27 4 12"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
+         animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false"
+         event-set__click="_event: mouseenter; _target:#counter; value:30" ></a-text>    
+
+         <a-text  menu value="60" id="boxtimer1"  geometry="primitive:plane; width:3" class="timer" position="-27 1 12"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
+         animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false"
+         event-set__click="_event: mouseenter; _target:#counter; value:60 " >
+</a-text>  
+         
+         <a-text menu value="90" geometry="primitive:plane; width:3" id="boxtimer2" class="timer"  position="-27 2 12"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
+         animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false"
+         event-set__click="_event: mouseenter; _target:#counter; value:90 " ></a-text>    
+
+         <a-text menu value="open" geometry="primitive:plane; width:3" id="noTimer" class="timer"  position="-27 3 12"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
+         animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false"
+         event-set__click="_event: mouseenter; _target:#counter; value:0 " ></a-text> 
+      <!--enviroment  -->
      
       <a-entity id="mybeach" gltf-model="#Environment" shadow  >
       </a-entity> 
       <a-entity progressive-controls></a-entity>
-      <a-sky id="sky" src="#starsky"></a-sky>
+    <a-sky id="sky" src="#starsky"></a-sky>
           
       <a-entity id="ocean" ocean="density: 20; width: 50; depth: 50; speed: 4" material="color: #00eeff; opacity: 0.75; roughness: 1; emissive: #26b0ba" rotation="-90 0 0" position="-2 -1.38101 -3" scale="100 1 1"></a-entity>   
       
@@ -69,14 +104,12 @@
         </a-entity>   
         <a-entity id="targettwo" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-28 0.3 5" scale="0.5 0.5 0.5"  showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
              
-
         </a-entity>
         <a-entity id="targetthree" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-55 0.3 20" scale="0.5 0.5 0.5"  showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
-             
 
         </a-entity>     
         <a-entity id="targetfour" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-40 0.3 4" scale="0.5 0.5 0.5"  showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
-             
+       
 
         </a-entity>     
       </a-entity>   
@@ -84,38 +117,31 @@
             <!--items-->
 
    <a-entity id="item" class="items" visible="false"  gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShark%20With%20Material.glb?v=1602763326676" scale="5000 5000 5000" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-    <a-entity particle-system="preset: Colors; particleCount:10" position="0 0 0"></a-entity>
-</a-entity>
+  </a-entity>
 
 <a-entity id="itemOne" class="items" visible="false"  gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2Fnod.glb?v=1602686258177" scale="5 5 5" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-    <a-entity particle-system="preset: Colors ; particleCount:10" position="0 0 0"></a-entity>
-</a-entity>
+ </a-entity>
 
 <a-entity id="itemTwo" class="items"  visible="false" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FWhale.glb?v=1602767677623" scale="5 5 5" animation="property: rotaion; to: 0 360 0; loop: true; dur: 500">
-    <a-entity particle-system="preset: Colors ; particleCount:10" position="0 0 0"></a-entity>
-</a-entity>
+ </a-entity>
 
 <a-entity id="itemThree"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShrimp.glb?v=1602766713614" scale="8000 8000 8000" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-<a-entity particle-system="preset: Colors ; particleCount:10" position="0 0 0" ></a-entity>
 </a-entity>
 
 <a-entity id="itemFour"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShip%20beach.glb?v=1602764145944" scale="5 5 5" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-  <a-entity particle-system="preset: Colors ; particleCount:10" position="0 0 0" ></a-entity>
-  </a-entity>
+   </a-entity>
        
      
     
 <!--DS-->
-<a-entity id="myDs"  scale="3 3 3" gltf-model="#Ds"  position="-42.5 0.7 4"  lookat="#cam"   clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity" rotation="0 90 0" shadow >
-<a-entity id="dsmove"dsmove ></a-entity> <a-entity id="ds"ds ></a-entity>
-
+<a-entity id="myDs"   visible="false" scale="3 3 3" gltf-model="#Ds"  position="-42.5 3 4"  lookat="#cam"   clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity" rotation="0 90 0" shadow >
 </a-entity>
       
 <!--score-->
       
- <a-text id="level" value="1" geometry="primitive:circle" position="-20 1 1"></a-text>
+<a-text id="level" value="2"  geometry="primitive:circle" position="-20 1 1"></a-text>
    <a-text id="levelTybe" value="open" geometry="primitive:circle" position="-15 1 1"></a-text>
-   <a-text id="counter" value="0" geometry="primitive:plane" closedtime ></a-text>
+   <a-text id="counter" value="0" geometry="primitive:plane"  ></a-text>
     <a-text id="score" value="0" geometry="primitive:circle" position="-25 1 1"></a-text>
     <a-text id="taskcounter" value="1" geometry="primitive:circle" position="-30 1 3" ></a-text>
     <a-text id="tasktime" value="0" geometry="primitive:circle" position="-35 1 3" visible="false" ></a-text>
@@ -127,7 +153,7 @@
 
  <!--TaxiFairy-->
       
-      <a-gltf-model id="Taxi"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FIlly%2002.glb?v=1603106590183" position="-35 1.2 30" aabb-collider="objects: a-entity"  static-body="shape: box; mass: 0" scale="3 3 3" lookat="#cam" >
+      <a-gltf-model id="Taxi"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FIlly%2002.glb?v=1603106590183" position="-35 3 30" aabb-collider="objects: a-entity"  static-body="shape: box; mass: 0" scale="3 3 3" lookat="#cam" >
       </a-gltf-model>
     
       <a-entity id="sphere"
@@ -136,7 +162,7 @@
     scale="2 2 2"></a-entity> 
    
 
-    <a-entity camera="" position="-30.32655 1.6 15" wasd-controls="" rotation="-90 90 -90" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""> <a-entity  animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from:0.05 0.05 0.05 ; to:0.03 0.03 0.03 "
+    <a-entity camera="" position="-30.32655 3 15" wasd-controls="" rotation="-90 90 -90" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""> <a-entity  animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from:0.05 0.05 0.05 ; to:0.03 0.03 0.03 "
       cursor="fuse: trues;"
        material="color: red; shader: flat "
        position="0 0 -3"
@@ -152,30 +178,14 @@
 
         </a-scene>
         <script>
-       console.log(   document.getElementById("level").getAttribute("value"))
-       console.log(document.getElementById("myDs").childElementCount);
+         console.log(level+levelType+document.getElementById("boxLevel"));
+level++;
+console.log(level);
+//console.log("level", document.getElementById("level").getAttribute("value"))
+//console.log(document.getElementById("myDs").childElementCount);
 
-    if(  document.getElementById("level").getAttribute("value")==3){ 
-            
-            document.getElementById("ds").parentNode.removeChild( document.getElementById("ds"));
-        console.log(document.getElementById("myDs").childElementCount);
-      
-      }
-      else if(document.getElementById("level").getAttribute("value")==2){
-        document.getElementById(el.firstElementChild.id).parentNode.removeChild(document.getElementById(el.firstElementChild.id));
-      
-      console.log(document.getElementById("myDs").childElementCount);
-      
-      
-      }
-      else{
-      document.getElementById("ds").parentNode.removeChild( document.getElementById("ds"));
-      document.getElementById("dsmove").parentNode.removeChild( document.getElementById("dsmove"));
-    console.log(document.getElementById("myDs").childElementCount);
-      
-      
-      }
-          document.querySelector('a-scene').renderer.setTexture2D(ourTexture, 0);
+//document.getElementById("myDs").parentNode.appendChild(particleSystem);
+  document.querySelector('a-scene').renderer.setTexture2D(ourTexture, 0);
 
         </script>
   </body>

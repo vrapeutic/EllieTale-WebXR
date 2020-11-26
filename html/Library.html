@@ -14,22 +14,22 @@
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
     <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+    <script src="https://unpkg.com/aframe-geometry-merger-component/dist/aframe-geometry-merger-component.min.js"></script>
     <script src="../js/dsmove.js"></script>
     <script src="../js/movetotarget.js"></script>
     <script src="../js/items.js"></script>
     <script src="../js/fairy.js"></script>
     <script src="../js/inpscounter.js"></script>
     <script src="../js/stats.js"></script>
+
   </head>
   <body>
 
-    <a-scene shadow
-             stats renderer="antialias: true;
-             colorManagement: true;
-             sortObjects: true;
-             physicallyCorrectLights: true;
-             maxCanvasWidth: 1920;
-             maxCanvasHeight: 1920;">
+    <a-scene  shadow="type: pcfsoft" stats effects="bloom, fxaa, ssao, godrays" bloom="radius: 0.66" fxaa  godrays="src: #sun; threshold: 0. 0.33; intensity: 2;tint:#FF0000" ssao="intensity:10;scale:.2;maxDepth:10;samples:64;radius:1;depthCutoff:100;blurRadius:10"  renderer="antialias: true;
+    sortObjects: true;
+    maxCanvasWidth: 1920;
+    maxCanvasHeight: 1920;
+    gammaOutput: true;">
       <a-assets>
         
         
@@ -60,7 +60,7 @@
       
       <a-entity light="color: #eed111; groundColor: #cecdc5; castShadow: true" position="-11.61322 136.48563 -35.54899" scale="3 3 3"></a-entity>
       
-      <a-entity id="Targets" class="BoxParent">
+      <a-entity id="Targets" class="BoxParent" geometry-merger="preserveOriginal: false" material="color: #AAA">
 
         <a-entity id="targetone" class="Box" gltf-model="#model" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="-32 0.3 30" scale="0.5 0.5 0.5"   showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
              
@@ -140,7 +140,7 @@
 
         </a-scene>
         <script>
-          document.querySelector('a-scene').renderer.setTexture2D(ourTexture, 0);
+         
         </script>
   </body>
 </html>

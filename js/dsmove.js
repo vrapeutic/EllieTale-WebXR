@@ -1,10 +1,12 @@
 AFRAME.registerComponent("dsmove", {
   
-  init: function()
+
+  play: function()
   {
-    
-    var newpos, random;
-    var el = this.el.parentElement;
+    console.log("please move")
+    var newpos; 
+    var random=0;
+    var el = this.el;
     var box = document.querySelectorAll(".Box");//Array of targets
     var ds = document.getElementById("myDs");// distractor element
     var time=0;
@@ -29,13 +31,14 @@ AFRAME.registerComponent("dsmove", {
     {
       
       random = Math.floor(Math.random() * Math.floor(box.length - 1));
-      
+      console.log(random);
       newpos = box[random].getAttribute("position");
 
      var dscounetr=document.getElementById("dscounter").getAttribute("value");
-          dscounetr++;
+         
+      dscounetr++;
       document.getElementById("dscounter").setAttribute("value", dscounetr);
-    
+ 
       ds.setAttribute(
         "animation",
         "property:position; to:" +
@@ -43,12 +46,14 @@ AFRAME.registerComponent("dsmove", {
           " 0.5 " +
           newpos.z +
           " dur:5000"
-      );
+      );    
+   
      console.log("dscounter: "+dscounetr);
       document
         .getElementById("Taxi")
         .setAttribute("animation", "enabled", true);
-
+// 
+    /* */
       console.log(
         random +
           " here " +
@@ -56,37 +61,52 @@ AFRAME.registerComponent("dsmove", {
           "ds " +
           ds.getAttribute("position").x
       );
+      return random;
     };
-    el.addEventListener("hitstart", e => {
-      console.log("col");
-      console.log(
+    ds.addEventListener("hitstart", e => {
+    //  console.log("col");
+    /*  console.log(
         e.target.id,
         "col with",
         e.target.components["aabb-collider"]["intersectedEls"].map(x => x.id)
-      );
-
+      );*/
+      
       document
         .getElementById("Taxi")
         .setAttribute("animation", "enabled", false);// to stop fairy movement until the player respond to distractor
-        console.log("i'm here 3")
+        console.log("i'm here 3"+ box[random])
 
-    
         if (isCounting==false) {
            count=  setInterval(function() {
        
           document.getElementById("dstime").setAttribute("value", time); 
            time++;
          }, 1000); 
+         var partical=document.createElement("a-entity")
+         partical.setAttribute("spe-particles","texture: ../images/particles/snowflake.png;color: #0000FF, #00FFFF, #FFFFFF; particle-count: 1000; acceleration: 0 -6 0;")
+         partical.setAttribute("spe-particles","opacity: 3, 2, 0; velocity: 0 4 0; size: 3, 2, 0; velocity-spread: 2 0 2;") 
+         partical.setAttribute("id", "DsPartical")
+        // partical.setAttribute("position","1 3 1")
+       box[random].appendChild(partical);
+        console.log(partical.id);
         }
        
  
-      el.addEventListener("mousedown", advancedDsMovement);
+      ds.addEventListener("mousedown", advancedDsMovement);
+      
     });
-    el.addEventListener("hitend", e => {
+    ds.addEventListener("hitend", e => {
   clearInterval(count);
  isCounting=false;
-    });
+  // partical.parentNode.removeChild(partical) ;  
+document.getElementById("DsPartical").parentNode.removeChild(document.getElementById("DsPartical"));
+
+   });
  
-}
+},
+remove: function () {
+  
+},
+
   
 });
