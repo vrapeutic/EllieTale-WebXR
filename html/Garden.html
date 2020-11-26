@@ -23,8 +23,11 @@
   </head>
   <body>
 
-    <a-scene shadow effects="bloom, fxaa, ssao, godrays" bloom="radius: 0.66" fxaa  godrays="src: #sun; threshold: 0. 0.33; intensity: 2;tint:#FF0000" ssao="intensity:10;scale:.2;maxDepth:10;samples:64;radius:1;depthCutoff:100;blurRadius:10"
-             stats renderer="gammaOutput: true;">
+    <a-scene  shadow="type: pcfsoft" stats effects="bloom, fxaa, ssao, godrays" bloom="radius: 0.66" fxaa  godrays="src: #sun; threshold: 0. 0.33; intensity: 2;tint:#FF0000" ssao="intensity:10;scale:.2;maxDepth:10;samples:64;radius:1;depthCutoff:100;blurRadius:10"  renderer="antialias: true;
+    sortObjects: true;
+    maxCanvasWidth: 1920;
+    maxCanvasHeight: 1920;
+    gammaOutput: true;">
       <a-assets>
         
         
@@ -51,7 +54,7 @@
       <a-entity progressive-controls></a-entity>
       <a-sky id="sky" src="#starsky"></a-sky>
         
-      <a-entity id="myGarden" gltf-model="model/Garden.glb"  >
+      <a-entity id="myGarden" gltf-model="../assets/model/Garden.glb"  >
       </a-entity>      
     
       <a-entity light="color: #eed111; groundColor: #cecdc5; castShadow: true" position="-11.61322 136.48563 -35.54899" scale="3 3 3"></a-entity>
@@ -125,7 +128,7 @@
     
    
 
-    <a-entity camera="" position="-20.32655 1.6 2" wasd-controls="" rotation="-90 90 -90" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""> <a-entity  animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from:0.05 0.05 0.05 ; to:0.03 0.03 0.03 "
+    <a-entity camera="" position="-20.32655 2.6 2" wasd-controls="" rotation="-90 90 -90" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""> <a-entity  animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from:0.05 0.05 0.05 ; to:0.03 0.03 0.03 "
       cursor="fuse: trues;"
        material="color: red; shader: flat "
        position="0 0 -3"

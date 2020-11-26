@@ -8,7 +8,6 @@ AFRAME.registerComponent("ontriggertarget", {
      var taskcounter=document.getElementById("taskcounter").getAttribute("value");
         this.el.setAttribute("animation-mixer", "enabled:true; loop:once;repetitions: 0");
         this.el.setAttribute("showitem", "enabled",true);
-
         var el = document.createElement('a-light');
         el.setAttribute("type", "point");
         el.setAttribute("id","myLight");
@@ -53,7 +52,7 @@ AFRAME.registerComponent("ontriggertarget", {
         }, 1200);
         
       }
-      
+ 
     });
    
     this.el.addEventListener("hitend", e => 
@@ -75,7 +74,7 @@ AFRAME.registerComponent("ontriggertarget", {
         
      //   this.el.setAttribute("color", "green");
         console.log("Hitted by Ds ");
-        
+       
       }
 
       if (

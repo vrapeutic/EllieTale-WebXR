@@ -14,7 +14,7 @@ AFRAME.registerComponent("showitem", {
        var index; //to store index for the array of targets
        var item, random;
 //console.log(document.getElementById(el.firstElementChild.id));
-document.getElementById(el.firstElementChild.id).parentNode.removeChild(document.getElementById(el.firstElementChild.id));
+     document.getElementById(el.firstElementChild.id).parentNode.removeChild(document.getElementById(el.firstElementChild.id));
        el.removeEventListener("click", ()=>{selectRandomItem()});
        
  
@@ -33,8 +33,12 @@ document.getElementById(el.firstElementChild.id).parentNode.removeChild(document
        });
  
        item[random].setAttribute("Visible", true);
- 
-       if (index <= document.querySelectorAll(".BoxParent").length+1) 
+ var partical=document.createElement('a-entity');
+ partical.setAttribute("spe-particles","texture: ../images/particles/snowflake.png;color: #0000FF, #00FFFF, #FFFFFF; particle-count: 1000; acceleration: 0 -6 0;")
+ partical.setAttribute("spe-particles","opacity: 2, 2, 0; velocity: 0 4 0; size: 2, 2, 0; velocity-spread: 2 0 2;") 
+ //partical.setAttribute("position","1 3 1")
+ item[random].appendChild(partical);
+if (index <= document.querySelectorAll(".BoxParent").length+1) 
        {
  
          index++;
