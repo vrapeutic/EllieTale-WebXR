@@ -15,8 +15,8 @@
     <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-    <script src="../js/aframe-environment-component.min.js"></script>
-    <script src="../js/aframe-spe-particles-component.js"></script>
+    <script src="../js/custom/aframe-environment-component.min.js"></script>
+    <script src="../js/custom/aframe-spe-particles-component.js"></script>
     <script src="../js/dsmove.js"></script>
     <script src="../js/movetotarget.js"></script>
     <script src="../js/items.js"></script>
@@ -25,7 +25,7 @@
     <script src="../js/stats.js"></script>
     <script src="../js/closetime.js"></script>
     <script src="../js/ds.js"></script>
-    <script src="../js/index.js"></script>
+    <script src="../js/menu.js"></script>
   </head>
   <body>
 
@@ -57,34 +57,35 @@
          <!--Menu-->
 <a-entity id="LevelsButton" menu visible="false">
 
-         <a-text value="Level one" geometry="primitive:plane; width:3"  id="boxLevel"  position="-25 6 8"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
+         <a-text value="Easy" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/level.png;transparent: false"  id="boxLevel"  position="-27 4 12"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
          animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false"
          event-set__click="_event: mouseenter; _target:#level; value:1 " ></a-text>    
 
-         <a-text value="Level two" geometry="primitive:plane; width:3" id="boxLevel1"  position="-30 6 8"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
+         <a-text value="Medium" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/level.png;transparent: false" id="boxLevel1"  position="-30 4 12"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
          animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false"
          event-set__click="_event: mouseenter; _target:#level; value:2 " ></a-text>  
          
-         <a-text value="Level three" geometry="primitive:plane; width:3" id="boxLevel2"  position="-33 6 8"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
+         <a-text value="Hard" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/level.png;transparent: false" id="boxLevel2"  position="-33 4 12"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
          animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false"
          event-set__click="_event: mouseenter; _target:#level; value:3 " ></a-text>    
 </a-entity>
-         <a-text menu value="30" geometry="primitive:plane; width:3" id="boxtimer" class="timer"  position="-27 4 12"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
+         <a-text menu value="30" width="20" text="side:  double;  align:  center" scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer" class="timer"  position="-33 3 12"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
          animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false"
          event-set__click="_event: mouseenter; _target:#counter; value:30" ></a-text>    
 
-         <a-text  menu value="60" id="boxtimer1"  geometry="primitive:plane; width:3" class="timer" position="-27 1 12"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
+         <a-text  menu value="60" width="20" text="side:  double;  align:  center" id="boxtimer1"   scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" class="timer" position="-31 3 12"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
          animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false"
          event-set__click="_event: mouseenter; _target:#counter; value:60 " >
 </a-text>  
          
-         <a-text menu value="90" geometry="primitive:plane; width:3" id="boxtimer2" class="timer"  position="-27 2 12"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
+         <a-text menu value="90" width="20" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer2" class="timer"  position="-29 3 12"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
          animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false"
          event-set__click="_event: mouseenter; _target:#counter; value:90 " ></a-text>    
 
-         <a-text menu value="open" geometry="primitive:plane; width:3" id="noTimer" class="timer"  position="-27 3 12"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
+         <a-text menu value="open" text="side:  double;  align:  center" width="0" scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_off.png;transparent: true" id="noTimer" class="timer"  position="-27 3 12"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
          animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false"
          event-set__click="_event: mouseenter; _target:#counter; value:0 " ></a-text> 
+  
       <!--enviroment  -->
      
       <a-entity id="mybeach" gltf-model="#Environment" shadow  >
@@ -139,10 +140,10 @@
       
 <!--score-->
       
-<a-text id="level" value="2"  geometry="primitive:circle" position="-20 1 1"></a-text>
+   <a-text id="level" value="2"  geometry="primitive:circle" position="-20 1 1"></a-text>
    <a-text id="levelTybe" value="open" geometry="primitive:circle" position="-15 1 1"></a-text>
    <a-text id="counter" value="0" geometry="primitive:plane"  ></a-text>
-    <a-text id="score" value="0" geometry="primitive:circle" position="-25 1 1"></a-text>
+    <a-text id="score" value="0" width="20" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" position="-25 1 1"></a-text>
     <a-text id="taskcounter" value="1" geometry="primitive:circle" position="-30 1 3" ></a-text>
     <a-text id="tasktime" value="0" geometry="primitive:circle" position="-35 1 3" visible="false" ></a-text>
     <a-text id="dscounter" value="1" geometry="primitive:circle" position="-40 1 4" ></a-text>
