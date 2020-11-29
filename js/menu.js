@@ -1,25 +1,7 @@
 
-level=0; // default
-levelType="open";
-timer=0;
-environment="beach"
-isClicked=true
-var current=1;
-
- /* var currentLevel = function(index){
-
-    
-   level=index;
- console.log(current);
-}
-console.log(document.getElementById(document.getElementById("selectenvironment").getAttribute("value")+"level").getAttribute("value"));
-
-document.getElementById("boxLevel").addEventListener("click",current++);
-currentLevel(current);
-document.getElementById(document.getElementById("selectenvironment").getAttribute("value")+"level").setAttribute("value",current)
-*/
 AFRAME.registerComponent('menu', {
 init :function(){
+
  let  load=function fload(){
 document.getElementById("boxLevel").parentNode.removeChild( document.getElementById('boxLevel'))
 document.getElementById('boxLevel1').parentNode.removeChild(document.getElementById('boxLevel1'))
@@ -100,6 +82,7 @@ console.log(document.getElementById("level").getAttribute("value"))
 
 });
   //
+  if(document.querySelectorAll('.timer')!="undefined"){
   document.querySelectorAll('.timer').forEach(element => {
     element.addEventListener("click",e => {
       document.getElementById("counter").setAttribute('closedtime',"enabled")
@@ -113,7 +96,7 @@ document.getElementById('boxtimer2').parentNode.removeChild(document.getElementB
 document.getElementById('noTimer').parentNode.removeChild(document.getElementById('noTimer'))
 document.getElementById("LevelsButton").setAttribute("visible",true)
 
-
+}
  }
 }
 })

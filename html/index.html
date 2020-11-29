@@ -14,8 +14,6 @@
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
     <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
-    <script src="../js/aframe-environment-component.min.js"></script>
-    <script src="../js/aframe-spe-particles-component.js"></script>
     <script src="../js/dsmove.js"></script>
     <script src="../js/movetotarget.js"></script>
     <script src="../js/items.js"></script>
@@ -23,27 +21,23 @@
     <script src="../js/inpscounter.js"></script>
     <script src="../js/stats.js"></script>
     <script src="../js/closetime.js"></script>
-    <script src="../js/index.js"></script>
   </head>
   <body>
- <div>        
-<button onclick="myFunction()"> <a href="https://twitter.com/dmarcos"></a>Copy Text</button>
-</div> 
+ 
     
 
-    <a-scene  stats  physics='gravity: 0' restitutation="0.7" renderer="antialias: true"  vr-mode-ui="enterVRButton: #myEnterVRButton; enterARButton: #myEnterARButton">
+    <a-scene  stats  physics='gravity: 0' restitutation="0.7" renderer="antialias: true"  >
       <!-- Style the button with images or whatever. -->
-      <a id="myEnterVRButton" href="Beach.html"></a>
-      <a id="myEnterARButton" href="Garden.html"></a>
+     
       <a-assets>
          <img id="woodfloor" src="https://cdn.glitch.com/c388f728-37b7-4af9-af03-1ee7430663e7%2F4727356277_66fb5f938f_o.jpg?1544178281422">
          <img id="starsky" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2Fstarry%20night.jpg?1547158907338">
         <!-- <img id="picasso" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2FPablo_Picasso_-_Womanwith_a_Mandolin_-_Ermitage%20(1).jpg?1547166417213">
          <img id="bordeauxtheater" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2FOp%C3%A9ra_National_de_Bordeaux%20(1).jpg?1547235572572">
-       -->  <a-asset-item id="model" src="../assets/model/Crater.glb"
+         <a-asset-item id="model" src="../assets/model/Crater.glb"
          response-type="arraybuffer"></a-asset-item>
         <a-asset-item id="Environment" src="../assets/model/Beach Environment.glb"
-         response-type="arraybuffer"></a-asset-item>
+         response-type="arraybuffer"></a-asset-item>-->
        </a-assets>
       <a-entity progressive-controls></a-entity>
 
@@ -52,41 +46,34 @@
      material="shader: gradient; topColor: 235 235 245; bottomColor: 185 185 210"
      scale="-1 1 1"></a-entity>-->
 
-      <a-entity id="ocean" ocean="density: 20; width: 50; depth: 50; speed: 4"
-      material="color: #9CE3F9; opacity: 0.75; metalness: 0; roughness: 1"
-      rotation="-90 0 0" position="2 -1 0"></a-entity>
+   
 
       <a-entity id="sphere"
-      position="0 0.15 -5"
+      position="0 0.9 -1.5"
       light="type: point; intensity: 5"
-      animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 1000; to: 0 -0.10 -5; loop: true"></a-entity>
+      ></a-entity>
            
       <a-entity id="Targets" class="BoxParent">
 
-      <a-box id="box" class="boxs" position="-5 3 -5"   aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"  clickable movetotarget
-      animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false"
-      event-set__click="_event: mouseenter; _target:#selectenvironment; value:Beach " >
-      <a-entity
-      spe-particles="
-      texture: ../images/particles/snowflake.png; 
-      color: #0000FF, #00FFFF, #FFFFFF; 
-      opacity: 1, 1, 0;
-      size: 1, 1, 0;
-      velocity: 0 4 0; 
-      velocity-spread: 2 0 2; 
-      acceleration: 0 -6 0;
-      particle-count: 1000;">
-  </a-entity>
-    </a-box>    
-  
-     <a-box id="box2" class="boxs" position="-1 3 -5"  aabb-collider="objects: a-gltf-model"  createitem color="#4CC3D9" lookat="#cam"   movetotarget
-      animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter;dur: 2000;loop:false"
-      event-set__click="_event: mouseenter; _target:#selectenvironment; value:Library"> </a-box> 
-      
+      <a-box id="box" class="boxs" scale ="2 2 2" position="-5 3 -5"   aabb-collider="objects: a-gltf-model"  color="#4CC3D9" lookat="#cam"  clickable 
+      animation__mouseenter="property: components.material.material.color; type: color; to: red; startEvents: mouseenter; dur: 2000;loop:false"
+      event-set__click="_event: mouseenter; _target:#selectenvironment; value:Beach " 
+      material="transparent: true ;color: #5e5e5e;src:../images/illyTale_button_Envirom_Garden.png"
 
-      <a-box id="box1" class="boxs" position="2 3 -5"  aabb-collider="objects: a-gltf-model" createitem color="#4CC3D9" lookat="#cam"   
-      animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 2000;loop:false"
-      event-set__click="_event: mouseenter; _target:#selectenvironment; value:Garden;" movetotarget></a-box>   
+      ></a-box>    
+  
+     <a-box id="box2" class="boxs" scale ="2 2 2" position="-1 3 -5"  aabb-collider="objects: a-gltf-model"   color="#4CC3D9" lookat="#cam"   
+      animation__mouseenter="property: components.material.material.color; type: color; to: red; startEvents: mouseenter;dur: 2000;loop:false"
+      event-set__click="_event: mouseenter; _target:#selectenvironment; value:Library"
+      material="transparent: true ;color: #5e5e5e;src:../images/illyTale_button_Envirom_library.png"
+
+      ></a-box>    
+
+      <a-box id="box1" class="boxs" scale ="2 2 2" position="2 3 -5"  aabb-collider="objects: a-gltf-model"  color="#4CC3D9" lookat="#cam"   
+      animation__mouseenter="property: components.material.material.color; type: color; to: red; startEvents: mouseenter; dur: 2000;loop:false"
+      event-set__click="_event: mouseenter; _target:#selectenvironment; value:Garden;" 
+    material="transparent: true ;color: #5e5e5e;src:../images/illyTale_button_Envirom_Beach.png"
+     ></a-box>    
        
  </a-entity>
      
@@ -94,15 +81,14 @@
 
 
 
-<a-text id="selectenvironment" value="index" geometry="primitive:circle" position="-2 1 1" ></a-text>
-
+ <a-text id="selectenvironment" value="Environment"  position="-0.65182 0.76221 1" text="align: center"geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/level.png;transparent: false" ></a-text>
     
     <!-- <a-plane position="0 0 -4" rotation="-90 0 0" width="100" height="100" src="#woodfloor" static-body repeat="4 4"></a-plane>-->
  
     
   
 
-      <!--  <a-videosphere src="image/AFrame1.mp4"></a-videosphere>wasd-controls="acceleration: 65;easing:2"-->
+        <a-sky src="#starsky"></a-sky>
       <a-entity id="light" light="type: ambient; color: #888"></a-entity>   
 
       <a-camera id="cam" movement-controls="speed: 0.15 constrainToNavMesh:true" position="0 1.6 5" look-controls="pointerLockeEnabled:true" >
@@ -122,17 +108,16 @@
     </a-scene>
       <script>
 
- 
 
- function load(){
+function loadEnvironment(){
   window.location.href=""+document.getElementById("selectenvironment").getAttribute("value")+".html";
 }
 document.getElementById('box').addEventListener("click",e => 
-{load()});
+{loadEnvironment()});
 document.getElementById('box1').addEventListener("click",e => 
-{load()});
+{loadEnvironment()});
 document.getElementById('box2').addEventListener("click",e => 
-{load()});
+{loadEnvironment()});
    </script>
   </body>
 </html>
