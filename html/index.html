@@ -30,82 +30,65 @@
       <!-- Style the button with images or whatever. -->
      
       <a-assets>
-         <img id="woodfloor" src="https://cdn.glitch.com/c388f728-37b7-4af9-af03-1ee7430663e7%2F4727356277_66fb5f938f_o.jpg?1544178281422">
          <img id="starsky" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2Fstarry%20night.jpg?1547158907338">
-        <!-- <img id="picasso" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2FPablo_Picasso_-_Womanwith_a_Mandolin_-_Ermitage%20(1).jpg?1547166417213">
-         <img id="bordeauxtheater" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2FOp%C3%A9ra_National_de_Bordeaux%20(1).jpg?1547235572572">
-         <a-asset-item id="model" src="../assets/model/Crater.glb"
-         response-type="arraybuffer"></a-asset-item>
-        <a-asset-item id="Environment" src="../assets/model/Beach Environment.glb"
-         response-type="arraybuffer"></a-asset-item>-->
+
        </a-assets>
       <a-entity progressive-controls></a-entity>
+      
+      <a-sky src="#starsky"></a-sky>
 
-
-     <!--  <a-entity id="sky" geometry="primitive: sphere; radius: 5000"
-     material="shader: gradient; topColor: 235 235 245; bottomColor: 185 185 210"
-     scale="-1 1 1"></a-entity>-->
-
-   
+   <!--lights-->
 
       <a-entity id="sphere"
       position="0 0.9 -1.5"
       light="type: point; intensity: 5"
       ></a-entity>
            
-      <a-entity id="Targets" class="BoxParent">
+     
+        <a-entity id="light" light="type: ambient; color: #888"></a-entity>   
 
-      <a-box id="box" class="boxs" scale ="2 2 2" position="-5 3 -5"   aabb-collider="objects: a-gltf-model"  color="#4CC3D9" lookat="#cam"  clickable 
-      animation__mouseenter="property: components.material.material.color; type: color; to: red; startEvents: mouseenter; dur: 2000;loop:false"
-      event-set__click="_event: mouseenter; _target:#selectenvironment; value:Beach " 
-      material="transparent: true ;color: #5e5e5e;src:../images/illyTale_button_Envirom_Garden.png"
-
-      ></a-box>    
-  
-     <a-box id="box2" class="boxs" scale ="2 2 2" position="-1 3 -5"  aabb-collider="objects: a-gltf-model"   color="#4CC3D9" lookat="#cam"   
-      animation__mouseenter="property: components.material.material.color; type: color; to: red; startEvents: mouseenter;dur: 2000;loop:false"
-      event-set__click="_event: mouseenter; _target:#selectenvironment; value:Library"
-      material="transparent: true ;color: #5e5e5e;src:../images/illyTale_button_Envirom_library.png"
-
-      ></a-box>    
-
-      <a-box id="box1" class="boxs" scale ="2 2 2" position="2 3 -5"  aabb-collider="objects: a-gltf-model"  color="#4CC3D9" lookat="#cam"   
-      animation__mouseenter="property: components.material.material.color; type: color; to: red; startEvents: mouseenter; dur: 2000;loop:false"
-      event-set__click="_event: mouseenter; _target:#selectenvironment; value:Garden;" 
-    material="transparent: true ;color: #5e5e5e;src:../images/illyTale_button_Envirom_Beach.png"
-     ></a-box>    
-       
- </a-entity>
      
 
 
 
 
- <a-text id="selectenvironment" value="Environment"  position="-0.65182 0.76221 1" text="align: center"geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/level.png;transparent: false" ></a-text>
-    
-    <!-- <a-plane position="0 0 -4" rotation="-90 0 0" width="100" height="100" src="#woodfloor" static-body repeat="4 4"></a-plane>-->
- 
-    
-  
 
-        <a-sky src="#starsky"></a-sky>
-      <a-entity id="light" light="type: ambient; color: #888"></a-entity>   
-
+      
       <a-camera id="cam" movement-controls="speed: 0.15 constrainToNavMesh:true" position="0 1.6 5" look-controls="pointerLockeEnabled:true" >
-       
-        <a-entity  animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from:0.05 0.05 0.05 ; to:0.03 0.03 0.03 "
-       cursor="fuse: trues;"
-        material="color: red; shader: flat "
-        position="0 0 -3"
-        scale="0.03 0.03 0.03"
-        geometry="primitive: ring"></a-entity>   
+         <a-entity cursor="rayOrigin: mouse"></a-entity>
+         
+          <!--Menu-->
+ <a-entity id="Targets" class="BoxParent">
+
+      <a-box id="box" class="boxs" scale ="2 2 2" position="-5 1 -10"   aabb-collider="objects: a-gltf-model"  color="#4CC3D9" lookat="#cam"  clickable 
+      event-set__click="_event: mouseenter; _target:#selectenvironment; value:Beach " 
+      material="transparent: true ;color: #5e5e5e;src:../images/illyTale_button_Envirom_Garden.png"
+
+      ></a-box>    
+  
+     <a-box id="box2" class="boxs" scale ="2 2 2" position="-1 1 -10"  aabb-collider="objects: a-gltf-model"   color="#4CC3D9" lookat="#cam"   
+      event-set__click="_event: mouseenter; _target:#selectenvironment; value:Library"
+      material="transparent: true ;color: #5e5e5e;src:../images/illyTale_button_Envirom_library.png"
+
+      ></a-box>    
+
+      <a-box id="box1" class="boxs" scale ="2 2 2" position="2 1 -10"  aabb-collider="objects: a-gltf-model"  color="#4CC3D9" lookat="#cam"   
+      event-set__click="_event: mouseenter; _target:#selectenvironment; value:Garden;" 
+    material="transparent: true ;color: #5e5e5e;src:../images/illyTale_button_Envirom_Beach.png"
+     ></a-box>    
+    
 
        </a-camera>
+       <!--Hands-->
        <a-entity laser-controls="hand: left">
 
        <a-entity raycaster="showLine: true; far: 100" line="color: red; opacity: 0.5"></a-entity>
 </a-entity>
+
+ <a-text id="selectenvironment" value="Environment"  position="-0.65182 0.76221 1" text="align: center"geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/level.png;transparent: false" ></a-text>
     </a-scene>
+      
+      <!--Select Environment funcrion -->
       <script>
 
 

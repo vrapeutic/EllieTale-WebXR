@@ -86,8 +86,13 @@ AFRAME.registerComponent("dsmove", {
          partical.setAttribute("spe-particles","texture: ../images/particles/snowflake.png;color: #0000FF, #00FFFF, #FFFFFF; particle-count: 1000; acceleration: 0 -6 0;")
          partical.setAttribute("spe-particles","opacity: 3, 2, 0; velocity: 0 4 0; size: 3, 2, 0; velocity-spread: 2 0 2;") 
          partical.setAttribute("id", "DsPartical")
-        // partical.setAttribute("position","1 3 1")
-       box[random].appendChild(partical);
+        partical.setAttribute("position", 
+        (newpos.x ) +
+        " 1 " +
+        newpos.z )
+        document.querySelector('a-scene').appendChild(partical);
+
+      // box[random].appendChild(partical);
         console.log(partical.id);
         }
        
