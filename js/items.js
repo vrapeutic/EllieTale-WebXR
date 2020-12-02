@@ -15,10 +15,10 @@ AFRAME.registerComponent("showitem", {
        var item, random;
 //console.log(document.getElementById(el.firstElementChild.id));
      document.getElementById(el.firstElementChild.id).parentNode.removeChild(document.getElementById(el.firstElementChild.id));
-       el.removeEventListener("click", ()=>{selectRandomItem()});
+       el.setAttribute('showitem',"enabled",false);
        
  
- 
+         this.el.setAttribute("animation-mixer", "enabled:true; loop:once;repetitions: 0");
        item = document.querySelectorAll(".items");
        random = Math.floor(Math.random() * Math.floor(item.length));
        console.log(item[random]);
@@ -94,7 +94,7 @@ if (index <= document.querySelectorAll(".BoxParent").length+1)
          el.addEventListener('child-attached', function(evt)
          {
  
-         console.log(evt.detail.name+el.firstElementChild);
+         console.log(evt.detail.name+el.firstElementChild.id);
  
        //  if (evt.detail.name === "showitem") 
       //   {
@@ -102,7 +102,7 @@ if (index <= document.querySelectorAll(".BoxParent").length+1)
            console.log("a box element has been changed");
            console.log(el)
 
- 
+ if(el.firstElementChild.id==="myLight"){
         el.addEventListener("click",() =>{
                  
  
@@ -114,10 +114,11 @@ if (index <= document.querySelectorAll(".BoxParent").length+1)
       // this.removeAttribute("showitem");
         });  
   //}
-  
+
+
  
  
-       });
+            }   });
       
    }
  

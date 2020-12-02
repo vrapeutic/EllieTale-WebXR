@@ -32,25 +32,14 @@ xhr.send();*/
   if (seconds < 10) {seconds = "0"+seconds;}
   return hours+':'+minutes+':'+seconds; // Return is HH : MM : SS
 }
-if(  document.getElementById("level").getAttribute("value")===2){
-  document.getElementById("dsmove").parentNode.removeChild( document.getElementById("dsmove"));
-}
-else if(document.getElementById("level").getAttribute("value")===3){
-  document.getElementById("ds").parentNode.removeChild( document.getElementById("ds"));
 
-}
-else{
-  document.getElementById("ds").parentNode.removeChild( document.getElementById("ds"));
-  document.getElementById("dsmove").parentNode.removeChild( document.getElementById("dsmove"));
-
-}
 AFRAME.registerComponent('timer', {
   
   init: function() 
   {
     
-   // var time=0;
-  //var count=-1;
+   var time=0;
+  var count=-1;
 var startSession=0;
 var start_session_time=new Date().toLocaleString();
  var mysession=setInterval(function()  {
@@ -60,14 +49,14 @@ var start_session_time=new Date().toLocaleString();
 
   startSession++;
 var data=  new Date().toLocaleString();
-console.log(document.getElementById("Targets").children.length);
+//console.log(document.getElementById("Targets").children.length);
 }, 1000);
 mysession;
     console.log(this.el.id)//"1PASH9A5579282 "
   if(count==-1) {
     count=  setInterval(function() {
      
-       document.getElementById("time").setAttribute("value", time); 
+       document.getElementById("session").setAttribute("value", time); 
         time++;
       }, 1000);       
 }
@@ -80,7 +69,7 @@ document.getElementById("Taxi").addEventListener("click",e=>{
   count=-1;
   count=  setInterval(function() {
      
-    document.getElementById("time").setAttribute("value", time); 
+    document.getElementById("sessions").setAttribute("value", time); 
      time++;
    }, 1000); 
 })
@@ -139,14 +128,15 @@ document.getElementById("dstime").getAttribute("value")/document.getElementById(
    
    console.log("levelType "+levelType+" end : "+end_session_time+" AAS "+AAS+ " response "+responseTime+" Start"+start_session_time+" Ds "+Ds+" timeTaken "+timeTaken+" tar" +Tar)
     }
-   if(issent===false)
-   {
-document.getElementById("targetfour").addEventListener("mousedown",calculate);
+  
+document.getElementById("reload").addEventListener("click",()=>{calculate()
+  window.location.href="index.html";
+
+});
 issent=true;
-    }
-   /* if(issent===true){
-    document.getElementById("targetfour").removeEventListener("mousedown",calculate);
-}*/
+   
+  //  document.getElementById("targetfour").removeEventListener("mousedown",calculate);
+
 },
     remove: function () {
     console.log("bye bye")

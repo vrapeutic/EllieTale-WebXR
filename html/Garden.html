@@ -14,12 +14,17 @@
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
     <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+    <script src="../js/custom/aframe-environment-component.min.js"></script>
+    <script src="../js/custom/aframe-spe-particles-component.js"></script>
     <script src="../js/dsmove.js"></script>
     <script src="../js/movetotarget.js"></script>
     <script src="../js/items.js"></script>
     <script src="../js/fairy.js"></script>
     <script src="../js/inpscounter.js"></script>
     <script src="../js/stats.js"></script>
+    <script src="../js/closetime.js"></script>
+    <script src="../js/ds.js"></script>
+    <script src="../js/menu.js"></script>
   </head>
   <body>
 
@@ -28,27 +33,59 @@
     maxCanvasWidth: 1920;
     maxCanvasHeight: 1920;
     gammaOutput: true;">
-      <a-assets>
+   
         
-        
+        <a-entity camera="" position="-20.32655 2.6 2" wasd-controls="" rotation="-90 90 -90" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""> 
+          <a-entity cursor="rayOrigin: mouse"></a-entity>
+   
+   
+  <!--Menu-->
+<a-entity id="LevelsButton" menu visible="false">
+
+<a-text value="Easy" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/level.png;transparent: false"  id="boxLevel"  position="-2 -1 -3"    lookat="#cam" color="#4CC3D9"  clickable 
+event-set__click="_event: mouseenter; _target:#level; value:1 " ></a-text>    
+
+<a-text value="Medium" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/level.png;transparent: false" id="boxLevel1"  position="0 -1 -3"  lookat="#cam" color="#4CC3D9" clickable 
+event-set__click="_event: mouseenter; _target:#level; value:2 " ></a-text>  
+
+<a-text value="Hard" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/level.png;transparent: false" id="boxLevel2"  position="2 -1 -3"   lookat="#cam"  color="#4CC3D9" clickable 
+event-set__click="_event: mouseenter; _target:#level; value:3 " ></a-text>    
+</a-entity>
+<a-text  value="30" width="20" text="side:  double;  align:  center" scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer" class="timer"  position="-1.5 0 -1.5" color="#4CC3D9"   lookat="#cam"  clickable 
+event-set__click="_event: mouseenter; _target:#counter; value:30" ></a-text>    
+
+<a-text   value="60" width="20" text="side:  double;  align:  center" id="boxtimer1"   scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" class="timer" position="-0.5 0 -1.5" color="#4CC3D9"  lookat="#cam"  clickable 
+event-set__click="_event: mouseenter; _target:#counter; value:60 " >
+</a-text>  
+
+<a-text  value="90" width="20" text="side:  double;  align:  center"  scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer2" class="timer"  position="0.5 0 -1.5" color="#4CC3D9"   lookat="#cam"  clickable 
+event-set__click="_event: mouseenter; _target:#counter; value:90 " ></a-text>    
+
+<a-text  value="open" text="side:  double;  align:  center" width="0" scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_off.png;transparent: true" id="noTimer" class="timer"  position="1.5 0 -1.5"    color="#4CC3D9" lookat="#cam"  
+event-set__click="_event: mouseenter; _target:#counter; value:0 " ></a-text> 
+
+<!--score-->
+<a-text id="score" value="0" width="20" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" position="0 -2 -3"></a-text>
+
+<!--Hands-->
+    <a-entity oculus-quest-controls="hand: left"></a-entity>
+    
+    <a-entity oculus-quest-controls="hand: right"></a-entity>
+    
+          <a-entity laser-controls="hand: right" raycaster="objects: .boxs; far: 100"></a-entity>
+
+          <!--assets-->
+        <a-assets>   
          <img id="starsky" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2Fskydom.png?v=1602687784434">
         
-        <!-- <img id="picasso" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2FPablo_Picasso_-_Womanwith_a_Mandolin_-_Ermitage%20(1).jpg?1547166417213">
-         <img id="bordeauxtheater" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2FOp%C3%A9ra_National_de_Bordeaux%20(1).jpg?1547235572572">
-       --> 
         <a-asset-item id="model" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2Ftree.glb?v=1603018758220"
          response-type="arraybuffer"></a-asset-item>
          <a-asset-item id="Environment" src="../assets/model/Garden.glb"
          response-type="arraybuffer"></a-asset-item>
-       <!-- <a-asset-item id="Ds" src="model/Ds.glb"
+       <a-asset-item id="Ds" src="model/Ds.glb"
          response-type="arraybuffer"></a-asset-item>--> 
        </a-assets>
-   
-<!-- <a-entity id="sky" geometry="primitive: sphere; radius: 5000"
-     material="shader: gradient; topColor: 235 235 245; bottomColor: 185 185 210"
-     scale="-1 1 1"></a-entity>
-        
- -->
+
       <!--enviroment-->
       
       <a-entity progressive-controls></a-entity>
@@ -57,8 +94,11 @@
       <a-entity id="myGarden" gltf-model="../assets/model/Garden.glb"  >
       </a-entity>      
     
+      <!--Lights-->
       <a-entity light="color: #eed111; groundColor: #cecdc5; castShadow: true" position="-11.61322 136.48563 -35.54899" scale="3 3 3"></a-entity>
       
+      <!--Targets-->
+
       <a-entity id="Targets" class="BoxParent">
 
         <a-entity id="targetone" class="Box" gltf-model="#model" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="-12 0.3 30" scale="0.5 0.5 0.5"   showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
@@ -81,66 +121,52 @@
             <!--items-->
 
    <a-entity id="item" class="items" visible="false"  gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FMango.glb?v=1602768434067"  animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-    <a-entity particle-system="preset: Colors; particleCount:10" position="0 0 0"></a-entity>
 </a-entity>
 
 <a-entity id="itemOne" class="items" visible="false"  gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2Fapple.glb?v=1602767724352" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-    <a-entity particle-system="preset: Colors ; particleCount:10" position="0 0 0"></a-entity>
 </a-entity>
 
 <a-entity id="itemTwo" class="items"  visible="false" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FAvocado.glb?v=1602768111651" animation="property: rotaion; to: 0 360 0; loop: true; dur: 500">
-    <a-entity particle-system="preset: Colors ; particleCount:10" position="0 0 0"></a-entity>
 </a-entity>
 
 <a-entity id="itemThree"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FPinapple.glb?v=1602768627375" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-<a-entity particle-system="preset: Colors ; particleCount:10" position="0 0 0" ></a-entity>
 </a-entity>
 
 <a-entity id="itemFive"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2Fpeach.glb?v=1602769217842" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-  <a-entity particle-system="preset: Colors ; particleCount:10" position="0 0 0" ></a-entity>
   </a-entity>
 
   <a-entity id="itemSix"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGuava.glb?v=1602769251043" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-    <a-entity particle-system="preset: Colors ; particleCount:10" position="0 0 0" ></a-entity>
     </a-entity>
 
     <a-entity id="itemSeven"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBanana.glb?v=1602769262821" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-      <a-entity particle-system="preset: Colors ; particleCount:10" position="0 0 0" ></a-entity>
       </a-entity>
 
   
 
 
 <!--DS-->
-<a-entity id="myDs"  scale="3 3 3" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FNoah%20hunter.glb?v=1603103586205"  position="44 0.5 -13"  lookat="#cam" dsmove clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity" rotation="0 90 0" shadow >
- 
+<a-entity id="myDs"   visible="false" scale="3 3 3" gltf-model="#Ds"  position="-42.5 3 4"  lookat="#cam"   clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity" rotation="0 90 0" shadow >
 </a-entity>
       
-<!--score-->
+<!--Stats-->
       
-    <a-text value="0" geometry="primitive:circle" position="-25 1 1"></a-text>
+   <a-text id="level" value="2"  geometry="primitive:circle" position="-20 1 1"></a-text>
+   <a-text id="levelTybe" value="open" geometry="primitive:circle" position="-15 1 1"></a-text>
+   <a-text id="counter" value="0" geometry="primitive:plane"  ></a-text>
+    <a-text id="taskcounter" value="1" geometry="primitive:circle" position="-30 1 3" ></a-text>
+    <a-text id="tasktime" value="0" geometry="primitive:circle" position="-35 1 3" visible="false" ></a-text>
+    <a-text id="dscounter" value="1" geometry="primitive:circle" position="-40 1 4" ></a-text>
+    <a-text id="dstime" value="0" geometry="primitive:circle" position="-45 1 4" visible="false"></a-text>
+    <a-text id="inpsCounter" value="0" geometry="primitive:circle" position="-25 1 7" visible="false" ></a-text>
+    <a-text id="inps" value="0" geometry="primitive:circle" position="-35 1 7" visible="false" inpsscore ></a-text>
+    <a-text id="session" value="0" geometry="primitive:circle" position="-35 1 7" visible="false" timer ></a-text>
 
  <!--TaxiFairy-->
       
-      <a-gltf-model id="Taxi" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FIlly%2002.glb?v=1603106590183" position="-15 1.2 30" static-body="shape: box; mass: 0" scale="3 3 3" lookat="#cam" >
+      <a-gltf-model id="Taxi"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FIlly%2002.glb?v=1603106590183" position="-35 3 30" aabb-collider="objects: a-entity"  static-body="shape: box; mass: 0" scale="3 3 3" lookat="#cam" >
       </a-gltf-model>
     
-    
    
-
-    <a-entity camera="" position="-20.32655 2.6 2" wasd-controls="" rotation="-90 90 -90" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""> <a-entity  animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from:0.05 0.05 0.05 ; to:0.03 0.03 0.03 "
-      cursor="fuse: trues;"
-       material="color: red; shader: flat "
-       position="0 0 -3"
-       scale="0.03 0.03 0.03"
-       geometry="primitive: ring"></a-entity>
-      </a-entity>  
-
-      <a-entity oculus-quest-controls="hand: left"></a-entity>
-      
-      <a-entity oculus-quest-controls="hand: right"></a-entity>
-      
-            <a-entity laser-controls="hand: right" raycaster="objects: .boxs; far: 100"></a-entity>
 
         </a-scene>
   </body>
