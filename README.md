@@ -19,7 +19,7 @@ https://drive.google.com/file/d/1Bl0U1to2vOZ4wd83phxHcwpTrgiWfMjf/view?usp=shari
  
  Step1: Download/clone the SocketIO-server repository from GitHub from  here https://github.com/vrapeutic/AFrame/archive/main.zip
  
- Step2 :Download 
+ Step2: Download 
  Beach.gltf:https://drive.google.com/file/d/1QI7H7heW761S-Un1MNy-AFDvCc9DlYxS/view?usp=sharing
  Garden.gltf:https://drive.google.com/file/d/1Os7X02KIhb5uQKyPvJ9pbYp_RHNeMDkC/view?usp=sharing
  Library.gltf:https://drive.google.com/file/d/1xFMej5Fe3EDfrUfc0tmhQzgftJG6Pwsm/view?usp=sharing
@@ -38,11 +38,11 @@ Step1: Go to https://glitch.com/
 
 Step2: Create an accounte 
 
-Step3:On your dashboard click Nnew project then click Import from GitHub
+Step3: On your dashboard click Nnew project then click Import from GitHub
 
-Step4:Paste the full URL of this repository https://github.com/vrapeutic/AFrame.git and click ok
+Step4: Paste the full URL of this repository https://github.com/vrapeutic/AFrame.git and click ok
 
-Step5 :Download 
+Step5: Download 
  Beach.gltf:https://drive.google.com/file/d/1QI7H7heW761S-Un1MNy-AFDvCc9DlYxS/view?usp=sharing
  Garden.gltf:https://drive.google.com/file/d/1Os7X02KIhb5uQKyPvJ9pbYp_RHNeMDkC/view?usp=sharing
  Library.gltf:https://drive.google.com/file/d/1xFMej5Fe3EDfrUfc0tmhQzgftJG6Pwsm/view?usp=sharing
@@ -76,9 +76,11 @@ Step6: Add them to "assets\model" folder in this project
 Test :
 
 #method one:
+
  With Visual Studio Code open the project select html\index.html and with right click select open with live server
  
 #method two:
+
   Open the project on glitsh from your dashboard ,Click on Show icon  then open html\index.html
 
 
