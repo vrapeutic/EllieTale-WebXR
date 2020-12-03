@@ -7,7 +7,7 @@
 
 Project Description:
 
-is a module in which the player and Illy, the fairy, help uncle Noah collect his tools/objects to do his daily work.
+ This is a module in which the player and Illy, the fairy, help uncle Noah collect his tools/objects to do his daily work.
 
 To know more about this module check this link:
 
