@@ -66,3 +66,4 @@ Open the project on glitch from your dashboard ,Click on Show icon then open htm
  
 Technology:
 A-Frame -Html -Javascript 
+
