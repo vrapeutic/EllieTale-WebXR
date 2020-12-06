@@ -84,7 +84,7 @@
          response-type="arraybuffer"></a-asset-item>
          <a-asset-item id="Environment" src="../assets/model/Beach Environment.glb"
          response-type="arraybuffer"></a-asset-item>
-        <a-asset-item id="Ds" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FNoah%20hunter.glb?v=1603103586205"
+        <a-asset-item id="Ds" src="../assets/model/Farmer.glb"
          response-type="arraybuffer"></a-asset-item>
        </a-assets>
   
@@ -145,7 +145,7 @@
      
     
 <!--DS-->
-<a-entity id="myDs"   visible="false" scale="3 3 3" gltf-model="#Ds"  position="-42.5 3 4"  lookat="#cam"   clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity" rotation="0 90 0" shadow >
+<a-entity id="myDs"  material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" visible="false" scale="3 3 3" gltf-model="#Ds"  position="-42.5 3 4"  lookat="#cam"   clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity" rotation="0 90 0" shadow >
 </a-entity>
       
 <!--Stats-->
@@ -163,7 +163,7 @@
 
  <!--TaxiFairy-->
       
-      <a-gltf-model id="Taxi"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FIlly%2002.glb?v=1603106590183" position="-35 3 30" aabb-collider="objects: a-entity"  static-body="shape: box; mass: 0" scale="3 3 3" lookat="#cam" >
+      <a-gltf-model id="Taxi" scale="10 10 10"  src="../assets/model/illy tale gtlffile (1).glb" position="-35 3 30"   aabb-collider="objects: a-entity"  static-body="shape: box; mass: 0"  lookat="#cam" >
       </a-gltf-model>
     
    
