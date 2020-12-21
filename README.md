@@ -28,8 +28,6 @@ To know more about this module check this [link](https://drive.google.com/file/d
 
 ## Components
 
-*Assets : you can find all gltf models [here](https://glitch.com/edit/#!/truth-elated-ocicat?path=assets%3A1%3A0) in assets folder
-
 * html\index.html -this script contains three buttons each button redirect to one of our environments
 
 * html\Beach.html -this contains our beach environments' entities (scene-sky- beach-fairy-destructor-score-list of items ..) with all components
@@ -49,8 +47,6 @@ To know more about this module check this [link](https://drive.google.com/file/d
  * js\items.js - this register an a-frame component which is responsible for choosing random items from the list to show up when the player opens the target and after 10 seconds it will disappear and also this component mange score .
 
  * js\movetotarget.js - this contains the component which will add light to the target just hitted by the fairy and manage fairy movement when the distractor hits any target .
-
- * js\menu.js -This controls game levels and using a timer or not
 
 * js\stats.js- this component for getting a tell us when the session starts and ends and it will be responsible for APIs integration.
 
