@@ -27,7 +27,7 @@ To know more about this module check this [link](https://drive.google.com/file/d
 
 ## Components
 
-* # Assets : you can find all gltf models [here](https://glitch.com/edit/#!/truth-elated-ocicat?path=assets%3A1%3A0) in assets folder
+*  Assets : you can find all gltf models [here](https://glitch.com/edit/#!/truth-elated-ocicat?path=assets%3A1%3A0) in assets folder
 
 * html\index.html -this script contains three buttons each button redirect to one of our environments
 
