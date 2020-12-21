@@ -8,7 +8,7 @@ Illytale  - aframe version
 
 
 
-**<span style="text-decoration:underline;">Project Description:</span>**
+## Project Description
 
 This is a module in which the player and Illy, the fairy, help uncle Noah collect his tools/objects to do his daily work.
 
