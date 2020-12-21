@@ -7,13 +7,15 @@ AFRAME.registerComponent("ontriggertarget", {
     {
      var taskcounter=document.getElementById("taskcounter").getAttribute("value");
         this.el.setAttribute("showitem", "enabled",true);
+        if (this.el.firstElementChild==null){
         var el = document.createElement('a-light');
         el.setAttribute("type", "point");
         el.setAttribute("id","myLight");
         el.setAttribute("intensity",0.5);
         el.setAttribute("position",{x:0,y:5,z:0});
        // el.setAttribute("color", "#1dd4ed")
-        this.el.appendChild(el); 
+        this.el.appendChild(el);
+       }
         taskcounter++;
         document.getElementById("taskcounter").setAttribute("value", taskcounter);
        // console.log(this.el.getAttribute("animation-mixer")+"TaskCounter"+taskcounter)
@@ -93,7 +95,7 @@ AFRAME.registerComponent("ontriggertarget", {
         setTimeout(() => 
       {
           
-          this.el.removeAttribute("movetotarget");
+          this.el.setAttribute("movetotarget","enabled",false);
           
         }, 1200);
         

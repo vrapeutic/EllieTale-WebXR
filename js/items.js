@@ -1,9 +1,13 @@
+
+
+ 
+var xpos=1;
+var zpos=1;
 AFRAME.registerComponent("showitem", {
 
   init: function() 
    {
- 
-     let fairy = document.querySelector("#Taxi");
+ let fairy = document.querySelector("#Taxi");
      var el = this.el;
  
      let selectRandomItem = () => 
@@ -16,9 +20,9 @@ AFRAME.registerComponent("showitem", {
 //console.log(document.getElementById(el.firstElementChild.id));
      document.getElementById(el.firstElementChild.id).parentNode.removeChild(document.getElementById(el.firstElementChild.id));
        el.setAttribute('showitem',"enabled",false);
-       
+       this.el.setAttribute("movetotarget","enabled",false);
  
-         this.el.setAttribute("animation-mixer", "enabled:true; loop:once;repetitions: 0");
+         this.el.setAttribute("animation-mixer", "repetitions: 2; clampWhenFinished:true;");
        item = document.querySelectorAll(".items");
        random = Math.floor(Math.random() * Math.floor(item.length));
        console.log(item[random]);
@@ -27,14 +31,14 @@ AFRAME.registerComponent("showitem", {
        index = score;
  
        item[random].setAttribute("position", {
-         x: this.el.getAttribute("position").x,
+         x: this.el.getAttribute("position").x+3,
          y: this.el.getAttribute("position").y+2,
          z: this.el.getAttribute("position").z
        });
  
        item[random].setAttribute("Visible", true);
  var partical=document.createElement('a-entity');
- partical.setAttribute("spe-particles","texture: ../images/particles/snowflake.png;color: #0000FF, #00FFFF, #FFFFFF; particle-count: 1000; acceleration: 0 -6 0;")
+ partical.setAttribute("spe-particles","texture: ../images/particles/circle.png;color: #0000FF, #00FFFF, #FFFFFF; particle-count: 1000; acceleration: 0 -6 0;")
  partical.setAttribute("spe-particles","opacity: 2, 2, 0; velocity: 0 4 0; size: 2, 2, 0; velocity-spread: 2 0 2;") 
  //partical.setAttribute("position","1 3 1")
  item[random].appendChild(partical);
@@ -50,8 +54,8 @@ if (index <= document.querySelectorAll(".BoxParent").length+1)
          index = 3;
        }
  
-       var xpos = this.el.parentElement.children[index].getAttribute("position").x-3;
-       var zpos = this.el.parentElement.children[index].getAttribute("position") .z;
+       xpos = this.el.parentElement.children[index].getAttribute("position").x-3;
+       zpos = this.el.parentElement.children[index].getAttribute("position") .z;
  
  
        setTimeout(() => 
