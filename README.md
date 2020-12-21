@@ -1,11 +1,10 @@
 
 # AFrame
+# aframe-demo
+Illytale  - aframe version
 
 
-                                          # aframe-demo
-                                      Illytale  - aframe version
-
-                         <a href="https://giphy.com/"><img src="https://media.giphy.com/media/sPLvCsgHmeRORpXqEB/giphy.gif" alt="illy-poster" border="0"></a>
+<a href="https://giphy.com/"><img src="https://media.giphy.com/media/sPLvCsgHmeRORpXqEB/giphy.gif" alt="illy-poster" border="0"></a>
 
 
 
@@ -17,69 +16,16 @@ To know more about this module check this [link](https://drive.google.com/file/d
 
 **<span style="text-decoration:underline;">Installation</span>**:
 
-#**method one:**
 
-Step1:
 
- Download/clone the SocketIO-server repository from GitHub from [here](https://github.com/vrapeutic/AFrame/archive/main.zip)
+* Go to [glitch](https://glitch.com/)
+ 
+* Create an account
 
-Step2: 
+* On your dashboard click New project then click Import from GitHub
 
-Download :
+* Paste the full [url](https://github.com/vrapeutic/AFrame.git) of this repository and click ok
 
--[Beach Environment model](https://drive.google.com/file/d/1QI7H7heW761S-Un1MNy-AFDvCc9DlYxS/view?usp=sharing)
-
--[Garden Environment model](https://drive.google.com/file/d/1Os7X02KIhb5uQKyPvJ9pbYp_RHNeMDkC/view?usp=sharing) 
-
--[Library Environment model](https://drive.google.com/file/d/1xFMej5Fe3EDfrUfc0tmhQzgftJG6Pwsm/view?usp=sharing)
-
-Step3:
-
- Add them to "assets\model" folder in this project
-
-Step4: 
-
-Download Visual Studio Code from [here](https://code.visualstudio.com/download)
-
-Step5:
-
-Open Visual Studio Code and install Live Server Extension from  [here](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
-
-Step6: 
-
-Open project folder with Visual Studio Code
-
-**#method two:**
-
-Step1:
-
- Go to [glitch](https://glitch.com/)
-
-Step2: 
-
-Create an account
-
-Step3: 
-
-On your dashboard click New project then click Import from GitHub
-
-Step4: 
-
-Paste the full [url](https://github.com/vrapeutic/AFrame.git) of this repository and click ok
-
-Step5:
-
-Download :
-
--[Beach Environment model](https://drive.google.com/file/d/1QI7H7heW761S-Un1MNy-AFDvCc9DlYxS/view?usp=sharing)
-
--[Garden Environment model](https://drive.google.com/file/d/1Os7X02KIhb5uQKyPvJ9pbYp_RHNeMDkC/view?usp=sharing) 
-
--[Library Environment model](https://drive.google.com/file/d/1xFMej5Fe3EDfrUfc0tmhQzgftJG6Pwsm/view?usp=sharing)
-
-Step6: 
-
-Add them to "assets\model" folder in this project
 
 **<span style="text-decoration:underline;">Components:</span>**
 
