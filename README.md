@@ -6,10 +6,8 @@
  Illytale  - aframe version
 
 <a href="https://giphy.com/"><img src="https://media.giphy.com/media/sPLvCsgHmeRORpXqEB/giphy.gif" alt="illy-poster" border="0"></a>
-https://media.giphy.com/media/sPLvCsgHmeRORpXqEB/giphy.gif
-<p><a href="https://giphy.com/gifs/sPLvCsgHmeRORpXqEB">via GIPHY</a></p>
 
-<a href="https://ibb.co/nCnYScW"><img src="https://i.ibb.co/k19wF8d/illy-poster.png" alt="illy-poster" border="0"></a>
+
 
 **<span style="text-decoration:underline;">Project Description:</span>**
 
