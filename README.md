@@ -25,8 +25,9 @@ To know more about this module check this [link](https://drive.google.com/file/d
 
 * Paste the full [url](https://github.com/vrapeutic/AFrame.git) of this repository and click ok
 
-
 ## Components
+
+*Assets : you can find all gltf models [here](https://glitch.com/edit/#!/truth-elated-ocicat?path=assets%3A1%3A0) in assets folder
 
 * html\index.html -this script contains three buttons each button redirect to one of our environments
 
@@ -48,8 +49,7 @@ To know more about this module check this [link](https://drive.google.com/file/d
 
  * js\movetotarget.js - this contains the component which will add light to the target just hitted by the fairy and manage fairy movement when the distractor hits any target .
 
-* js\stats.js- this component for getting a tell us when the session starts and ends and it will be responsible for APIs integration.
-
+ * js\menu.js -This controls game levels and using a timer or not
 ## Test 
 
 
