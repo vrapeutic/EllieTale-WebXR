@@ -9,7 +9,6 @@
  var levelType;
  var Tir,end_session_time,Tas,AAS,TFD,timeTaken;  
  var issent=false;
- 
  /*var xhr = new XMLHttpRequest();
 var url = "https://jsonplaceholder.typicode.com/posts?userId=1" ;
 xhr.open("GET", url, true);
@@ -60,11 +59,11 @@ mysession;
         time++;
       }, 1000);       
 }
-document.getElementById("mybeach").addEventListener("click",e=>{
+document.getElementById("session").addEventListener("click",e=>{
   clearInterval(count);
   //count=-1;
 })
-document.getElementById("Taxi").addEventListener("click",e=>{
+document.getElementById("session").addEventListener("click",e=>{
   //clearInterval(count);
   count=-1;
   count=  setInterval(function() {

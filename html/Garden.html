@@ -28,14 +28,14 @@
   </head>
   <body>
 
-    <a-scene  shadow="type: pcfsoft" stats effects="bloom, fxaa, ssao, godrays" bloom="radius: 0.66" fxaa  godrays="src: #sun; threshold: 0. 0.33; intensity: 2;tint:#FF0000" ssao="intensity:10;scale:.2;maxDepth:10;samples:64;radius:1;depthCutoff:100;blurRadius:10"  renderer="antialias: true;
+    <a-scene inspector-plugin-recast shadow="type: pcfsoft" stats effects="bloom, fxaa, ssao, godrays" bloom="radius: 0.66" fxaa  godrays="src: #sun; threshold: 0. 0.33; intensity: 2;tint:#FF0000" ssao="intensity:10;scale:.2;maxDepth:10;samples:64;radius:1;depthCutoff:100;blurRadius:10"  renderer="antialias: true;
     sortObjects: true;
     maxCanvasWidth: 1920;
     maxCanvasHeight: 1920;
     gammaOutput: true;">
    
         
-    <a-entity camera="" position="-5 3 8" wasd-controls="" rotation="-90 90 -90" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
+    <a-entity camera="" id="cam" position="2 3 15" wasd-controls="" rotation="-90 90 -90" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
       <a-entity cursor="rayOrigin: mouse"></a-entity>
      
      
@@ -80,11 +80,11 @@
             <a-assets timeout="500000">        
         
          <img id="starsky" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2Fsky22final.jpg?v=1602609805245">
-        <a-asset-item id="model" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_Tree01_Solid_v1.01.glb?v=1607109075273"
+        <a-asset-item id="target" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_Tree01_v1.01.glb?v=1607334759579"
          response-type="arraybuffer"></a-asset-item>
-         <a-asset-item id="Environment" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_Environment01_4k_v1.01.glb?v=1607267551871"
+         <a-asset-item id="Environment" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_Environment01_4k_v1.01.glb?v=1607409869939"
          response-type="arraybuffer"></a-asset-item>
-        <a-asset-item id="Ds" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FNoah_farmer_pbr_2k_2mats_01.glb?v=1607237682734"
+        <a-asset-item id="Ds" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FNoah_farmer_pbr_2k_2mats_01.glb?v=1607360048942"
          response-type="arraybuffer"></a-asset-item>
        </a-assets>
 
@@ -102,55 +102,56 @@
 
       <a-entity id="Targets" class="BoxParent">
 
-        <a-entity id="targetone" class="Box" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_Tree01_Solid_v1.01.glb?v=1607109075273" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="-6.14201 0.21685 9.26717" showitem="" static-body="shape: box; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 86.87988230686724 0" ontriggertarget="">
+        <a-entity id="targetone" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="-6.14201 0.21685 9.26717" showitem="" static-body="shape: box; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 86.87988230686724 0" ontriggertarget="">
+             
+        </a-entity>
+        <a-entity id="targettwo" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="-3.9871 0.21685 -9.67132" showitem="" static-body="shape: box; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 127.95465368200082 0" ontriggertarget="">
              
 
         </a-entity>
-        <a-entity id="targettwo" class="Box" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_Tree01_Solid_v1.01.glb?v=1607109075273" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="-3.9871 0.21685 -9.67132" showitem="" static-body="shape: box; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 127.95465368200082 0" ontriggertarget="">
-             
-
-        </a-entity>
-        <a-entity id="targetthree" class="Box" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_Tree01_Solid_v1.01.glb?v=1607109075273" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="15.42803 0.2291 13.96831" showitem="" static-body="shape: box; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 173.37817472217736 0" ontriggertarget="">
+        <a-entity id="targetthree" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="15.42803 0.2291 13.96831" showitem="" static-body="shape: box; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 173.37817472217736 0" ontriggertarget="">
              
 
         </a-entity>      
     
-        <a-entity id="targetfour" class="Box" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_Tree01_Solid_v1.01.glb?v=1607109075273" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="11.72736 0.29069 -5.37097" showitem="" static-body="shape: box; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="-7.739513896627161 -7.861553906990025 1.4816688582083088" ontriggertarget="">
+        <a-entity id="targetfour" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="11.72736 0.29069 -5.37097" showitem="" static-body="shape: box; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="-7.739513896627161 -7.861553906990025 1.4816688582083088" ontriggertarget="">
 
         </a-entity>
       </a-entity>   
 
             <!--items-->
 
-   <a-entity id="item" class="items" visible="false"  gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FMango.glb?v=1602768434067"  animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+   <a-entity id="item" class="items" visible="false" scale="3 3 3" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_guava.glb?v=1607358241269"  animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
 </a-entity>
 
-<a-entity id="itemOne" class="items" visible="false"  gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2Fapple.glb?v=1602767724352" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+<a-entity id="itemOne" class="items" visible="false" scale="3 3 3" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_mango.glb?v=1607358241384" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
 </a-entity>
 
-<a-entity id="itemTwo" class="items"  visible="false" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FAvocado.glb?v=1602768111651" animation="property: rotaion; to: 0 360 0; loop: true; dur: 500">
+<a-entity id="itemTwo" class="items"  visible="false" scale="3 3 3" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_strawberry.glb?v=1607358243669" animation="property: rotaion; to: 0 360 0; loop: true; dur: 500">
 </a-entity>
 
-<a-entity id="itemThree"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FPinapple.glb?v=1602768627375" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+<a-entity id="itemThree"  visible="false"   class="items" scale="3 3 3"  gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_banana.glb?v=1607358243019" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
 </a-entity>
 
-<a-entity id="itemFive"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2Fpeach.glb?v=1602769217842" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+<a-entity id="itemFive"  visible="false"   class="items"  scale="3 3 3" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_apple.glb?v=1607358243818" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
   </a-entity>
 
-  <a-entity id="itemSix"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGuava.glb?v=1602769251043" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+  <a-entity id="itemSix"  visible="false"   class="items" scale="3 3 3"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_orange.glb?v=1607358244892" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
     </a-entity>
 
-    <a-entity id="itemSeven"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBanana.glb?v=1602769262821" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+    <a-entity id="itemSeven"  visible="false"   class="items" scale="3 3 3"  gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_grapes.glb?v=1607358243472" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
       </a-entity>
 
   
 
 
 <!--DS-->
-<a-entity id="myDs"  material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" visible="false" scale="3 3 3" gltf-model="#Ds"  position="-42.5 3 4"  lookat="#cam"   clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity" rotation="0 90 0" shadow >
+<a-entity id="myDs" nav-agent scale="1.7 1.7 1.7" visible="" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FNoah_farmer_pbr_2k_2mats_01.glb?v=1607237682734" position="-14.18763 0.07845 14.78224" lookat="#cam" clickable="" static-body="shape: box; sphereRadius: NaN" aabb-collider="objects: a-entity" rotation="0 90 0" shadow="">
 </a-entity>
+
 <!--Stats-->
-      
+  
+<a-text id="selectenvironment" value="Garden"  geometry="primitive:circle" visible="false"></a-text>
 <a-text id="level" value="2"  geometry="primitive:circle" visible="false" position="-20 1 1"></a-text>
 <a-text id="levelTybe" value="open" geometry="primitive:circle" visible="false" position="-15 1 1"></a-text>
 <a-text id="counter" value="0" geometry="primitive:plane"visible="false"  ></a-text>
@@ -164,10 +165,13 @@
 
  <!--TaxiFairy-->
       
- <a-gltf-model id="Taxi" scale="10 10 10" src="../assets/model/illy tale gtlffile (1).glb" position="-9.11854 0.37574 0.84764" aabb-collider="objects: a-entity" static-body="shape: box; sphereRadius: NaN" lookat="#cam" gltf-model="../assets/model/illy tale gtlffile (1).glb" animation="property: position; to: -6.9871 0.8 -9.67132">
+ <a-gltf-model id="Taxi" scale="10 10 10" src="../assets/model/illy tale gtlffile (1).glb" position="-9.44433 0.33465 1.60362" aabb-collider="objects: a-entity" static-body="shape: box; sphereRadius: NaN" lookat="#cam" >
  </a-gltf-model>
    
 
         </a-scene>
+        <script>
+        
+        </script>
   </body>
 </html>
