@@ -14,7 +14,7 @@ This is a module in which the player and Illy, the fairy, help uncle Noah collec
 
 To know more about this module check this [link](https://drive.google.com/file/d/1Bl0U1to2vOZ4wd83phxHcwpTrgiWfMjf/view?usp=sharing)
 
-**<span style="text-decoration:underline;">###Installation</span>**:
+### Installation
 
 
 
@@ -27,7 +27,7 @@ To know more about this module check this [link](https://drive.google.com/file/d
 * Paste the full [url](https://github.com/vrapeutic/AFrame.git) of this repository and click ok
 
 
-**<span style="text-decoration:underline;">Components:</span>**
+### Components
 
 html\index.html -this script contains three buttons each button redirect to one of our environments
 
