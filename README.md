@@ -16,15 +16,15 @@ Uncle Noah is an old independent man living by himself in the neighborhood. Sinc
 
 The gameplay occurs in Three different environments. Each is composed of a round track on which the player reveals hidden items with Illy that are then collected. Uncle Noah is always present in the environments on the side doing an idle animation for each environment, and the items that the player and Illy find are collected in a container that lies beside Uncle Noah.
 The environments are: a garden to collect fruits, a beach to collect fishing tools or fish and a library to collect letters.
-### Levels:
-### Level One: 
+### Levels
+### * Level One: 
  the player must reveal all objects in less than a specific time period. For each box, the player must open it in less than 1m.
  
-### Level Two DISTRACTOR:
+### * Level Two DISTRACTOR:
  the player must reveal all objects in less than a specific time period. For each object, the player must reveal it in less than 1m. While collecting the objects with Illy, Noah will walk around on the same track instead of his idle animation as a distractor. The player must ignore uncle Noah and continue revealing objects with Illy.
  
  
- ###	Level Three DISTRACTOR and INTERACTION:
+ ###	* Level Three DISTRACTOR and INTERACTION:
  the player must reveal all objects in less than a specific time period. For each object, the player must reveal it in less than 1m. While collecting the objects with Illy, Noah will walk around on the same track instead of his idle animation as a distractor. After the player is done collecting the objects with Illy, Noah will ask the player to shake or point at an obstacle to reveal more objects. The player should follow uncle Noah’s instructions.
  
 To know more about this module check this [link](https://drive.google.com/file/d/1Bl0U1to2vOZ4wd83phxHcwpTrgiWfMjf/view?usp=sharing)
@@ -43,33 +43,58 @@ To know more about this module check this [link](https://drive.google.com/file/d
 
 ## Components
 
-*  Assets : you can find all gltf models [here](https://glitch.com/edit/#!/truth-elated-ocicat?path=assets%3A1%3A0) in assets folder
+*  Assets :
 
-* html\index.html -this script contains three buttons each button redirect to one of our environments
+you can find all gltf models [here](https://glitch.com/edit/#!/truth-elated-ocicat?path=assets%3A1%3A0) in assets folder
 
-* html\Beach.html -this contains our beach environments' entities (scene-sky- beach-fairy-destructor-score-list of items ..) with all components
+* index.html 
 
-* html\Garden.html - this for our garden environments' entities
+-this script contains three buttons each button redirect to one of our environments
 
-* html\Library.html - this for library environments' entitis
+* html\Beach.html 
 
-* js\closetime.js - that contains “closetime” aframe component which is responsible for loading next scene after specific duration
+-this contains our beach environments' entities (scene-sky- beach-fairy-destructor-score-list of items ..) with all components
 
-* js\dsmove.js - that contains dsmove component which mange the distractor movement in level two and three,in addition to calculate time since distractor hit any target until player response to it
+* html\Garden.html
 
-* js\fairy.js - this responsible for calculate the time the player takes since the fairy hit the target until the player open it
+- this for our garden environments' entities
 
-* js\inpscounter.js - this responsible for count times that the player doesn’t look at the fairy for more than 3 seconds
+* html\Library.html 
 
-* js\items.js - this register an a-frame component which is responsible for choosing random items from the list to show up when the player opens the target and after 10 seconds it will disappear and also this component mange score .
+- this for library environments' entitis
 
-* js\movetotarget.js - this contains the component which will add light to the target just hitted by the fairy and manage fairy movement when the distractor hits any target .
+* js\timeManger.js 
 
-* js\menu.js -This controls game levels and using a timer or not
+- that contains “closetime” aframe component which is responsible for loading next scene after specific duration
+
+* js\dsmove.js 
+
+- that contains dsmove component which mange the distractor movement in level two and three,in addition to calculate time since distractor hit any target until player response to it
+
+* js\fairy.js 
+
+- this responsible for calculate the time the player takes since the fairy hit the target until the player open it
+
+* js\inpscounter.js 
+
+- this responsible for count times that the player doesn’t look at the fairy for more than 3 seconds
+
+* js\items.js 
+
+- this register an a-frame component which is responsible for choosing random items from the list to show up when the player opens the target and after 10 seconds it will disappear and also this component mange score .
+
+* js\movetotarget.js 
+
+- this contains the component which will add light to the target just hitted by the fairy and manage fairy movement when the distractor hits any target .
+
+* js\menu.js
+
+-This controls game levels and using a timer or not
+
 ## Test 
 
 
-Open the project on glitch from your dashboard ,Click on Show icon then open html\index.html
+Open the project on glitch from your dashboard ,Click on Show icon 
 
 ## Technology
 
