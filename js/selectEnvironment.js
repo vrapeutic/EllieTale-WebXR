@@ -14,7 +14,9 @@ init: function() {
       {loadEnvironment()});
 */
  document.getElementById('Beach').addEventListener("click",e => 
-      {loadEnvironment()});
+      {
+          loadEnvironment()
+        });
 
 }
 })

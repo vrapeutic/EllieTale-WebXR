@@ -21,8 +21,8 @@ let checkLevel=function fcheckLevel(){
   // set fairy position to target one
   document.getElementById("Fairy").setAttribute(
  "animation",
- "property:position; to:"+(firtTargetPos.x + 1) +
- " 0.5 " +
+ "property:position; to:"+(firtTargetPos.x) +
+ " 0.3 " +
  firtTargetPos.z +" dur:1000"
 )
 fairyPositionx=firtTargetPos.x + 1;
@@ -36,7 +36,7 @@ if(  document.getElementById("level").getAttribute("value")==3){
 document.getElementById("myDistractor").setAttribute(
  "animation",
  "property:position; to:"+(lastTargetPos.x+1) +
- " 0.5 " +
+ " 0.3" +
  lastTargetPos.z +" dur:10"
 
 ) 
