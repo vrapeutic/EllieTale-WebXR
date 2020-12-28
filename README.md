@@ -45,11 +45,11 @@ To know more about this module check this [link](https://drive.google.com/file/d
 
 * js\inpscounter.js - this responsible for count times that the player doesn’t look at the fairy for more than 3 seconds
 
- * js\items.js - this register an a-frame component which is responsible for choosing random items from the list to show up when the player opens the target and after 10 seconds it will disappear and also this component mange score .
+* js\items.js - this register an a-frame component which is responsible for choosing random items from the list to show up when the player opens the target and after 10 seconds it will disappear and also this component mange score .
 
- * js\movetotarget.js - this contains the component which will add light to the target just hitted by the fairy and manage fairy movement when the distractor hits any target .
+* js\movetotarget.js - this contains the component which will add light to the target just hitted by the fairy and manage fairy movement when the distractor hits any target .
 
- * js\menu.js -This controls game levels and using a timer or not
+* js\menu.js -This controls game levels and using a timer or not
 ## Test 
 
 

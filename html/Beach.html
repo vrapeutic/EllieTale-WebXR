@@ -10,22 +10,21 @@
     <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
     <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-animation-component@^5.1.2/dist/aframe-animation-component.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     <script src="../js/custom/aframe-environment-component.min.js"></script>
     <script src="../js/custom/aframe-spe-particles-component.js"></script>
-    <script src="../js/dsmove.js"></script>
+    <script src="../js/distractoradvancedmovenment.js"></script>
     <script src="../js/movetotarget.js"></script>
     <script src="../js/items.js"></script>
-    <script src="../js/fairy.js"></script>
+    <script src="../js/fairytasktimer.js"></script>
     <script src="../js/inpscounter.js"></script>
     <script src="../js/stats.js"></script>
-    <script src="../js/closetime.js"></script>
-    <script src="../js/ds.js"></script>
+    <script src="../js/timemanger.js"></script>
+    <script src="../js/distractormovenment.js"></script>
     <script src="../js/menu.js"></script>
+    <script src="../index.js"></script>
   </head>
   <body>
 
@@ -39,18 +38,21 @@
       <a-entity cursor="rayOrigin: mouse"></a-entity>
      
      
-      <!--Menu-->
+      <!--MenuwithCamera-->
   <a-entity id="LevelsButton" menu visible="false">
 
-  <a-text value="Easy" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/level.png;transparent: false"  id="boxLevel"  position="-2 -1 -3"    lookat="#cam" color="#4CC3D9"  clickable 
+    
+  <a-text value="Easy" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false"  id="boxLevel"  position="-2 -1 -3"    lookat="#cam" color="#4CC3D9"  clickable 
   event-set__click="_event: mouseenter; _target:#level; value:1 " ></a-text>    
 
-  <a-text value="Medium" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/level.png;transparent: false" id="boxLevel1"  position="0 -1 -3"  lookat="#cam" color="#4CC3D9" clickable 
+  <a-text value="Medium" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false" id="boxLevel1"  position="0 -1 -3"  lookat="#cam" color="#4CC3D9" clickable 
   event-set__click="_event: mouseenter; _target:#level; value:2 " ></a-text>  
   
-  <a-text value="Hard" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/level.png;transparent: false" id="boxLevel2"  position="2 -1 -3"   lookat="#cam"  color="#4CC3D9" clickable 
+  <a-text value="Hard" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false" id="boxLevel2"  position="2 -1 -3"   lookat="#cam"  color="#4CC3D9" clickable 
   event-set__click="_event: mouseenter; _target:#level; value:3 " ></a-text>    
 </a-entity>
+
+<!--Timer-->
   <a-text  value="30" width="20" text="side:  double;  align:  center" scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer" class="timer"  position="-1.5 0 -1.5" color="#4CC3D9"   lookat="#cam"  clickable 
   event-set__click="_event: mouseenter; _target:#counter; value:30" ></a-text>    
 
@@ -60,20 +62,26 @@
   
   <a-text  value="90" width="20" text="side:  double;  align:  center"  scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer2" class="timer"  position="0.5 0 -1.5" color="#4CC3D9"   lookat="#cam"  clickable 
   event-set__click="_event: mouseenter; _target:#counter; value:90 " ></a-text>    
-
+<!--withouttimer-->
   <a-text  value="open" text="side:  double;  align:  center" width="0" scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_off.png;transparent: true" id="noTimer" class="timer"  position="1.5 0 -1.5"    color="#4CC3D9" lookat="#cam"  
   event-set__click="_event: mouseenter; _target:#counter; value:0 " ></a-text> 
  
   <!--score-->
   <a-text id="score" value="0" width="20" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" position="0 -2 -3"></a-text>
+  <!--backtomenu-->
   <a-text id="reload"   text="side:  double;  align:  center"  scale="0.2 0.2 0.2" geometry="primitive:circle ; "material=" src:../images/1.png;transparent: true" position="3 2 -3"></a-text>
+ </a-entity>
+
   <!--Hands-->
+  
+     <a-entity progressive-controls></a-entity>  
+
       <a-entity oculus-quest-controls="hand: left"></a-entity>
       
       <a-entity oculus-quest-controls="hand: right"></a-entity>
       
-            <a-entity laser-controls="hand: right" raycaster="objects: .boxs; far: 100"></a-entity>
-    </a-entity>
+     <a-entity laser-controls="hand: right" raycaster="objects: .boxs; far: 100"></a-entity>
+    
       
 <!--Assets-->
 
@@ -84,25 +92,26 @@
          response-type="arraybuffer"></a-asset-item>
          <a-asset-item id="Environment" src="../assets/model/Beach Environment.glb"
          response-type="arraybuffer"></a-asset-item>
-        <a-asset-item id="Ds" src="../assets/model/Farmer.glb"
+        <a-asset-item id="distractorModel" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FNoah_farmer_pbr_2k_2mats_01.glb?v=1607360048942"
+         response-type="arraybuffer"></a-asset-item>
+         <a-asset-item id="fairymodel" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FElly_2k_01.glb?v=1608738722490"
          response-type="arraybuffer"></a-asset-item>
        </a-assets>
-  
   
       <!--enviroment-->
      
       <a-entity id="mybeach" gltf-model="#Environment" shadow  >
       </a-entity> 
-      <a-entity progressive-controls></a-entity>
+      
   
       <a-sky id="sky" src="#starsky"></a-sky>
           
      <a-entity id="ocean" ocean="density: 20; width: 50; depth: 50; speed: 4" material="color: #00eeff; opacity: 0.75; roughness: 1; emissive: #26b0ba" rotation="-90 0 0" position="-2 -1.38101 -3" scale="100 1 1"></a-entity>   
       
 <!--Targets-->
-      <a-entity id="Targets" fairy class="BoxParent">
+      <a-entity id="Targets" fairytasktimer class="BoxParent">
 
-        <a-entity id="targetone"  class="Box" gltf-model="#target" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="-32 0.3 30" scale="0.5 0.5 0.5"   showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
+        <a-entity id="targetone"  class="Box" gltf-model="#target" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="-32 0.3 25" scale="0.5 0.5 0.5"   showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
     
 
         </a-entity>   
@@ -127,27 +136,31 @@
     <!--items-->
 
    <a-entity id="item" class="items" visible="false"  gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShark%20With%20Material.glb?v=1602763326676" scale="5000 5000 5000" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-  </a-entity>
+     </a-entity>
 
-<a-entity id="itemOne" class="items" visible="false"  gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2Fnod.glb?v=1602686258177" scale="5 5 5" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
- </a-entity>
+   <a-entity id="itemOne" class="items" visible="false"  gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2Fnod.glb?v=1602686258177" scale="5 5 5" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+    </a-entity>
 
-<a-entity id="itemTwo" class="items"  visible="false" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FWhale.glb?v=1602767677623" scale="5 5 5" animation="property: rotaion; to: 0 360 0; loop: true; dur: 500">
- </a-entity>
+    <a-entity id="itemTwo" class="items"  visible="false" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FWhale.glb?v=1602767677623" scale="5 5 5" animation="property: rotaion; to: 0 360 0; loop: true; dur: 500">
+    </a-entity>
 
-<a-entity id="itemThree"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShrimp.glb?v=1602766713614" scale="8000 8000 8000" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-</a-entity>
+    <a-entity id="itemThree"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShrimp.glb?v=1602766713614" scale="8000 8000 8000" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+    </a-entity>
 
-<a-entity id="itemFour"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShip%20beach.glb?v=1602764145944" scale="5 5 5" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-   </a-entity>
+    <a-entity id="itemFour"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShip%20beach.glb?v=1602764145944" scale="5 5 5" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+     </a-entity>
        
      
-    
-<!--DS-->
-<a-entity id="myDs"   visible="false" scale="3 3 3"gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FNoah_farmer_pbr_2k_2mats_01.glb?v=1607237682734" position="1.7 5 24.6"  lookat="#cam"   clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity" rotation="0 90 0" shadow >
+     <!-- eille the Fairy-->
+      
+      <a-gltf-model id="Fairy"   src="#fairymodel" position="-35 3 30"   aabb-collider="objects: a-entity"  static-body="shape: box; mass: 0"  lookat="#cam" >
+      </a-gltf-model>
+
+      <!--noah distractor-->
+      <a-entity id="myDistractor"   visible="false" scale="3 3 3" gltf-model="#distractorModel" position="1.7 5 24.6"  lookat="#cam"   clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity" rotation="0 90 0" shadow >
 
 
-</a-entity>
+   </a-entity>
      
 
 <!--Stats-->
@@ -160,21 +173,13 @@
     <a-text id="dscounter" value="1" geometry="primitive:circle"visible="false" position="-40 1 4" ></a-text>
     <a-text id="dstime" value="0" geometry="primitive:circle" position="-45 1 4" visible="false"></a-text>
     <a-text id="inpsCounter" value="0" geometry="primitive:circle" position="-25 1 7" visible="false" inpssore></a-text>
-    <a-text id="inps" value="0" geometry="primitive:circle" position="-35 1 7" visible="false" inpsscore ></a-text>
+    <a-text id="inps" value="0" geometry="primitive:circle" position="-35 1 7" visible="false"  ></a-text>
     <a-text id="session" value="0" geometry="primitive:circle" position="-35 1 7" visible="false" timer ></a-text>
 
- <!--TaxiFairy-->
-      
-      <a-gltf-model id="Taxi" scale="10 10 10"  src="../assets/model/illy tale gtlffile (1).glb" position="-35 3 30"   aabb-collider="objects: a-entity"  static-body="shape: box; mass: 0"  lookat="#cam" >
-      </a-gltf-model>
+
     
    
      </a-scene>
 
-        <script>
-
-  document.querySelector('a-scene').renderer.setTexture2D(ourTexture, 0);
-
-        </script>
   </body>
 </html>

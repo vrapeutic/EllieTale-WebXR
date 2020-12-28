@@ -1,14 +1,4 @@
 
- var start_session_time=new Date().toLocaleString();
- var tpicalTime=60;
- var Tas=7.5;
- var implusivityScore ;
- var omissionScore;
- var Ds;
- var responseTime;
- var levelType;
- var Tir,end_session_time,Tas,AAS,TFD,timeTaken;  
- var issent=false;
  /*var xhr = new XMLHttpRequest();
 var url = "https://jsonplaceholder.typicode.com/posts?userId=1" ;
 xhr.open("GET", url, true);
@@ -20,7 +10,8 @@ xhr.onreadystatechange = function () {
     }
 };
 xhr.send();*/
- function convertHMS(value) {
+
+function convertHMS(value) {
   const sec = parseInt(value, 10); // convert value to number if it's string
   let hours   = Math.floor(sec / 3600); // get hours
   let minutes = Math.floor((sec - (hours * 3600)) / 60); // get minutes
@@ -36,19 +27,23 @@ AFRAME.registerComponent('timer', {
   
   init: function() 
   {
-    
-   var time=0;
-  var count=-1;
-var startSession=0;
-var start_session_time=new Date().toLocaleString();
- var mysession=setInterval(function()  {
+ 
+   Tas=7.5;
+
+   start_session_time=new Date().toLocaleString();
+   tpicalTime=60
+
+ var time=0;
+ var count=-1;
+ var startSession=0;
+
+var mysession=setInterval(function()  {
   
  
   document.getElementById("session").setAttribute("value", startSession); 
 
   startSession++;
-var data=  new Date().toLocaleString();
-//console.log(document.getElementById("Targets").children.length);
+
 }, 1000);
 mysession;
     console.log(this.el.id)//"1PASH9A5579282 "
@@ -76,7 +71,13 @@ document.getElementById("session").addEventListener("click",e=>{
     },
     tick: function(){
     
-     end_session_time=new Date().toLocaleString();
+     end_session_time=new Date().toLocaleString(); 
+     if(document.getElementById("score")==4) {
+    setTimeout(() => {
+      calculate()
+  window.location.href="index.html";    
+    }, 5000);
+  }
     var calculate= function newStats()
     {
 
@@ -125,16 +126,15 @@ document.getElementById("dstime").getAttribute("value")/document.getElementById(
        Tir= timeTaken/tpicalTime;
    }
    
-   console.log("levelType "+levelType+" end : "+end_session_time+" AAS "+AAS+ " response "+responseTime+" Start"+start_session_time+" Ds "+Ds+" timeTaken "+timeTaken+" tar" +Tar)
+   console.log(Tas+"levelType "+levelType+" end : "+end_session_time+" AAS "+AAS+ " response "+responseTime+" Start"+start_session_time+" Ds "+Ds+" timeTaken "+timeTaken+" tar" +Tar)
     }
   
 document.getElementById("reload").addEventListener("click",()=>{calculate()
-  window.location.href="index.html";
+  window.location.href="../index.html";
 
 });
 issent=true;
-   
-  //  document.getElementById("targetfour").removeEventListener("mousedown",calculate);
+ 
 
 },
     remove: function () {

@@ -35,10 +35,10 @@ AFRAME.registerComponent("ontriggertarget", {
       if (
         e.target.components["aabb-collider"]["intersectedEls"]
           .map(x => x.id)
-          .includes("Taxi") &&
+          .includes("Fairy") &&
         !e.target.components["aabb-collider"]["intersectedEls"]
           .map(x => x.id)
-          .includes("myDs")
+          .includes("myDistractor")
       )
       { 
         
@@ -69,7 +69,7 @@ AFRAME.registerComponent("ontriggertarget", {
       if (
         e.target.components["aabb-collider"]["intersectedEls"]
           .map(x => x.id)
-          .includes("myDs")
+          .includes("myDistractor")
       ) 
       {
         
@@ -81,10 +81,10 @@ AFRAME.registerComponent("ontriggertarget", {
       if (
         e.target.components["aabb-collider"]["intersectedEls"]
           .map(x => x.id)
-          .includes("Taxi") &&
+          .includes("Fairy") &&
         !e.target.components["aabb-collider"]["intersectedEls"]
           .map(x => x.id)
-          .includes("myDs")
+          .includes("myDistractor")
       ) 
       { 
         

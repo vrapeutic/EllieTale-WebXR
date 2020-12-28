@@ -1,13 +1,11 @@
-console.log(xpos);
-
-
 AFRAME.registerComponent('inpsscore', {
 
-  tick: function(time) {
-        let fairy = document.querySelector("#Taxi");
- let score=document.querySelector("#inpsCounter").getAttribute("value");
-      let index=document.querySelector("#inps").getAttribute("value");
-    time=1000;
+  tick: function() {
+      
+let fairy = document.querySelector("#Fairy");
+ let inpusCount=document.querySelector("#inpsCounter").getAttribute("value");
+  let index=document.querySelector("#inps").getAttribute("value");
+
 
    if (this.el.sceneEl.camera) {
       var cam = this.el.sceneEl.camera
@@ -17,36 +15,44 @@ AFRAME.registerComponent('inpsscore', {
 
       // Your 3d point to check
     
-      var pos =  new THREE.Vector3(fairy.getAttribute("position").x,fairy.getAttribute("position").y,fairy.getAttribute("position").z);
-      if (frustum.containsPoint(pos)) {
+      var fairyPosition =  new THREE.Vector3(fairy.getAttribute("position").x,fairy.getAttribute("position").y,fairy.getAttribute("position").z);
+     
+      if (frustum.containsPoint(fairyPosition)) {
         // Do something with the position...
+        console.log("here");
       }
      else{
+      console.log("nothere");
+
       setTimeout(() => 
       {
-          if(score==3)
+          if(inpusCount==3)
           {
+            console.log("nothere"+inpusCount);
+
              index++;
-           score=0;
+           inpusCount=0;
         document.querySelector("#inps").setAttribute("value", index);
 fairy.setAttribute( "animation",
-"property:position; to:"+(document.getElementById("cam").getAttribute("position").x)  +
+"property:position; to:"+document.getElementById("cam").getAttribute("position").x +
 " 0.5 " +
 (document.getElementById("cam").getAttribute("position").z-3)+" dur:1000") 
 setTimeout(() => 
 {
     fairy.setAttribute( "animation",
-       "property:position; to:"+xpos  +
+       "property:position; to:"+fairyPositionx  +
        " 0.5 " +
-zpos+" dur:1000")
+       fairyPositionz+" dur:1000")
 },3000)
 
         }
+console.log("not count"+inpusCount)
+setTimeout(() => {
+  
 
-       score++;
-       document.querySelector("#inpsCounter").setAttribute("value", score); 
-
-    
+       inpusCount++;
+       document.querySelector("#inpsCounter").setAttribute("value", inpusCount); 
+ }, 2000);   
      
 },1000);
 }       
