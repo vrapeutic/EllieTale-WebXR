@@ -70,7 +70,7 @@ if (index <= document.querySelectorAll(".BoxParent").length+1)
  
          fairy.setAttribute(
            "animation",
-           "property:position; to:" + fairyPositionx + " 0.8 " + fairyPositionz + "; dur:1000"
+           "property:position; to:" + (fairyPositionx+1.5) + " 0.3 " + fairyPositionz + "; dur:1000"
          );//move Fairy to next Target
  
          console.log(

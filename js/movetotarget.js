@@ -3,11 +3,16 @@ AFRAME.registerComponent("ontriggertarget", {
   init: function() 
   {
 
+    //fairy trigger target
+    
     let triggerTarget = () => 
     {
-     var taskcounter=document.getElementById("taskcounter").getAttribute("value");
+       var taskcounter=document.getElementById("taskcounter").getAttribute("value");
+
         this.el.setAttribute("showitem", "enabled",true);
-        if (this.el.firstElementChild==null){
+       
+        if (this.el.firstElementChild==null)
+        {
         var el = document.createElement('a-light');
         el.setAttribute("type", "point");
         el.setAttribute("id","myLight");

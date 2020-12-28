@@ -34,7 +34,7 @@
     maxCanvasHeight: 1920;
     gammaOutput: true;">
 
-    <a-entity camera="" id="cam" position="-35.32655 3 40" wasd-controls="" rotation="0 -180 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
+    <a-entity camera="" id="cam" position="-25.32655 3 10" wasd-controls="" rotation="0 -180 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
       <a-entity cursor="rayOrigin: mouse"></a-entity>
      
      
@@ -87,10 +87,10 @@
 
             <a-assets timeout="500000">        
         
-         <img id="starsky" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2Fsky22final.jpg?v=1602609805245">
+      
         <a-asset-item id="target" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FSea%20Shell.glb?v=1602762951242"
          response-type="arraybuffer"></a-asset-item>
-         <a-asset-item id="Environment" src="../assets/model/Beach Environment.glb"
+         <a-asset-item id="Environment" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeah_Environment_v1.01.glb?v=1608538651369"
          response-type="arraybuffer"></a-asset-item>
         <a-asset-item id="distractorModel" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FNoah_farmer_pbr_2k_2mats_01.glb?v=1607360048942"
          response-type="arraybuffer"></a-asset-item>
@@ -100,38 +100,26 @@
   
       <!--enviroment-->
      
-      <a-entity id="mybeach" gltf-model="#Environment" shadow  >
-      </a-entity> 
-      
-  
-      <a-sky id="sky" src="#starsky"></a-sky>
-          
-     <a-entity id="ocean" ocean="density: 20; width: 50; depth: 50; speed: 4" material="color: #00eeff; opacity: 0.75; roughness: 1; emissive: #26b0ba" rotation="-90 0 0" position="-2 -1.38101 -3" scale="100 1 1"></a-entity>   
-      
+      <a-entity id="mybeach" gltf-model="#Environment" shadow="" animation-mixer position="-7.05725 0.00807 8.13117">
+      </a-entity>
+
 <!--Targets-->
-      <a-entity id="Targets" fairytasktimer class="BoxParent">
+      <a-entity id="Targets" fairytasktimer class="BoxParent" >
 
-        <a-entity id="targetone"  class="Box" gltf-model="#target" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="-32 0.3 25" scale="0.5 0.5 0.5"   showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
-    
+        <a-entity id="targetone" scale="0.3 0.3 0.3" class="Box" gltf-model="#target" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="-15.49348 -0.02695 19.49792"   showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
+        </a-entity> 
 
-        </a-entity>   
-        <a-entity id="targettwo" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-28 0.3 5" scale="0.5 0.5 0.5"  showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
-             
+        <a-entity id="targettwo" scale="0.3 0.3 0.3" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-22.3313 -0.12633 12.90903"  showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
         </a-entity>
-        <a-entity id="targetthree" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-55 0.3 20" scale="0.5 0.5 0.5"  showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
+
+        <a-entity id="targetthree" scale="0.3 0.3 0.3" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-20.3313 -0.12633 -0.113"  showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
 
         </a-entity>     
-        <a-entity id="targetfour" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-40 0.3 4" scale="0.5 0.5 0.5"  showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
+        <a-entity id="targetfour" scale="0.3 0.3 0.3" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-25.3313 -0.12633 -0.113"  showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
         </a-entity>     
       </a-entity>  
 
-      <!--Lights-->
-      <a-entity light="color: #eed111; groundColor: #cecdc5; castShadow: true shadowCameraVisible: true;" position="-11.61322 136.48563 -35.54899" scale="3 3 3"></a-entity>
-      
-      <a-entity id="sphere"
-      position="20 0.15 -2"
-     light="type: point; intensity: 1"
-    scale="2 2 2"></a-entity>      
+   
     
     <!--items-->
 
@@ -153,11 +141,11 @@
      
      <!-- eille the Fairy-->
       
-      <a-gltf-model id="Fairy"   src="#fairymodel" position="-35 3 30"   aabb-collider="objects: a-entity"  static-body="shape: box; mass: 0"  lookat="#cam" >
+      <a-gltf-model id="Fairy"   src="#fairymodel" position="-25 3 5"   aabb-collider="objects: a-entity"  static-body="shape: box; mass: 0"  lookat="#cam" >
       </a-gltf-model>
 
       <!--noah distractor-->
-      <a-entity id="myDistractor"   visible="false" scale="3 3 3" gltf-model="#distractorModel" position="1.7 5 24.6"  lookat="#cam"   clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity" rotation="0 90 0" shadow >
+      <a-entity id="myDistractor"   visible="false"  gltf-model="#distractorModel" position="1.7 5 24.6"  lookat="#cam"   clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity" rotation="0 90 0" shadow >
 
 
    </a-entity>

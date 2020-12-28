@@ -50,8 +50,8 @@ AFRAME.registerComponent("advancedmovenment", {
       ds.setAttribute(
         "animation",
         "property:position; to:" +
-          ( nextTargetPosition.x+1 ) +
-          " 0.5 " +
+          ( nextTargetPosition.x ) +
+          " 0.3 " +
            nextTargetPosition.z +
           " dur:5000"
       );    
