@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+    <script src="../js/selectEnvironment.js"></script>
+    
+  </head>
+  <body>
+ 
+  <a-scene  stats selectenvironment physics='gravity: 0' restitutation="0.7" renderer="antialias: true"  >
+     
+      <a-assets>
+
+         <img id="starsky" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2Fstarry%20night.jpg?1547158907338">
+
+     </a-assets>
+     
+   
+      <!--sky-->
+      <a-sky src="#starsky"></a-sky>
+
+   <!--lights-->
+
+      <a-entity id="sphere"
+      position="0 0.9 -1.5"
+      light="type: point; intensity: 5"
+      ></a-entity>
+         <a-entity id="light" light="type: ambient; color: #888"></a-entity>   
+
+         <!--Camera-->
+      <a-camera id="cam" movement-controls="speed: 0.15 constrainToNavMesh:true" position="0 1.6 5" look-controls="pointerLockeEnabled:true" >
+        <a-entity cursor="rayOrigin: mouse"></a-entity>
+       </a-camera>
+
+       <!--Hands-->
+       
+       <a-entity progressive-controls></a-entity>
+
+       <a-entity oculus-quest-controls="hand: left"></a-entity>
+      
+       <a-entity oculus-quest-controls="hand: right"></a-entity>
+       
+       <a-entity laser-controls="hand: right" raycaster="objects: .boxs; far: 100"></a-entity>
+
+     <!--Menu-Buttons-->
+
+
+      <a-box id="Garden" class="boxs" scale ="2 2 2" position="-5 1 -10"   aabb-collider="objects: a-gltf-model"  color="#4CC3D9" lookat="#cam"  clickable 
+      event-set__click="_event: mouseenter; _target:#selectenvironment; value:Beach " 
+      material="transparent: true ;color: #5e5e5e;src:../images/illyTale_button_Envirom_Garden.png"
+
+      ></a-box>    
+  
+     <a-box id="Library" class="boxs" scale ="2 2 2" position="-1 1 -10"  aabb-collider="objects: a-gltf-model"   color="#4CC3D9" lookat="#cam"   
+      event-set__click="_event: mouseenter; _target:#selectenvironment; value:Library"
+      material="transparent: true ;color: #5e5e5e;src:../images/illyTale_button_Envirom_library.png"
+
+      ></a-box>    
+
+      <a-box id="Beach" class="boxs" scale ="2 2 2" position="2 1 -10"  aabb-collider="objects: a-gltf-model"  color="#4CC3D9" lookat="#cam"   
+      event-set__click="_event: mouseenter; _target:#selectenvironment; value:Garden;" 
+    material="transparent: true ;color: #5e5e5e;src:../images/illyTale_button_Envirom_Beach.png"
+     ></a-box>    
+    
+     <!--selected Environment Txt-->
+ <a-text id="selectenvironment" scale="0.4 .4 .4" value="Environment"  position="0 0.2 1" text="align: center"geometry="primitive:circle ; "material="src:../images/stars.jpg;transparent: false" ></a-text>
+   
+</a-scene>
+ 
+  </body>
+</html>
