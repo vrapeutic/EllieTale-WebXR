@@ -34,7 +34,7 @@
     maxCanvasHeight: 1920;
     gammaOutput: true;">
 
-    <a-camera  id="cam" movement-controls="speed: 0.15 constrainToNavMesh:true" position="0 0 -5" wasd-controls="" rotation="0 -180 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
+    <a-camera  id="cam" movement-controls="speed: 0.15 constrainToNavMesh:true" position="0 1 -5" wasd-controls="" rotation="0 -180 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
       <a-entity cursor="rayOrigin: mouse"></a-entity>
    </a-camera>
   
@@ -141,11 +141,11 @@
      
  <!-- eille the Fairy-->
       
-      <a-gltf-model id="Fairy"   src="#fairymodel" position="-0.085 3 -9.748"   aabb-collider="objects: a-entity"  static-body="shape: box; mass: 0"  lookat="#cam" >
+      <a-gltf-model id="Fairy"   src="#fairymodel" position="-0.085 3 2.748"   aabb-collider="objects: a-entity"  static-body="shape: box; mass: 0"  lookat="#cam" >
       </a-gltf-model>
 
       <!--noah distractor-->
-      <a-entity id="myDistractor"   visible="false"  gltf-model="#distractorModel" position="12 0.3 0.224"  lookat="#cam"   clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity" rotation="0 -70 0" shadow >
+      <a-entity id="myDistractor"   visible="false"  gltf-model="#distractorModel" position="1.75 0.3 -7.224"  lookat="#cam"   clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity" shadow >
 
 
    </a-entity>
