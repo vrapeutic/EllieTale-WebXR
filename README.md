@@ -1,6 +1,5 @@
-# AFrame
-# aframe-demo
-Illytale  - aframe version
+# EillyTale
+Ellytale  - aframe version
 
 
 <a href="https://giphy.com/"><img src="https://media.giphy.com/media/sPLvCsgHmeRORpXqEB/giphy.gif" alt="illy-poster" border="0"></a>
@@ -29,8 +28,10 @@ The environments are: a garden to collect fruits, a beach to collect fishing too
  
 To know more about this module check this [link](https://drive.google.com/file/d/1Bl0U1to2vOZ4wd83phxHcwpTrgiWfMjf/view?usp=sharing)
 
-## Installation
+##  Statistics
+ In this module we need to collect data from each session to measure the progress of our player [here](https://docs.google.com/document/d/1hfb-5QqN-BFjP4_b4bqCiUYKa5b7ye6Q0TGulNYexKg/edit?usp=sharing) you will find how to calculate this data .
 
+## Installation
 
 
 * Go to [glitch](https://glitch.com/)
@@ -51,6 +52,10 @@ you can find all gltf models [here](https://glitch.com/edit/#!/truth-elated-ocic
 
 this script contains three buttons each button redirect to one of our environments
 
+* index.js
+
+Here we define most of our variables ,check [Statistics](#Statistics) for more information
+
 * html\Beach.html 
 
 this contains our beach environments' entities (scene-sky- beach-fairy-destructor-score-list of items ..) with all components
@@ -61,23 +66,27 @@ this for our garden environments' entities
 
 * html\Library.html 
 
-this for library environments' entitis
+this for our library environments' entitis
 
-* js\timeManger.js 
+* js\timermanger.js 
 
-that contains “closetime” aframe component which is responsible for loading next scene after specific duration
+that contains “timer” aframe component which is responsible for loading next scene after specific duration
 
-* js\dsmove.js 
+* js\distractormovenment.js
 
-that contains dsmove component which mange the distractor movement in level two and three,in addition to calculate time since distractor hit any target until player response to it
+that contains component which mange the distractor random movenment in level two .
 
-* js\fairy.js 
+* js\distractoradvancedmovenment.js 
+
+that contains component which mange the distractor movenment in level three,in addition to calculate time since distractor hit any target until player response to it
+
+* js\fairytasktimer.js 
 
 this responsible for calculate the time the player takes since the fairy hit the target until the player open it
 
 * js\inpscounter.js 
 
-this responsible for count times that the player doesn’t look at the fairy for more than 3 seconds
+this responsible for count times that the player doesn’t look at the fairy for more than 3 seconds it helps in collecting data ,check [Statistics](#Statistics)
 
 * js\items.js 
 
@@ -91,8 +100,15 @@ this contains the component which will add light to the target just hitted by th
 
 This controls game levels and using a timer or not
 
-## Test 
+* js\stats.js
 
+Here we calculate our [Statistics](#Statistics)
+
+* js\selectenvironment.js
+
+This component responsible for choosing the environment
+
+## Test 
 
 Open the project on glitch from your dashboard ,Click on Show icon 
 
