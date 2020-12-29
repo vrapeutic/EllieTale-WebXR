@@ -34,7 +34,7 @@
     maxCanvasHeight: 1920;
     gammaOutput: true;">
 
-    <a-camera  id="cam" movement-controls="speed: 0.15 constrainToNavMesh:true" position="0 1.6 5" wasd-controls="" rotation="0 -180 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
+    <a-camera  id="cam" movement-controls="speed: 0.15 constrainToNavMesh:true" position="0 0 -5" wasd-controls="" rotation="0 -180 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
       <a-entity cursor="rayOrigin: mouse"></a-entity>
    </a-camera>
   
@@ -100,24 +100,24 @@
   
       <!--enviroment-->
      
-      <a-entity id="mybeach" gltf-model="#Environment" shadow="" animation-mixer position="-7.05725 0.00807 8.13117">
+      <a-entity id="mybeach" gltf-model="#Environment" shadow="" animation-mixer position="12 0 -7.13117">
       </a-entity>
 
 <!--Targets-->
       <a-entity id="Targets" fairytasktimer class="BoxParent" >
 
-        <a-entity id="targetone" scale="0.3 0.3 0.3" class="Box" gltf-model="#target" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="-15.49348 -0.02695 19.49792"   showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
+        <a-entity id="targetone" scale="0.3 0.3 0.3" class="Box" gltf-model="#target" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="2.167 0.2 3.336"   showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
         </a-entity> 
 
-        <a-entity id="targettwo" scale="0.3 0.3 0.3" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-22.3313 -0.12633 12.90903"  showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
+        <a-entity id="targettwo" scale="0.3 0.3 0.3" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-5.322 0.2 -2.091"  showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
         </a-entity>
 
-        <a-entity id="targetthree" scale="0.3 0.3 0.3" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-20.3313 -0.12633 -0.113"  showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
+        <a-entity id="targetthree" scale="0.3 0.3 0.3" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-0.887 0.2 -9.844"  showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
 
         </a-entity>     
-        <a-entity id="targetfour" scale="0.3 0.3 0.3" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-25.3313 -0.12633 -0.113"  showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
+        <a-entity id="targetfour" scale="0.3 0.3 0.3" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="3.953 0.2 -3.692"  showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
         </a-entity>     
-      </a-entity>  
+      </a-entity> 
 
    
     
@@ -139,13 +139,13 @@
      </a-entity>
        
      
-     <!-- eille the Fairy-->
+ <!-- eille the Fairy-->
       
-      <a-gltf-model id="Fairy"   src="#fairymodel" position="-25 3 5"   aabb-collider="objects: a-entity"  static-body="shape: box; mass: 0"  lookat="#cam" >
+      <a-gltf-model id="Fairy"   src="#fairymodel" position="-0.085 3 -9.748"   aabb-collider="objects: a-entity"  static-body="shape: box; mass: 0"  lookat="#cam" >
       </a-gltf-model>
 
       <!--noah distractor-->
-      <a-entity id="myDistractor"   visible="false"  gltf-model="#distractorModel" position="1.7 5 24.6"  lookat="#cam"   clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity" rotation="0 90 0" shadow >
+      <a-entity id="myDistractor"   visible="false"  gltf-model="#distractorModel" position="12 0.3 0.224"  lookat="#cam"   clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity" rotation="0 -70 0" shadow >
 
 
    </a-entity>
