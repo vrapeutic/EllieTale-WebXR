@@ -10,21 +10,21 @@
     <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
     <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-animation-component@^5.1.2/dist/aframe-animation-component.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     <script src="../js/custom/aframe-environment-component.min.js"></script>
     <script src="../js/custom/aframe-spe-particles-component.js"></script>
-    <script src="../js/dsmove.js"></script>
+    <script src="../js/distractoradvancedmovenment.js"></script>
     <script src="../js/movetotarget.js"></script>
     <script src="../js/items.js"></script>
-    <script src="../js/fairy.js"></script>
+    <script src="../js/fairytasktimer.js"></script>
     <script src="../js/inpscounter.js"></script>
     <script src="../js/stats.js"></script>
-    <script src="../js/closetime.js"></script>
-    <script src="../js/ds.js"></script>
+    <script src="../js/timemanger.js"></script>
+    <script src="../js/distractormovenment.js"></script>
     <script src="../js/menu.js"></script>
+    <script src="../index.js"></script>
   </head>
   <body>
 
@@ -35,56 +35,66 @@
     gammaOutput: true;">
    
         
-    <a-entity camera="" id="cam" position="2 3 15" wasd-controls="" rotation="-90 90 -90" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
+    <a-camera  id="cam" movement-controls="speed: 0.15 constrainToNavMesh:true" position="0 1 -5" wasd-controls="" rotation="0 -180 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
       <a-entity cursor="rayOrigin: mouse"></a-entity>
-     
-     
-      <!--Menu-->
+   </a-camera>
+  
+      <!--MenuwithCamera-->
   <a-entity id="LevelsButton" menu visible="false">
 
-  <a-text value="Easy" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/level.png;transparent: false"  id="boxLevel"  position="-2 -1 -3"    lookat="#cam" color="#4CC3D9"  clickable 
-  event-set__click="_event: mouseenter; _target:#level; value:1 " ></a-text>    
+    
+  <a-text value="Easy" class="menu" width="10" text="side:double;  align:center"  scale="0.5 0.5 0.5" geometry="primitive:circle; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false"  id="boxLevel"  position="-2 1 -3"    lookat="#cam" color="#4CC3D9"  clickable 
+  event-set__click="_event: mouseenter; _target:#level; value:1"> </a-text>    
 
-  <a-text value="Medium" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/level.png;transparent: false" id="boxLevel1"  position="0 -1 -3"  lookat="#cam" color="#4CC3D9" clickable 
+  <a-text value="Medium" class="menu" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false" id="boxLevel1"  position="0 1 -3"  lookat="#cam" color="#4CC3D9" clickable 
   event-set__click="_event: mouseenter; _target:#level; value:2 " ></a-text>  
   
-  <a-text value="Hard" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/level.png;transparent: false" id="boxLevel2"  position="2 -1 -3"   lookat="#cam"  color="#4CC3D9" clickable 
+  <a-text value="Hard"  class="menu" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false" id="boxLevel2"  position="2 1 -3"   lookat="#cam"  color="#4CC3D9" clickable 
   event-set__click="_event: mouseenter; _target:#level; value:3 " ></a-text>    
 </a-entity>
-  <a-text  value="30" width="20" text="side:  double;  align:  center" scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer" class="timer"  position="-1.5 0 -1.5" color="#4CC3D9"   lookat="#cam"  clickable 
-  event-set__click="_event: mouseenter; _target:#counter; value:30" ></a-text>    
 
-  <a-text   value="60" width="20" text="side:  double;  align:  center" id="boxtimer1"   scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" class="timer" position="-0.5 0 -1.5" color="#4CC3D9"  lookat="#cam"  clickable 
-  event-set__click="_event: mouseenter; _target:#counter; value:60 " >
-</a-text>  
+<!--Timer-->
+  <a-text  value="30"  width="20" text="side:  double;  align:  center" scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer" class="timer"  position="-1.5 2 -1.5" color="#4CC3D9"   lookat="#cam"  clickable 
+  event-set__click30="_event: mouseenter; _target:#counter; value:30" ></a-text>    
+
+  <a-text   value="60"  width="20" text="side:  double;  align:  center"  id="boxtimer1"   scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" class="timer" position="-0.5 2 -1.5" color="#4CC3D9"  lookat="#cam"  clickable 
+  event-set__click60="_event: mouseenter; _target:#counter; value:60 " >
+</a-text>        
+
   
-  <a-text  value="90" width="20" text="side:  double;  align:  center"  scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer2" class="timer"  position="0.5 0 -1.5" color="#4CC3D9"   lookat="#cam"  clickable 
-  event-set__click="_event: mouseenter; _target:#counter; value:90 " ></a-text>    
-
-  <a-text  value="open" text="side:  double;  align:  center" width="0" scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_off.png;transparent: true" id="noTimer" class="timer"  position="1.5 0 -1.5"    color="#4CC3D9" lookat="#cam"  
-  event-set__click="_event: mouseenter; _target:#counter; value:0 " ></a-text> 
+  <a-text  value="90" width="20" text="side:  double;  align:  center"  scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer2" class="timer"  position="0.5 2 -1.5" color="#4CC3D9"   lookat="#cam"  clickable 
+  event-set__click90="_event: mouseenter; _target:#counter; value:90 " ></a-text>    
+<!--withouttimer-->
+  <a-text  value="open"   text="side:  double;  align:  center" width="0" scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_off.png;transparent: true" id="noTimer" class="timer"  position="1.5 2 -1.5"    color="#4CC3D9" lookat="#cam"  
+  event-set__clickopen="_event: mouseenter; _target:#counter; value:0 " ></a-text> 
  
   <!--score-->
   <a-text id="score" value="0" width="20" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" position="0 -2 -3"></a-text>
-  <a-text id="reload"   text="side:  double;  align:  center"  scale="0.2 0.2 0.2" geometry="primitive:circle ; "material=" src:../images/1.png;transparent: true" position="3 2 -3"></a-text>
+  <!--backtomenu-->
+  <a-text id="reload" class="menu"  text="side:  double;  align:  center"  scale="0.2 0.2 0.2" geometry="primitive:circle ; "material=" src:../images/1.png;transparent: true" position="3 2 -3"></a-text>
+ </a-entity>
   <!--Hands-->
+  
+     <a-entity progressive-controls></a-entity>  
+
       <a-entity oculus-quest-controls="hand: left"></a-entity>
       
       <a-entity oculus-quest-controls="hand: right"></a-entity>
       
-            <a-entity laser-controls="hand: right" raycaster="objects: .boxs; far: 100"></a-entity>
-    </a-entity>
+     <a-entity laser-controls="hand: right" raycaster="objects: .timer,.menu,.Box,#distractingPartical; far: 100"></a-entity>
+    
       
 <!--Assets-->
 
             <a-assets timeout="500000">        
         
-         <img id="starsky" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2Fsky22final.jpg?v=1602609805245">
         <a-asset-item id="target" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_Tree01_v1.01.glb?v=1607334759579"
          response-type="arraybuffer"></a-asset-item>
          <a-asset-item id="Environment" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_Environment01_4k_v1.01.glb?v=1607409869939"
          response-type="arraybuffer"></a-asset-item>
-        <a-asset-item id="Ds" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FNoah_farmer_pbr_2k_2mats_01.glb?v=1607360048942"
+         <a-asset-item id="distractorModel" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FNoah_farmer_pbr_2k_2mats_01.glb?v=1607360048942"
+         response-type="arraybuffer"></a-asset-item>
+         <a-asset-item id="fairymodel" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FElly_2k_01.glb?v=1608738722490"
          response-type="arraybuffer"></a-asset-item>
        </a-assets>
 
@@ -95,9 +105,7 @@
       <a-entity id="myGarden" gltf-model="#Environment" >
       </a-entity>      
     
-      <!--Lights-->
-      <a-entity light="color: #eed111; groundColor: #cecdc5; castShadow: true" position="-11.61322 136.48563 -35.54899" scale="3 3 3"></a-entity>
-      
+
       <!--Targets-->
 
       <a-entity id="Targets" class="BoxParent">
@@ -146,7 +154,7 @@
 
 
 <!--DS-->
-<a-entity id="myDs" nav-agent scale="1.7 1.7 1.7" visible="" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FNoah_farmer_pbr_2k_2mats_01.glb?v=1607237682734" position="-14.18763 0.07845 14.78224" lookat="#cam" clickable="" static-body="shape: box; sphereRadius: NaN" aabb-collider="objects: a-entity" rotation="0 90 0" shadow="">
+<a-entity id="myDistractor"   visible="false"  gltf-model="#distractorModel" position="-14.18763 0.07845 14.78224" lookat="#cam" clickable="" static-body="shape: box; sphereRadius: NaN" aabb-collider="objects: a-entity" rotation="0 90 0" shadow="">
 </a-entity>
 
 <!--Stats-->
@@ -160,12 +168,12 @@
 <a-text id="dscounter" value="1" geometry="primitive:circle"visible="false" position="-40 1 4" ></a-text>
 <a-text id="dstime" value="0" geometry="primitive:circle" position="-45 1 4" visible="false"></a-text>
 <a-text id="inpsCounter" value="0" geometry="primitive:circle" position="-25 1 7" visible="false" inpssore></a-text>
-<a-text id="inps" value="0" geometry="primitive:circle" position="-35 1 7" visible="false" inpsscore ></a-text>
+<a-text id="inps" value="0" geometry="primitive:circle" position="-35 1 7" visible="false"  ></a-text>
 <a-text id="session" value="0" geometry="primitive:circle" position="-35 1 7" visible="false" timer ></a-text>
 
  <!--TaxiFairy-->
       
- <a-gltf-model id="Taxi"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FElly_2k_01.glb?v=1608738722490" position="-9.44433 0.33465 1.60362" aabb-collider="objects: a-entity" static-body="shape: box; sphereRadius: NaN" lookat="#cam" >
+ <a-gltf-model id="Fairy"   src="#fairymodel" position="-9.44433 0.33465 1.60362" aabb-collider="objects: a-entity" static-body="shape: box; sphereRadius: NaN" lookat="#cam" >
  </a-gltf-model>
    
 
