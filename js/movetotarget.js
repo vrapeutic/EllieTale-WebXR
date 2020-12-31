@@ -67,6 +67,7 @@ AFRAME.registerComponent("ontriggertarget", {
           .includes("myDistractor")
       )
       {
+        console.log("hey you");
          if(document.getElementById("distractingPartical")!=null)
        {
         var distractingPartical = document.createElement("a-entity")
@@ -77,8 +78,10 @@ AFRAME.registerComponent("ontriggertarget", {
        ( nextTargetPosition.x+2) +
        " 1 " +
         nextTargetPosition.z )
-     
-        document.querySelector('a-scene').appendChild(distractingPartical);
+    setTimeout(() => {
+              document.querySelector('a-scene').appendChild(distractingPartical);
+
+    }, 1000);
        
 
        }
