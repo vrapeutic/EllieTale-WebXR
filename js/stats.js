@@ -82,7 +82,7 @@ document.getElementById("session").addEventListener("click",e=>{
     {
 
       
-    Tar=document.getElementById("inps").getAttribute("value")/(document.getElementById("Targets").children.length);
+    Tar=document.getElementById("inps").getAttribute("value")/(target.length);
      timeTaken=convertHMS(document.getElementById("session").getAttribute("value"));
     if (Tar == 0){
     implusivityScore = 1;}

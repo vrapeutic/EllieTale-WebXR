@@ -6,7 +6,7 @@ AFRAME.registerComponent("showitem", {
 
    let fairy = document.querySelector("#Fairy");
    var el = this.el;
- 
+   target = document.querySelectorAll(".Box");
      let selectRandomItem = () => 
      {
       if( el.firstElementChild.id!=null)//check if this target has light
@@ -45,7 +45,7 @@ AFRAME.registerComponent("showitem", {
  //partical.setAttribute("position","1 3 1")
  item[random].appendChild(partical);
 
-if (index <= document.querySelectorAll(".BoxParent").length+1) 
+if (index <= document.querySelectorAll(".Box").length+1) 
        {
  
          index++;
@@ -57,10 +57,10 @@ if (index <= document.querySelectorAll(".BoxParent").length+1)
          index = 3;
        }
  
-       fairyPositionx = this.el.parentElement.children[index].getAttribute("position").x-3;
-       fairyPositionz = this.el.parentElement.children[index].getAttribute("position") .z;
+       fairyPositionx = target[index].getAttribute("position").x-2;
+       fairyPositionz = target[index].getAttribute("position").z;
  
- console.log(fairyPositionx);
+ console.log( this.el.parentElement.children[index].getAttribute("position").x);
        setTimeout(() => 
        {
  
@@ -70,11 +70,11 @@ if (index <= document.querySelectorAll(".BoxParent").length+1)
  
          fairy.setAttribute(
            "animation",
-           "property:position; to:" + (fairyPositionx+1.5) + " 0.3 " + fairyPositionz + "; dur:1000"
+           "property:position; to:" + fairyPositionx + " 0.5 " + fairyPositionz + "; dur:1000"
          );//move Fairy to next Target
  
          console.log(
-           random + " count : " + item.length + fairy.getAttribute("position").z
+           random + " count : " +fairyPositionz+" " + fairy.getAttribute("position").z
          );
  
          item[random].className = "new";

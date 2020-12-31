@@ -16,32 +16,28 @@ var target = document.querySelectorAll(".Box");//Array of targets
   } 
  
 taskTimer();
-target.forEach(element => {
 
-  element.addEventListener("hitstart", e => 
-    { 
 
-if(e.target.components["aabb-collider"].map(x => x.id)!==null)
-{
-    console.log(
-      e.target.id,
-      "hit witth ",
-      e.target.components["aabb-collider"]["intersectedEls"].map(x => x.id)
-    );
-}
+  this.el.addEventListener("hitstart", e => 
+    {   console.log(
+    e.target.id,
+    "collided ",
+ e.target.components["aabb-collider"]["intersectedEls"].map(x => x.id)
+  );
+console.log(timer);
 
     if (
       e.target.components["aabb-collider"]["intersectedEls"]
-        .map(x => x.id)
-        .includes("Fairy")){
+      .map(x => x.id)
+ .includes("targetone,targettwo,targetthree,targetfour")){
           
-    
 
+   
           taskTimer();
       
-         }})
+         }}
 
- });
+ );
 
 
   }}) 

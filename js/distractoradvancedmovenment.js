@@ -50,10 +50,10 @@ AFRAME.registerComponent("advancedmovenment", {
       ds.setAttribute(
         "animation",
         "property:position; to:" +
-          ( nextTargetPosition.x ) +
+          ( nextTargetPosition.x+1 ) +
           " 0.3 " +
            nextTargetPosition.z +
-          " dur:5000"
+          " dur:1000"
       );    
    
      console.log("dscounter: "+distractingTaskCounter);
@@ -86,10 +86,10 @@ AFRAME.registerComponent("advancedmovenment", {
 
       var distractingPartical = document.createElement("a-entity")
          distractingPartical.setAttribute("spe-particles","texture:../images/particles/snowflake.png; color: #0000FF, #00FFFF, #FFFFFF; particle-count: 1000; acceleration: 0 -6 0;")
-         distractingPartical.setAttribute("spe-particles","opacity: 2, 2, 0; velocity: 0 2 0; size: 2, 2, 0; velocity-spread: 2 0 2;") 
+         distractingPartical.setAttribute("spe-particles","opacity: 1, 1, 0; velocity: 0 1 0; size: 1, 1, 0; velocity-spread: 1 0 1;") 
          distractingPartical.setAttribute("id", "distractingPartical")
         distractingPartical.setAttribute("position", 
-        ( nextTargetPosition.x+2.5) +
+        ( nextTargetPosition.x+2) +
         " 1 " +
          nextTargetPosition.z )
       
