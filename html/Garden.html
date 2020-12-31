@@ -7,7 +7,6 @@
     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
     <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
-    <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
     <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
@@ -28,19 +27,18 @@
   </head>
   <body>
 
-    <a-scene inspector-plugin-recast shadow="type: pcfsoft" stats effects="bloom, fxaa, ssao, godrays" bloom="radius: 0.66" fxaa  godrays="src: #sun; threshold: 0. 0.33; intensity: 2;tint:#FF0000" ssao="intensity:10;scale:.2;maxDepth:10;samples:64;radius:1;depthCutoff:100;blurRadius:10"  renderer="antialias: true;
+    <a-scene  shadow="type: pcfsoft" stats effects="bloom, fxaa, ssao, godrays" bloom="radius: 0.66" fxaa  godrays="src: #sun; threshold: 0. 0.33; intensity: 2;tint:#FF0000" ssao="intensity:10;scale:.2;maxDepth:10;samples:64;radius:1;depthCutoff:100;blurRadius:10"  renderer="antialias: true;
     sortObjects: true;
     maxCanvasWidth: 1920;
     maxCanvasHeight: 1920;
     gammaOutput: true;">
    
         
-    <a-camera  id="cam" movement-controls="speed: 0.15 constrainToNavMesh:true" position="0 1 -5" wasd-controls="" rotation="0 -180 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
+    <a-camera menu id="cam" movement-controls="speed: 0.15 constrainToNavMesh:true" position="0 1 -5" wasd-controls="" rotation="0 -180 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
       <a-entity cursor="rayOrigin: mouse"></a-entity>
    </a-camera>
   
       <!--MenuwithCamera-->
-  <a-entity id="LevelsButton" menu visible="false">
 
     
   <a-text value="Easy" class="menu" width="10" text="side:double;  align:center"  scale="0.5 0.5 0.5" geometry="primitive:circle; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false"  id="boxLevel"  position="-2 1 -3"    lookat="#cam" color="#4CC3D9"  clickable 
@@ -51,7 +49,7 @@
   
   <a-text value="Hard"  class="menu" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false" id="boxLevel2"  position="2 1 -3"   lookat="#cam"  color="#4CC3D9" clickable 
   event-set__click="_event: mouseenter; _target:#level; value:3 " ></a-text>    
-</a-entity>
+
 
 <!--Timer-->
   <a-text  value="30"  width="20" text="side:  double;  align:  center" scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer" class="timer"  position="-1.5 2 -1.5" color="#4CC3D9"   lookat="#cam"  clickable 
@@ -79,7 +77,7 @@
 
       <a-entity oculus-quest-controls="hand: left"></a-entity>
       
-      <a-entity oculus-quest-controls="hand: right"></a-entity>
+      <a-entity oculus-quest-controls="hand: right" thumbstick-logging ></a-entity>
       
      <a-entity laser-controls="hand: right" raycaster="objects: .timer,.menu,.Box,#distractingPartical; far: 100"></a-entity>
     
@@ -102,60 +100,60 @@
       
       <a-entity progressive-controls></a-entity>
         
-      <a-entity id="myGarden" gltf-model="#Environment" >
-      </a-entity>      
+      <a-gltf-model id="myGarden" src="#Environment" >
+      </a-gltf-model>      
     
 
       <!--Targets-->
 
-      <a-entity id="Targets" class="BoxParent">
+     
 
-        <a-entity id="targetone" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="-6.14201 0.21685 9.26717" showitem="" static-body="shape: box; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 86.87988230686724 0" ontriggertarget="">
+        <a-entity id="targetone" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="-6.14201 0.21685 9.26717" showitem="" static-body="shape: box" amimation-mixer="enabled:false" rotation="0 86.87988230686724 0" ontriggertarget="">
              
         </a-entity>
-        <a-entity id="targettwo" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="-3.9871 0.21685 -9.67132" showitem="" static-body="shape: box; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 127.95465368200082 0" ontriggertarget="">
+        <a-entity id="targettwo" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="-3.9871 0.21685 -9.67132" showitem="" static-body="shape: box" amimation-mixer="enabled:false" rotation="0 127.95465368200082 0" ontriggertarget="">
              
 
         </a-entity>
-        <a-entity id="targetthree" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="15.42803 0.2291 13.96831" showitem="" static-body="shape: box; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 173.37817472217736 0" ontriggertarget="">
+        <a-entity id="targetthree" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="15.42803 0.2291 13.96831" showitem="" static-body="shape: box" amimation-mixer="enabled:false" rotation="0 173.37817472217736 0" ontriggertarget="">
              
 
         </a-entity>      
     
-        <a-entity id="targetfour" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="11.72736 0.29069 -5.37097" showitem="" static-body="shape: box; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="-7.739513896627161 -7.861553906990025 1.4816688582083088" ontriggertarget="">
+        <a-entity id="targetfour" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="11.72736 0.29069 -5.37097" showitem="" static-body="shape: box" amimation-mixer="enabled:false" rotation="-7.739513896627161 -7.861553906990025 1.4816688582083088" ontriggertarget="">
 
         </a-entity>
-      </a-entity>   
+  
 
             <!--items-->
 
-   <a-entity id="item" class="items" visible="false" scale="3 3 3" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_guava.glb?v=1607358241269"  animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-</a-entity>
+   <a-gltf-model id="item" class="items" visible="false" scale="3 3 3" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_guava.glb?v=1607358241269"  animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+</a-gltf-model>
 
-<a-entity id="itemOne" class="items" visible="false" scale="3 3 3" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_mango.glb?v=1607358241384" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-</a-entity>
+<a-gltf-model id="itemOne" class="items" visible="false" scale="3 3 3" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_mango.glb?v=1607358241384" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+</a-gltf-model>
 
-<a-entity id="itemTwo" class="items"  visible="false" scale="3 3 3" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_strawberry.glb?v=1607358243669" animation="property: rotaion; to: 0 360 0; loop: true; dur: 500">
-</a-entity>
+<a-gltf-model id="itemTwo" class="items"  visible="false" scale="3 3 3" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_strawberry.glb?v=1607358243669" animation="property: rotaion; to: 0 360 0; loop: true; dur: 500">
+</a-gltf-model>
 
-<a-entity id="itemThree"  visible="false"   class="items" scale="3 3 3"  gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_banana.glb?v=1607358243019" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-</a-entity>
+<a-gltf-model id="itemThree"  visible="false"   class="items" scale="3 3 3"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_banana.glb?v=1607358243019" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+</a-gltf-model>
 
-<a-entity id="itemFive"  visible="false"   class="items"  scale="3 3 3" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_apple.glb?v=1607358243818" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-  </a-entity>
+<a-gltf-model id="itemFive"  visible="false"   class="items"  scale="3 3 3" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_apple.glb?v=1607358243818" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+  </a-gltf-model>
 
-  <a-entity id="itemSix"  visible="false"   class="items" scale="3 3 3"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_orange.glb?v=1607358244892" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-    </a-entity>
+  <a-gltf-model id="itemSix"  visible="false"   class="items" scale="3 3 3"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_orange.glb?v=1607358244892" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+    </a-gltf-model>
 
-    <a-entity id="itemSeven"  visible="false"   class="items" scale="3 3 3"  gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_grapes.glb?v=1607358243472" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-      </a-entity>
+    <a-gltf-model id="itemSeven"  visible="false"   class="items" scale="3 3 3"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_prop_grapes.glb?v=1607358243472" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+      </a-gltf-model>
 
   
 
 
 <!--DS-->
-<a-entity id="myDistractor"   visible="false"  gltf-model="#distractorModel" position="-14.18763 0.07845 14.78224" lookat="#cam" clickable="" static-body="shape: box; sphereRadius: NaN" aabb-collider="objects: a-entity" rotation="0 90 0" shadow="">
-</a-entity>
+<a-gltf-model id="myDistractor"   visible="false"  src="#distractorModel" position="-14.18763 0.07845 14.78224" lookat="#cam" clickable="" static-body="shape: box; sphereRadius: NaN" aabb-collider="objects: a-entity; collideNonVisible: false; debug:true;" rotation="0 90 0" shadow="">
+</a-gltf-model>
 
 <!--Stats-->
   
@@ -178,8 +176,6 @@
    
 
         </a-scene>
-        <script>
-        
-        </script>
+   
   </body>
 </html>
