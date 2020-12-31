@@ -34,13 +34,11 @@
     maxCanvasHeight: 1920;
     gammaOutput: true;">
 
-    <a-camera  id="cam" movement-controls="speed: 0.15 constrainToNavMesh:true" position="0 1 -5" wasd-controls="" rotation="0 -180 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
+    <a-camera  id="cam" menu movement-controls="speed: 0.15 constrainToNavMesh:true" position="0 1 -5" wasd-controls="" rotation="0 -180 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
       <a-entity cursor="rayOrigin: mouse"></a-entity>
    </a-camera>
   
       <!--MenuwithCamera-->
-  <a-entity id="LevelsButton" menu visible="false">
-
     
   <a-text value="Easy" class="menu" width="10" text="side:double;  align:center"  scale="0.5 0.5 0.5" geometry="primitive:circle; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false"  id="boxLevel"  position="-2 1 -3"    lookat="#cam" color="#4CC3D9"  clickable 
   event-set__click="_event: mouseenter; _target:#level; value:1"> </a-text>    
@@ -50,7 +48,7 @@
   
   <a-text value="Hard"  class="menu" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false" id="boxLevel2"  position="2 1 -3"   lookat="#cam"  color="#4CC3D9" clickable 
   event-set__click="_event: mouseenter; _target:#level; value:3 " ></a-text>    
-</a-entity>
+
 
 <!--Timer-->
   <a-text  value="30"  width="20" text="side:  double;  align:  center" scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer" class="timer"  position="-1.5 2 -1.5" color="#4CC3D9"   lookat="#cam"  clickable 
@@ -100,11 +98,10 @@
   
       <!--enviroment-->
      
-      <a-entity id="mybeach" gltf-model="#Environment" shadow="" animation-mixer position="12 0 -7.13117">
-      </a-entity>
+      <a-gltf-model id="mybeach" src="#Environment" shadow="" animation-mixer position="12 0 -7.13117">
+      </a-gltf-model>
 
 <!--Targets-->
-      <a-entity id="Targets" fairytasktimer class="BoxParent" >
 
         <a-entity id="targetone" scale="0.3 0.3 0.3" class="Box" gltf-model="#target" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="2.167 0.2 3.336"   showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
         </a-entity> 
@@ -117,38 +114,38 @@
         </a-entity>     
         <a-entity id="targetfour" scale="0.3 0.3 0.3" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="3.953 0.2 -3.692"  showitem static-body="shape: box; " amimation-mixer="enabled:false" rotation="0 -270 0" shadow ontriggertarget>
         </a-entity>     
-      </a-entity> 
+      
 
    
     
     <!--items-->
 
-   <a-entity id="item" class="items" visible="false"  gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShark%20With%20Material.glb?v=1602763326676" scale="5000 5000 5000" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-     </a-entity>
+   <a-gltf-model  id="item" class="items" visible="false"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShark%20With%20Material.glb?v=1602763326676" scale="5000 5000 5000" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+     </a-gltf-model >
 
-   <a-entity id="itemOne" class="items" visible="false"  gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2Fnod.glb?v=1602686258177" scale="5 5 5" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-    </a-entity>
+   <a-gltf-model  id="itemOne" class="items" visible="false"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2Fnod.glb?v=1602686258177" scale="5 5 5" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+   </a-gltf-model >
 
-    <a-entity id="itemTwo" class="items"  visible="false" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FWhale.glb?v=1602767677623" scale="5 5 5" animation="property: rotaion; to: 0 360 0; loop: true; dur: 500">
-    </a-entity>
+    <a-gltf-model id="itemTwo" class="items"  visible="false" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FWhale.glb?v=1602767677623" scale="5 5 5" animation="property: rotaion; to: 0 360 0; loop: true; dur: 500">
+    </a-gltf-model>
 
-    <a-entity id="itemThree"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShrimp.glb?v=1602766713614" scale="8000 8000 8000" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-    </a-entity>
+    <a-gltf-model id="itemThree"  visible="false"   class="items"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShrimp.glb?v=1602766713614" scale="8000 8000 8000" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+    </a-gltf-model>
 
-    <a-entity id="itemFour"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShip%20beach.glb?v=1602764145944" scale="5 5 5" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-     </a-entity>
+    <a-gltf-model id="itemFour"  visible="false"   class="items"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShip%20beach.glb?v=1602764145944" scale="5 5 5" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+     </a-gltf-model>
        
      
  <!-- eille the Fairy-->
       
-      <a-gltf-model id="Fairy"   src="#fairymodel" position="-0.085 3 2.748"   aabb-collider="objects: a-entity"  static-body="shape: box; mass: 0"  lookat="#cam" >
+      <a-gltf-model id="Fairy" fairytasktimer   src="#fairymodel" position="-0.085 3 2.748"   aabb-collider="objects: a-entity; collideNonVisible: false; debug:true;"  static-body="shape: box; mass: 0"  lookat="#cam" >
       </a-gltf-model>
 
       <!--noah distractor-->
-      <a-entity id="myDistractor"   visible="false"  gltf-model="#distractorModel" position="1.75 0.3 -7.224"  lookat="#cam"   clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity" shadow >
+      <a-gltf-model id="myDistractor"   visible="false"  gltf-model="#distractorModel" position="1.75 0.3 -7.224"  lookat="#cam"   clickable static-body="shape: box; mass: 0" aabb-collider="objects: a-entity; collideNonVisible: false; debug:true;" shadow >
 
 
-   </a-entity>
+      </a-gltf-model>
      
 
 <!--Stats-->

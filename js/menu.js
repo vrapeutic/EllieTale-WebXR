@@ -137,7 +137,7 @@ AFRAME.registerComponent('menu', {
   document.getElementById('boxtimer1').parentNode.removeChild(document.getElementById('boxtimer1'))
   document.getElementById('boxtimer2').parentNode.removeChild(document.getElementById('boxtimer2'))
   document.getElementById('noTimer').parentNode.removeChild(document.getElementById('noTimer'))
-  document.getElementById("LevelsButton").setAttribute("visible",true)
+  //document.getElementById("LevelsButton").setAttribute("visible",true)
   
   }
    }
