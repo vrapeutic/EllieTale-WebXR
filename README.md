@@ -118,7 +118,7 @@ Open the project on glitch from your dashboard ,Click on Show icon
 
 * animation-mixer
 * aabb-collider
-* partical-sprite
+* spe-partical
 
 -Html 
 
