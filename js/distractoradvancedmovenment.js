@@ -99,7 +99,8 @@ AFRAME.registerComponent("advancedmovenment", {
         }
         if(document.getElementById("distractingPartical")!=null)
         {
-       document.getElementById("distractingPartical").addEventListener("mousedown", advancedDsMovement); 
+       ds.addEventListener("mousedown", advancedDsMovement); 
+       
        }
 
     });
