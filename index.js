@@ -1,4 +1,4 @@
-var nextTargetPosition, randomIndexTarget;
+var nextTargetPosition=1, randomIndexTarget=1;
 var target = document.querySelectorAll(".Box");//Array of targets
 console.log(target.length);
 var fairyPositionx=1;

@@ -1,5 +1,5 @@
+console.log("myinps");
 AFRAME.registerComponent('inpsscore', {
-
   tick: function() {
       
 let fairy = document.querySelector("#Fairy");

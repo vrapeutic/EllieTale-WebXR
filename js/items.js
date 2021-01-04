@@ -32,8 +32,8 @@ AFRAME.registerComponent("showitem", {
          index = score;
  
        item[random].setAttribute("position", {
-         x: this.el.getAttribute("position").x+3,
-         y: this.el.getAttribute("position").y+2,
+         x: this.el.getAttribute("position").x+1,
+         y: this.el.getAttribute("position").y+3,
          z: this.el.getAttribute("position").z
        });
  
