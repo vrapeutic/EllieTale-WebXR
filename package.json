@@ -1,0 +1,23 @@
+{
+  "name": "AFrame",
+  "version": "1.0.0",
+  "description": "Ellytale  - aframe version",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server --port=$PORT --no-browser"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vrapeutic/AFrame.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vrapeutic/AFrame/issues"
+  },
+  "homepage": "https://github.com/vrapeutic/AFrame#readme",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}
