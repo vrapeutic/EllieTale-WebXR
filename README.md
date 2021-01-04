@@ -10,20 +10,20 @@ Ellytale  - aframe version
  
 A visual target tracking exercise that is designed to address and measure the various variables of attention assessed by the Test of Variables of Attention (TOVA)
 
-### story
+## Story
 Uncle Noah is an old independent man living by himself in the neighborhood. Since he’s living alone, he needs help making ends meet every day. He fishes, farms, grows fruit and writes books to earn money. Illy is a working fairy living in the neighborhood. She saw Uncle Noah in the evening one day while he was working on his garden and she talked to him. When she got to know that he was living and working alone, she decided that she’d pass by every day to help him. Illy invited the player to join her in helping Uncle Noah by unpacking his tools or collecting his objects for him.
 
 The gameplay occurs in Three different environments. Each is composed of a round track on which the player reveals hidden items with Illy that are then collected. Uncle Noah is always present in the environments on the side doing an idle animation for each environment, and the items that the player and Illy find are collected in a container that lies beside Uncle Noah.
 The environments are: a garden to collect fruits, a beach to collect fishing tools or fish and a library to collect letters.
-### Levels
+## Levels
 ###  Level One: 
  the player must reveal all objects in less than a specific time period. For each box, the player must open it in less than 1m.
  
-###  Level Two DISTRACTOR:
+###  Level Two (**distractor** included):
  the player must reveal all objects in less than a specific time period. For each object, the player must reveal it in less than 1m. While collecting the objects with Illy, Noah will walk around on the same track instead of his idle animation as a distractor. The player must ignore uncle Noah and continue revealing objects with Illy.
  
  
- ###	Level Three DISTRACTOR and INTERACTION:
+ ###	Level Three (**distractor** and **interaction** are included):
  the player must reveal all objects in less than a specific time period. For each object, the player must reveal it in less than 1m. While collecting the objects with Illy, Noah will walk around on the same track instead of his idle animation as a distractor. After the player is done collecting the objects with Illy, Noah will ask the player to shake or point at an obstacle to reveal more objects. The player should follow uncle Noah’s instructions.
  
 To know more about this module check this [link](https://drive.google.com/file/d/1Bl0U1to2vOZ4wd83phxHcwpTrgiWfMjf/view?usp=sharing)
@@ -31,8 +31,7 @@ To know more about this module check this [link](https://drive.google.com/file/d
 ##  Statistics
  In this module we need to collect data from each session to measure the progress of our player [here](https://docs.google.com/document/d/1hfb-5QqN-BFjP4_b4bqCiUYKa5b7ye6Q0TGulNYexKg/edit?usp=sharing) you will find how to calculate this data .
 
-## Installation
-
+## Installation Guide
 
 * Go to [glitch](https://glitch.com/)
  
@@ -46,15 +45,15 @@ To know more about this module check this [link](https://drive.google.com/file/d
 
 *  Assets :
 
-you can find all gltf models [here](https://glitch.com/edit/#!/truth-elated-ocicat?path=assets%3A1%3A0) in assets folder
+All GLTF models could be found in [assets folder](https://glitch.com/edit/#!/truth-elated-ocicat?path=assets%3A1%3A0)
 
 * index.html 
 
-this script contains three buttons each button redirect to one of our environments
+Contains three buttons each button redirect to one of our environments
 
 * index.js
 
-Here we define most of our variables ,check [Statistics](#Statistics) for more information
+Here we define most of our variables, check [Statistics](#Statistics) for more information
 
 * html\Beach.html 
 
@@ -110,9 +109,9 @@ This component responsible for choosing the environment
 
 ## Test 
 
-Open the project on glitch from your dashboard ,Click on Show icon 
+Open the project on Glitch from your dashboard, Click on Show icon 
 
-## Technology
+## Technologies
 
 -A-Frame
 
@@ -120,6 +119,6 @@ Open the project on glitch from your dashboard ,Click on Show icon
 * aabb-collider
 * spe-partical
 
--Html 
+-HTML
 
--Javascript 
+-JavaScript 
