@@ -7,6 +7,7 @@ AFRAME.registerComponent("showitem", {
    let fairy = document.querySelector("#Fairy");
    var el = this.el;
    target = document.querySelectorAll(".Box");
+
      let selectRandomItem = () => 
      {
       if( el.firstElementChild.id!=null)//check if this target has light
@@ -45,35 +46,35 @@ AFRAME.registerComponent("showitem", {
  //partical.setAttribute("position","1 3 1")
  item[random].appendChild(partical);
 
-if (index <= document.querySelectorAll(".Box").length+1) 
+if (index <= document.querySelectorAll(".Box").length) 
        {
  
          index++;
-       } 
- 
-       else if(index==4)
+       }
+    
+    
+ if(index==4)
        {
  
          index = 3;  
-         setTimeout(() => {
-    window.location.href="../index.html";
-  }, 1000);  
+         
+ console.log(index+" len "+ document.querySelectorAll(".Box").length)
+
        }
  
-       fairyPositionx = target[index].getAttribute("position").x+1;
-       fairyPositionz = target[index].getAttribute("position").z;
- 
- console.log( this.el.parentElement.children[index].getAttribute("position").x+" index "+index);
        setTimeout(() => 
        {
  
          score++;
- 
-       document.getElementById("score").setAttribute("value", score);
- 
+           document.getElementById("score").setAttribute("value", score);
+
+        fairyPositionx = target[index].getAttribute("position").x;
+       fairyPositionz = target[index].getAttribute("position").z;
+     
+   
          fairy.setAttribute(
            "animation",
-           "property:position; to:" + fairyPositionx + " 0.5 " + fairyPositionz + "; dur:1000"
+           "property:position; to:" + (fairyPositionx+1) + " 0.7 " + fairyPositionz + "; dur:1000"
          );//move Fairy to next Target
  
          console.log(
@@ -97,8 +98,12 @@ if (index <= document.querySelectorAll(".Box").length+1)
       }
       else{
         console.log("bye");
-      }
+      } 
+     
+ 
+      
      };
+  
   el.addEventListener('child-dattached', function(evt)
        {
         el.removeEventListener("click", ()=>{selectRandomItem()});
@@ -121,6 +126,7 @@ if (index <= document.querySelectorAll(".Box").length+1)
                  
  
            selectRandomItem();  
+         
              
         });  
 

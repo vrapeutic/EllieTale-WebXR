@@ -16,8 +16,8 @@ AFRAME.registerComponent("ontriggertarget", {
         var el = document.createElement('a-light');
         el.setAttribute("type", "point");
         el.setAttribute("id","myLight");
-        el.setAttribute("intensity",0.5);
-        el.setAttribute("position",{x:0,y:5,z:0});
+        el.setAttribute("intensity",3.5);
+        el.setAttribute("position",{x:0,y:0.5,z:0});
        // el.setAttribute("color", "#1dd4ed")
         this.el.appendChild(el);
        }
@@ -94,7 +94,7 @@ AFRAME.registerComponent("ontriggertarget", {
       { 
         
        
-        triggerTarget();
+      //  triggerTarget();
        
     
         setTimeout(() => 

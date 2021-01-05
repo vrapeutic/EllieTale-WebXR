@@ -50,8 +50,8 @@ AFRAME.registerComponent("advancedmovenment", {
       ds.setAttribute(
         "animation",
         "property:position; to:" +
-          ( nextTargetPosition.x+1 ) +
-          " 0.3 " +
+          ( nextTargetPosition.x-1)+
+          " 0.2 " +
            nextTargetPosition.z +
           " dur:1000"
       );    
@@ -85,11 +85,11 @@ AFRAME.registerComponent("advancedmovenment", {
          }, 1000); 
 
       var distractingPartical = document.createElement("a-entity")
-         distractingPartical.setAttribute("spe-particles","texture:../images/particles/snowflake.png; color: #0000FF, #00FFFF, #FFFFFF; particle-count: 1000; acceleration: 0 -6 0;")
-         distractingPartical.setAttribute("spe-particles","opacity: 1, 1, 0; velocity: 0 1 0; size: 1, 1, 0; velocity-spread: 1 0 1;") 
+      distractingPartical.setAttribute("spe-particles","texture:../images/particles/snowflake.png; color: #0000FF, #00FFFF, #FFFFFF; particle-count: 1000; acceleration: 0 -6 0;")
+      distractingPartical.setAttribute("spe-particles","opacity: 2, 2, 0; velocity: 0 2 0; size: 2, 2, 0; velocity-spread: 2 0 2;") ;
          distractingPartical.setAttribute("id", "distractingPartical")
         distractingPartical.setAttribute("position", 
-        ( nextTargetPosition.x+2) +
+        ( nextTargetPosition.x+1) +
         " 1 " +
          nextTargetPosition.z )
       

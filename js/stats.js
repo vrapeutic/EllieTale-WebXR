@@ -124,7 +124,8 @@ document.getElementById("dstime").getAttribute("value")/document.getElementById(
    console.log(Tas+"levelType "+levelType+" end : "+end_session_time+" AAS "+AAS+ " response "+responseTime+" Start"+start_session_time+" Ds "+Ds+" timeTaken "+timeTaken+" tar" +Tar)
     }
   
-document.getElementById("reload").addEventListener("click",()=>{calculate()
+document.getElementById("reload").addEventListener("click",()=>{
+  calculate()
   window.location.href="../index.html";
 
 });
