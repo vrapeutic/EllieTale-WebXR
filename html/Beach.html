@@ -64,7 +64,7 @@
   event-set__clickopen="_event: mouseenter; _target:#counter; value:0 " ></a-text> 
  
   <!--score-->
-  <a-text id="score" value="0" width="20" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" position="0 -2 -3"></a-text>
+  <a-text id="score" value="0" width="20" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" position="0 2 -3"></a-text>
   <!--backtomenu-->
   <a-text id="reload" class="menu"  text="side:  double;  align:  center"  scale="0.2 0.2 0.2" geometry="primitive:circle ; "material=" src:../images/1.png;transparent: true" position="3 2 -3"></a-text>
  </a-entity>
@@ -110,7 +110,7 @@
         <a-entity id="targettwo"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-4.8171 0.2 -2.71078"  showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 -72.6103684191341 0" shadow ontriggertarget>
         </a-entity>
 
-        <a-entity id="targetthree"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="2.54409 0 -4.33419"  showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 124.53982522302114 0" shadow ontriggertarget>
+        <a-entity id="targetthree"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="2.54409 0.2 -3.33419"  showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 124.53982522302114 0" shadow ontriggertarget>
 
         </a-entity>     
         <a-entity id="targetfour"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-1.12464 0.2 -14.67292"  showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 -139.92259610669348 0" shadow ontriggertarget>
@@ -121,7 +121,7 @@
     
     <!--items-->
 
-   <a-gltf-model  id="item" class="items" visible="false"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShark%20With%20Material.glb?v=1602763326676" scale="5000 5000 5000" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+   <a-gltf-model  id="item" class="items" visible="false"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShark%20With%20Material.glb?v=1602763326676" scale="500 500 500" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
      </a-gltf-model >
 
    <a-gltf-model  id="itemOne" class="items" visible="false"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2Fnod.glb?v=1602686258177" scale="5 5 5" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
@@ -130,7 +130,7 @@
     <a-gltf-model id="itemTwo" class="items"  visible="false" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FWhale.glb?v=1602767677623" scale="5 5 5" animation="property: rotaion; to: 0 360 0; loop: true; dur: 500">
     </a-gltf-model>
 
-    <a-gltf-model id="itemThree"  visible="false"   class="items"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShrimp.glb?v=1602766713614" scale="8000 8000 8000" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+    <a-gltf-model id="itemThree"  visible="false"   class="items"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShrimp.glb?v=1602766713614" scale="80 80 80" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
     </a-gltf-model>
 
     <a-gltf-model id="itemFour"  visible="false"   class="items"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShip%20beach.glb?v=1602764145944" scale="5 5 5" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
@@ -139,11 +139,11 @@
      
  <!-- eille the Fairy-->
       
-      <a-gltf-model id="Fairy" fairytasktimer   src="#fairymodel" position="-0.085 2.16945 1.29193"   aabb-collider="objects: a-entity; collideNonVisible: false; debug:true;"  static-body="shape: box; mass: 0; sphereRadius: NaN"  lookat="#cam" >
+      <a-gltf-model id="Fairy" fairytasktimer   src="#fairymodel" position="-0.085 2.16945 1.29193"   aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;"  static-body="shape: box; mass: 0; sphereRadius: NaN"  lookat="#cam" >
       </a-gltf-model>
 
       <!--noah distractor-->
-      <a-gltf-model id="myDistractor"   visible="false"  gltf-model="#distractorModel" position="1.75 0.3 -7.224"  lookat="#cam"   clickable static-body="shape: box; mass: 0; sphereRadius: NaN" aabb-collider="objects: a-entity; collideNonVisible: false; debug:true;" shadow >
+      <a-gltf-model id="myDistractor"   visible="false"  gltf-model="#distractorModel" position="1.75 0.3 -7.224"  lookat="#cam"   clickable static-body="shape: box; mass: 0; sphereRadius: NaN" aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;" shadow >
 
 
       </a-gltf-model>

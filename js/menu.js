@@ -21,7 +21,7 @@ AFRAME.registerComponent('menu', {
     // set fairy position to target one
     document.getElementById("Fairy").setAttribute(
    "animation",
-   "property:position; to:"+(firtTargetPos.x)+
+   "property:position; to:"+(firtTargetPos.x+1)+
    " 0.3 " +
    firtTargetPos.z+"; dur:1000"
   )
