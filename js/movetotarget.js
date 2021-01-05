@@ -58,37 +58,7 @@ AFRAME.registerComponent("ontriggertarget", {
         }, 1200);
         
       }
-      if (
-        e.target.components["aabb-collider"]["intersectedEls"]
-          .map(x => x.id)
-          .includes("Fairy") &&
-        e.target.components["aabb-collider"]["intersectedEls"]
-          .map(x => x.id)
-          .includes("myDistractor")
-      )
-      {
-        console.log("hey you");
-         if(document.getElementById("distractingPartical")!=null)
-       {
-        var distractingPartical = document.createElement("a-entity")
-        distractingPartical.setAttribute("spe-particles","texture:../images/particles/snowflake.png; color: #0000FF, #00FFFF, #FFFFFF; particle-count: 1000; acceleration: 0 -6 0;")
-        distractingPartical.setAttribute("spe-particles","opacity: 1, 1, 0; velocity: 0 1 0; size: 1, 1, 0; velocity-spread: 1 0 1;") 
-        distractingPartical.setAttribute("id", "distractingPartical")
-       distractingPartical.setAttribute("position", 
-       ( nextTargetPosition.x+2) +
-       " 1 " +
-        nextTargetPosition.z )
-    setTimeout(() => {
-              document.querySelector('a-scene').appendChild(distractingPartical);
-
-    }, 1000);
-       
-
-       }
-      
-
-
-      }
+    
     });
    
     this.el.addEventListener("hitend", e => 
@@ -124,7 +94,7 @@ AFRAME.registerComponent("ontriggertarget", {
       { 
         
        
-        //triggerTarget();
+        triggerTarget();
        
     
         setTimeout(() => 
