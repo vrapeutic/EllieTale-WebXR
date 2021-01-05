@@ -4,6 +4,7 @@
   "description": "Ellytale  - aframe version",
   "main": "index.js",
   "scripts": {
+    "dev": "live-server --no-browser",
     "start": "live-server --port=$PORT --no-browser"
   },
   "repository": {
@@ -12,7 +13,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "SEE LICENSE IN LICENSE FILE IN ROOT DIRECTORY",
   "bugs": {
     "url": "https://github.com/vrapeutic/AFrame/issues"
   },
