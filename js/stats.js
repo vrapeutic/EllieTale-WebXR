@@ -72,12 +72,7 @@ document.getElementById("session").addEventListener("click",e=>{
     tick: function(){
     
      end_session_time=new Date().toLocaleString(); 
-     if(document.getElementById("score")==4) {
-    setTimeout(() => {
-      calculate()
-  window.location.href="index.html";    
-    }, 5000);
-  }
+   
     var calculate= function newStats()
     {
 

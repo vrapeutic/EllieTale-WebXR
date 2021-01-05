@@ -21,7 +21,7 @@ AFRAME.registerComponent("showitem", {
       
        this.el.setAttribute("movetotarget","enabled",false);
  
-         this.el.setAttribute("animation-mixer", "repetitions: 2; clampWhenFinished:true;");
+         this.el.setAttribute("animation-mixer", "repetitions: 0; clampWhenFinished:false;");
        
          item = document.querySelectorAll(".items");
         
@@ -51,16 +51,19 @@ if (index <= document.querySelectorAll(".Box").length+1)
          index++;
        } 
  
-       else 
+       else if(index==4)
        {
  
-         index = 3;
+         index = 3;  
+         setTimeout(() => {
+    window.location.href="../index.html";
+  }, 1000);  
        }
  
-       fairyPositionx = target[index].getAttribute("position").x-2;
+       fairyPositionx = target[index].getAttribute("position").x+1;
        fairyPositionz = target[index].getAttribute("position").z;
  
- console.log( this.el.parentElement.children[index].getAttribute("position").x);
+ console.log( this.el.parentElement.children[index].getAttribute("position").x+" index "+index);
        setTimeout(() => 
        {
  
@@ -74,12 +77,16 @@ if (index <= document.querySelectorAll(".Box").length+1)
          );//move Fairy to next Target
  
          console.log(
-           random + " count : " +fairyPositionz+" " + fairy.getAttribute("position").z
+          target[index].getAttribute("position").x-1 + " count : " +fairyPositionx+" " + fairy.getAttribute("position").x
          );
  
          item[random].className = "new";
+
+     
+   
  
        }, 1000);
+      
  
        setTimeout(() => 
        {
