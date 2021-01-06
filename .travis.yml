@@ -13,16 +13,23 @@ script:
   - docker image build --tag $DOCKER_USERNAME/illy-tale-webxr:latest .
   - docker images
   - docker image push $DOCKER_USERNAME/illy-tale-webxr
-  
+
 deploy:
-  provider: elasticbeanstalk
-  access_key_id: "$AWS_ACCESS_KEY_ID"
-  secret_access_key: "$AWS_SECRET_ACCESS_KEY"
-  region: us-east-2
-  app: Elly Tale
-  env: EllyTale-env
-  bucket_name: elasticbeanstalk-us-east-2-126803918895
-  on:
-    repo: vrapeutic/Ellie-Tale
-    branch: main
-  skip_cleanup: 'true'
+  - provider: elasticbeanstalk
+    access_key_id: "$AWS_ACCESS_KEY_ID"
+    secret_access_key: "$AWS_SECRET_ACCESS_KEY"
+    region: us-east-2
+    app: Elly Tale
+    env: EllyTale-env
+    bucket_name: elasticbeanstalk-us-east-2-126803918895
+    on:
+      repo: vrapeutic/Ellie-Tale
+      branch: main
+    skip_cleanup: 'true'
+  - provider: firebase
+    token: "$FIREBASE_TOKEN"
+    project: "ellie-tale"
+    on:
+      repo: vrapeutic/Ellie-Tale
+      branch: main
+    skip_cleanup: 'true'
