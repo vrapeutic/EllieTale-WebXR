@@ -10,15 +10,15 @@ script:
   - docker images
   - docker image push $DOCKER_USERNAME/illy-tale-webxr
 
-deploy:
-  on:
-    branch: main
-  provider: elasticbeanstalk
-  access_key_id: AKIAJSZBM7XIH6GRMODQ
-  secret_access_key:
-    secure: SnWV25Yt1w9fyH6nNQZqKAaRFYOwXTTmFawTIIoTDzPxL2ywMIzDnDdc/THVcMO+BTwQqMfp3xIKLO4ct4Euuehl/cBhk8n40TKSqWb61Z46tGsVRYbE16+hpMMqOwOuISheLeaycz4lF9ZDhCaA/w9iX1g1xzf2eLu6Crnwo1mQc+y8BO+qlmND3KUDZI0GSEr0WzccIyyOGU26zkRPSUNV7RrC6YmdjV2qi+QtyKMjeqQPeupmNZK6ZRcxcekMNnKSU0j0h9IKVwNvGhBtt4KVK0kI1E23Ecl8kmhfh0Tg31kMqSEz/Vcp3NRzu2jIwy18l9UrRQQY74DRECgBPVI4qF7leKJFDD8/Ookeqr1BtVTazFbupZGDxKvvY8lqLM4xvtdKL4oIscOsNd4lW3GDsK8jRAWye/c543/xOQn9qE/E0g2z9Fn6dOfx7TXycVwMLts4LSfABr9H15Q+eAOdhT6/fUrV+VFGoP5PB28Nt99c6n4/wbV0418/Y+dZPMzwwMsuWgktOalyPyxSfn0TQqPD8ZkaBSqQYgeyRX7Yfu1bLtufuGUGJfKTh2ObDFcp8NMooexmb2RAhtbDvQW1Zsh5RdLA6FUaJ7wRcJqkFGqdGY3qfqydho4V2H14tIlZApy3bfAUh/tf7kQ1SWwBxyPmkCe9P07XbnhYqgY=
-  region: us-east-2
-  app: Elly Tale
-  env: EllyTale-env
-  bucket_name: elasticbeanstalk-us-east-2-126803918895
-  skip_cleanup: 'true'
+# deploy:
+#   on:
+#     branch: main
+#   provider: elasticbeanstalk
+#   access_key_id: AKIAJSZBM7XIH6GRMODQ
+#   secret_access_key:
+#     secure: SnWV25Yt1w9fyH6nNQZqKAaRFYOwXTTmFawTIIoTDzPxL2ywMIzDnDdc/THVcMO+BTwQqMfp3xIKLO4ct4Euuehl/cBhk8n40TKSqWb61Z46tGsVRYbE16+hpMMqOwOuISheLeaycz4lF9ZDhCaA/w9iX1g1xzf2eLu6Crnwo1mQc+y8BO+qlmND3KUDZI0GSEr0WzccIyyOGU26zkRPSUNV7RrC6YmdjV2qi+QtyKMjeqQPeupmNZK6ZRcxcekMNnKSU0j0h9IKVwNvGhBtt4KVK0kI1E23Ecl8kmhfh0Tg31kMqSEz/Vcp3NRzu2jIwy18l9UrRQQY74DRECgBPVI4qF7leKJFDD8/Ookeqr1BtVTazFbupZGDxKvvY8lqLM4xvtdKL4oIscOsNd4lW3GDsK8jRAWye/c543/xOQn9qE/E0g2z9Fn6dOfx7TXycVwMLts4LSfABr9H15Q+eAOdhT6/fUrV+VFGoP5PB28Nt99c6n4/wbV0418/Y+dZPMzwwMsuWgktOalyPyxSfn0TQqPD8ZkaBSqQYgeyRX7Yfu1bLtufuGUGJfKTh2ObDFcp8NMooexmb2RAhtbDvQW1Zsh5RdLA6FUaJ7wRcJqkFGqdGY3qfqydho4V2H14tIlZApy3bfAUh/tf7kQ1SWwBxyPmkCe9P07XbnhYqgY=
+#   region: us-east-2
+#   app: Elly Tale
+#   env: EllyTale-env
+#   bucket_name: elasticbeanstalk-us-east-2-126803918895
+#   skip_cleanup: 'true'
