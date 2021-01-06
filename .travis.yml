@@ -8,7 +8,7 @@ branches:
   - main
 
 script:
-  - echo "BUILDING AND PUSHING A NEW IMAGE OF THE CODE"
+  - echo "BUILDING AND PUSHING A NEW IMAGE OF THE CODE!"
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker image build --tag $DOCKER_USERNAME/illy-tale-webxr:latest .
   - docker images
