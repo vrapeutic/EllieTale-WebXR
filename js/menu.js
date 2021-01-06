@@ -3,7 +3,7 @@ AFRAME.registerComponent('menu', {
   init :function(){
   
     var firtTargetPos=document.getElementById("targetone").getAttribute("position");
-    var lastTargetPos=document.getElementById("targetthree").getAttribute("position");
+    var lastTargetPos=document.getElementById("targetfour").getAttribute("position");
    console.log(document.getElementById("selectenvironment").getAttribute("value"))
   
   //select level menu
