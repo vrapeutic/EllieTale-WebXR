@@ -10,15 +10,16 @@ script:
   - docker images
   - docker image push $DOCKER_USERNAME/illy-tale-webxr
 
-# deploy:
-#   on:
-#     branch: main
-#   provider: elasticbeanstalk
-#   access_key_id: AKIAJSZBM7XIH6GRMODQ
-#   secret_access_key:
-#     secure: SnWV25Yt1w9fyH6nNQZqKAaRFYOwXTTmFawTIIoTDzPxL2ywMIzDnDdc/THVcMO+BTwQqMfp3xIKLO4ct4Euuehl/cBhk8n40TKSqWb61Z46tGsVRYbE16+hpMMqOwOuISheLeaycz4lF9ZDhCaA/w9iX1g1xzf2eLu6Crnwo1mQc+y8BO+qlmND3KUDZI0GSEr0WzccIyyOGU26zkRPSUNV7RrC6YmdjV2qi+QtyKMjeqQPeupmNZK6ZRcxcekMNnKSU0j0h9IKVwNvGhBtt4KVK0kI1E23Ecl8kmhfh0Tg31kMqSEz/Vcp3NRzu2jIwy18l9UrRQQY74DRECgBPVI4qF7leKJFDD8/Ookeqr1BtVTazFbupZGDxKvvY8lqLM4xvtdKL4oIscOsNd4lW3GDsK8jRAWye/c543/xOQn9qE/E0g2z9Fn6dOfx7TXycVwMLts4LSfABr9H15Q+eAOdhT6/fUrV+VFGoP5PB28Nt99c6n4/wbV0418/Y+dZPMzwwMsuWgktOalyPyxSfn0TQqPD8ZkaBSqQYgeyRX7Yfu1bLtufuGUGJfKTh2ObDFcp8NMooexmb2RAhtbDvQW1Zsh5RdLA6FUaJ7wRcJqkFGqdGY3qfqydho4V2H14tIlZApy3bfAUh/tf7kQ1SWwBxyPmkCe9P07XbnhYqgY=
-#   region: us-east-2
-#   app: Elly Tale
-#   env: EllyTale-env
-#   bucket_name: elasticbeanstalk-us-east-2-126803918895
-#   skip_cleanup: 'true'
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: AKIAJOWVC6JGYI4KPFQQ
+  secret_access_key:
+    secure: Xzs3+fGtxoFdkWgaDZxC0Fxn5phZVnAgGpYN6D+YhKdg3rGqNet6hDKAoe8EAfkpwy0Cxd5o/ohZVKHr65Cs9YACKw/LHRyvXSV++W91p4VN2Zxn67R950/3ulsjd/4fWpsYZ/2v8wpq4seGoa6xrLXgamFC0aDqOxfos2Q9/8XDaKfzdPc9Fx8BgnkjamS/uz6WFs2n2kD0cnmFjwEW7h5jjyLkCdnBJ5gELWA5GCrsJwJVfHUNO87GD5ZkV7TbtiI0mJyd10aNivo1/qW690uz/TYH35uW/LfoXRJgGPlje9AOoRiFkhaNGvZufMW8OQAo+VJqQMdMAtUbYtM+0dgUu1ix0uqu8igbW6oDMJmKZAFezkK78BgdR8Wu34CrVYg4ipzln9nYlfyMYGEpWMtCFnqHCfWHUMCpXbDr++g6knVo4NUkNsyQ1Cjj2ewcNhnJ5AiGFLat7Yo1pBbO3QJDP+udmCES5Xr5ipI+BgZRKl5x+8NP3Q3kIqsxnXvdOrxZhIoVetcE2M5kFBTXaDnAl52e1lJeVFv9yjL2wI1gbg1ekBYGDLR/5GApjlcHp3FwNLC/JGRJ//UiQVjABSGOATw2n65IxAUc3o47kqCZdnzS2xnHhUKwYXAwyV0l6gX1cfMpYl280b8ssyBl5I/7/bKFb1Y/cD7HDxnZGoo=
+  region: us-east-2
+  app: Elly Tale
+  env: EllyTale-env
+  bucket_name: elasticbeanstalk-us-east-2-126803918895
+  on:
+    repo: vrapeutic/Ellie-Tale
+    branch: main
+  skip_cleanup: 'true'
