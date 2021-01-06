@@ -16,7 +16,7 @@ AFRAME.registerComponent("ontriggertarget", {
         var el = document.createElement('a-entity');
         el.setAttribute("area-light", "intensity:10; width:8; height:2; color: #1fdbbb;showHelper:false");
         el.setAttribute("id","myLight");
-        el.setAttribute("position",{x:0,y:0.7,z:1});
+        el.setAttribute("position",{x:0,y:0.7,z:0.5});
        // el.setAttribute("color", "#1dd4ed")
         this.el.appendChild(el);
        }
