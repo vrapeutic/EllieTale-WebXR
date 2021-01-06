@@ -12,9 +12,8 @@ script:
 
 deploy:
   provider: elasticbeanstalk
-  access_key_id: AKIAJOWVC6JGYI4KPFQQ
-  secret_access_key:
-    secure: MON52QykvE7jnkL8QMC7MBqsnnJjM4JQFPRpG+r4sBV2jprOWUvcI/EM8yv6wgQV6qmWTqR9HLhvASnwv1rNvI19nhabgSV3VZ/e1XOGJ2MvlELbP5y2D2s/1LhxLbLu5D1dZDVA8xR/oWB9TB+1uF+WStU7fw2s20tAsy8OKI0NVQX5yTQGtHh5hB+mpmt30jjTuNDUVAndHNkmSPsw6DiyfMB5Z6O8Dm4Kqz1S/WUW0R/skFue1XwApqE752/hjIS5cvJhWEPWBioR3fZJed+oHfZaNOm5OuNRdU8vMoteMuFjevqf2n8M1xi1jAMEQIrZY3DNA0zjt/vBbL3mTD66MHs1dW90vTmzCQEVKrVF8shU3z8+Dtt4bJjq1PjNcbK68eWjXa0/M+oZdouzEbb+BM0AupTDpjXNefuUKo154wJaeHN2iMahym8VHEBdu+0qT938nN5lpJni2j+SGzoNpxipY45cvqMNjh91LpNLgFv/p/3Abtt3tt/dGvjiO7UdqLXr84oC/l2udQ7fnO9eVkFCVQ+rL8eE+Oh+1bbCsHstAYxNRNjNcVwjrJRn3n/Bsbm5gueI3TDo3hb4RW+k5rf4S8V6eJZE8vzzYdHBQQictTPlBgTZQ97LFrRA7v8fF/tXWLOtzyY0uCCc+LJl93JULwLPI39N5szIQL0=
+  access_key_id: "$AWS_ACCESS_KEY_ID"
+  secret_access_key: "$AWS_SECRET_ACCESS_KEY"
   region: us-east-2
   app: Elly Tale
   env: EllyTale-env
