@@ -10,6 +10,7 @@
     <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+    <script src="https://unpkg.com/aframe-area-light-component/dist/aframe-area-light-component.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/aframe-area-light-component/dist/aframe-area-light-component.min.js"></script>
     <script src="../js/custom/aframe-environment-component.min.js"></script>
@@ -39,35 +40,35 @@
   
       <!--MenuwithCamera-->
     
-  <a-text value="Easy" class="menu" width="10" text="side:double;  align:center"  scale="0.5 0.5 0.5" geometry="primitive:circle; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false"  id="boxLevel"  position="-2 1 -3"    lookat="#cam" color="#4CC3D9"  clickable 
+  <a-text value="Easy" class="menu" width="10" text="side:double;  align:center"  scale="0.5 0.5 0.5" geometry="primitive:circle; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false"  id="boxLevel"  position="-3 1 -4"    lookat="#cam" color="#4CC3D9"  clickable 
   event-set__click="_event: mouseenter; _target:#level; value:1"> </a-text>    
 
-  <a-text value="Medium" class="menu" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false" id="boxLevel1"  position="0 1 -3"  lookat="#cam" color="#4CC3D9" clickable 
+  <a-text value="Medium" class="menu" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false" id="boxLevel1"  position="-0.49 1 -4"  lookat="#cam" color="#4CC3D9" clickable 
   event-set__click="_event: mouseenter; _target:#level; value:2 " ></a-text>  
   
-  <a-text value="Hard"  class="menu" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false" id="boxLevel2"  position="2 1 -3"   lookat="#cam"  color="#4CC3D9" clickable 
+  <a-text value="Hard"  class="menu" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false" id="boxLevel2"  position="1.54 1 -4"   lookat="#cam"  color="#4CC3D9" clickable 
   event-set__click="_event: mouseenter; _target:#level; value:3 " ></a-text>    
 
 
 <!--Timer-->
-  <a-text  value="30"  width="20" text="side:  double;  align:  center" scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer" class="timer"  position="-1.5 2 -1.5" color="#4CC3D9"   lookat="#cam"  clickable 
+  <a-text  value="30"  width="20" text="side:  double;  align:  center" scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer" class="timer"  position="-1.5 2 -2.3" color="#4CC3D9"   lookat="#cam"  clickable 
   event-set__click30="_event: mouseenter; _target:#counter; value:30" ></a-text>    
 
-  <a-text   value="60"  width="20" text="side:  double;  align:  center"  id="boxtimer1"   scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" class="timer" position="-0.5 2 -1.5" color="#4CC3D9"  lookat="#cam"  clickable 
+  <a-text   value="60"  width="20" text="side:  double;  align:  center"  id="boxtimer1"   scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" class="timer" position="-0.5 2 -2.3" color="#4CC3D9"  lookat="#cam"  clickable 
   event-set__click60="_event: mouseenter; _target:#counter; value:60 " >
 </a-text>        
 
   
-  <a-text  value="90" width="20" text="side:  double;  align:  center"  scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer2" class="timer"  position="0.5 2 -1.5" color="#4CC3D9"   lookat="#cam"  clickable 
+  <a-text  value="90" width="20" text="side:  double;  align:  center"  scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer2" class="timer"  position="0.5 2 -2.3017" color="#4CC3D9"   lookat="#cam"  clickable 
   event-set__click90="_event: mouseenter; _target:#counter; value:90 " ></a-text>    
 <!--withouttimer-->
-  <a-text  value="open"   text="side:  double;  align:  center" width="0" scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_off.png;transparent: true" id="noTimer" class="timer"  position="1.5 2 -1.5"    color="#4CC3D9" lookat="#cam"  
+  <a-text  value="open"   text="side:  double;  align:  center" width="0" scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_off.png;transparent: true" id="noTimer" class="timer"  position="1.5 2 -2.3"    color="#4CC3D9" lookat="#cam"  
   event-set__clickopen="_event: mouseenter; _target:#counter; value:0 " ></a-text> 
  
   <!--score-->
-  <a-text id="score" value="0" width="20" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" position="0 2 -3"></a-text>
+  <a-text id="score" value="0" width="20" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" position="-4.11289 2 -11.07439"></a-text>
   <!--backtomenu-->
-  <a-text id="reload" class="menu"  text="side:  double;  align:  center"  scale="0.2 0.2 0.2" geometry="primitive:circle ; "material=" src:../images/1.png;transparent: true" position="3 2 -3"></a-text>
+  <a-text id="reload" class="menu"  text="side:  double;  align:  center"  scale="0.2 0.2 0.2" geometry="primitive:circle ; "material=" src:../images/1.png;transparent: true" position="3 2 -8.24248"></a-text>
  </a-entity>
   <!--Hands-->
   
@@ -77,7 +78,7 @@
       
       <a-entity oculus-quest-controls="hand: right" thumbstick-logging ></a-entity>
       
-     <a-entity laser-controls="hand: right" raycaster="objects: .timer,.menu,.Box,#distractingPartical; far: 100" ></a-entity>
+     <a-entity laser-controls="hand: right" raycaster="objects: .timer,.menu,.Box,#distractingPartical; far: 1000" ></a-entity>
     
       
 <!--Assets-->
@@ -139,7 +140,7 @@
      
  <!-- eille the Fairy-->
       
-      <a-gltf-model id="Fairy" fairytasktimer   src="#fairymodel" position="-0.085 2.16945 1.29193"   aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;"  static-body="shape: box; mass: 0; sphereRadius: NaN"  lookat="#cam" >
+      <a-gltf-model id="Fairy" fairytasktimer   src="#fairymodel" position="-0.085 1.62321 1.29193"   aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;"  static-body="shape: box; mass: 0; sphereRadius: NaN"  lookat="#cam" >
       </a-gltf-model>
 
       <!--noah distractor-->
