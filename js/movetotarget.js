@@ -13,11 +13,10 @@ AFRAME.registerComponent("ontriggertarget", {
        
         if (this.el.firstElementChild==null)
         {
-        var el = document.createElement('a-light');
-        el.setAttribute("type", "point");
+        var el = document.createElement('a-entity');
+        el.setAttribute("area-light", "intensity:10; width:8; height:2; color: #1fdbbb;showHelper:false");
         el.setAttribute("id","myLight");
-        el.setAttribute("intensity",3.5);
-        el.setAttribute("position",{x:0,y:0.5,z:0});
+        el.setAttribute("position",{x:0,y:0.7,z:1});
        // el.setAttribute("color", "#1dd4ed")
         this.el.appendChild(el);
        }
