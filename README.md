@@ -1,5 +1,5 @@
 
-# Illy Tale - WebXR Version | [Try it out!](https://bit.ly/2LiIM22) 
+# Illy Tale - WebXR Version | [Try it out!](https://ellie-tale.web.app/) 
 
 | master 	| [![Build Status](https://travis-ci.com/YahyaAlaaMassoud/Elly-Tale.svg?token=PBt8ZGdgcipxYrxdNZTr&branch=master)](https://travis-ci.com/YahyaAlaaMassoud/Elly-Tale) 	| Travis CI Build Status 	|
 |-	|-	|-	|
