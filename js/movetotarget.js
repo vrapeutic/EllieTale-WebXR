@@ -35,17 +35,17 @@ AFRAME.registerComponent("ontriggertarget", {
         "collided ",
         e.target.components["aabb-collider"]["intersectedEls"].map(x => x.id)
       );
-
+     
       if (
         e.target.components["aabb-collider"]["intersectedEls"]
           .map(x => x.id)
-          .includes("Fairy") &&
-        !e.target.components["aabb-collider"]["intersectedEls"]
-          .map(x => x.id)
-          .includes("myDistractor")
+          .includes("Fairy") 
+        
       )
       { 
-        
+        /*document
+        .getElementById("Fairy")
+        .setAttribute("animation", "enabled", false);*/
         triggerTarget();
         console.log("hi start go"+this.el.firstElementChild);
 
@@ -91,8 +91,7 @@ AFRAME.registerComponent("ontriggertarget", {
           .includes("myDistractor")
       ) 
       { 
-        
-       
+    
       //  triggerTarget();
        
     

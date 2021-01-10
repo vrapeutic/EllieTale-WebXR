@@ -13,4 +13,4 @@ var responseTime;
 var levelType;
 var Tir,end_session_time,AAS,TFD,timeTaken;  
 var issent=false;
-
+var gardenPartical;

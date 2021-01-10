@@ -83,7 +83,18 @@ AFRAME.registerComponent("advancedmovenment", {
           document.getElementById("dstime").setAttribute("value", timer); 
            timer++;
          }, 1000); 
-
+       /*  if (
+          e.target.components["aabb-collider"]["intersectedEls"]
+            .map(x => x.id)
+            .includes(target[randomIndexTarget].id) 
+          
+          )
+          {
+            document
+            .getElementById("myDistractor")
+            .setAttribute("animation", "enabled", false);
+        }
+  */
       var distractingPartical = document.createElement("a-entity")
       distractingPartical.setAttribute("spe-particles","texture:../images/particles/snowflake.png; color: #0000FF, #00FFFF, #FFFFFF; particle-count: 1000; acceleration: 0 -6 0;")
       distractingPartical.setAttribute("spe-particles","opacity: 2, 2, 0; velocity: 0 2 0; size: 2, 2, 0; velocity-spread: 2 0 2;") ;

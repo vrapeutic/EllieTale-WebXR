@@ -85,7 +85,7 @@
             <a-assets timeout="500000">        
         
       
-        <a-asset-item id="target" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_Seashell_lit_v1.01.glb?v=1609712896394"
+        <a-asset-item id="target" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_Seashell_lit_v1.02.glb?v=1610265513943"
          response-type="arraybuffer"></a-asset-item>
          <a-asset-item id="Environment" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_Environment_v1.02.glb?v=1609652059535"
          response-type="arraybuffer"></a-asset-item>
@@ -105,16 +105,16 @@
 
 <!--Targets-->
 
-        <a-entity id="targetone"  class="Box" gltf-model="#target" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="-1.78878 -0.09708 3.6332"   showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 -35.25008242983364 0" shadow ontriggertarget>
+        <a-entity id="targetone"  class="Box" gltf-model="#target" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="-1.78878 -0.09708 3.6332"   showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 140.1941781015855 0" shadow ontriggertarget>
         </a-entity> 
 
-        <a-entity id="targettwo"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-4.8171 0.2 -2.71078"  showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 -72.6103684191341 0" shadow ontriggertarget>
+        <a-entity id="targettwo"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-4.8171 0.12502 -2.664"  showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 0 0" shadow ontriggertarget>
         </a-entity>
 
-        <a-entity id="targetthree"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="2.54409 0.2 -3.33419"  showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 124.53982522302114 0" shadow ontriggertarget>
+        <a-entity id="targetthree"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="2.94603 -0.02623 -4.76574"  showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 0 0" shadow ontriggertarget>
 
         </a-entity>     
-        <a-entity id="targetfour"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-1.12464 0.2 -14.67292"  showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 -139.92259610669348 0" shadow ontriggertarget>
+        <a-entity id="targetfour"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-1.12464 0.12 -14.67292"  showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 0 0" shadow ontriggertarget>
         </a-entity>     
       
 
@@ -122,22 +122,27 @@
     
     <!--items-->
 
-   <a-gltf-model  id="item" class="items" visible="false"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShark%20With%20Material.glb?v=1602763326676" scale="500 500 500" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+   <a-gltf-model  id="item" class="items" visible="false"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_fishingRod_01.glb?v=1610265485579"  >
      </a-gltf-model >
 
-   <a-gltf-model  id="itemOne" class="items" visible="false"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2Fnod.glb?v=1602686258177" scale="5 5 5" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+   <a-gltf-model  id="itemOne" class="items" visible="false"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_sharky_01.glb?v=1610265482524" >
    </a-gltf-model >
 
-    <a-gltf-model id="itemTwo" class="items"  visible="false" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FWhale.glb?v=1602767677623" scale="5 5 5" animation="property: rotaion; to: 0 360 0; loop: true; dur: 500">
+    <a-gltf-model id="itemTwo" class="items"  visible="false" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_octopus_01.glb?v=1610265479445" >
     </a-gltf-model>
 
-    <a-gltf-model id="itemThree"  visible="false"   class="items"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShrimp.glb?v=1602766713614" scale="80 80 80" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+    <a-gltf-model id="itemThree"  visible="false"   class="items"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_shrimp_01.glb?v=1610265478418" >
     </a-gltf-model>
 
-    <a-gltf-model id="itemFour"  visible="false"   class="items"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShip%20beach.glb?v=1602764145944" scale="5 5 5" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
+    <a-gltf-model id="itemFour"  visible="false"   class="items"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_whale_01.glb?v=1610265469466" >
      </a-gltf-model>
-       
-     
+
+     <a-gltf-model id="itemFive"  visible="false"   class="items"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_ship_01.glb?v=1610265468682" >
+    </a-gltf-model>
+
+     <a-gltf-model id="itemSix"  visible="false"   class="items"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_ball_01.glb?v=1610265467831" >
+     </a-gltf-model>  
+
  <!-- eille the Fairy-->
       
       <a-gltf-model id="Fairy" fairytasktimer   src="#fairymodel" position="-0.085 1.62321 1.29193"   aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;"  static-body="shape: box; mass: 0; sphereRadius: NaN"  lookat="#cam" >

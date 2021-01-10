@@ -22,7 +22,7 @@ AFRAME.registerComponent("moverandomly", {
     
        nextTargetPosition=target[ randomIndexTarget].getAttribute("position");//  next target for distractor
      
-      ds.setAttribute("animation","property:position; to:"+nextTargetPosition.x+" 0.5 "+nextTargetPosition.z+" dur:5000"); 
+      ds.setAttribute("animation","property:position; to:"+(nextTargetPosition.x+1)+" 0.2 "+nextTargetPosition.z+" dur:5000"); 
     
       
     console.log(index+" here "+target[ randomIndexTarget].getAttribute("position").x+"ds "+ds.getAttribute("position").x)
