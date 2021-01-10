@@ -21,11 +21,11 @@ AFRAME.registerComponent('menu', {
     // set fairy position to target one
     document.getElementById("Fairy").setAttribute(
    "animation",
-   "property:position; to:"+(firtTargetPos.x+1)+
+   "property:position; to:"+(firtTargetPos.x+1.5)+
    " 0.3 " +
    firtTargetPos.z+"; dur:1000"
   )
-  fairyPositionx=firtTargetPos.x + 1;
+  fairyPositionx=firtTargetPos.x ;
   fairyPositionz=firtTargetPos.z;
   
   //level three (Set distractor component and partical )
@@ -35,15 +35,15 @@ AFRAME.registerComponent('menu', {
    
   document.getElementById("myDistractor").setAttribute(
    "animation",
-   "property:position; to:"+(lastTargetPos.x+0.5)+
-   " 0.3 " +
+   "property:position; to:"+(lastTargetPos.x+1)+
+   " 0 " +
    lastTargetPos.z+"; dur:2000"
   
   ) 
-       var partical=document.createElement("a-entity")
-  partical.setAttribute("spe-particles","texture:../images/particles/snowflake.png; color: #0000FF, #00FFFF, #FFFFFF; particle-count: 1000; acceleration: 0 -6 0;")
-  partical.setAttribute("spe-particles","opacity: 2, 2, 0; velocity: 0 2 0; size: 2, 2, 0; velocity-spread: 2 0 2;") 
-  partical.setAttribute("id", "distractingPartical")
+   var partical=document.createElement("a-entity")
+partical.setAttribute("spe-particles","texture:../images/particles/snowflake.png; color: #0000FF, #00FFFF, #FFFFFF; particle-count: 1000; acceleration: 0 -6 0;")
+ partical.setAttribute("spe-particles","opacity: 2, 2, 0; velocity: 0 2 0; size: 2, 2, 0; velocity-spread: 2 0 2;") ;
+     partical.setAttribute("id", "distractingPartical")
    partical.setAttribute("position", 
           (lastTargetPos.x+1) +
           " 1 " +
