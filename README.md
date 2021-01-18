@@ -1,6 +1,7 @@
 
 # Ellie Tale - WebXR Version | [Try it out!](https://ellie-tale.web.app/) 
 
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 | master 	| [![Build Status](https://travis-ci.com/vrapeutic/Ellie-Tale.svg?branch=main)](https://travis-ci.com/vrapeutic/Ellie-Tale) 	| Travis CI Build Status 	|
 |-	|-	|-	|
 ___
@@ -109,9 +110,10 @@ To know more about the design of the gamified thepautic VR application, check ou
 
 * **html** directory
 
-	* Contains environments' entities and components for **Garden**, **Beach**, and **Library**. Check [here](https://github.com/YahyaAlaaMassoud/Ellie-Tale/blob/master/html/README.md) for more information.
+	* Contains environments' entities and components for **Garden**, **Beach**, and **Library**. Check [here](https://github.com/vrapeutic/Ellie-Tale/blob/main/html/README.md) for more information.
 * **js** directory
-	* Contains all logic and based on AFrame and JS code. Check [here](https://github.com/YahyaAlaaMassoud/Ellie-Tale/blob/master/js/README.md) for more information
+	* Contains all logic and based on AFrame and JS code. Check [here](https://github.com/vrapeutic/Ellie-Tale/blob/main/js/README.md) for more information
 
 ## Contributions
-First off, thanks for taking the time to contribute! You can check out our contribution guidelines from this [link](https://github.com/YahyaAlaaMassoud/Ellie-Tale/blob/master/CONTRIBUTING.md).
+First off, thanks for taking the time to contribute! You can check out our contribution guidelines from this [link](https://github.com/vrapeutic/Ellie-Tale/blob/main/CONTRIBUTING.md).
+Please note that this project is released with a Contributor Code of Conduct, which can be found [here](https://www.contributor-covenant.org/version/2/0/code_of_conduct/). By participating in this project you agree to abide by its terms.
