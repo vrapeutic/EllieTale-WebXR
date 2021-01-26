@@ -15,7 +15,7 @@ AFRAME.registerComponent("showitem", {
        var score;
        var index; //to store index for the array of targets
        var item, random;
-
+var fairyPosition=fairy.getAttribute("position");
      document.getElementById(el.firstElementChild.id).parentNode.removeChild(document.getElementById(el.firstElementChild.id));//destoy light from current target
 
        el.setAttribute('showitem',"enabled",false);
@@ -23,8 +23,11 @@ AFRAME.registerComponent("showitem", {
        this.el.setAttribute("movetotarget","enabled",false);
  
          this.el.setAttribute("animation-mixer", "repetitions: 0; clampWhenFinished:false;dur:4000");
-       
-         item = document.querySelectorAll(".items");
+         fairy.setAttribute(
+          "animation",
+          "property:position; to:" +(fairyPosition.x+1) +" "+fairyPosition.y+" "+ fairyPosition.z + "; dur:1000"
+        )   ;  
+            item = document.querySelectorAll(".items");
         
          random = Math.floor(Math.random() * Math.floor(item.length));
 
@@ -68,13 +71,14 @@ if (index <= document.querySelectorAll(".Box").length)
          score++;
            document.getElementById("score").setAttribute("value", score);
 
-        fairyPositionx = target[index].getAttribute("position").x+1;
+        fairyPositionx = target[index].getAttribute("position").x;
+        fairyPositiony= target[index].getAttribute("position").y;
        fairyPositionz = target[index].getAttribute("position").z;
      
    
          fairy.setAttribute(
            "animation",
-           "property:position; to:" + (fairyPositionx) + " 0.5 " + fairyPositionz + "; dur:1000"
+           "property:position; to:" +(fairyPositionx) +" "+(fairyPositiony+0.5)+" "+ fairyPositionz + "; dur:1000"
          );//move Fairy to next Target
  
          console.log(

@@ -2,13 +2,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="../js/custom/aframe-master.1.0.4.min.js"></script>
-    <script src="../js/custom/aframe-physics-system.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
-    <script src="../js/custom/aframe-extras.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
     <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
     <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
-    <script src="../js/custom/aframe-look-at-component.min.js"></script>
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
     <script src="https://unpkg.com/aframe-area-light-component/dist/aframe-area-light-component.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
@@ -31,7 +30,7 @@
     sortObjects: true;
     maxCanvasWidth: 1920;
     maxCanvasHeight: 1920;
-    gammaOutput: true;">
+    colorManagement: true;">
 
     <a-camera  id="cam" menu movement-controls="speed: 0.15 constrainToNavMesh:true" position="0 1 -5" wasd-controls="" rotation="0 -180 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
       <a-entity cursor="rayOrigin: mouse"></a-entity>
@@ -94,12 +93,19 @@
          <a-asset-item id="fairymodel" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FElly_2k_03.glb?v=1609445475503"
          response-type="arraybuffer"></a-asset-item>
        </a-assets>
-  
+       <a-asset-item id="helloSound" src="../assets/illy the fairy/1 Hello there! I am Illy the fairy, and that is Uncle Noah over there. Uncle Noah has a lot of work to do and nobody around to help him with it, so we are going to help him!”.wav"
+       response-type="arraybuffer"></a-asset-item>
+       <a-asset-item id="enviroSound" src="../assets/illy the fairy/3 Today, Uncle Noah is fishing by the beach! Let’s help him collect items from those boxes!”.wav"
+       response-type="arraybuffer"></a-asset-item>
+     </a-assets>
+     <a-asset-item id="infoSound" src="../assets/illy the fairy/6 I will point at a box and then you should click on it to open it! Let’s try it.”.wav"
+     response-type="arraybuffer"></a-asset-item>
+   </a-assets>
       <!--enviroment-->
      
       <a-gltf-model id="mybeach" src="#Environment" shadow="" animation-mixer position="12 0 -7.13117">
       </a-gltf-model>
-            <a-light type="directional" position="0 6 0"  ></a-light>
+          <a-light type="directional" position="0 6 0"  ></a-light>
 
       <a-entity id="updateMe"></a-entity>
 
@@ -144,16 +150,26 @@
      </a-gltf-model>  
 
  <!-- eille the Fairy-->
-      
-      <a-gltf-model id="Fairy" fairytasktimer   src="#fairymodel" position="-0.085 1.62321 1.29193"   aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;"  static-body="shape: box; mass: 0; sphereRadius: NaN"  lookat="#cam" >
-      </a-gltf-model>
+ 
+      <a-gltf-model id="Fairy" fairytasktimer  src="#fairymodel" position="-0.085 1.62321 1.29193"   aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;"  static-body="shape: box; mass: 0; sphereRadius: NaN"  lookat="#cam" >
+        <a-sound id="nar" src="#helloSound" autoplay="true" play-next-sound="#nar2"></a-sound>
+
+        <a-sound id="nar2" src="#enviroSound" autoplay="false" play-next-sound="#nar3" ></a-sound
+            >    
+            <a-sound id="nar3" src="#infoSound" autoplay="false" ></a-sound
+            >
+          </a-gltf-model>
+  
 
       <!--noah distractor-->
       <a-gltf-model id="myDistractor"   visible="false"  gltf-model="#distractorModel" position="1.75 0.3 -7.224"  lookat="#cam"   clickable static-body="shape: box; mass: 0; sphereRadius: NaN" aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;" shadow >
 
 
       </a-gltf-model>
-     
+      <a-gltf-model id="noah" rotation="0 -85.20340779831446 0"     gltf-model="#distractorModel" position="10.6763 0.3 -0.85876"  lookat="#cam"   clickable static-body="shape: box; mass: 0; sphereRadius: NaN" aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;" shadow >
+
+
+      </a-gltf-model>
 
 <!--Stats-->
     <a-text id="selectenvironment" value="Beach"  geometry="primitive:circle" visible="false"></a-text>

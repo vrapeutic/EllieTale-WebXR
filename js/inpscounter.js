@@ -40,9 +40,7 @@ fairy.setAttribute( "animation",
 setTimeout(() => 
 {
     fairy.setAttribute( "animation",
-       "property:position; to:"+fairyPositionx  +
-       " 0.5 " +
-       fairyPositionz+" dur:1000")
+       "property:position; to:"+(fairyPositionx) +" "+(fairyPositiony+0.5)+" "+ fairyPositionz + " dur:1000")
 },3000)
 
         }
