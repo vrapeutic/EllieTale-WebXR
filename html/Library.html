@@ -5,7 +5,7 @@
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
-    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
     <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
     <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
@@ -34,7 +34,7 @@
     colorManagement: true;">
 
         
-    <a-camera  id="cam" menu movement-controls="speed: 0.15 constrainToNavMesh:true" position="2 1 0" wasd-controls="" rotation="0 -180 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
+    <a-camera  id="cam" menu  position="2 1 0"  rotation="0 -180 0"  >
       <a-entity cursor="rayOrigin: mouse"></a-entity>
    </a-camera>
   
@@ -96,7 +96,7 @@
        </a-assets>
        <a-asset-item id="helloSound" src="../assets/illy the fairy/1 Hello there! I am Illy the fairy, and that is Uncle Noah over there. Uncle Noah has a lot of work to do and nobody around to help him with it, so we are going to help him!”.wav"
        response-type="arraybuffer"></a-asset-item>
-       <a-asset-item id="enviroSound" src="../assets/illy the fairy/3 Today, Uncle Noah is fishing by the beach! Let’s help him collect items from those boxes!”.wav"
+       <a-asset-item id="enviroSound" src="../assets/illy the fairy/5  Today, Uncle Noah is writing a book! Let’s help him collect letters to use in his book!”.wav"
        response-type="arraybuffer"></a-asset-item>
      </a-assets>
      <a-asset-item id="infoSound" src="../assets/illy the fairy/6 I will point at a box and then you should click on it to open it! Let’s try it.”.wav"
@@ -104,7 +104,7 @@
    </a-assets>
       <!--enviroment    -->
      
-      <a-gltf-model id="myLibrary" src="#Environment" shadow="" animation-mixer position="5 0 4.54743">
+      <a-gltf-model id="myLibrary" rotation="0 0 -0.07" src="#Environment" shadow="" animation-mixer position="5 0 4.54743">
       </a-gltf-model>
    
 
@@ -124,38 +124,56 @@
       
    <!--Targets-->
 
-   <a-entity id="targetone"  class="Box" gltf-model="#target" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="13.16794 0.84191 11.11645"   showitem static-body="shape: sphere; ; sphereRadius: 400" amimation-mixer="enabled:false" rotation="0 140.1941781015855 0" shadow ontriggertarget>
+   <a-entity id="targetone"  class="Box" gltf-model="#target" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="12.51156 3.09834 -2.71666"   showitem static-body="shape: sphere; ; sphereRadius: 400" amimation-mixer="enabled:false" rotation="-0.5299859604960114 -122.25888024060532 0" shadow ontriggertarget>
   </a-entity> 
 
 
 
-  <a-entity id="targetthree"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box; debug: true; collideNonVisible: false; interval: 10000" shadow="receive: true" position="-0.6076 3.06047 -4.49069"  showitem static-body="shape: auto; ; sphereRadius: 500; cylinderAxis: x" amimation-mixer="enabled:false" rotation="-0.49000000000000005 -74.81 0" shadow ontriggertarget>
+  <a-entity id="targetthree"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box; debug: true; collideNonVisible: false; interval: 10000" shadow="receive: true" position="-0.6276 3.10047 -4.55069"  showitem static-body="shape: auto; ; sphereRadius: 500; cylinderAxis: x" amimation-mixer="enabled:false" rotation="-0.49000000000000005 -74.81 0" shadow ontriggertarget>
 
   </a-entity>     
-  <a-entity id="targetfour"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box ;debug:true" shadow="receive: true" position="7.73453 3.15147 18.08378"  showitem static-body="shape: sphere; ; sphereRadius: 5" amimation-mixer="enabled:false" rotation="0 90 0" shadow ontriggertarget>
+  <a-entity id="targetfour"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box ;debug:true" shadow="receive: true" position="-2.64152 3.15147 17.6311"  showitem static-body="shape: sphere; ; sphereRadius: 5" amimation-mixer="enabled:false" rotation="-8.75 83.66 -6.67" shadow ontriggertarget>
   </a-entity> 
 
-  <a-entity id="targettwo"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-9.03431 2.367 7.62401"  showitem static-body="shape: sphere; ; sphereRadius: 5" amimation-mixer="enabled:false" rotation="-0.4 -24.72 0" shadow ontriggertarget>
+  <a-entity id="targettwo"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-4.65489 1.09112 3.20943"  showitem static-body="shape: sphere; ; sphereRadius: 5" amimation-mixer="enabled:false" rotation="-0.4 -24.72 0" shadow ontriggertarget>
   </a-entity>
-            <!--items-->
-
-            
- <a-entity id="item" class="items" visible="false"  gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShark%20With%20Material.glb?v=1602763326676" scale="5000 5000 5000" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-</a-entity>
-
-<a-entity id="itemOne" class="items" visible="false"  gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2Fnod.glb?v=1602686258177" scale="5 5 5" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-</a-entity>
-
-<a-entity id="itemTwo" class="items"  visible="false" gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FWhale.glb?v=1602767677623" scale="5 5 5" animation="property: rotaion; to: 0 360 0; loop: true; dur: 500">
-</a-entity>
-
-<a-entity id="itemThree"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShrimp.glb?v=1602766713614" scale="8000 8000 8000" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-</a-entity>
-
-<a-entity id="itemFour"  visible="false"   class="items"   gltf-model="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FShip%20beach.glb?v=1602764145944" scale="5 5 5" animation="property: rotation; to: 0 360 0; loop: true; dur: 500">
-  </a-entity>
-       
      
+            <!--items -->
+      <a-gltf-model id="itemk"  visible="false"   class="items"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FLibrary_prop_X_01.glb?v=1611530385409" animation-mixer="enabled:false">
+      </a-gltf-model>
+
+      <a-gltf-model id="itemL"  visible="false"   class="items"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FLibrary_prop_W_01.glb?v=1611530384971" animation-mixer="enabled:false">
+      </a-gltf-model>
+
+      <a-gltf-model id="itemM"  visible="false"   class="items"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FLibrary_prop_C_01.glb?v=1611530385010" animation-mixer="enabled:false">
+      </a-gltf-model>
+
+      <a-gltf-model id="itemN"  visible="false"   class="items"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FLibrary_prop_F_01.glb?v=1611530384891" animation-mixer="enabled:false">
+      </a-gltf-model>
+
+      <a-gltf-model id="itemr"  visible="false"   class="items"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FLibrary_prop_L_01.glb?v=1611530385503" animation-mixer="enabled:false">
+      </a-gltf-model>
+
+      <a-gltf-model id="itemz"  visible="false"   class="items"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FLibrary_prop_D_01.glb?v=1611530385676" animation-mixer="enabled:false">
+      </a-gltf-model>
+
+      <a-gltf-model id="itemu"  visible="false"   class="items"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FLibrary_prop_U_01.glb?v=1611530388642" animation-mixer="enabled:false">
+      </a-gltf-model>
+
+      <a-gltf-model id="itemu"  visible="false"   class="items"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FLibrary_prop_R_01.glb?v=1611530386396" animation-mixer="enabled:false">
+      </a-gltf-model>
+
+      <a-gltf-model id="itemu"  visible="false"   class="items"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FLibrary_prop_I_01.glb?v=1611530385588" animation-mixer="enabled:false">
+      </a-gltf-model>
+      
+      <a-gltf-model id="itemf"  visible="false"   class="items"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FLibrary_prop_S_01.glb?v=1611530386197" animation-mixer="enabled:false">
+      </a-gltf-model>
+      <a-gltf-model id="itemw"  visible="false"   class="items"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FLibrary_prop_O_01.glb?v=1611530385884" animation-mixer="enabled:false">
+      </a-gltf-model>
+      <a-gltf-model id="itemy"  visible="false"   class="items"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FLibrary_prop_Y_01.glb?v=1611530388553" animation-mixer="enabled:false">
+      </a-gltf-model>
+      <a-gltf-model id="itemz"  visible="false"   class="items"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FLibrary_prop_Z_01.glb?v=1611530386732" animation-mixer="enabled:false">
+      </a-gltf-model>
  <!-- eille the Fairy-->
  
  <a-gltf-model id="Fairy" fairytasktimer  src="#fairymodel" position="-0.085 1.62321 1.29193"   aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;"  static-body="shape: box; mass: 0; sphereRadius: NaN"  lookat="#cam" >

@@ -19,16 +19,16 @@ let fairy = document.querySelector("#Fairy");
      
       if (frustum.containsPoint(fairyPosition)) {
         // Do something with the position...
-        console.log("here");
+      //  console.log("here");
       }
      else{
-      console.log("nothere");
+    //  console.log("nothere");
 
       setTimeout(() => 
       {
           if(inpusCount==3)
           {
-            console.log("nothere"+inpusCount);
+           // console.log("nothere"+inpusCount);
 
              index++;
            inpusCount=0;
