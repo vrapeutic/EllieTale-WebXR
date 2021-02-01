@@ -15,31 +15,41 @@ AFRAME.registerComponent("showitem", {
        var score;
        var index; //to store index for the array of targets
        var item, random;
-
+var fairyPosition=fairy.getAttribute("position");
      document.getElementById(el.firstElementChild.id).parentNode.removeChild(document.getElementById(el.firstElementChild.id));//destoy light from current target
 
        el.setAttribute('showitem',"enabled",false);
       
        this.el.setAttribute("movetotarget","enabled",false);
  
-         this.el.setAttribute("animation-mixer", "repetitions: 0; clampWhenFinished:false;dur:4000");
-       
-         item = document.querySelectorAll(".items");
-        
+         this.el.setAttribute("animation-mixer", "repetitions: 0; clampWhenFinished:false");
+         fairy.setAttribute(
+          "animation",
+          "property:position; to:" +(fairyPosition.x+1) +" "+fairyPosition.y+" "+ fairyPosition.z + "; dur:1000"
+        )   ;  
+            item = document.querySelectorAll(".items");
+        console.log(this.el.getAttribute("position"))
          random = Math.floor(Math.random() * Math.floor(item.length));
 
         score = document.getElementById("score").getAttribute("value");
- 
+ //this.el.appendChild(item[random]);
+
          index = score;
+  
  
-       item[random].setAttribute("position", {
-         x: this.el.getAttribute("position").x+item[random].getAttribute("position").x,
-         y: this.el.getAttribute("position").y+item[random].getAttribute("position").x,
-         z: this.el.getAttribute("position").z
-       });
- 
+    
+  
+var pos=this.el.getAttribute("position");
+     item[random].setAttribute("position", pos);
+       console.log(pos);
        item[random].setAttribute("Visible", true);
        item[random].setAttribute("animation-mixer","enabled", true);
+ 
+         this.el.addEventListener("animation-finished",()=>{
+          this.el.setAttribute('animation-mixer',{timeScale: 0});
+      
+       
+   }	)
 /* var partical=document.createElement('a-entity');
  partical.setAttribute("spe-particles","texture: ../images/particles/circle.png;color: #0000FF, #00FFFF, #FFFFFF; particle-count: 1000; acceleration: 0 -6 0;")
  partical.setAttribute("spe-particles","opacity: 2, 2, 0; velocity: 0 4 0; size: 2, 2, 0; velocity-spread: 2 0 2;") 
@@ -59,22 +69,25 @@ if (index <= document.querySelectorAll(".Box").length)
          index = 3;  
          
  console.log(index+" len "+ document.querySelectorAll(".Box").length)
+ console.log(this.el.getAttribute("position"))
 
        }
  
-       setTimeout(() => 
+ 
+    setTimeout(() => 
        {
  
          score++;
            document.getElementById("score").setAttribute("value", score);
 
-        fairyPositionx = target[index].getAttribute("position").x+1;
+        fairyPositionx = target[index].getAttribute("position").x;
+        fairyPositiony= target[index].getAttribute("position").y;
        fairyPositionz = target[index].getAttribute("position").z;
      
    
          fairy.setAttribute(
            "animation",
-           "property:position; to:" + (fairyPositionx) + " 0.5 " + fairyPositionz + "; dur:1000"
+           "property:position; to:" +(fairyPositionx) +" "+(fairyPositiony+0.5)+" "+ fairyPositionz + "; dur:1000"
          );//move Fairy to next Target
  
          console.log(
@@ -95,7 +108,7 @@ if (index <= document.querySelectorAll(".Box").length)
          item[random].remove();
          document.getElementById(el.firstElementChild.id).parentNode.removeChild(document.getElementById(el.firstElementChild.id));//destoy light from current target
 
-       }, 4000);
+       }, 9000);
       }
       else{
         console.log("bye");

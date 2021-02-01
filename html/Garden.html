@@ -7,10 +7,8 @@
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
     <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
     <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-area-light-component/dist/aframe-area-light-component.min.js"></script>
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+    <script src="https://unpkg.com/aframe-area-light-component/dist/aframe-area-light-component.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/aframe-area-light-component/dist/aframe-area-light-component.min.js"></script>
     <script src="../js/custom/aframe-environment-component.min.js"></script>
@@ -153,6 +151,9 @@
 <a-gltf-model id="myDistractor"   visible="false"  src="#distractorModel" position="-14.18763 0 14.78224" lookat="#cam" clickable="" static-body="shape: box; sphereRadius: NaN" aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;" rotation="0 90 0" shadow="">
 </a-gltf-model>
 
+<a-gltf-model id="noah" rotation="0 -85.20340779831446 0"     gltf-model="#distractorModel" position="10.6763 0.3 -0.85876"  lookat="#cam"   clickable static-body="shape: box; mass: 0; sphereRadius: NaN" aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;" shadow >
+</a-gltf-model>
+
 <!--Stats-->
   
 <a-text id="selectenvironment" value="Garden"  geometry="primitive:circle" visible="false"></a-text>
@@ -170,6 +171,12 @@
  <!--TaxiFairy-->
       
  <a-gltf-model id="Fairy"   src="#fairymodel" position="-9.44433 0.33465 1.60362" aabb-collider="objects: a-entity" static-body="shape: box; sphereRadius: NaN" lookat="#cam" >
+  <a-sound id="nar" src="#helloSound" autoplay="true" play-next-sound="#nar2"></a-sound>
+
+  <a-sound id="nar2" src="#enviroSound" autoplay="false" play-next-sound="#nar3" ></a-sound
+      >    
+      <a-sound id="nar3" src="#infoSound" autoplay="false" ></a-sound
+      >
 </a-gltf-model>
    
 

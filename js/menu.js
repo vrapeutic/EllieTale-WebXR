@@ -1,11 +1,22 @@
 
 AFRAME.registerComponent('menu', {
   init :function(){
-  
+    
     var firtTargetPos=document.getElementById("targetone").getAttribute("position");
     var lastTargetPos=document.getElementById("targetfour").getAttribute("position");
-   console.log(document.getElementById("selectenvironment").getAttribute("value"))
-  
+  var fairy = document.getElementById("Fairy");
+
+   // var mySound = fairy.getAttribute("sound").attrValue.src;
+
+/*document.querySelector("#nar").addEventListener('sound-ended', function () {
+console.log("he");
+document.querySelector("#nar2").components.sound.playSound();
+    });
+    document.querySelector("#nar2").addEventListener('sound-ended', function () {
+      console.log("he");
+      document.querySelector("#nar3").components.sound.playSound();
+          });*/
+            
   //select level menu
   
    let  disableMenu=function Disable(){
@@ -17,12 +28,13 @@ AFRAME.registerComponent('menu', {
   }
   let checkLevel=function fcheckLevel(){
     
-  
+    document.getElementById("noah").parentNode.removeChild( document.getElementById("noah"));
+
     // set fairy position to target one
     document.getElementById("Fairy").setAttribute(
    "animation",
-   "property:position; to:"+(firtTargetPos.x+1.5)+
-   " 0.3 " +
+   "property:position; to:"+(firtTargetPos.x)+
+   " " +(firtTargetPos.y+0.5)+" "+
    firtTargetPos.z+"; dur:1000"
   )
   fairyPositionx=firtTargetPos.x ;
