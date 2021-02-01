@@ -116,4 +116,5 @@ To know more about the design of the gamified thepautic VR application, check ou
 
 ## Contributions
 First off, thanks for taking the time to contribute! You can check out our contribution guidelines from this [link](https://github.com/vrapeutic/Ellie-Tale/blob/main/CONTRIBUTING.md).
+
 Please note that this project is released with a Contributor Code of Conduct, which can be found [here](https://www.contributor-covenant.org/version/2/0/code_of_conduct/). By participating in this project you agree to abide by its terms.
