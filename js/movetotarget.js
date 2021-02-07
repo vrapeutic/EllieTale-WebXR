@@ -4,10 +4,35 @@ AFRAME.registerComponent("ontriggertarget", {
   {
 
     //fairy trigger target
-    
+    let sounds=document.querySelectorAll(".boxsound");
+
     let triggerTarget = () => 
     {
        var taskcounter=document.getElementById("taskcounter").getAttribute("value");
+       if(taskcounter>1)
+       {
+       let randomSound=Math.floor(Math.random() * Math.floor(sounds.length));
+       sounds[randomSound].components.sound.playSound();
+       console.log("random sound "+sounds[randomSound].id)
+       if(sounds[randomSound].id=="nar8")
+       {
+       document.querySelector("#nar8").addEventListener('sound-ended', function () {
+        console.log("he");
+        setTimeout(() => {
+                  document.querySelector("#nar9").components.sound.playSound();
+
+        }, 1000);
+            });
+            document.querySelector("#nar9").addEventListener('sound-ended', function () {
+                console.log("he");
+                setTimeout(() => {
+                                  document.querySelector("#nar10").components.sound.playSound();
+
+                }, 1000);
+                    });
+                  }
+}
+  
 
         this.el.setAttribute("showitem", "enabled",true);
        

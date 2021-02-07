@@ -89,7 +89,7 @@
          response-type="arraybuffer"></a-asset-item>
          <a-asset-item id="Environment" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FLibrary_environment_v2.01%5BmergedSides_MedQTex%5D.glb?v=1611007597816"
          response-type="arraybuffer"></a-asset-item>
-        <a-asset-item id="distractorModel" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FNoah_hunter_v1.01.glb?v=1609741957224"
+        <a-asset-item id="distractorModel" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FNoah_librarian_v1.01.glb?v=1612434210909"
          response-type="arraybuffer"></a-asset-item>
          <a-asset-item id="fairymodel" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FElly_2k_03.glb?v=1609445475503"
          response-type="arraybuffer"></a-asset-item>
@@ -101,7 +101,25 @@
      </a-assets>
      <a-asset-item id="infoSound" src="../assets/illy the fairy/6 I will point at a box and then you should click on it to open it! Let’s try it.”.wav"
      response-type="arraybuffer"></a-asset-item>
+     <a-asset-item id="infoSounditem" src="../assets/illy the fairy/7 Yay! This is a .wav"
+     response-type="arraybuffer"></a-asset-item>
    </a-assets>
+   <a-asset-item id="infoSounditemone" src="../assets/illy the fairy/8 Awesome! That’s a .wav"
+   response-type="arraybuffer"></a-asset-item>
+   <a-asset-item id="infoSounditemtwo" src="../assets/illy the fairy/9 Woho! This is a .wav"
+   response-type="arraybuffer"></a-asset-item>
+   <a-asset-item id="slowSound" src="../assets/illy the fairy/11 We are too slow, Uncle Noah has to leave now. Let’s be quicker to help him in his work next time.wav"
+   response-type="arraybuffer"></a-asset-item>
+   <a-asset-item id="winSound" src="../assets/illy the fairy/12 Hooray! We’ve collected all objects!.wav"
+   response-type="arraybuffer"></a-asset-item>
+   <a-asset-item id="boxSound" src="../assets/illy the fairy/13 Uncle Noah needs.wav"
+   response-type="arraybuffer"></a-asset-item>
+   <a-asset-item id="bosSound2" src="../assets/illy the fairy/19 letter.wav"
+   response-type="arraybuffer"></a-asset-item>
+   <a-asset-item id="bosSound3" src="../assets/illy the fairy/14 can you please pick it up for him Pick it up by pointing and clicking on it so we can give it to him.wav"
+   response-type="arraybuffer"></a-asset-item>
+   <a-asset-item id="z" src="../assets/illy the fairy/55 Z.wav"
+   response-type="arraybuffer"></a-asset-item>
       <!--enviroment    -->
      
       <a-gltf-model id="myLibrary" rotation="0 0 -0.07" src="#Environment" shadow="" animation-mixer position="5 0 4.54743">
@@ -140,15 +158,23 @@
      
             <!--items -->
       <a-gltf-model id="itemk"  visible="false"   class="items"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FLibrary_prop_X_01.glb?v=1611530385409" animation-mixer="enabled:false">
+        <a-sound id="sound1" src="#z" autoplay="false"   ></a-sound>
+
       </a-gltf-model>
 
       <a-gltf-model id="itemL"  visible="false"   class="items"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FLibrary_prop_W_01.glb?v=1611530384971" animation-mixer="enabled:false">
+        <a-sound id="sound2" src="#z" autoplay="false"   ></a-sound>
+
       </a-gltf-model>
 
       <a-gltf-model id="itemM"  visible="false"   class="items"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FLibrary_prop_C_01.glb?v=1611530385010" animation-mixer="enabled:false">
+        <a-sound id="sound3" src="#z" autoplay="false"   ></a-sound>
+
       </a-gltf-model>
 
       <a-gltf-model id="itemN"  visible="false"   class="items"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FLibrary_prop_F_01.glb?v=1611530384891" animation-mixer="enabled:false">
+        <a-sound id="sound4" src="#z" autoplay="false"   ></a-sound>
+
       </a-gltf-model>
 
       <a-gltf-model id="itemr"  visible="false"   class="items"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FLibrary_prop_L_01.glb?v=1611530385503" animation-mixer="enabled:false">
@@ -177,13 +203,21 @@
  <!-- eille the Fairy-->
  
  <a-gltf-model id="Fairy" fairytasktimer  src="#fairymodel" position="-0.085 1.62321 1.29193"   aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;"  static-body="shape: box; mass: 0; sphereRadius: NaN"  lookat="#cam" >
-  <a-sound id="nar" src="#helloSound" autoplay="true" play-next-sound="#nar2"></a-sound>
+  <a-sound id="nar" src="#helloSound" autoplay="false" ></a-sound>
 
-  <a-sound id="nar2" src="#enviroSound" autoplay="false" play-next-sound="#nar3" ></a-sound
-      >    
-      <a-sound id="nar3" src="#infoSound" autoplay="false" ></a-sound
-      >
-    </a-gltf-model>
+  <a-sound id="nar2" src="#enviroSound" autoplay="false"   ></a-sound
+      > 
+      <a-sound id="nar8" src="#boxSound" autoplay="false" class="boxsound"  ></a-sound >
+        <a-sound id="nar9" src="#boxSound2" autoplay="false"  ></a-sound >
+        <a-sound id="nar10" src="#boxSound3" autoplay="false" ></a-sound >   
+      <a-sound id="nar3" src="#infoSound" autoplay="false" class="boxsound" ></a-sound >
+        <a-sound id="nar4" src="#infoSounditem" autoplay="false" class="itemsSound" ></a-sound >
+          <a-sound id="nar5" src="#infoSounditemone" autoplay="false" class="itemsSound" ></a-sound >
+            <a-sound id="nar6" src="#infoSounditemtwo" autoplay="false" class="itemsSound" ></a-sound >
+            
+              <a-sound id="nar7" src="#slowSound" autoplay="false"  ></a-sound >
+
+            </a-gltf-model>
 
 
 <!--noah distractor-->
