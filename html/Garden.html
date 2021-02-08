@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,6 +10,7 @@
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
     <script src="https://unpkg.com/aframe-area-light-component/dist/aframe-area-light-component.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aframe-area-light-component/dist/aframe-area-light-component.min.js"></script>
     <script src="../js/custom/aframe-environment-component.min.js"></script>
     <script src="../js/custom/aframe-spe-particles-component.js"></script>
     <script src="../js/distractoradvancedmovenment.js"></script>
@@ -94,7 +94,30 @@
          <a-asset-item id="fairymodel" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FElly_2k_01.glb?v=1608738722490"
          response-type="arraybuffer"></a-asset-item>
        </a-assets>
-
+       <a-asset-item id="helloSound" src="../assets/illy the fairy/1 Hello there! I am Illy the fairy, and that is Uncle Noah over there. Uncle Noah has a lot of work to do and nobody around to help him with it, so we are going to help him!”.wav"
+       response-type="arraybuffer"></a-asset-item>
+       <a-asset-item id="enviroSound" src="../assets/illy the fairy/5  Today, Uncle Noah is writing a book! Let’s help him collect letters to use in his book!”.wav"
+       response-type="arraybuffer"></a-asset-item>
+     </a-assets>
+     <a-asset-item id="infoSound" src="../assets/illy the fairy/6 I will point at a box and then you should click on it to open it! Let’s try it.”.wav"
+     response-type="arraybuffer"></a-asset-item>
+     <a-asset-item id="infoSounditem" src="../assets/illy the fairy/7 Yay! This is a .wav"
+     response-type="arraybuffer"></a-asset-item>
+   </a-assets>
+   <a-asset-item id="infoSounditemone" src="../assets/illy the fairy/8 Awesome! That’s a .wav"
+   response-type="arraybuffer"></a-asset-item>
+   <a-asset-item id="infoSounditemtwo" src="../assets/illy the fairy/9 Woho! This is a .wav"
+   response-type="arraybuffer"></a-asset-item>
+   <a-asset-item id="slowSound" src="../assets/illy the fairy/11 We are too slow, Uncle Noah has to leave now. Let’s be quicker to help him in his work next time.wav"
+   response-type="arraybuffer"></a-asset-item>
+   <a-asset-item id="winSound" src="../assets/illy the fairy/12 Hooray! We’ve collected all objects!.wav"
+   response-type="arraybuffer"></a-asset-item>
+   <a-asset-item id="boxSound" src="../assets/illy the fairy/13 Uncle Noah needs.wav"
+   response-type="arraybuffer"></a-asset-item>
+   <a-asset-item id="bosSound2" src="../assets/illy the fairy/19 letter.wav"
+   response-type="arraybuffer"></a-asset-item>
+   <a-asset-item id="bosSound3" src="../assets/illy the fairy/14 can you please pick it up for him Pick it up by pointing and clicking on it so we can give it to him.wav"
+   response-type="arraybuffer"></a-asset-item>
       <!--enviroment-->
       
       <a-entity progressive-controls></a-entity>
@@ -107,15 +130,17 @@
 
      
       <a-entity id="targetone" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="-6.14201 0.21685 9.26717" showitem="" static-body="shape: box" amimation-mixer="enabled:false" rotation="0 86.87988230686724 0" ontriggertarget="">
-        </a-entity>
+       
+      </a-entity>
         <a-entity id="targettwo" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="-3.9871 0.21685 -9.67132" showitem="" static-body="shape: box" amimation-mixer="enabled:false" rotation="0 127.95465368200082 0" ontriggertarget="">
-
+        
         </a-entity>
         <a-entity id="targetthree" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="15.42803 0.2291 13.96831" showitem="" static-body="shape: box" amimation-mixer="enabled:false" rotation="0 173.37817472217736 0" ontriggertarget="">
-
+      
         </a-entity>      
     
         <a-entity id="targetfour" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="" position="11.72736 0.29069 -5.37097" showitem="" static-body="shape: box" amimation-mixer="enabled:false" rotation="-7.739513896627161 -7.861553906990025 1.4816688582083088" ontriggertarget="">
+         
         </a-entity>
   
 
@@ -169,14 +194,21 @@
  <!--TaxiFairy-->
       
  <a-gltf-model id="Fairy"   src="#fairymodel" position="-9.44433 0.33465 1.60362" aabb-collider="objects: a-entity" static-body="shape: box; sphereRadius: NaN" lookat="#cam" >
-  <a-sound id="nar" src="#helloSound" autoplay="true" play-next-sound="#nar2"></a-sound>
 
-  <a-sound id="nar2" src="#enviroSound" autoplay="false" play-next-sound="#nar3" ></a-sound
-      >    
-      <a-sound id="nar3" src="#infoSound" autoplay="false" ></a-sound
-      >
 </a-gltf-model>
-   
+     <a-sound id="helloAud" src="#helloSound" autoplay="false" ></a-sound>
+
+  <a-sound id="enviroAud" src="#enviroSound" autoplay="false"   ></a-sound> 
+ <a-sound id="boxAud" src="#boxSound" autoplay="false" class="boxsound"  ></a-sound >
+        <a-sound id="boxAud2" src="#boxSound2" autoplay="false"  ></a-sound >
+        <a-sound id="boxAud3" src="#boxSound3" autoplay="false" ></a-sound >   
+      <a-sound id="infoAud" src="#infoSound" autoplay="false" class="boxsound" ></a-sound >
+        <a-sound id="infoAuditem" src="#infoSounditem" autoplay="false" class="itemsSound" ></a-sound >
+          <a-sound id="infoAuditem1" src="#infoSounditemone" autoplay="false" class="itemsSound" ></a-sound >
+            <a-sound id="infoAuditem2" src="#infoSounditemtwo" autoplay="false" class="itemsSound" ></a-sound >
+            
+              <a-sound id="slowAud" src="#slowSound" autoplay="false"  ></a-sound >
+
 
         </a-scene>
    

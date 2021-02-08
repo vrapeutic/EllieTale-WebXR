@@ -39,6 +39,8 @@ fairy.setAttribute( "animation",
 (document.getElementById("cam").getAttribute("position").z-3)+" dur:1000") 
 setTimeout(() => 
 {
+  document.getElementById("slowAud").components.sound.playSound();
+
     fairy.setAttribute( "animation",
        "property:position; to:"+(fairyPositionx) +" "+(fairyPositiony+0.5)+" "+ fairyPositionz + " dur:1000")
 },3000)

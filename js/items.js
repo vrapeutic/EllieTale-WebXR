@@ -7,7 +7,7 @@ AFRAME.registerComponent("showitem", {
    let fairy = document.querySelector("#Fairy");
    var el = this.el;
    target = document.querySelectorAll(".Box");
-
+let sounds=document.querySelectorAll(".itemsSound");
      let selectRandomItem = () => 
      {
       if( el.firstElementChild.id!=null)//check if this target has light
@@ -21,26 +21,31 @@ var fairyPosition=fairy.getAttribute("position");
        el.setAttribute('showitem',"enabled",false);
       
        this.el.setAttribute("movetotarget","enabled",false);
- 
-         this.el.setAttribute("animation-mixer", "repetitions: 0; clampWhenFinished:false");
+  let randomSound=Math.floor(Math.random() * Math.floor(sounds.length));
+        console.log(sounds[0]);
+
+         this.el.setAttribute("animation-mixer", "repetitions: 1; clampWhenFinished:false");
          fairy.setAttribute(
           "animation",
           "property:position; to:" +(fairyPosition.x+1) +" "+fairyPosition.y+" "+ fairyPosition.z + "; dur:1000"
         )   ;  
             item = document.querySelectorAll(".items");
-        console.log(this.el.getAttribute("position"))
          random = Math.floor(Math.random() * Math.floor(item.length));
 
         score = document.getElementById("score").getAttribute("value");
  //this.el.appendChild(item[random]);
+sounds[randomSound].components.sound.playSound();
 
          index = score;
   
- 
-    
+    document.getElementById(sounds[randomSound].id).addEventListener('sound-ended', function () {
+item[random].firstElementChild.components.sound.playSound();
+    });
   
 var pos=this.el.getAttribute("position");
+var rotation=this.el.getAttribute("rotation");
      item[random].setAttribute("position", pos);
+     item[random].setAttribute("rotation", rotation);
        console.log(pos);
        item[random].setAttribute("Visible", true);
        item[random].setAttribute("animation-mixer","enabled", true);
