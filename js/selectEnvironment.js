@@ -9,10 +9,10 @@ init: function() {
 
  document.getElementById('Garden').addEventListener("click",e => 
       {loadEnvironment()});
-/*
+
  document.getElementById('Library').addEventListener("click",e => 
       {loadEnvironment()});
-*/
+
  document.getElementById('Beach').addEventListener("click",e => 
       {
           loadEnvironment()

@@ -6,16 +6,9 @@ AFRAME.registerComponent('menu', {
     var lastTargetPos=document.getElementById("targetfour").getAttribute("position");
   var fairy = document.getElementById("Fairy");
 
-   // var mySound = fairy.getAttribute("sound").attrValue.src;
+ // var mySound = fairy.getAttribute("sound").attrValue.src;
 
-/*document.querySelector("#nar").addEventListener('sound-ended', function () {
-console.log("he");
-document.querySelector("#nar2").components.sound.playSound();
-    });
-    document.querySelector("#nar2").addEventListener('sound-ended', function () {
-      console.log("he");
-      document.querySelector("#nar3").components.sound.playSound();
-          });*/
+
             
   //select level menu
   
@@ -27,19 +20,32 @@ document.querySelector("#nar2").components.sound.playSound();
   
   }
   let checkLevel=function fcheckLevel(){
-    
-    document.getElementById("noah").parentNode.removeChild( document.getElementById("noah"));
 
-    // set fairy position to target one
+    fairy.setAttribute("sound","src:"+document.querySelector("#helloAud").getAttribute("src"));
+   fairy.components.sound.playSound();
+
+   
+ fairy.addEventListener('sound-ended', function () {
+      console.log(fairy.components.sound.src);
+      if(fairy.components.sound.src=="#helloAud"){
+      fairy.setAttribute("sound","src:"+document.querySelector("#infoAud").getAttribute("src"));
+     fairy.components.sound.playSound();
+    }
+  
+   });
+    document.getElementById("noah").parentNode.removeChild( document.getElementById("noah"));
     document.getElementById("Fairy").setAttribute(
    "animation",
    "property:position; to:"+(firtTargetPos.x)+
    " " +(firtTargetPos.y+0.5)+" "+
    firtTargetPos.z+"; dur:1000"
   )
+
+    // set fairy position to target one
+
   fairyPositionx=firtTargetPos.x ;
   fairyPositionz=firtTargetPos.z;
-  
+ 
   //level three (Set distractor component and partical )
   if(  document.getElementById("level").getAttribute("value")==3){ 
     
@@ -103,7 +109,8 @@ partical.setAttribute("spe-particles","texture:../images/particles/snowflake.png
   document.getElementById("myDistractor").setAttribute('visible',true);
   console.log(document.getElementById("myDistractor"));
   
-  }
+  }  
+
   }  
   //level menu buttons's events
   

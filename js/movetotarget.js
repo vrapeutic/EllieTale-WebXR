@@ -2,15 +2,31 @@ AFRAME.registerComponent("ontriggertarget", {
   
   init: function() 
   {
+    var fairy = document.getElementById("Fairy");
 
     //fairy trigger target
-    
+    let sounds=document.querySelectorAll(".boxsound");
+
     let triggerTarget = () => 
     {
        var taskcounter=document.getElementById("taskcounter").getAttribute("value");
+      if(taskcounter>1)
+       {
+       let randomSound=Math.floor(Math.random() * Math.floor(sounds.length));
+       fairy.setAttribute("sound","src:"+sounds[randomSound].getAttribute("src"));
+      fairy.components.sound.playSound();
+       
+                    fairy.addEventListener('sound-ended', function () {
+                      console.log("he");
+                      fairy.components.sound.stopSound();
+                   
+
+                          });
+                  
+}  
 
         this.el.setAttribute("showitem", "enabled",true);
-       
+      
         if (this.el.firstElementChild==null)
         {
         var el = document.createElement('a-entity');
@@ -23,7 +39,7 @@ AFRAME.registerComponent("ontriggertarget", {
         taskcounter++;
         document.getElementById("taskcounter").setAttribute("value", taskcounter);
        // console.log(this.el.getAttribute("animation-mixer")+"TaskCounter"+taskcounter)
-    
+
     }
     //level three speacial case if ds hit the target not the fairy 
     this.el.addEventListener("hitstart", e => 
@@ -52,7 +68,7 @@ AFRAME.registerComponent("ontriggertarget", {
         setTimeout(() => 
         {
           
-          this.el.removeAttribute("movetotarget");
+          this.el.setAttribute("movetotarget","enabled",false);
           
         }, 1200);
         
