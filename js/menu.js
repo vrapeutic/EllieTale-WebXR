@@ -1,4 +1,3 @@
-
 AFRAME.registerComponent('menu', {
   init :function(){
     
@@ -20,16 +19,23 @@ AFRAME.registerComponent('menu', {
   
   }
   let checkLevel=function fcheckLevel(){
+    document.querySelector("#helloAud").setAttribute("position",fairy.getAttribute("position"));
+   document.querySelector("#helloAud").components.sound.playSound();
+  console.log(document.querySelector("#helloAud").getAttribute("sound").src);
+     
 
-    document.querySelector("#nar").components.sound.playSound();
- document.querySelector("#nar").addEventListener('sound-ended', function () {
-console.log("he");
-document.querySelector("#nar2").components.sound.playSound();
-    });
-    document.querySelector("#nar2").addEventListener('sound-ended', function () {
-      console.log("he");
-      document.querySelector("#nar3").components.sound.playSound();
-      
+        document.querySelector("#helloAud").addEventListener('sound-ended', function () {  
+ 
+          document.querySelector("#enviroAud").setAttribute("position",fairy.getAttribute("position"));
+
+          document.querySelector("#enviroAud").components.sound.playSound();
+
+  }); 
+          document.querySelector("#enviroAud").addEventListener('sound-ended', function () {
+ 
+            document.querySelector("#enviroAud").components.sound.stopSound();
+     
+
     document.getElementById("noah").parentNode.removeChild( document.getElementById("noah"));
     document.getElementById("Fairy").setAttribute(
    "animation",
@@ -37,6 +43,8 @@ document.querySelector("#nar2").components.sound.playSound();
    " " +(firtTargetPos.y+0.5)+" "+
    firtTargetPos.z+"; dur:1000"
   )
+  document.querySelector("#enviroAud").parentNode.removeChild( document.querySelector("#enviroAud"));
+  document.querySelector("#helloAud").parentNode.removeChild(  document.querySelector("#helloAud"));
 
     // set fairy position to target one
 
@@ -106,8 +114,8 @@ partical.setAttribute("spe-particles","texture:../images/particles/snowflake.png
   document.getElementById("myDistractor").setAttribute('visible',true);
   console.log(document.getElementById("myDistractor"));
   
-  }    });
-
+  }  
+}); 
   }  
   //level menu buttons's events
   
@@ -160,3 +168,4 @@ partical.setAttribute("spe-particles","texture:../images/particles/snowflake.png
   }
   })
   
+

@@ -2,6 +2,7 @@ AFRAME.registerComponent("ontriggertarget", {
   
   init: function() 
   {
+    var fairy = document.getElementById("Fairy");
 
     //fairy trigger target
     let sounds=document.querySelectorAll(".boxsound");
@@ -9,33 +10,60 @@ AFRAME.registerComponent("ontriggertarget", {
     let triggerTarget = () => 
     {
        var taskcounter=document.getElementById("taskcounter").getAttribute("value");
-       if(taskcounter>1)
-       {
+     
        let randomSound=Math.floor(Math.random() * Math.floor(sounds.length));
+      // fairy.setAttribute("sound","src:"+sounds[randomSound].getAttribute("src"));
+
+      var soundEls = document.querySelectorAll('[sound]');
+
+  soundEls.forEach(soundEl => {
+    soundEl.components.sound.stopSound()
+});
+sounds[randomSound].setAttribute("position",fairy.getAttribute("position"));
        sounds[randomSound].components.sound.playSound();
-       console.log("random sound "+sounds[randomSound].id)
-       if(sounds[randomSound].id=="nar8")
-       {
-       document.querySelector("#nar8").addEventListener('sound-ended', function () {
-        console.log("he");
-        setTimeout(() => {
-                  document.querySelector("#nar9").components.sound.playSound();
+      console.log(sounds[randomSound].getAttribute("src"));
+       if(sounds[randomSound].getAttribute("src")!="#infoSound"){
+        sounds[randomSound].addEventListener('sound-ended', function () {
+                      console.log("he");
+                      var soundEls = document.querySelectorAll('[sound]');
 
-        }, 1000);
-            });
-            document.querySelector("#nar9").addEventListener('sound-ended', function () {
-                console.log("he");
-                setTimeout(() => {
-                                  document.querySelector("#nar10").components.sound.playSound();
-
-                }, 1000);
+                      soundEls.forEach(soundEl => {
+                        soundEl.components.sound.stopSound()
                     });
-                  }
-}
-  
+         // fairy.setAttribute("sound","src:"+document.getElementById("boxAud2").getAttribute("src"));
+          fairy.children[0].components.sound.playSound();
+         // document.getElementById("boxAud2").components.sound.playSound();
+
+        });
+        fairy.children[0].addEventListener('sound-ended', function () {
+
+          var soundEls = document.querySelectorAll('[sound]');
+
+  soundEls.forEach(soundEl => {
+    soundEl.components.sound.stopSound()
+});
+         // fairy.setAttribute("sound","src:"+document.getElementById("boxAud3").getAttribute("src"));
+            fairy.children[1].components.sound.playSound();
+         // document.getElementById("boxAud3").components.sound.playSound();
+          
+        })
+        fairy.children[1].addEventListener('sound-ended', function () {
+
+          fairy.children[1].components.sound.stopSound();
+          
+        })
+       }
+       else{
+        sounds[randomSound].addEventListener('sound-ended', function () {
+          sounds[randomSound].components.sound.stopSound();
+                   
+
+                          });
+            }      
+ 
 
         this.el.setAttribute("showitem", "enabled",true);
-       
+      
         if (this.el.firstElementChild==null)
         {
         var el = document.createElement('a-entity');
@@ -48,7 +76,7 @@ AFRAME.registerComponent("ontriggertarget", {
         taskcounter++;
         document.getElementById("taskcounter").setAttribute("value", taskcounter);
        // console.log(this.el.getAttribute("animation-mixer")+"TaskCounter"+taskcounter)
-    
+
     }
     //level three speacial case if ds hit the target not the fairy 
     this.el.addEventListener("hitstart", e => 
@@ -77,7 +105,7 @@ AFRAME.registerComponent("ontriggertarget", {
         setTimeout(() => 
         {
           
-          this.el.removeAttribute("movetotarget");
+          this.el.setAttribute("movetotarget","enabled",false);
           
         }, 1200);
         
@@ -132,3 +160,4 @@ AFRAME.registerComponent("ontriggertarget", {
     });
   }
 });
+
