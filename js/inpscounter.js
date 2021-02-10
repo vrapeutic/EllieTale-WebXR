@@ -5,6 +5,9 @@ AFRAME.registerComponent('inpsscore', {
 let fairy = document.querySelector("#Fairy");
  let inpusCount=document.querySelector("#inpsCounter").getAttribute("value");
   let index=document.querySelector("#inps").getAttribute("value");
+  var taskcounter=document.getElementById("taskcounter").getAttribute("value");
+if(taskcounter>1){
+
 
 
    if (this.el.sceneEl.camera) {
@@ -39,6 +42,13 @@ fairy.setAttribute( "animation",
 (document.getElementById("cam").getAttribute("position").z-3)+" dur:1000") 
 setTimeout(() => 
 {
+  var soundEls = document.querySelectorAll('[sound]');
+
+  soundEls.forEach(soundEl => {
+    soundEl.components.sound.stopSound()
+});
+document.querySelector("#slowAud").setAttribute("position",fairy.getAttribute("position"));
+
   document.getElementById("slowAud").components.sound.playSound();
 
     fairy.setAttribute( "animation",
@@ -46,7 +56,6 @@ setTimeout(() =>
 },3000)
 
         }
-console.log("not count"+inpusCount)
 setTimeout(() => {
   
 
@@ -59,4 +68,5 @@ setTimeout(() => {
 
    }
   }
+}
 })
