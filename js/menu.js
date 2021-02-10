@@ -20,19 +20,23 @@ AFRAME.registerComponent('menu', {
   
   }
   let checkLevel=function fcheckLevel(){
+    document.querySelector("#helloAud").setAttribute("position",fairy.getAttribute("position"));
+   document.querySelector("#helloAud").components.sound.playSound();
+  console.log(document.querySelector("#helloAud").getAttribute("sound").src);
+     
 
-    fairy.setAttribute("sound","src:"+document.querySelector("#helloAud").getAttribute("src"));
-   fairy.components.sound.playSound();
+        document.querySelector("#helloAud").addEventListener('sound-ended', function () {  
+ 
+          document.querySelector("#enviroAud").setAttribute("position",fairy.getAttribute("position"));
 
-   
- fairy.addEventListener('sound-ended', function () {
-      console.log(fairy.components.sound.src);
-      if(fairy.components.sound.src=="#helloAud"){
-      fairy.setAttribute("sound","src:"+document.querySelector("#infoAud").getAttribute("src"));
-     fairy.components.sound.playSound();
-    }
-  
-   });
+          document.querySelector("#enviroAud").components.sound.playSound();
+
+  }); 
+          document.querySelector("#enviroAud").addEventListener('sound-ended', function () {
+ 
+            document.querySelector("#enviroAud").components.sound.stopSound();
+     
+
     document.getElementById("noah").parentNode.removeChild( document.getElementById("noah"));
     document.getElementById("Fairy").setAttribute(
    "animation",
@@ -40,6 +44,8 @@ AFRAME.registerComponent('menu', {
    " " +(firtTargetPos.y+0.5)+" "+
    firtTargetPos.z+"; dur:1000"
   )
+  document.querySelector("#enviroAud").parentNode.removeChild( document.querySelector("#enviroAud"));
+  document.querySelector("#helloAud").parentNode.removeChild(  document.querySelector("#helloAud"));
 
     // set fairy position to target one
 
@@ -110,7 +116,7 @@ partical.setAttribute("spe-particles","texture:../images/particles/snowflake.png
   console.log(document.getElementById("myDistractor"));
   
   }  
-
+}); 
   }  
   //level menu buttons's events
   

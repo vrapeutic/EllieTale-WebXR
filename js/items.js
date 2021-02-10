@@ -27,21 +27,40 @@ var fairyPosition=fairy.getAttribute("position");
          this.el.setAttribute("animation-mixer", "repetitions: 1; clampWhenFinished:false");
          fairy.setAttribute(
           "animation",
-          "property:position; to:" +(fairyPosition.x+1) +" "+fairyPosition.y+" "+ fairyPosition.z + "; dur:1000"
+          "property:position; to:" +(fairyPosition.x+1) +" "+(fairyPosition.y+1)+" "+ fairyPosition.z + "; dur:1000"
         )   ;  
             item = document.querySelectorAll(".items");
          random = Math.floor(Math.random() * Math.floor(item.length));
 
         score = document.getElementById("score").getAttribute("value");
  //this.el.appendChild(item[random]);
+ var soundEls = document.querySelectorAll('[sound]');
+
+ soundEls.forEach(soundEl => {
+   soundEl.components.sound.stopSound()
+});               //  fairy.components.sound.stopSound();
+
+sounds[randomSound].setAttribute("position",fairy.getAttribute("position"));
+
 sounds[randomSound].components.sound.playSound();
 
          index = score;
   
     document.getElementById(sounds[randomSound].id).addEventListener('sound-ended', function () {
+      var soundEls = document.querySelectorAll('[sound]');
+
+  soundEls.forEach(soundEl => {
+    soundEl.components.sound.stopSound()
+});
+item[random].firstElementChild.setAttribute("position",fairy.getAttribute("position"));
+
 item[random].firstElementChild.components.sound.playSound();
     });
   
+item[random].firstElementChild.addEventListener('sound-ended', function () {
+
+           item[random].firstElementChild.parentNode.removeChild(  item[random].firstElementChild);
+          });
 var pos=this.el.getAttribute("position");
 var rotation=this.el.getAttribute("rotation");
      item[random].setAttribute("position", pos);

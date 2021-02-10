@@ -10,20 +10,57 @@ AFRAME.registerComponent("ontriggertarget", {
     let triggerTarget = () => 
     {
        var taskcounter=document.getElementById("taskcounter").getAttribute("value");
-      if(taskcounter>1)
-       {
+     
        let randomSound=Math.floor(Math.random() * Math.floor(sounds.length));
-       fairy.setAttribute("sound","src:"+sounds[randomSound].getAttribute("src"));
-      fairy.components.sound.playSound();
-       
-                    fairy.addEventListener('sound-ended', function () {
+      // fairy.setAttribute("sound","src:"+sounds[randomSound].getAttribute("src"));
+
+      var soundEls = document.querySelectorAll('[sound]');
+
+  soundEls.forEach(soundEl => {
+    soundEl.components.sound.stopSound()
+});
+sounds[randomSound].setAttribute("position",fairy.getAttribute("position"));
+       sounds[randomSound].components.sound.playSound();
+      console.log(sounds[randomSound].getAttribute("src"));
+       if(sounds[randomSound].getAttribute("src")!="#infoSound"){
+        sounds[randomSound].addEventListener('sound-ended', function () {
                       console.log("he");
-                      fairy.components.sound.stopSound();
+                      var soundEls = document.querySelectorAll('[sound]');
+
+                      soundEls.forEach(soundEl => {
+                        soundEl.components.sound.stopSound()
+                    });
+         // fairy.setAttribute("sound","src:"+document.getElementById("boxAud2").getAttribute("src"));
+          fairy.children[0].components.sound.playSound();
+         // document.getElementById("boxAud2").components.sound.playSound();
+
+        });
+        fairy.children[0].addEventListener('sound-ended', function () {
+
+          var soundEls = document.querySelectorAll('[sound]');
+
+  soundEls.forEach(soundEl => {
+    soundEl.components.sound.stopSound()
+});
+         // fairy.setAttribute("sound","src:"+document.getElementById("boxAud3").getAttribute("src"));
+            fairy.children[1].components.sound.playSound();
+         // document.getElementById("boxAud3").components.sound.playSound();
+          
+        })
+        fairy.children[1].addEventListener('sound-ended', function () {
+
+          fairy.children[1].components.sound.stopSound();
+          
+        })
+       }
+       else{
+        sounds[randomSound].addEventListener('sound-ended', function () {
+          sounds[randomSound].components.sound.stopSound();
                    
 
                           });
-                  
-}  
+            }      
+ 
 
         this.el.setAttribute("showitem", "enabled",true);
       
