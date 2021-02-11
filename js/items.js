@@ -26,7 +26,7 @@ var fairyPosition=fairy.getAttribute("position");
          this.el.setAttribute("animation-mixer", "repetitions: 1; clampWhenFinished:false");
          fairy.setAttribute(
           "animation",
-          "property:position; to:" +(fairyPosition.x+1) +" "+(fairyPosition.y+1)+" "+ fairyPosition.z + "; dur:1000"
+          "property:position; to:" +(fairyPosition.x+1) +" "+(fairyPosition.y+2)+" "+ (fairyPosition.z-1) + "; dur:1000"
         )   ;  
             item = document.querySelectorAll(".items");
          random = Math.floor(Math.random() * Math.floor(item.length));
@@ -58,7 +58,7 @@ item[random].firstElementChild.components.sound.playSound();
   
 item[random].firstElementChild.addEventListener('sound-ended', function () {
 
-           item[random].firstElementChild.parentNode.removeChild(  item[random].firstElementChild);
+           item[random].firstElementChild.parentNode.removeChild(item[random].firstElementChild);
           });
 var pos=this.el.getAttribute("position");
 var rotation=this.el.getAttribute("rotation");
@@ -88,11 +88,18 @@ if (index <= document.querySelectorAll(".Box").length)
     
  if(index==4)
        {
- 
-         index = 3;  
-         
+
+   
+fairy.setAttribute("poisition",fairy.getAttribute("position"))  ;
+item[random].firstElementChild.addEventListener('sound-ended', function () {
+
+
+   document.getElementById("endAud").setAttribute("position",fairy.getAttribute("position"));
+
+document.getElementById("endAud").components.sound.playSound();       
  console.log(index+" len "+ document.querySelectorAll(".Box").length)
  console.log(this.el.getAttribute("position"))
+ });
 
        }
  
@@ -110,7 +117,7 @@ if (index <= document.querySelectorAll(".Box").length)
    
          fairy.setAttribute(
            "animation",
-           "property:position; to:" +(fairyPositionx) +" "+(fairyPositiony+0.5)+" "+ fairyPositionz + "; dur:1000"
+           "property:position; to:" +(fairyPositionx+0.7) +" "+(fairyPositiony+0.5)+" "+ fairyPositionz + "; dur:1000"
          );//move Fairy to next Target
  
          console.log(

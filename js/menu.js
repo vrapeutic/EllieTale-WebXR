@@ -39,7 +39,7 @@ AFRAME.registerComponent('menu', {
     document.getElementById("noah").parentNode.removeChild( document.getElementById("noah"));
     document.getElementById("Fairy").setAttribute(
    "animation",
-   "property:position; to:"+(firtTargetPos.x)+
+   "property:position; to:"+(firtTargetPos.x+1)+
    " " +(firtTargetPos.y+0.5)+" "+
    firtTargetPos.z+"; dur:1000"
   )
