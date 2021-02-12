@@ -16,7 +16,11 @@ let sounds=document.querySelectorAll(".itemsSound");
        var item, random;
 var fairyPosition=fairy.getAttribute("position");
      document.getElementById(el.firstElementChild.id).parentNode.removeChild(document.getElementById(el.firstElementChild.id));//destoy light from current target
+ var soundEls = document.querySelectorAll('[sound]');
 
+ soundEls.forEach(soundEl => {
+   soundEl.components.sound.stopSound()
+});   
        el.setAttribute('showitem',"enabled",false);
       
        this.el.setAttribute("movetotarget","enabled",false);
@@ -24,20 +28,18 @@ var fairyPosition=fairy.getAttribute("position");
         console.log(sounds[0]);
 
          this.el.setAttribute("animation-mixer", "repetitions: 1; clampWhenFinished:false");
+      
          fairy.setAttribute(
           "animation",
           "property:position; to:" +(fairyPosition.x+1) +" "+(fairyPosition.y+2)+" "+ (fairyPosition.z-1) + "; dur:1000"
-        )   ;  
+        )   ;    
+        this.el.setAttribute("aabb-collider","enabled",false);
             item = document.querySelectorAll(".items");
          random = Math.floor(Math.random() * Math.floor(item.length));
 
         score = document.getElementById("score").getAttribute("value");
  //this.el.appendChild(item[random]);
- var soundEls = document.querySelectorAll('[sound]');
-
- soundEls.forEach(soundEl => {
-   soundEl.components.sound.stopSound()
-});               //  fairy.components.sound.stopSound();
+            //  fairy.components.sound.stopSound();
 
 sounds[randomSound].setAttribute("position",fairy.getAttribute("position"));
 
