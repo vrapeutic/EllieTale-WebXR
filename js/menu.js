@@ -43,6 +43,7 @@ AFRAME.registerComponent('menu', {
    " " +(firtTargetPos.y+0.5)+" "+
    firtTargetPos.z+"; dur:1000"
   )
+  fairy.setAttribute("rotation", document.getElementById("targetone").getAttribute("rotation"));
 
   document.querySelector("#enviroAud").parentNode.removeChild( document.querySelector("#enviroAud"));
   document.querySelector("#helloAud").parentNode.removeChild(  document.querySelector("#helloAud"));
