@@ -2,7 +2,7 @@ AFRAME.registerComponent('menu', {
   init :function(){
     
     var firtTargetPos=document.getElementById("targetone").getAttribute("position");
-    var lastTargetPos=document.getElementById("targetfour").getAttribute("position");
+    var lastTargetPos=document.getElementById("targetthree").getAttribute("position");
   var fairy = document.getElementById("Fairy");
 
  // var mySound = fairy.getAttribute("sound").attrValue.src;

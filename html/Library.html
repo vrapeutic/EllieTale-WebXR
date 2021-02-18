@@ -40,13 +40,13 @@
   
       <!--MenuwithCamera-->
     
-  <a-text value="Easy" class="menu" width="10" text="side:double;  align:center"  scale="0.5 0.5 0.5" geometry="primitive:circle; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false"  id="boxLevel"  position="-3 1 -4"    lookat="#cam" color="#4CC3D9"  clickable 
+  <a-text value="Easy" class="menu" width="10" text="side:double;  align:center"  scale="0.5 0.5 0.5" geometry="primitive:circle; "material="emissive:#245a8a; src:../images/atlas png/levels.png;transparent: false"  id="boxLevel"  position="-3 1 -4"    lookat="#cam" color="#4CC3D9"  clickable 
   event-set__click="_event: mouseenter; _target:#level; value:1"> </a-text>    
 
-  <a-text value="Medium" class="menu" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false" id="boxLevel1"  position="-0.49 1 -4"  lookat="#cam" color="#4CC3D9" clickable 
+  <a-text value="Medium" class="menu" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/atlas png/levels.png; transparent: false" id="boxLevel1"  position="-0.49 1 -4"  lookat="#cam" color="#4CC3D9" clickable 
   event-set__click="_event: mouseenter; _target:#level; value:2 " ></a-text>  
   
-  <a-text value="Hard"  class="menu" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false" id="boxLevel2"  position="1.54 1 -4"   lookat="#cam"  color="#4CC3D9" clickable 
+  <a-text value="Hard"  class="menu" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/atlas png/levels.png;transparent: false" id="boxLevel2"  position="1.54 1 -4"   lookat="#cam"  color="#4CC3D9" clickable 
   event-set__click="_event: mouseenter; _target:#level; value:3 " ></a-text>    
 
 
@@ -66,9 +66,9 @@
   event-set__clickopen="_event: mouseenter; _target:#counter; value:0 " ></a-text> 
  
   <!--score-->
-  <a-text id="score" value="0" width="20" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" position="-4.11289 2 -11.07439"></a-text>
+  <a-text id="score" material="emissive: #0d0d0d; fog: false; transparent: true" value="0" width="20" text="side:  double;  align:  center; width: 10"  scale="0.5 0.5 0.5" geometry="primitive: plane; "material="emissive:#245a8a; src:../images/atlas png/score.png;transparent: true" position="-3.06624 3 -3.8"></a-text>
   <!--backtomenu-->
-  <a-text id="reload" class="menu"  text="side:  double;  align:  center"  scale="0.2 0.2 0.2" geometry="primitive:circle ; "material=" src:../images/1.png;transparent: true" position="3 2 -8.24248"></a-text>
+  <a-text id="reload" class="menu"  text="side:  double;  align:  center"  scale="0.2 0.2 0.2" geometry="primitive:circle ; "material=" src:../images/atlas png/main menu.png;transparent: true" position="3 3 -3.8"></a-text>
  </a-entity>
   <!--Hands-->
   
@@ -307,7 +307,7 @@
       </a-gltf-model>
  <!-- eille the Fairy-->
  
- <a-gltf-model id="Fairy" fairytasktimer  src="#fairymodel" position="0.88205 1.62321 -2.78689"   aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;"  static-body="shape: box; mass: 0; sphereRadius: NaN"  lookat="#cam" >
+ <a-gltf-model id="Fairy" fairytasktimer  src="#fairymodel" position="0.88205 0.69573 -4.66516"   aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;"  static-body="shape: box; mass: 0; sphereRadius: NaN"  lookat="#cam" >
   <a-sound id="helloAud" src="#helloSound" autoplay="false" ></a-sound>
 
   <a-sound id="enviroAud" src="#enviroSound" autoplay="false"   ></a-sound>  

@@ -88,7 +88,7 @@ if (index <= document.querySelectorAll(".Box").length)
        }
     
     
- if(index==4)
+ if(index== document.querySelectorAll(".Box").length)
        {
 
    

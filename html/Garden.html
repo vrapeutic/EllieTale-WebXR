@@ -39,13 +39,13 @@
       <!--MenuwithCamera-->
 
     
-  <a-text value="Easy" class="menu" width="10" text="side:double;  align:center"  scale="0.5 0.5 0.5" geometry="primitive:circle; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false"  id="boxLevel"  position="-2 1 -3"    lookat="#cam" color="#4CC3D9"  clickable 
+  <a-text value="Easy" class="menu" width="10" text="side:double;  align:center"  scale="0.5 0.5 0.5" geometry="primitive:circle; "material="emissive:#245a8a; src:../images/atlas png/levels.png;transparent: false"  id="boxLevel" material="emissive: #000000"  position="-2 1 -3"    lookat="#cam" color="#4CC3D9"  clickable 
   event-set__click="_event: mouseenter; _target:#level; value:1"> </a-text>    
 
-  <a-text value="Medium" class="menu" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false" id="boxLevel1"  position="0 1 -3"  lookat="#cam" color="#4CC3D9" clickable 
+  <a-text value="Medium" class="menu" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/atlas png/levels.png;transparent: false" id="boxLevel1" material="emissive: #000000"  position="0 1 -3"  lookat="#cam" color="#4CC3D9" clickable 
   event-set__click="_event: mouseenter; _target:#level; value:2 " ></a-text>  
   
-  <a-text value="Hard"  class="menu" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/stars.jpg;transparent: false" id="boxLevel2"  position="2 1 -3"   lookat="#cam"  color="#4CC3D9" clickable 
+  <a-text value="Hard"  class="menu" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/atlas png/levels.png;transparent: false" id="boxLevel2" material="emissive: #000000"  position="2 1 -3"   lookat="#cam"  color="#4CC3D9" clickable 
   event-set__click="_event: mouseenter; _target:#level; value:3 " ></a-text>    
 
 
@@ -58,16 +58,16 @@
 </a-text>        
 
   
-  <a-text  value="90" width="20" text="side:  double;  align:  center"  scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer2" class="timer"  position="0.5 2 -1.5" color="#4CC3D9"   lookat="#cam"  clickable 
+  <a-text  value="90" width="20" text="side:  double;  align:  center"  scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer2" material="emissive: #000000" class="timer"  position="0.5 2 -1.5" color="#4CC3D9"   lookat="#cam"  clickable 
   event-set__click90="_event: mouseenter; _target:#counter; value:90 " ></a-text>    
 <!--withouttimer-->
   <a-text  value="open"   text="side:  double;  align:  center" width="0" scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_off.png;transparent: true" id="noTimer" class="timer"  position="1.5 2 -1.5"    color="#4CC3D9" lookat="#cam"  
   event-set__clickopen="_event: mouseenter; _target:#counter; value:0 " ></a-text> 
  
   <!--score-->
-  <a-text id="score" value="0" width="20" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" position="0 -2 -3"></a-text>
+  <a-text id="score" material="color: #575757; emissive: #000000; fog: false; transparent: true; visible: true; width: 20; dithering: true" value="0" width="20" text="side: front;  align: center; baseline: center; anchor: align; alphaTest: 1; width: 10; tabSize: 1; transparent: true; whiteSpace: normal; wrapCount: 36.93; negate: true"  scale="0.5 0.5 0.5" geometry="primitive: plane; ; buffer: true"material="emissive:#245a8a; src:../images/atlas png/button score.png;transparent: true" position="-6.65 2 -2.9"></a-text>
   <!--backtomenu-->
-  <a-text id="reload" class="menu"  text="side:  double;  align:  center"  scale="0.2 0.2 0.2" geometry="primitive:circle ; "material=" src:../images/1.png;transparent: true" position="3 2 -3"></a-text>
+  <a-text id="reload" material="emissive: #000000; color: #b0b0b0; transparent: true" class="menu"  text="side:  double;  align:  center"  scale="0.2 0.2 0.2" geometry="primitive:circle ; "material=" src:../images/atlas png/main menu.png;transparent: true" position="3 2 -2.96"></a-text>
  </a-entity>
   <!--Hands-->
   
@@ -84,7 +84,7 @@
 
             <a-assets timeout="500000">        
         
-        <a-asset-item id="target" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_Tree01_anim_v1.02.glb?v=1612797478142"
+        <a-asset-item id="target" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_Tree01_anim_v1.03.glb?v=1613657587066"
          response-type="arraybuffer"></a-asset-item>
          <a-asset-item id="Environment" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FGarden_Environment01_4k_v1.02.glb?v=1613306455506"
          response-type="arraybuffer"></a-asset-item>
