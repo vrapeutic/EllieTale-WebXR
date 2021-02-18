@@ -26,7 +26,7 @@
   </head>
   <body>
 
-    <a-scene  shadow="type: pcfsoft" stats renderer="antialias: true;
+    <a-scene   stats renderer="antialias: true;
     colorManagement: true;
     sortObjects: true;
     physicallyCorrectLights: true;
@@ -34,7 +34,7 @@
     maxCanvasHeight: 1920;">
 
         
-    <a-camera  id="cam" menu  position="2 1 0"  rotation="0 -180 0"  >
+    <a-camera  id="cam" menu  position="2 1 0"  rotation="13.17802928800892 108.74738951583035 0"  >
       <a-entity cursor="rayOrigin: mouse"></a-entity>
    </a-camera>
   
@@ -176,7 +176,7 @@
    response-type="arraybuffer"></audio>
    <!--enviroment    -->
      
-      <a-gltf-model id="myLibrary" rotation="0 0 -0.07" src="#Environment" shadow="" animation-mixer position="5 0 4.54743">
+      <a-gltf-model id="myLibrary" rotation="0 0.53 -0.07" src="#Environment" shadow="" animation-mixer position="5 0 4.54743">
       </a-gltf-model>
    
 
@@ -194,18 +194,18 @@
     <a-text id="inps" value="0" geometry="primitive:circle" position="-35 1 7" visible="false" inpsscore ></a-text>
     <a-text id="session" value="0" geometry="primitive:circle" position="-35 1 7" visible="false" timer ></a-text>
       
-   <!--Targets-->
+   <!--Targets<a-entity id="targetfour"  class="Box" gltf-model="#target" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="10.57542 2.33312 17.59109"   showitem static-body="shape: sphere; ; sphereRadius: 400" amimation-mixer="enabled:false" rotation="0 134.23427111663466 0" shadow ontriggertarget>
+  </a-entity> -->
 
-   <a-entity id="targetone"  class="Box" gltf-model="#target" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="12.51156 3.09834 -2.71666"   showitem static-body="shape: sphere; ; sphereRadius: 400" amimation-mixer="enabled:false" rotation="-0.5299859604960114 -122.25888024060532 0" shadow ontriggertarget>
+   <a-entity id="targetone"  class="Box" gltf-model="#target" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="12.83303 3.09834 -2.71666"   showitem static-body="shape: sphere; ; sphereRadius: 400" amimation-mixer="enabled:false" rotation="-0.5299859604960114 -122.25888024060532 0" shadow ontriggertarget>
   </a-entity> 
 
+ 
 
-
-  <a-entity id="targetthree"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box; debug: true; collideNonVisible: false; interval: 10000" shadow="receive: true" position="-0.6276 3.10047 -4.55069"  showitem static-body="shape: auto; ; sphereRadius: 500; cylinderAxis: x" amimation-mixer="enabled:false" rotation="-0.49000000000000005 -74.81 0" shadow ontriggertarget>
+  <a-entity id="targetthree"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box; debug: false; collideNonVisible: false; interval: 10000" shadow="receive: true" position="-0.47628 3.10047 -4.43031"  showitem static-body="shape: auto; ; sphereRadius: 500; cylinderAxis: x" amimation-mixer="enabled:false" rotation="-0.48987891483685386 -62.0782582290393 0" shadow ontriggertarget>
 
   </a-entity>     
-  <a-entity id="targetfour"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box ;debug:true" shadow="receive: true" position="-2.64152 3.15147 17.6311"  showitem static-body="shape: sphere; ; sphereRadius: 5" amimation-mixer="enabled:false" rotation="-8.75 83.66 -6.67" shadow ontriggertarget>
-  </a-entity> 
+ 
 
   <a-entity id="targettwo"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-4.65489 1.09112 3.20943"  showitem static-body="shape: sphere; ; sphereRadius: 5" amimation-mixer="enabled:false" rotation="-0.4 -24.72 0" shadow ontriggertarget>
   </a-entity>
@@ -307,7 +307,7 @@
       </a-gltf-model>
  <!-- eille the Fairy-->
  
- <a-gltf-model id="Fairy" fairytasktimer  src="#fairymodel" position="-0.085 1.62321 1.29193"   aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;"  static-body="shape: box; mass: 0; sphereRadius: NaN"  lookat="#cam" >
+ <a-gltf-model id="Fairy" fairytasktimer  src="#fairymodel" position="0.88205 1.62321 -2.78689"   aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;"  static-body="shape: box; mass: 0; sphereRadius: NaN"  lookat="#cam" >
   <a-sound id="helloAud" src="#helloSound" autoplay="false" ></a-sound>
 
   <a-sound id="enviroAud" src="#enviroSound" autoplay="false"   ></a-sound>  

@@ -43,6 +43,7 @@ AFRAME.registerComponent('menu', {
    " " +(firtTargetPos.y+0.5)+" "+
    firtTargetPos.z+"; dur:1000"
   )
+
   document.querySelector("#enviroAud").parentNode.removeChild( document.querySelector("#enviroAud"));
   document.querySelector("#helloAud").parentNode.removeChild(  document.querySelector("#helloAud"));
 
@@ -62,7 +63,9 @@ AFRAME.registerComponent('menu', {
    " 0 " +
    lastTargetPos.z+"; dur:2000"
   
-  ) 
+  ) ;
+  fairy.setAttribute("rotation", document.getElementById("cam").getAttribute("rotation"));
+
    var partical=document.createElement("a-entity")
 partical.setAttribute("spe-particles","texture:../images/particles/snowflake.png; color: #0000FF, #00FFFF, #FFFFFF; particle-count: 1000; acceleration: 0 -6 0;")
  partical.setAttribute("spe-particles","opacity: 2, 2, 0; velocity: 0 2 0; size: 2, 2, 0; velocity-spread: 2 0 2;") ;

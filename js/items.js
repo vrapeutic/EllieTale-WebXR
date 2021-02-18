@@ -17,7 +17,8 @@ let sounds=document.querySelectorAll(".itemsSound");
 var fairyPosition=fairy.getAttribute("position");
      document.getElementById(el.firstElementChild.id).parentNode.removeChild(document.getElementById(el.firstElementChild.id));//destoy light from current target
  var soundEls = document.querySelectorAll('[sound]');
-
+var pos=this.el.getAttribute("position");
+var rotation=this.el.getAttribute("rotation");
  soundEls.forEach(soundEl => {
    soundEl.components.sound.stopSound()
 });   
@@ -62,8 +63,7 @@ item[random].firstElementChild.addEventListener('sound-ended', function () {
 
            item[random].firstElementChild.parentNode.removeChild(item[random].firstElementChild);
           });
-var pos=this.el.getAttribute("position");
-var rotation=this.el.getAttribute("rotation");
+
      item[random].setAttribute("position", pos);
      item[random].setAttribute("rotation", rotation);
        console.log(pos);
@@ -121,7 +121,8 @@ document.getElementById("endAud").components.sound.playSound();
            "animation",
            "property:position; to:" +(fairyPositionx+0.7) +" "+(fairyPositiony+0.5)+" "+ fairyPositionz + "; dur:1000"
          );//move Fairy to next Target
- 
+         fairy.setAttribute("rotation", target[index].getAttribute("rotation"));
+
          console.log(
           target[index].getAttribute("position").x-1 + " count : " +fairyPositionx+" " + fairy.getAttribute("position").x
          );
