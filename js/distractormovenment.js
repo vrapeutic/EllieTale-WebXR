@@ -5,7 +5,7 @@ AFRAME.registerComponent("moverandomly", {
   
       var target = document.querySelectorAll(".Box");//Array of targets
       var ds = document.getElementById("myDistractor");// distractor element
-
+      ds.setAttribute('aabb-collider','enabled',false);
       console.log(target + " this " + ds+document.getElementById("level").getAttribute("value"));
   
      // level 2
@@ -22,7 +22,7 @@ AFRAME.registerComponent("moverandomly", {
     
        nextTargetPosition=target[ randomIndexTarget].getAttribute("position");//  next target for distractor
      
-      ds.setAttribute("animation","property:position; to:"+(nextTargetPosition.x-1)+" 0.2 "+nextTargetPosition.z+"delay:5000 dur:8000"); 
+      ds.setAttribute("animation","property:position; to:"+(nextTargetPosition.x-1)+" 0.1 "+nextTargetPosition.z+"delay:5000 dur:8000"); 
     
       
     console.log(index+" here "+target[ randomIndexTarget].getAttribute("position").x+"ds "+ds.getAttribute("position").x)
