@@ -169,7 +169,19 @@ partical.setAttribute("spe-particles","texture:../images/particles/snowflake.png
   
   }
    }
-  }
+  },
+  
+  tick() 
+  {
+if (!navigator.xr) {
+/* WebXR can be used! */
+console.log("in")
+} else {
+/* WebXR isn't available */
+console.log("out");
+
+}
+}
   })
   
 
