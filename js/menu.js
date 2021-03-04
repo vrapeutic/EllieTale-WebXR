@@ -175,7 +175,7 @@ partical.setAttribute("spe-particles","texture:../images/particles/snowflake.png
   {
 if (!navigator.xr) {
 /* WebXR can be used! */
-console.log("in")
+  window.location.href="../index.html";
 } else {
 /* WebXR isn't available */
 console.log("out");
