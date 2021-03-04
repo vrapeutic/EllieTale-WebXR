@@ -171,14 +171,33 @@ partical.setAttribute("spe-particles","texture:../images/particles/snowflake.png
    }
   },
   
-  tick() 
+  play() 
   {
-if (!navigator.xr) {
+    var scene = document.querySelector('a-scene');
+
+    // Button element
+    
+    
+    // Check if scene has loaded, otherwise set up listener for when it does.
+   
+      scene.addEventListener('enter-vr', addButtonListener);
+    
+      scene.addEventListener('exit-vr', ()=>{
+        console.log("out");
+
+      });
+
+    // Add our button click listener.
+    function addButtonListener() {
+   //   enterVRButton.addEventListener('click', function() {
+console.log("In");
+    }
+    
+if (navigator.xr) {
 /* WebXR can be used! */
-  window.location.href="../index.html";
+ // window.location.href="../index.html";
 } else {
 /* WebXR isn't available */
-console.log("out");
 
 }
 }
