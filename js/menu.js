@@ -191,6 +191,7 @@ partical.setAttribute("spe-particles","texture:../images/particles/snowflake.png
     function addButtonListener() {
    //   enterVRButton.addEventListener('click', function() {
 console.log("In");
+window.location.href="../index.html";
     }
     
 if (navigator.xr) {
