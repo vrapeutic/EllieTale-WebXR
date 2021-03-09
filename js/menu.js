@@ -33,8 +33,14 @@ AFRAME.registerComponent('menu', {
   }); 
           document.querySelector("#enviroAud").addEventListener('sound-ended', function () {
  
-            document.querySelector("#enviroAud").components.sound.stopSound();
-     
+            document.querySelector("#targetAud").setAttribute("position",fairy.getAttribute("position"));
+
+            document.querySelector("#targetAud").components.sound.playSound();
+          }); 
+          document.querySelector("#targetAud").addEventListener('sound-ended', function () {
+ 
+            document.querySelector("#targetAud").components.sound.stopSound();
+        
 
     document.getElementById("noah").parentNode.removeChild( document.getElementById("noah"));
     document.getElementById("Fairy").setAttribute(

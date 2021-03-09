@@ -55,10 +55,20 @@ sounds[randomSound].setAttribute("position",fairy.getAttribute("position"));
        }
        else{
         sounds[randomSound].addEventListener('sound-ended', function () {
-          sounds[randomSound].components.sound.stopSound();
+          document.getElementById("targetAud").components.sound.playSound();
                    
 
                           });
+ document.getElementById("targetAud").addEventListener('sound-ended', function () {
+  document.getElementById("infoAud2").components.sound.playSound();
+                                     
+                  
+                                            });
+   document.getElementById("infoAud2").addEventListener('sound-ended', function () {
+    document.getElementById("infoAud2").components.sound.stopSound();
+                                                       
+                                    
+                                                              });
             }      
  
 
