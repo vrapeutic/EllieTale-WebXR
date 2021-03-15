@@ -36,10 +36,11 @@
   <entity movement-controls></entity>      
     <a-camera  id="cam" menu  position="2 1 0" look-controls="pointerLockEnabled: true" rotation="22.001579333023617 2.8647889756541156 0"  >
       <a-entity cursor="rayOrigin: mouse"></a-entity>
- 
-   
+ </a-camera>
+ <a-entity tracked-controls="controller: 0; idPrefix: OpenVR"></a-entity>
+
    <a-entity windows-motion-controls="hand: left"></a-entity>
-   <a-entity windows-motion-controls="hand: right">  </a-camera></a-entity></entity>
+   <a-entity windows-motion-controls="hand: right">  </a-entity></entity>
       <!--MenuwithCamera-->
     
   <a-text value="Easy" class="menu" width="10" text="side:double;  align:center"  scale="0.5 0.5 0.5" geometry="primitive:circle; "material="emissive:#245a8a; src:../images/atlas png/levels.png;transparent: false"  id="boxLevel"  position="-3 1 -4"    lookat="#cam" color="#4CC3D9"  clickable 
