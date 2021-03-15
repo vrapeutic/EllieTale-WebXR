@@ -10,7 +10,6 @@
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
     <script src="https://unpkg.com/aframe-area-light-component/dist/aframe-area-light-component.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@130f5846ac7cb99dff0e30d703c15c046c066529/dist/aframe-master.min.js"></script>
     <script src="../js/custom/aframe-environment-component.min.js"></script>
     <script src="../js/custom/aframe-spe-particles-component.js"></script>
     <script src="../js/distractoradvancedmovenment.js"></script>
@@ -38,7 +37,9 @@
     <a-camera  id="cam" menu  position="2 1 0"  rotation="22.001579333023617 2.8647889756541156 0"  >
       <a-entity cursor="rayOrigin: mouse"></a-entity>
    </a-camera>
-  
+   <entity movement-controls>
+   <a-entity windows-motion-controls="hand: left"></a-entity>
+   <a-entity windows-motion-controls="hand: right"></a-entity></entity>
       <!--MenuwithCamera-->
     
   <a-text value="Easy" class="menu" width="10" text="side:double;  align:center"  scale="0.5 0.5 0.5" geometry="primitive:circle; "material="emissive:#245a8a; src:../images/atlas png/levels.png;transparent: false"  id="boxLevel"  position="-3 1 -4"    lookat="#cam" color="#4CC3D9"  clickable 
