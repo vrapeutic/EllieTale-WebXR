@@ -142,7 +142,7 @@ sounds[randomSound].setAttribute("position",fairy.getAttribute("position"));
         
      //   this.el.setAttribute("color", "green");
         console.log("Hitted by Ds ");
-       
+   
       }
 
       if (
