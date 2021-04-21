@@ -1,6 +1,16 @@
 AFRAME.registerComponent('menu', {
   init :function(){
-    
+    document.getElementById('level').setAttribute('value',_level);
+  //  document.getElementById('selectenvironment').setAttribute('value',_enviro);
+    document.getElementById('counter').setAttribute('value',_time);
+    document.getElementById("counter").setAttribute('timecounter',"enabled")
+if(_time==0)
+{
+document.getElementById('levelTybe').setAttribute('value',"Open");
+
+}
+else  document.getElementById('levelTybe').setAttribute('value',"Closed");
+ 
     var firtTargetPos=document.getElementById("targetone").getAttribute("position");
     var lastTargetPos=document.getElementById("targetthree").getAttribute("position");
   var fairy = document.getElementById("Fairy");
@@ -128,8 +138,9 @@ partical.setAttribute("spe-particles","texture:../images/particles/snowflake.png
 }); 
   }  
   //level menu buttons's events
-  
-  document.getElementById('boxLevel').addEventListener("click",e => 
+  checkLevel();
+}});
+ /* document.getElementById('boxLevel').addEventListener("click",e => 
   {
   checkLevel();
   disableMenu();
@@ -190,7 +201,7 @@ partical.setAttribute("spe-particles","texture:../images/particles/snowflake.png
     
       scene.addEventListener('exit-vr', ()=>{
         console.log("out");
-window.location.href="../index.html";
+//window.location.href="../index.html";
 
       });
 
@@ -203,11 +214,11 @@ console.log("In");
 if (navigator.xr) {
 /* WebXR can be used! */
  // window.location.href="../index.html";
-} else {
-/* WebXR isn't available */
-
-}
-}
+//} else {
+/* WebXR isn't available}
   })
+} */
+
+
   
 

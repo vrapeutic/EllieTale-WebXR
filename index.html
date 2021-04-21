@@ -1,13 +1,76 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
-    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
+    <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
-    <script src="../js/selectEnvironment.js"></script>
+    <script src="https://unpkg.com/aframe-area-light-component/dist/aframe-area-light-component.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script src="../js/custom/aframe-environment-component.min.js"></script>
+    <script src="../js/custom/aframe-spe-particles-component.js"></script>
+    <script src="../js/distractoradvancedmovenment.js"></script>
+    <script src="../js/movetotarget.js"></script>
+    <script src="../js/items.js"></script>
+    <script src="../js/fairytasktimer.js"></script>
+    <script src="../js/inpscounter.js"></script>
+    <script src="../js/stats.js"></script>
+    <script src="../js/timemanger.js"></script>
+    <script src="../js/distractormovenment.js"></script>
+    <script src="../js/menu.js"></script>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script src="index.js"></script>
+    <style>
+      body {
+        font-family: "Abel", sans-serif;
+        background-color:azure;
+        font-size: larger;
+      }
     
+      button {
+        font-family: "Abel", sans-serif;
+      }
+    
+      .button-cls {
+        font-family: "Abel", sans-serif;
+        border-radius: 5px;
+        background-color: #25b2c2;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 25px;
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+        text-decoration: none;
+        overflow: hidden;
+        cursor: pointer;
+        margin: 5px;
+      }
+    
+      .button-cls:hover {
+        background-color: #3e8e41
+      }
+    
+      /* .center {
+        margin: 0 auto;
+        width: 80%;
+        text-align: center;
+        width: 70%;
+        height: 70%;
+        
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+          
+        margin: auto;
+      } */
+    </style>  
   </head>
   <body>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -19,65 +82,39 @@
 
     <!-- Initialize Firebase -->
     <script src="/__/firebase/init.js"></script>
- 
-  <a-scene  stats selectenvironment physics='gravity: 0' restitutation="0.7" renderer="antialias: true"  >
-     
-      <a-assets>
-
-         <img id="starsky" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2Fstarry%20night.jpg?1547158907338">
-     </a-assets>
-     
-   
-      <!--sky-->
-      <a-sky src="#starsky"></a-sky>
-
-   <!--lights-->
-
-      <a-entity id="sphere"
-      position="0 0.9 -1.5"
-      light="type: point; intensity: 5"
-      ></a-entity>
-         <a-entity id="light" light="type: ambient; color: #888"></a-entity>   
-
-         <!--Camera-->
-      <a-camera id="cam" movement-controls="speed: 0.15 constrainToNavMesh:true" position="0 1.6 5" look-controls="pointerLockeEnabled:true" >
-        <a-entity cursor="rayOrigin: mouse"></a-entity>
-       </a-camera>
-
-       <!--Hands-->
-       
-       <a-entity progressive-controls></a-entity>
-
-       <a-entity oculus-quest-controls="hand: left"></a-entity>
-      
-       <a-entity oculus-quest-controls="hand: right"></a-entity>
-       
-       <a-entity laser-controls="hand: right" raycaster="objects: .boxs; far: 100"></a-entity>
-
-     <!--Menu-Buttons-->
-
-
-      <a-box id="Beach" class="boxs" scale ="2 2 2" position="-5 1 -10"   aabb-collider="objects: a-gltf-model"  color="#4CC3D9" lookat="#cam"  clickable 
-      event-set__click="_event: mouseenter; _target:#selectenvironment; value:Beach " 
-      material="transparent: true ;color: #5e5e5e;src:../images/illyTale_button_Envirom_Garden.png"
-
-      ></a-box>    
+    <div id="dr-menu"  class="center">
   
-     <a-box id="Library" class="boxs" scale ="2 2 2" position="-1 1 -10"  aabb-collider="objects: a-gltf-model"   color="#4CC3D9" lookat="#cam"   
-      event-set__click="_event: mouseenter; _target:#selectenvironment; value:Library"
-      material="transparent: true ;color: #5e5e5e;src:../images/illyTale_button_Envirom_library.png"
-
-      ></a-box>    
-
-      <a-box id="Garden" class="boxs" scale ="2 2 2" position="2 1 -10"  aabb-collider="objects: a-gltf-model"  color="#4CC3D9" lookat="#cam"   
-      event-set__click="_event: mouseenter; _target:#selectenvironment; value:Garden;" 
-    material="transparent: true ;color: #5e5e5e;src:../images/illyTale_button_Envirom_Beach.png"
-     ></a-box>    
+      <h>Select langauge</h>
+      <br>
+      <button class="button button-cls" onclick="set_language('A')">Arabic </button>
+      <button class="button button-cls" onclick="set_language('E')">English </button>
+      <br> <br>
+      <h>Select level</h>
+      <br>
+      <button class="button button-cls" onclick="set_level(1)">level 1</button>
+      <button class="button button-cls" onclick="set_level(2)">level 2</button>
+      <button class="button button-cls" onclick="set_level(3)">level 3</button>
+      <br> <br> 
+      <h>Select timer</h>
+      <br>
+      <button class="button button-cls" onclick="set_timer(30)"> 30</button>
+      <button class="button button-cls" onclick="set_timer(60)"> 60</button>
+      <button class="button button-cls" onclick="set_timer(90)"> 90</button>
+      <button class="button button-cls" onclick="set_timer(0)"> open </button>
+      <br> <br>
+      <h>Select Arrows</h>
+      <br>
+      <button class="button button-cls" onclick="set_environment('Beach')">Beach</button>
+      <button class="button button-cls" onclick="set_environment('Garden')">Garden</button>
+      <button class="button button-cls" onclick="set_environment('Library')">Library</button>
+      <br> <br>
     
-     <!--selected Environment Txt-->
- <a-text id="selectenvironment" scale="0.4 .4 .4" value="Environment"  position="0 0.2 1" text="align: center"geometry="primitive:circle ; "material="src:../images/stars.jpg;transparent: false" ></a-text>
-   
-</a-scene>
- 
+   <br> <br>
+      <button class="button button-cls" onclick="start_game()">Start</button>
+    </div>
+    <div id="game" style="visibility: hidden;">
+ <div id="injectable"></div>
+
+ </div>
   </body>
 </html>

@@ -1,30 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
-    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-    <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
-    <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
-    <script src="https://unpkg.com/aframe-area-light-component/dist/aframe-area-light-component.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-    <script src="../js/custom/aframe-environment-component.min.js"></script>
-    <script src="../js/custom/aframe-spe-particles-component.js"></script>
-    <script src="../js/distractoradvancedmovenment.js"></script>
-    <script src="../js/movetotarget.js"></script>
-    <script src="../js/items.js"></script>
-    <script src="../js/fairytasktimer.js"></script>
-    <script src="../js/inpscounter.js"></script>
-    <script src="../js/stats.js"></script>
-    <script src="../js/timemanger.js"></script>
-    <script src="../js/distractormovenment.js"></script>
-    <script src="../js/menu.js"></script>
-    <script src="../index.js"></script>
 
-  </head>
-  <body>
 
     <a-scene   stats renderer="antialias: true;
     colorManagement: true;
@@ -34,7 +8,7 @@
     maxCanvasHeight: 1920;">
 
   <entity movement-controls></entity>      
-    <a-camera  id="cam" menu  position="2 1 0" look-controls="pointerLockEnabled: true" rotation="22.001579333023617 2.8647889756541156 0"  >
+    <a-camera  id="cam" menu  position="2 1 0"  rotation="22.001579333023617 2.8647889756541156 0"  >
       <a-entity cursor="rayOrigin: mouse"></a-entity>
  </a-camera>
  <a-entity tracked-controls="controller: 0; idPrefix: OpenVR"></a-entity>
@@ -43,31 +17,7 @@
    <a-entity windows-motion-controls="hand: right">  </a-entity></entity>
       <!--MenuwithCamera-->
     
-  <a-text value="Easy" class="menu" width="10" text="side:double;  align:center"  scale="0.5 0.5 0.5" geometry="primitive:circle; "material="emissive:#245a8a; src:../images/atlas png/levels.png;transparent: false"  id="boxLevel"  position="-3 1 -4"    lookat="#cam" color="#4CC3D9"  clickable 
-  event-set__click="_event: mouseenter; _target:#level; value:1"> </a-text>    
 
-  <a-text value="Medium" class="menu" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/atlas png/levels.png; transparent: false" id="boxLevel1"  position="-0.49 1 -4"  lookat="#cam" color="#4CC3D9" clickable 
-  event-set__click="_event: mouseenter; _target:#level; value:2 " ></a-text>  
-  
-  <a-text value="Hard"  class="menu" width="10" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/atlas png/levels.png;transparent: false" id="boxLevel2"  position="1.54 1 -4"   lookat="#cam"  color="#4CC3D9" clickable 
-  event-set__click="_event: mouseenter; _target:#level; value:3 " ></a-text>    
-
-
-<!--Timer-->
-  <a-text  value="30"  width="20" text="side:  double;  align:  center" scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer" class="timer"  position="-1.5 2 -2.3" color="#4CC3D9"   lookat="#cam"  clickable 
-  event-set__click30="_event: mouseenter; _target:#counter; value:90" ></a-text>    
-
-  <a-text   value="60"  width="20" text="side:  double;  align:  center"  id="boxtimer1"   scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" class="timer" position="-0.5 2 -2.3" color="#4CC3D9"  lookat="#cam"  clickable 
-  event-set__click60="_event: mouseenter; _target:#counter; value:120 " >
-</a-text>        
-
-  
-  <a-text  value="90" width="20" text="side:  double;  align:  center"  scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_on_numder.png;transparent: true" id="boxtimer2" class="timer"  position="0.5 2 -2.3017" color="#4CC3D9"   lookat="#cam"  clickable 
-  event-set__click90="_event: mouseenter; _target:#counter; value:150 " ></a-text>    
-<!--withouttimer-->
-  <a-text  value="open"   text="side:  double;  align:  center" width="0" scale="0.3 0.3 0.3" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/illyTale_button_Timer_off.png;transparent: true" id="noTimer" class="timer"  position="1.5 2 -2.3"    color="#4CC3D9" lookat="#cam"  
-  event-set__clickopen="_event: mouseenter; _target:#counter; value:0 " ></a-text> 
- 
   <!--score-->
   <a-text id="score" material="emissive: #0d0d0d; fog: false; transparent: true" value="0" width="20" text="side:  double;  align:  center; width: 10"  scale="0.5 0.5 0.5" geometry="primitive: plane; "material="emissive:#245a8a; src:../images/atlas png/score.png;transparent: true" position="-3.06624 3 -3.8"></a-text>
   <!--backtomenu-->
@@ -202,7 +152,8 @@
     <a-text id="inpsCounter" value="0" geometry="primitive:circle" position="-25 1 7" visible="false" inpssore></a-text>
     <a-text id="inps" value="0" geometry="primitive:circle" position="-35 1 7" visible="false" inpsscore ></a-text>
     <a-text id="session" value="0" geometry="primitive:circle" position="-35 1 7" visible="false" timer ></a-text>
-      
+    <a-text id="selectenvironment" value="Library"  geometry="primitive:circle" visible="false"></a-text>
+
    <!--Targets<a-entity id="targetfour"  class="Box" gltf-model="#target" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="10.57542 2.33312 17.59109"   showitem static-body="shape: sphere; ; sphereRadius: 400" amimation-mixer="enabled:false" rotation="0 134.23427111663466 0" shadow ontriggertarget>
   </a-entity> -->
 
@@ -348,8 +299,4 @@
 
 </a-gltf-model>
         </a-scene>
-        <script>
- 
-        </script>
-  </body>
-</html>
+   
