@@ -84,13 +84,12 @@ else  document.getElementById('levelTybe').setAttribute('value',"Closed");
   fairy.setAttribute("rotation", document.getElementById("cam").getAttribute("rotation"));
 
    var partical=document.createElement("a-entity")
-partical.setAttribute("spe-particles","texture:../images/particles/snowflake.png; color: #0000FF, #00FFFF, #FFFFFF; particle-count: 1000; acceleration: 0 -6 0;")
- partical.setAttribute("spe-particles","opacity: 2, 2, 0; velocity: 0 2 0; size: 2, 2, 0; velocity-spread: 2 0 2;") ;
+partical.setAttribute("gltf-model", "#full");
+// partical.setAttribute("spe-particles","opacity: 2, 2, 0; velocity: 0 2 0; size: 2, 2, 0; velocity-spread: 2 0 2;") ;
      partical.setAttribute("id", "distractingPartical")
+     partical.setAttribute("animation-mixer","enabled:true");
    partical.setAttribute("position", 
-          (lastTargetPos.x+1) +
-          " 1 " +
-         lastTargetPos.z )
+          lastTargetPos )
          setTimeout(() => {
                    document.querySelector('a-scene').appendChild(partical);
   

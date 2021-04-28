@@ -28,7 +28,7 @@ var rotation=this.el.getAttribute("rotation");
   let randomSound=Math.floor(Math.random() * Math.floor(sounds.length));
         console.log(sounds[0]);
 
-         this.el.setAttribute("animation-mixer", "repetitions: 1; clampWhenFinished:false");
+         this.el.setAttribute("animation-mixer", "repetitions:1; clampWhenFinished:false");
       
          fairy.setAttribute(
           "animation",
@@ -69,7 +69,13 @@ item[random].firstElementChild.addEventListener('sound-ended', function () {
        console.log(pos);
        item[random].setAttribute("Visible", true);
        item[random].setAttribute("animation-mixer","enabled", true);
+       var finalPartical = document.createElement("a-entity");
+       finalPartical.setAttribute("gltf-model", "#half");
+     finalPartical.setAttribute("animation-mixer","enabled:true");
+       finalPartical.setAttribute("id", "finalPartical");
+      
  
+        this.el.appendChild(finalPartical);
          this.el.addEventListener("animation-finished",()=>{
           this.el.setAttribute('animation-mixer',{timeScale: 0});
       
@@ -129,9 +135,8 @@ document.getElementById("endAud").components.sound.playSound();
  
          item[random].className = "new";
 
-     
-   
- 
+      
+
        }, 5000);
       
  
@@ -139,6 +144,7 @@ document.getElementById("endAud").components.sound.playSound();
        {
  
          item[random].remove();
+         document.getElementById(el.firstElementChild.id).parentNode.removeChild(document.getElementById(el.firstElementChild.id));//destoy light from current target
          document.getElementById(el.firstElementChild.id).parentNode.removeChild(document.getElementById(el.firstElementChild.id));//destoy light from current target
 
        }, 9000);

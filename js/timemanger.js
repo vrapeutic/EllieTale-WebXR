@@ -18,8 +18,7 @@ AFRAME.registerComponent('timecounter', {
 
    if(timeleft==0)
    {
-     window.location.href="../index.html";
- }
+    window.location.reload(); }
  }, 1000);
  
  
