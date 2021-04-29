@@ -29,7 +29,7 @@ else  document.getElementById('levelTybe').setAttribute('value',"Closed");
   
   }
   let checkLevel=function fcheckLevel(){
-    document.querySelector("#helloAud").setAttribute("position",fairy.getAttribute("position"));
+   document.querySelector("#helloAud").setAttribute("position",fairy.getAttribute("position"));
    document.querySelector("#helloAud").components.sound.playSound();
   console.log(document.querySelector("#helloAud").getAttribute("sound").src);
      
@@ -51,7 +51,7 @@ else  document.getElementById('levelTybe').setAttribute('value',"Closed");
  
             document.querySelector("#targetAud").components.sound.stopSound();
         
-
+if( document.getElementById("noah")!=null)
     document.getElementById("noah").parentNode.removeChild( document.getElementById("noah"));
     document.getElementById("Fairy").setAttribute(
    "animation",
@@ -74,32 +74,27 @@ else  document.getElementById('levelTybe').setAttribute('value',"Closed");
     
   //  document.getElementById("ds").parentNode.removeChild( document.getElementById("ds"));
    
-  document.getElementById("myDistractor").setAttribute(
+
+  fairy.setAttribute("rotation", document.getElementById("cam").getAttribute("rotation"));
+
+  /*
+      */
+  document.getElementById("myDistractor").setAttribute('advancedmovenment',"enabled",true)
+  document.getElementById("myDistractor").setAttribute('visible',true);
+ /* */
+    document.getElementById("myDistractor").setAttribute(
    "animation",
    "property:position; to:"+(lastTargetPos.x+1)+
    " 0 " +
    lastTargetPos.z+"; dur:2000"
   
-  ) ;
-  fairy.setAttribute("rotation", document.getElementById("cam").getAttribute("rotation"));
+  ) ; 
+  console.log(document.getElementById("myDistractor").getAttribute("position").z+ " target "+lastTargetPos.z);
+   var partical= document.getElementById("distractingPartical");
+ partical.setAttribute("visible","true");
 
-   var partical=document.createElement("a-entity")
-partical.setAttribute("gltf-model", "#full");
-// partical.setAttribute("spe-particles","opacity: 2, 2, 0; velocity: 0 2 0; size: 2, 2, 0; velocity-spread: 2 0 2;") ;
-     partical.setAttribute("id", "distractingPartical")
-     partical.setAttribute("animation-mixer","enabled:true");
    partical.setAttribute("position", 
           lastTargetPos )
-         setTimeout(() => {
-                   document.querySelector('a-scene').appendChild(partical);
-  
-         },3500); 
-  document.getElementById("myDistractor").setAttribute('advancedmovenment',"enabled",true)
-  document.getElementById("myDistractor").setAttribute('visible',true);
-  
-   
-  console.log(document.getElementById("myDistractor").getAttribute("position").z+ " target "+lastTargetPos.z);
-  
   }
   //level two (Set distractor component and remove other components  )
   

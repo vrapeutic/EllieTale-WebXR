@@ -70,7 +70,7 @@ item[random].firstElementChild.addEventListener('sound-ended', function () {
        item[random].setAttribute("Visible", true);
        item[random].setAttribute("animation-mixer","enabled", true);
        var finalPartical = document.createElement("a-entity");
-       finalPartical.setAttribute("gltf-model", "#half");
+       finalPartical.setAttribute("gltf-model", "#full");
      finalPartical.setAttribute("animation-mixer","enabled:true");
        finalPartical.setAttribute("id", "finalPartical");
       
