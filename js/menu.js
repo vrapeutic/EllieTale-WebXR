@@ -82,19 +82,13 @@ if( document.getElementById("noah")!=null)
   document.getElementById("myDistractor").setAttribute('advancedmovenment',"enabled",true)
   document.getElementById("myDistractor").setAttribute('visible',true);
  /* */
-    document.getElementById("myDistractor").setAttribute(
-   "animation",
-   "property:position; to:"+(lastTargetPos.x+1)+
-   " 0 " +
-   lastTargetPos.z+"; dur:2000"
-  
-  ) ; 
+    
   console.log(document.getElementById("myDistractor").getAttribute("position").z+ " target "+lastTargetPos.z);
-   var partical= document.getElementById("distractingPartical");
+  /* var partical= document.getElementById("distractingPartical");
  partical.setAttribute("visible","true");
 
    partical.setAttribute("position", 
-          lastTargetPos )
+          lastTargetPos )*/
   }
   //level two (Set distractor component and remove other components  )
   
