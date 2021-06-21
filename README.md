@@ -1,6 +1,8 @@
 
 # Ellie Tale - WebXR Version | [Try it out!](https://ellie-tale.web.app/) 
 
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 | master 	| [![Build Status](https://travis-ci.com/vrapeutic/Ellie-Tale.svg?branch=main)](https://travis-ci.com/vrapeutic/Ellie-Tale) 	| Travis CI Build Status 	|
 |-	|-	|-	|
