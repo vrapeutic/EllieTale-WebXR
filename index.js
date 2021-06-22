@@ -18,6 +18,7 @@ var issent = false;
 var gardenPartical;
 var soundEls = "mySound";
 var _level = "1";
+var _lang = "En";
 var _enviro = "Beach";
 var _time = "0";
 var gameHTMLFile = {
@@ -27,7 +28,7 @@ var gameHTMLFile = {
 
 
 function set_language(lang) {
-    sessionStorage.setItem('langauage', lang);
+    sessionStorage.setItem('lan', lang);
 
     var data = {
         funcName: 'set_language',
@@ -35,6 +36,7 @@ function set_language(lang) {
             lang
         ]
     }
+    _lang = lang;
 
 }
 
@@ -94,7 +96,10 @@ function start_game() {
         funcName: 'start_game',
         params: []
     }
-    console.log(_level + _enviro + _time)
+    sessionStorage.setItem('lan', _lang);
+
+    console.log(_level + _enviro + _time + sessionStorage.getItem('lan'));
+
 
     var drMenuDiv = document.getElementById('dr-menu');
 

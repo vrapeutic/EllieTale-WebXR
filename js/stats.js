@@ -87,14 +87,12 @@ AFRAME.registerComponent('timer', {
         }
 
         document.getElementById("reload").addEventListener("click", () => {
-            calculate()
 
             StatsDictionery();
 
 
         });
-        document.getElementById("endAud").addEventListener("sound-ended", () => {
-            calculate()
+        document.getElementById("endAud" + sessionStorage.getItem('lan')).addEventListener("sound-ended", () => {
 
             StatsDictionery();
             //  window.open('finalPage.html',"_self"); 
@@ -114,18 +112,7 @@ AFRAME.registerComponent('timer', {
 function StatsDictionery() {
 
 
-    statsDict = {};
 
-    statsArray.push(statsDict);
-    sessionStorage.setItem('statsArray', JSON.stringify(statsArray));
-
-    sessionStorage.setItem('stats', JSON.stringify(statsDict));
-    // finalStats_text.setAttribute('text','value',statString);
-    var statsTex = document.createElement("a-text");
-    statsTex.setAttribute("position", "-2 1 -2");
-    statsTex.setAttribute("value", statString);
-    document.querySelector("a-camera").appendChild(statsTex);
-    console.log(statsTex);
     setTimeout(() => {
         window.location.reload();
 

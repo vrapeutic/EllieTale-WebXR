@@ -1,213 +1,188 @@
-
-
-    <a-scene   shadow="type: pcfsoft" stats effects="bloom, fxaa, ssao, godrays" bloom="radius: 0.66" fxaa  godrays="src: #sun; threshold: 0. 0.33; intensity: 2;tint:#FF0000" ssao="intensity:10;scale:.2;maxDepth:10;samples:64;radius:1;depthCutoff:100;blurRadius:10"  renderer="antialias: true;
+<a-scene shadow="type: pcfsoft" stats effects="bloom, fxaa, ssao, godrays" bloom="radius: 0.66" fxaa godrays="src: #sun; threshold: 0. 0.33; intensity: 2;tint:#FF0000" ssao="intensity:10;scale:.2;maxDepth:10;samples:64;radius:1;depthCutoff:100;blurRadius:10"
+    renderer="antialias: true;
     sortObjects: true;
     maxCanvasWidth: 1920;
     maxCanvasHeight: 1920;
     colorManagement: true;">
 
-    <a-camera  id="cam" menu  position="0 1 -5"  rotation="0 -180 0" >
-      <a-entity cursor="rayOrigin: mouse"></a-entity>
-   </a-camera>
-  
-      <!--MenuwithCamera-->
-    
+    <a-camera id="cam" menu position="0 1 -5" rotation="0 -180 0">
+        <a-entity cursor="rayOrigin: mouse"></a-entity>
+    </a-camera>
 
-  <!--score-->
-  <a-text id="score" value="0" width="20" text="side:  double;  align:  center"  scale="0.5 0.5 0.5" geometry="primitive:circle ; "material="emissive:#245a8a; src:../images/atlas png/shell.png;transparent: true" position="-4.11289 2 -11.07439"></a-text>
-  <!--backtomenu-->
-  <a-text id="reload" class="menu"  text="side:  double;  align:  center"  scale="0.2 0.2 0.2" geometry="primitive:circle ; "material=" src:../images/atlas png/main menu.png;transparent: true" position="3 2 -8.24248"></a-text>
- </a-entity>
-  <!--Hands-->
-  
-     <a-entity progressive-controls></a-entity>  
+    <!--MenuwithCamera-->
 
-      <a-entity oculus-quest-controls="hand: left"></a-entity>
-      
-      <a-entity oculus-quest-controls="hand: right" thumbstick-logging ></a-entity>
-      
-     <a-entity laser-controls="hand: right" raycaster="objects: .timer,.menu,.Box,#myDistractor; far: 100" ></a-entity>
-    
-      
-<!--Assets-->
 
-            <a-assets timeout="500000">        
-        
-      
-        <a-asset-item id="target" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_Seashell_lit_v1.02.glb?v=1610265513943"
-         response-type="arraybuffer"></a-asset-item>
-         <a-asset-item id="Environment" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_Environment_v1.02.glb?v=1609652059535"
-         response-type="arraybuffer"></a-asset-item>
-        <a-asset-item id="distractorModel" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FNoah_hunter_v1.01.glb?v=1609741957224"
-         response-type="arraybuffer"></a-asset-item>
-         <a-asset-item id="fairymodel" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FElly_2k_03.glb?v=1609445475503"
-         response-type="arraybuffer"></a-asset-item>
-       </a-assets>
-       <audio id="helloSound" src="../assets/illy the fairy/1 Hello there! I am Illy the fairy, and that is Uncle Noah over there. Uncle Noah has a lot of work to do and nobody around to help him with it, so we are going to help him!”.wav"
-       response-type="arraybuffer"></audio>
-       <audio id="enviroSound" src="../assets/illy the fairy/illy2/3 Today, Uncle Noah is fishing by the beach! Let’s help him collect items from those.wav"
-       response-type="arraybuffer"></audio>
-       <a-asset-item id="half" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_Seashell_particles_half_v1.01.glb?v=1619123371631"
-   response-type="arraybuffer"></a-asset-item>
-   <a-asset-item id="full" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_Seashell_particles_full_v1.01.glb?v=1619123378758"
-   response-type="arraybuffer"></a-asset-item>
-      </a-assets>
-     <audio id="targetSound" src="../assets/illy the fairy/illy2/15 seashell.wav"
-     response-type="arraybuffer"></audio>
-   </a-assets>
-     <a-asset-itme id = "blank-sound" src="https://cdn.glitch.com/5133a850-d5e7-4a97-91c0-7fdb4a51d65e%2F3%20sec%20silence.wav?v=1608717806555"></a-asset-itme>
+    <!--score-->
+    <a-text id="score" value="0" width="20" text="side:  double;  align:  center" scale="0.5 0.5 0.5" geometry="primitive:circle ; " material="emissive:#245a8a; src:../images/atlas png/shell.png;transparent: true" position="-4.11289 2 -11.07439"></a-text>
+    <!--backtomenu-->
+    <a-text id="reload" class="menu" text="side:  double;  align:  center" scale="0.2 0.2 0.2" geometry="primitive:circle ; " material=" src:../images/atlas png/main menu.png;transparent: true" position="3 2 -8.24248"></a-text>
+    </a-entity>
+    <!--Hands-->
 
-     <audio id="infoSound" src="../assets/illy the fairy/illy2/10 I will point at a.wav"
-     response-type="arraybuffer"></audio>
- 
-     <audio id="infoSound2" src="../assets/illy the fairy/illy2/11  and then you should click on it to open it.wav"
-     response-type="arraybuffer"></audio>
-     <audio id="infoSounditem" src="../assets/illy the fairy/7 Yay! This is a .wav"
-     response-type="arraybuffer"></audio>
-   </a-assets>
-   <audio id="infoSounditemone" src="../assets/illy the fairy/8 Awesome! That’s a .wav"
-   response-type="arraybuffer"></audio>
-   <audio id="infoSounditemtwo" src="../assets/illy the fairy/9 Woho! This is a .wav"
-   response-type="arraybuffer"></audio>
-   <audio id="slowSound" src="../assets/illy the fairy/11 We are too slow, Uncle Noah has to leave now. Let’s be quicker to help him in his work next time.wav"
-   response-type="arraybuffer"></audio>
-   <audio id="winSound" src="../assets/illy the fairy/12 Hooray! We’ve collected all objects!.wav"
-   response-type="arraybuffer"></audio>
-   <audio id="endSound" src="../assets/illy the fairy/21 We’ve helped Uncle Noah do his work today.wav"
-   response-type="arraybuffer"></audio>
-   <audio id="boxSound" src="../assets/illy the fairy/13 Uncle Noah needs.wav"
-   response-type="arraybuffer"></audio>
-   <audio id="boxSound2" src="../assets/illy the fairy/20 object.wav"
-   response-type="arraybuffer"></audio>
-   <audio id="boxSound3" src="../assets/illy the fairy/14 can you please pick it up for him Pick it up by pointing and clicking on it so we can give it to him.wav"
-   response-type="arraybuffer"></audio>
-   <audio id="shrimp" src="../assets/illy the fairy/illy2/18 Shrimp.wav"
-   response-type="arraybuffer"></audio>
-   <audio id="shark" src="../assets/illy the fairy/illy2/19 shark.wav"
-   response-type="arraybuffer"></audio>
-   <audio id="ship" src="../assets/illy the fairy/illy2/21 ship.wav"
-   response-type="arraybuffer"></audio>
-   <audio id="fishing" src="../assets/illy the fairy/illy2/23 fishing rod.wav"
-   response-type="arraybuffer"></audio>
-   <audio id="whale" src="../assets/illy the fairy/illy2/22 whale.wav"
-   response-type="arraybuffer"></audio>
-   <audio id="octopus" src="../assets/illy the fairy/illy2/20 octopus.wav"
-   response-type="arraybuffer"></audio>
-   <audio id="ball" src="../assets/illy the fairy/illy2/14 boxs.wav"
-   response-type="arraybuffer"></audio>
-   <!--enviroment-->
-     
-      <a-gltf-model id="mybeach" src="#Environment" shadow="" animation-mixer position="12 0 -7.13117">
-      </a-gltf-model>
-          <a-light type="directional" position="0 6 0"  ></a-light>
+    <a-entity progressive-controls></a-entity>
 
-      <a-entity id="updateMe"></a-entity>
+    <a-entity oculus-quest-controls="hand: left"></a-entity>
 
-<!--Targets-->
+    <a-entity oculus-quest-controls="hand: right" thumbstick-logging></a-entity>
 
-        <a-entity id="targetone"  class="Box" gltf-model="#target" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="-1.78878 -0.09708 3.6332"   showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 140.1941781015855 0" shadow ontriggertarget>
-        </a-entity> 
+    <a-entity laser-controls="hand: right" raycaster="objects: .timer,.menu,.Box,#myDistractor; far: 100"></a-entity>
 
-        <a-entity id="targettwo"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-4.8171 0.12502 -2.664"  showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 0 0" shadow ontriggertarget>
-        </a-entity>
 
-        <a-entity id="targetthree"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="2.94603 -0.02623 -4.76574"  showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 0 0" shadow ontriggertarget>
+    <!--Assets-->
 
-        </a-entity>     
-        <a-entity id="targetfour"  class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-1.12464 0.12 -14.67292"  showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 0 0" shadow ontriggertarget>
-        </a-entity>     
-      
+    <a-assets timeout="500000">
 
-   
-    
+
+        <a-asset-item id="target" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_Seashell_lit_v1.02.glb?v=1610265513943" response-type="arraybuffer"></a-asset-item>
+        <a-asset-item id="Environment" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_Environment_v1.02.glb?v=1609652059535" response-type="arraybuffer"></a-asset-item>
+        <a-asset-item id="distractorModel" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FNoah_hunter_v1.01.glb?v=1609741957224" response-type="arraybuffer"></a-asset-item>
+        <a-asset-item id="fairymodel" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FElly_2k_03.glb?v=1609445475503" response-type="arraybuffer"></a-asset-item>
+    </a-assets>
+    <audio id="helloSound" src="../assets/illy the fairy/1 Hello there! I am Illy the fairy, and that is Uncle Noah over there. Uncle Noah has a lot of work to do and nobody around to help him with it, so we are going to help him!”.wav" response-type="arraybuffer"></audio>
+    <audio id="enviroSound" src="../assets/illy the fairy/illy2/3 Today, Uncle Noah is fishing by the beach! Let’s help him collect items from those.wav" response-type="arraybuffer"></audio>
+    <a-asset-item id="half" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_Seashell_particles_half_v1.01.glb?v=1619123371631" response-type="arraybuffer"></a-asset-item>
+    <a-asset-item id="full" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_Seashell_particles_full_v1.01.glb?v=1619123378758" response-type="arraybuffer"></a-asset-item>
+    </a-assets>
+    <audio id="targetSound" src="../assets/illy the fairy/illy2/15 seashell.wav" response-type="arraybuffer"></audio>
+    </a-assets>
+    <a-asset-itme id="blank-sound" src="https://cdn.glitch.com/5133a850-d5e7-4a97-91c0-7fdb4a51d65e%2F3%20sec%20silence.wav?v=1608717806555"></a-asset-itme>
+
+    <audio id="infoSoundEn" src="../assets/illy the fairy/illy2/10 I will point at a.wav" response-type="arraybuffer"></audio>
+
+    <audio id="infoSound2" src="../assets/illy the fairy/illy2/11  and then you should click on it to open it.wav" response-type="arraybuffer"></audio>
+    <audio id="infoSounditem" src="../assets/illy the fairy/7 Yay! This is a .wav" response-type="arraybuffer"></audio>
+    </a-assets>
+    <audio id="infoSounditemone" src="../assets/illy the fairy/8 Awesome! That’s a .wav" response-type="arraybuffer"></audio>
+    <audio id="infoSounditemtwo" src="../assets/illy the fairy/9 Woho! This is a .wav" response-type="arraybuffer"></audio>
+    <audio id="slowSound" src="../assets/illy the fairy/11 We are too slow, Uncle Noah has to leave now. Let’s be quicker to help him in his work next time.wav" response-type="arraybuffer"></audio>
+    <audio id="winSound" src="../assets/illy the fairy/12 Hooray! We’ve collected all objects!.wav" response-type="arraybuffer"></audio>
+    <audio id="endSound" src="../assets/illy the fairy/21 We’ve helped Uncle Noah do his work today.wav" response-type="arraybuffer"></audio>
+    <audio id="boxSound" src="../assets/illy the fairy/13 Uncle Noah needs.wav" response-type="arraybuffer"></audio>
+    <audio id="boxSound2" src="../assets/illy the fairy/20 object.wav" response-type="arraybuffer"></audio>
+    <audio id="boxSound3" src="../assets/illy the fairy/14 can you please pick it up for him Pick it up by pointing and clicking on it so we can give it to him.wav" response-type="arraybuffer"></audio>
+    <audio id="shrimp" src="../assets/illy the fairy/illy2/18 Shrimp.wav" response-type="arraybuffer"></audio>
+    <audio id="shark" src="../assets/illy the fairy/illy2/19 shark.wav" response-type="arraybuffer"></audio>
+    <audio id="ship" src="../assets/illy the fairy/illy2/21 ship.wav" response-type="arraybuffer"></audio>
+    <audio id="fishing" src="../assets/illy the fairy/illy2/23 fishing rod.wav" response-type="arraybuffer"></audio>
+    <audio id="whale" src="../assets/illy the fairy/illy2/22 whale.wav" response-type="arraybuffer"></audio>
+    <audio id="octopus" src="../assets/illy the fairy/illy2/20 octopus.wav" response-type="arraybuffer"></audio>
+    <audio id="ball" src="../assets/illy the fairy/illy2/14 boxs.wav" response-type="arraybuffer"></audio>
+    <!--enviroment-->
+
+    <a-gltf-model id="mybeach" src="#Environment" shadow="" animation-mixer position="12 0 -7.13117">
+    </a-gltf-model>
+    <a-light type="directional" position="0 6 0"></a-light>
+
+    <a-entity id="updateMe"></a-entity>
+
+    <!--Targets-->
+
+    <a-entity id="targetone" class="Box" gltf-model="#target" aabb-collider="objects:a-gltf-model,a-box" shadow="receive: true" position="-1.78878 -0.09708 3.6332" showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 140.1941781015855 0"
+        shadow ontriggertarget>
+    </a-entity>
+
+    <a-entity id="targettwo" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-4.8171 0.12502 -2.664" showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 0 0"
+        shadow ontriggertarget>
+    </a-entity>
+
+    <a-entity id="targetthree" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="2.94603 -0.02623 -4.76574" showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false"
+        rotation="0 0 0" shadow ontriggertarget>
+
+    </a-entity>
+    <a-entity id="targetfour" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box" shadow="receive: true" position="-1.12464 0.12 -14.67292" showitem static-body="shape: box; ; sphereRadius: NaN" amimation-mixer="enabled:false" rotation="0 0 0"
+        shadow ontriggertarget>
+    </a-entity>
+
+
+
+
     <!--items-->
 
-   <a-gltf-model  id="item" class="items" visible="false"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_fishingRod_01.glb?v=1610265485579"  >
-    <a-sound id="sound1" src="#fishing" autoplay="false"   ></a-sound>
-
-  </a-gltf-model >
-
-   <a-gltf-model  id="itemOne" class="items" visible="false"  src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_sharky_01.glb?v=1610265482524" >
-    <a-sound id="sound2" src="#shark" autoplay="false"   ></a-sound>
- 
-  </a-gltf-model >
-
-    <a-gltf-model id="itemTwo" class="items"  visible="false" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_octopus_01.glb?v=1610265479445" >
-      <a-sound id="sound3" src="#octopus" autoplay="false"   ></a-sound>
+    <a-gltf-model id="item" class="items" visible="false" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_fishingRod_01.glb?v=1610265485579">
+        <a-sound id="sound1En" src="#fishing" autoplay="false"></a-sound>
 
     </a-gltf-model>
 
-    <a-gltf-model id="itemThree"  visible="false"   class="items"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_shrimp_01.glb?v=1610265478418" >
-      <a-sound id="sound5" src="#shrimp" autoplay="false"   ></a-sound>
+    <a-gltf-model id="itemOne" class="items" visible="false" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_sharky_01.glb?v=1610265482524">
+        <a-sound id="sound2En" src="#shark" autoplay="false"></a-sound>
 
     </a-gltf-model>
 
-    <a-gltf-model id="itemFour"  visible="false"   class="items"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_whale_01.glb?v=1610265469466" >
-      <a-sound id="sound4" src="#whale" autoplay="false"   ></a-sound>
+    <a-gltf-model id="itemTwo" class="items" visible="false" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_octopus_01.glb?v=1610265479445">
+        <a-sound id="sound3En" src="#octopus" autoplay="false"></a-sound>
 
     </a-gltf-model>
 
-     <a-gltf-model id="itemFive"  visible="false"   class="items"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_ship_01.glb?v=1610265468682" >
-      <a-sound id="sound5" src="#ship" autoplay="false"   ></a-sound>
+    <a-gltf-model id="itemThree" visible="false" class="items" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_shrimp_01.glb?v=1610265478418">
+        <a-sound id="sound5En" src="#shrimp" autoplay="false"></a-sound>
 
     </a-gltf-model>
 
-     <a-gltf-model id="itemSix"  visible="false"   class="items"   src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_ball_01.glb?v=1610265467831" >
-      <a-sound id="sound6" src="#ball" autoplay="false"   ></a-sound>
+    <a-gltf-model id="itemFour" visible="false" class="items" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_whale_01.glb?v=1610265469466">
+        <a-sound id="sound4En" src="#whale" autoplay="false"></a-sound>
 
-    </a-gltf-model>  
+    </a-gltf-model>
 
- <!-- eille the Fairy-->
- 
-      <a-gltf-model id="Fairy" fairytasktimer  src="#fairymodel" position="-0.085 1.62321 -3"   aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;"  static-body="shape: box; mass: 0; sphereRadius: NaN"  lookat="#cam" >
-        <a-sound id="helloAud" src="#helloSound" autoplay="false" ></a-sound>
+    <a-gltf-model id="itemFive" visible="false" class="items" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_ship_01.glb?v=1610265468682">
+        <a-sound id="sound5En" src="#ship" autoplay="false"></a-sound>
 
-        <a-sound id="enviroAud" src="#enviroSound" autoplay="false"   ></a-sound>  
-    
-   
-               <a-sound id="boxAud2" src="#boxSound2" autoplay="false"  ></a-sound >
-              <a-sound id="boxAud3" src="#boxSound3" autoplay="false" ></a-sound >
-                 <a-sound id="targetAud" src="#targetSound" autoplay="false"   ></a-sound>  
-         <a-sound id="infoAud2" src="#infoSound2" autoplay="false" ></a-sound >
-          </a-gltf-model>
+    </a-gltf-model>
 
-         <a-sound id="boxAud" src="#boxSound" autoplay="false" class="boxsound"  ></a-sound >
-              <a-sound id="infoAud" src="#infoSound" autoplay="false" class="boxsound" ></a-sound >
-                <a-sound id="infoAuditem" src="#infoSounditem" autoplay="false" class="itemsSound" ></a-sound >
-                  <a-sound id="infoAuditem1" src="#infoSounditemone" autoplay="false" class="itemsSound" ></a-sound >
-                    <a-sound id="infoAuditem2" src="#infoSounditemtwo" autoplay="false" class="itemsSound" ></a-sound >
-                      <a-sound id="endAud" src="#endSound" autoplay="false"  ></a-sound >
-                      <a-sound id="slowAud" src="#slowSound" autoplay="false"  ></a-sound >
-     
+    <a-gltf-model id="itemSix" visible="false" class="items" src="https://cdn.glitch.com/7de25775-9f1e-45af-8694-b18f418e6c6a%2FBeach_prop_ball_01.glb?v=1610265467831">
+        <a-sound id="sound6En" src="#ball" autoplay="false"></a-sound>
 
-                        <!--noah distractor-->
-      <a-gltf-model id="myDistractor"   visible="false"  gltf-model="#distractorModel" position="1.75 0.1 -7.224"  lookat="#cam"   clickable static-body="shape: box; mass: 0; sphereRadius: NaN" aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;" shadow >
+    </a-gltf-model>
+
+    <!-- eille the Fairy-->
+
+    <a-gltf-model id="Fairy" fairytasktimer src="#fairymodel" position="-0.085 1.62321 -3" aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;" static-body="shape: box; mass: 0; sphereRadius: NaN" lookat="#cam">
+        <a-sound id="helloAudEn" src="#helloSound" autoplay="false"></a-sound>
+
+        <a-sound id="enviroAudEn" src="#enviroSound" autoplay="false"></a-sound>
 
 
-      </a-gltf-model>
-      <a-gltf-model id="noah" rotation="0 -85.20340779831446 0"     gltf-model="#distractorModel" position="10.6763 0.3 -0.85876"  lookat="#cam"   clickable static-body="shape: box; mass: 0; sphereRadius: NaN" aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;" shadow >
+        <a-sound id="boxAud2En" src="#boxSound2" autoplay="false"></a-sound>
+        <a-sound id="boxAud3En" src="#boxSound3" autoplay="false"></a-sound>
+        <a-sound id="targetAudEn" src="#targetSound" autoplay="false"></a-sound>
+        <a-sound id="infoAud2En" src="#infoSound2" autoplay="false"></a-sound>
+    </a-gltf-model>
+
+    <a-sound id="boxAudEn" src="#boxSound" autoplay="false" class="boxsoundEn"></a-sound>
+    <a-sound id="infoAudEn" src="#infoSoundEn" autoplay="false" class="boxsoundEn"></a-sound>
+    <a-sound id="infoAuditemEn" src="#infoSounditem" autoplay="false" class="itemsSoundEn"></a-sound>
+    <a-sound id="infoAuditem1En" src="#infoSounditemone" autoplay="false" class="itemsSoundEn"></a-sound>
+    <a-sound id="infoAuditem2En" src="#infoSounditemtwo" autoplay="false" class="itemsSoundEn"></a-sound>
+    <a-sound id="endAudEn" src="#endSound" autoplay="false"></a-sound>
+    <a-sound id="slowAudEn" src="#slowSound" autoplay="false"></a-sound>
 
 
-      </a-gltf-model>
-      <a-gltf-model id="distractingPartical"   gltf-model="#half" visible="false" animation-mixer shadow >
-      </a-gltf-model>
-<!--Stats-->
-    <a-text id="selectenvironment" value="Beach"  geometry="primitive:circle" visible="false"></a-text>
-    <a-text id="level" value="1"  geometry="primitive:circle" visible="false" position="-20 1 1"></a-text>
+    <!--noah distractor-->
+    <a-gltf-model id="myDistractor" visible="false" gltf-model="#distractorModel" position="1.75 0.1 -7.224" lookat="#cam" clickable static-body="shape: box; mass: 0; sphereRadius: NaN" aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;"
+        shadow>
+
+
+    </a-gltf-model>
+    <a-gltf-model id="noah" rotation="0 -85.20340779831446 0" gltf-model="#distractorModel" position="10.6763 0.3 -0.85876" lookat="#cam" clickable static-body="shape: box; mass: 0; sphereRadius: NaN" aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;"
+        shadow>
+
+
+    </a-gltf-model>
+    <a-gltf-model id="distractingPartical" gltf-model="#half" visible="false" animation-mixer shadow>
+    </a-gltf-model>
+    <!--Stats-->
+    <a-text id="selectenvironment" value="Beach" geometry="primitive:circle" visible="false"></a-text>
+    <a-text id="level" value="1" geometry="primitive:circle" visible="false" position="-20 1 1"></a-text>
     <a-text id="levelTybe" value="open" geometry="primitive:circle" visible="false" position="-15 1 1"></a-text>
-    <a-text id="counter" value="0" geometry="primitive:plane"visible="false"  ></a-text>
-    <a-text id="taskcounter" value="1" geometry="primitive:circle" visible="false" position="-30 1 3" ></a-text>
-    <a-text id="tasktime" value="0" geometry="primitive:circle" position="-35 1 3" visible="false" ></a-text>
-    <a-text id="dscounter" value="1" geometry="primitive:circle"visible="false" position="-40 1 4" ></a-text>
+    <a-text id="counter" value="0" geometry="primitive:plane" visible="false"></a-text>
+    <a-text id="taskcounter" value="1" geometry="primitive:circle" visible="false" position="-30 1 3"></a-text>
+    <a-text id="tasktime" value="0" geometry="primitive:circle" position="-35 1 3" visible="false"></a-text>
+    <a-text id="dscounter" value="1" geometry="primitive:circle" visible="false" position="-40 1 4"></a-text>
     <a-text id="dstime" value="0" geometry="primitive:circle" position="-45 1 4" visible="false"></a-text>
     <a-text id="inpsCounter" value="0" geometry="primitive:circle" position="-25 1 7" visible="false" inpssore></a-text>
-    <a-text id="inps" value="0" geometry="primitive:circle" position="-35 1 7" visible="false"  ></a-text>
-    <a-text id="session" value="0" geometry="primitive:circle" position="-35 1 7" visible="false" timer ></a-text>
-
-
-    
-   
-     </a-scene>
+    <a-text id="inps" value="0" geometry="primitive:circle" position="-35 1 7" visible="false"></a-text>
+    <a-text id="session" value="0" geometry="primitive:circle" position="-35 1 7" visible="false" timer></a-text>
 
 
 
+
+</a-scene>
