@@ -1,5 +1,5 @@
 
-# Ellie Tale - WebXR Version | [Try it out!](https://ellie-tale.web.app/) 
+# Ellie Tale - WebXR Version | [Try it out!](https://ellie-tale1.web.app/) 
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
