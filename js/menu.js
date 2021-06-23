@@ -60,8 +60,8 @@ AFRAME.registerComponent('menu', {
                     )
                     fairy.setAttribute("rotation", document.getElementById("targetone").getAttribute("rotation"));
 
-                    document.querySelector("#enviroAud" + sessionStorage.getItem('lan')).parentNode.removeChild(document.querySelector("#enviroAud"));
-                    document.querySelector("#helloAud" + sessionStorage.getItem('lan')).parentNode.removeChild(document.querySelector("#helloAud"));
+                    document.querySelector("#enviroAud" + sessionStorage.getItem('lan')).parentNode.removeChild(document.querySelector("#enviroAud" + sessionStorage.getItem('lan')));
+                    document.querySelector("#helloAud" + sessionStorage.getItem('lan')).parentNode.removeChild(document.querySelector("#helloAud" + sessionStorage.getItem('lan')));
 
                     // set fairy position to target one
 
