@@ -111,10 +111,12 @@ AFRAME.registerComponent('timer', {
 
 function StatsDictionery() {
 
-
+    fairyPositionx = 1;
+    fairyPositionz = 1;
+    fairyPositiony = 1;
 
     setTimeout(() => {
         window.location.reload();
 
-    }, 10000);
+    }, 4000);
 }
