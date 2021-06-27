@@ -7,9 +7,6 @@ AFRAME.registerComponent("ontriggertarget", {
         let sounds = document.querySelectorAll(".boxsound" + sessionStorage.getItem('lan'));
 
         let triggerTarget = () => {
-
-
-                /* */
                 var taskcounter = document.getElementById("taskcounter").getAttribute("value");
 
                 let randomSound = Math.floor(Math.random() * Math.floor(sounds.length));
@@ -20,9 +17,8 @@ AFRAME.registerComponent("ontriggertarget", {
                 soundEls.forEach(soundEl => {
                     soundEl.components.sound.stopSound()
                 });
-                //sounds[randomSound].setAttribute("position", fairy.getAttribute("position"));
+                sounds[randomSound].setAttribute("position", fairy.getAttribute("position"));
                 sounds[randomSound].components.sound.playSound();
-
                 console.log(sounds[randomSound].getAttribute("src"));
                 if (sounds[randomSound].getAttribute("src") != currentSound) {
                     sounds[randomSound].addEventListener('sound-ended', function() {
@@ -83,7 +79,6 @@ AFRAME.registerComponent("ontriggertarget", {
                     // el.setAttribute("color", "#1dd4ed")
                     this.el.appendChild(el);
                 }
-
                 taskcounter++;
                 document.getElementById("taskcounter").setAttribute("value", taskcounter);
                 // console.log(this.el.getAttribute("animation-mixer")+"TaskCounter"+taskcounter)
