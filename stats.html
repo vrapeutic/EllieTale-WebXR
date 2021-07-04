@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+</head>
+
+      <body>
+        <a id="programatically" href="" download="date.txt">Download Statistics</a>
+           
+        
+        <a href="." >play again</a>
+
+    
+       </body>
+       <script>
+  $("a#programatically").click(function(){
+  var now =sessionStorage.getItem("statsArray") ;
+  this.href = "data:text/plain;charset=UTF-8,"  + encodeURIComponent(now);
+});
+       </script>
+</html>
