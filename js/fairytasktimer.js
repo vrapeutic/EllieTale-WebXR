@@ -22,12 +22,12 @@ taskTimer();
     {   console.log(
     e.target.id,
     "collided ",
- e.target.components["aabb-collider"]["intersectedEls"][0].map(x => x.id)
+ e.target.components["aabb-collider"]["intersectedEls"].map(x => x.id)
   );
 console.log(timer);
 
     if (
-      e.target.components["aabb-collider"]["intersectedEls"][0]
+      e.target.components["aabb-collider"]["intersectedEls"]
       .map(x => x.id)
  .includes("targetone,targettwo,targetthree,targetfour")){
           

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
@@ -21,41 +22,40 @@
     <script src="../js/timemanger.js"></script>
     <script src="../js/distractormovenment.js"></script>
     <script src="../js/menu.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdnjs.com/libraries/jquery/1.9.1"></script>
 
     <script src="index.js"></script>
     <style>
-      body {
-        font-family: "Abel", sans-serif;
-        background-color:azure;
-        font-size: larger;
-      }
-    
-      button {
-        font-family: "Abel", sans-serif;
-      }
-    
-      .button-cls {
-        font-family: "Abel", sans-serif;
-        border-radius: 5px;
-        background-color: #25b2c2;
-        border: none;
-        color: #FFFFFF;
-        text-align: center;
-        font-size: 25px;
-        -webkit-transition-duration: 0.4s;
-        transition-duration: 0.4s;
-        text-decoration: none;
-        overflow: hidden;
-        cursor: pointer;
-        margin: 5px;
-      }
-    
-      .button-cls:hover {
-        background-color: #3e6e8e
-      }
-    
-      /* .center {
+        body {
+            font-family: "Abel", sans-serif;
+            background-color: azure;
+            font-size: larger;
+        }
+        
+        button {
+            font-family: "Abel", sans-serif;
+        }
+        
+        .button-cls {
+            font-family: "Abel", sans-serif;
+            border-radius: 5px;
+            background-color: #25b2c2;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 25px;
+            -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+            text-decoration: none;
+            overflow: hidden;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        .button-cls:hover {
+            background-color: #3e6e8e
+        }
+        /* .center {
         margin: 0 auto;
         width: 80%;
         text-align: center;
@@ -70,9 +70,10 @@
           
         margin: auto;
       } */
-    </style>  
-  </head>
-  <body>
+    </style>
+</head>
+
+<body>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="/__/firebase/8.2.1/firebase-app.js"></script>
 
@@ -80,42 +81,47 @@
         https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="/__/firebase/8.2.1/firebase-analytics.js"></script>
 
-    <!-- Initialize Firebase -->
+    <!--  <h>Select langauge</h>
+        <br>
+        <button class="button button-cls" onclick="set_language('En')">English </button>
+        <br> <br>      <button class="button button-cls" onclick="set_language('Ar')">Arabic </button>
+ Initialize Firebase -->
     <script src="/__/firebase/init.js"></script>
-    <div id="dr-menu"  class="center">
-  
-      <h>Select langauge</h>
-      <br>
-      <button class="button button-cls" onclick="set_language('A')">Arabic </button>
-      <button class="button button-cls" onclick="set_language('E')">English </button>
-      <br> <br>
-      <h>Select level</h>
-      <br>
-      <button class="button button-cls" onclick="set_level(1)">level 1</button>
-      <button class="button button-cls" onclick="set_level(2)">level 2</button>
-      <button class="button button-cls" onclick="set_level(3)">level 3</button>
-      <br> <br> 
-      <h>Select timer</h>
-      <br>
-      <button class="button button-cls" onclick="set_timer(90)"> 30</button>
-      <button class="button button-cls" onclick="set_timer(120)"> 60</button>
-      <button class="button button-cls" onclick="set_timer(150)"> 90</button>
-      <button class="button button-cls" onclick="set_timer(0)"> open </button>
-      <br> <br>
-      <h>Select Environment</h>
-      <br>
-      <button class="button button-cls" onclick="set_environment('Beach')">Beach</button>
-      <button class="button button-cls" onclick="set_environment('Garden')">Garden</button>
-      <button class="button button-cls" onclick="set_environment('Library')">Library</button>
-      <br> <br>
-    
-   <br> <br>
-      <button class="button button-cls" onclick="start_game()">Start</button>
+    <div id="dr-menu" class="center">
+
+        <h>Select langauge</h>
+        <br>
+        <button class="button button-cls" onclick="set_language('A')">Arabic </button>
+        <button class="button button-cls" onclick="set_language('E')">English </button>
+        <br> <br>
+        <h>Select level</h>
+        <br>
+        <button class="button button-cls" onclick="set_level(1)">level 1</button>
+        <button class="button button-cls" onclick="set_level(2)">level 2</button>
+        <button class="button button-cls" onclick="set_level(3)">level 3</button>
+        <br> <br>
+        <h>Select timer</h>
+        <br>
+        <button class="button button-cls" onclick="set_timer(90)"> 30</button>
+        <button class="button button-cls" onclick="set_timer(120)"> 60</button>
+        <button class="button button-cls" onclick="set_timer(150)"> 90</button>
+        <button class="button button-cls" onclick="set_timer(0)"> open </button>
+        <br> <br>
+        <h>Select Environment</h>
+        <br>
+        <button class="button button-cls" onclick="set_environment('Beach')">Beach</button>
+        <button class="button button-cls" onclick="set_environment('Garden')">Garden</button>
+        <button class="button button-cls" onclick="set_environment('Library')">Library</button>
+        <br> <br>
+
+        <br> <br>
+        <button class="button button-cls" onclick="start_game()">Start</button>
     </div>
 
     <div id="game" style="visibility: hidden;">
- <div id="injectable"></div>
+        <div id="injectable"></div>
 
- </div>
-  </body>
+    </div>
+</body>
+
 </html>
