@@ -54,7 +54,7 @@ AFRAME.registerComponent('menu', {
                         document.getElementById("noah").parentNode.removeChild(document.getElementById("noah"));
                     document.getElementById("Fairy").setAttribute(
                         "animation",
-                        "property:position; to:" + (fairyPositionx + 1) +
+                        "property:position; to:" + (fairyPositionx + 0.7) +
                         " " + (firtTargetPos.y + 0.5) + " " +
                         fairyPositionz + "; dur:1000"
                     )
@@ -112,11 +112,11 @@ AFRAME.registerComponent('menu', {
                     //level one (set distractor without any movement)
                     else {
 
-                        var old_element = document.getElementById("myDistractor");
-                        var new_element = old_element.cloneNode(true);
-                        old_element.parentNode.replaceChild(new_element, old_element);
-                        document.getElementById("myDistractor").setAttribute('visible', true);
-                        console.log(document.getElementById("myDistractor"));
+                        /*  var old_element = document.getElementById("myDistractor");
+                          var new_element = old_element.cloneNode(true);
+                          old_element.parentNode.replaceChild(new_element, old_element);
+                          document.getElementById("myDistractor").setAttribute('visible', true);
+                          console.log(document.getElementById("myDistractor"));*/
 
                     }
                 });

@@ -122,7 +122,7 @@ AFRAME.registerComponent("showitem", {
                         "animation",
                         "property:position; to:" + (fairyPositionx + 0.7) + " " + (fairyPositiony + 0.5) + " " + fairyPositionz + "; dur:1000"
                     ); //move Fairy to next Target
-                    fairy.setAttribute("rotation", target[index].getAttribute("rotation"));
+                    fairy.setAttribute("rotation", document.getElementById("cam").getAttribute("rotation"));
 
                     console.log(
                         target[index].getAttribute("position").x - 1 + " count : " + fairyPositionx + " " + fairy.getAttribute("position").x
