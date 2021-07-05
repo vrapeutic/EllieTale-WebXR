@@ -138,6 +138,7 @@ AFRAME.registerComponent("advancedmovenment", {
 
             var distractingPartical = document.getElementById("distractingPartical");
             distractingPartical.setAttribute("visible", "true");
+            distractingPartical.setAttribute("src", "#half");
             distractingPartical.setAttribute("position", nextTargetPosition);
 
             // ds.addEventListener("click", advancedDsMovement)
