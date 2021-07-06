@@ -21,25 +21,20 @@ function convertHMS(value) {
     if (seconds < 10) { seconds = "0" + seconds; }
     return hours + ':' + minutes + ':' + seconds; // Return is HH : MM : SS
 }
-var statString;
-let statsArray = [];
+
 
 AFRAME.registerComponent('timer', {
 
     init: function() {
 
-        Tas = 7.5;
 
         start_session_time = new Date().toLocaleString();
-        tpicalTime = 60
 
         var time = 0;
         var count = -1;
         var startSession = 0;
 
-        if (sessionStorage.getItem("statsArray")) {
-            statsArray = JSON.parse(sessionStorage.getItem("statsArray"));
-        }
+
         var mysession = setInterval(function() {
 
 
@@ -66,56 +61,16 @@ AFRAME.registerComponent('timer', {
             count = -1;
             count = setInterval(function() {
 
-                document.getElementById("sessions").setAttribute("value", time);
+                document.getElementById("session").setAttribute("value", time);
                 time++;
             }, 1000);
         })
 
 
 
-        var calculate = function newStats() {
-            end_session_time = new Date().toLocaleString();
 
-            Tar = document.getElementById("inps").getAttribute("value") / (target.length);
-            timeTaken = document.getElementById("session").getAttribute("value");
-
-            AAS = document.getElementById("tasktime").getAttribute("value") / document.getElementById("taskcounter").getAttribute("value");
-            if (AAS != 0) {
-                omissionScore = Tas / (AAS + Math.pow(10, -5));
-            }
-            TFD = AAS - Tas;
-            if (document.getElementById("level").getAttribute("value") == 1) {
-                Ds = 0;
-            } else {
-                Ds = (1 - (TFD / Tas));
-            }
-            if (document.getElementById("level").getAttribute("value") == 2 || document.getElementById("level").getAttribute("value") == 1) {
-                responseTime = AAS;
-            } else if (document.getElementById("level").getAttribute("value") == 3) {
-                responseTime = (document.getElementById("tasktime").getAttribute("value") / document.getElementById("taskcounter").getAttribute("value") +
-                    document.getElementById("dstime").getAttribute("value") / document.getElementById("dscounter").getAttribute("value")) / 2;
-            }
-
-            if (document.getElementById("levelTybe").getAttribute("value") != "Open") {
-                levelType = "Closed";
-                Tir = timeTaken / document.getElementById("counter").getAttribute("value");
-
-            } else {
-                levelType = "Opend";
-                Tir = timeTaken / tpicalTime;
-            }
-            if (Tar == 0) {
-                implusivityScore = 1;
-            } else {
-                implusivityScore = (1 * (-Tar)) * ((Math.log10(Tir) - 1) + Math.pow(10, -5));
-            }
-            statString = "Tas:" + Tas +
-                " levelType: " + levelType + " end : " + end_session_time + " AAS " + AAS + " response " + responseTime + " Start" + start_session_time + " Ds " + Ds + " timeTaken " + timeTaken + " tar" + Tar;
-            //  console.log(Tas+"levelType "+levelType+" end : "+end_session_time+" AAS "+AAS+ " response "+responseTime+" Start"+start_session_time+" Ds "+Ds+" timeTaken "+timeTaken+" tar" +Tar)
-        }
 
         document.getElementById("reload").addEventListener("click", () => {
-            calculate()
 
             StatsDictionery();
 

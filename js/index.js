@@ -6,7 +6,6 @@ var fairyPositionx = 1;
 var fairyPositionz = 1;
 var fairyPositiony = 1;
 var start_session_time = new Date().toLocaleString();
-var tpicalTime;
 // var Tas = 7.5;
 // var implusivityScore;
 // var omissionScore;

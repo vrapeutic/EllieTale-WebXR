@@ -5,9 +5,7 @@ AFRAME.registerComponent("advancedmovenment", {
 
         var target = document.querySelectorAll(".Box"); //Array of targets
         var ds = document.getElementById("myDistractor"); // distractor element
-        var timer = 0;
-        var count = -1;
-        var isCounting = true;
+
         console.log(target + " this " + ds + document.getElementById("level").getAttribute("value"));
 
         //for level three
@@ -23,13 +21,7 @@ AFRAME.registerComponent("advancedmovenment", {
             document.getElementById("targetthree").getAttribute("position").z + ";delay:5000; dur:8000"
 
         );
-        if (isCounting == true) {
-            count = setInterval(function() {
 
-                document.getElementById("dstime").setAttribute("value", timer);
-                timer++;
-            }, 1000);
-        }
 
         let advancedDsMovement = function newRandomMovenment() {
             document.getElementById("distractingPartical").setAttribute("visible", "false");
@@ -124,15 +116,7 @@ AFRAME.registerComponent("advancedmovenment", {
 
         });
 
-        ds.addEventListener("hitend", e => {
 
-
-            //  document.getElementById("distractingPartical").parentNode.removeChild(document.getElementById("distractingPartical"));
-            clearInterval(count);
-            isCounting = false;
-
-
-        });
 
         function AddPartical() {
 
