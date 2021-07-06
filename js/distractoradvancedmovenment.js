@@ -106,12 +106,7 @@ AFRAME.registerComponent("advancedmovenment", {
 
             console.log(e);
 
-            //  document .getElementById("myDistractor")
-            //S    ds.setAttribute('aabb-collider','enabled',false);
 
-
-
-            // ds.removeEventListener("hitstart"); 
 
 
         });
