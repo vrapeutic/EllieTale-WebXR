@@ -60,8 +60,7 @@ AFRAME.registerComponent('menu', {
                     )
                     fairy.setAttribute("rotation", document.getElementById("targetone").getAttribute("rotation"));
 
-                    document.querySelector("#enviroAud").parentNode.removeChild(document.querySelector("#enviroAud"));
-                    document.querySelector("#helloAud").parentNode.removeChild(document.querySelector("#helloAud"));
+
 
                     // set fairy position to target one
 
@@ -77,7 +76,10 @@ AFRAME.registerComponent('menu', {
 
                         /*
                          */
-                        document.getElementById("myDistractor").setAttribute('advancedmovenment', "enabled", true)
+                        setTimeout(() => {
+                            document.getElementById("myDistractor").setAttribute('advancedmovenment', "enabled", true)
+
+                        }, 2000);
                         document.getElementById("myDistractor").setAttribute('visible', true);
                         /* */
 
@@ -101,12 +103,12 @@ AFRAME.registerComponent('menu', {
                             document.getElementById("myDistractor").firstElementChild.setAttribute("position", "0 0 0")
                             // console.log(document.etElementById("myDistractor").childElementCount)
 
-                        document.getElementById("myDistractor").setAttribute(
-                            "animation",
-                            "property:position; to:" + (lastTargetPos.x + 1) +
-                            " 0.5 " +
-                            lastTargetPos.z + " dur:1000"
-                        )
+                        /* document.getElementById("myDistractor").setAttribute(
+                             "animation",
+                             "property:position; to:" + (lastTargetPos.x + 1) +
+                             " 0.5 " +
+                             lastTargetPos.z + " dur:1000"
+                         )*/
                     }
 
                     //level one (set distractor without any movement)

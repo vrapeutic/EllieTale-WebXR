@@ -5,13 +5,9 @@ AFRAME.registerComponent("moverandomly", {
         var target = document.querySelectorAll(".Box"); //Array of targets
         var ds = document.getElementById("myDistractor"); // distractor element
         ds.setAttribute('aabb-collider', 'enabled', false);
-        console.log(target + " this " + ds + document.getElementById("level").getAttribute("value"));
 
-        // level 2
 
-        console.log(document.getElementById("level").getAttribute("value"))
-
-        let startDsMovement = function randommovenmet(index) {
+        const startDsMovement = function randommovenmet() {
 
             setTimeout(function() {
 
@@ -19,25 +15,25 @@ AFRAME.registerComponent("moverandomly", {
 
                 nextTargetPosition = target[randomIndexTarget].getAttribute("position"); //  next target for distractor
 
-                ds.setAttribute("animation", "property:position; to:" + (nextTargetPosition.x - 0.7) + " 0 " + nextTargetPosition.z + "delay:5000; dur:8000");
+                ds.setAttribute("animation", "property:position; to:" + (nextTargetPosition.x - 1) + " 0 " + nextTargetPosition.z + " dur:4000");
+
+                console.log(randomIndexTarget + " here " + target[randomIndexTarget].getAttribute("position").x + "ds " + ds.getAttribute("position").x)
 
 
-                console.log(index + " here " + target[randomIndexTarget].getAttribute("position").x + "ds " + ds.getAttribute("position").x)
+                if (randomIndexTarget >= (target.length - 1)) {
 
-
-
-                if (index >= target.length) {
-
-                    index = 0; // Set it back to `0` when it reaches `3`
+                    randomIndexTarget = 0;
+                    ds.setAttribute("animation", "property:position; to:" + (target[randomIndexTarget].getAttribute("position").x - 1) + " 0 " + target[randomIndexTarget].getAttribute("position").z + " dur:4000");
+                    // Set it back to `0` when it reaches `3`
                 }
                 console.log("i'm here 2")
 
-                randommovenmet(index);
+                randommovenmet();
 
-            }, 8000);
+            }, 6000);
         }
 
-        startDsMovement(target.length);
+        startDsMovement();
 
     }
 })

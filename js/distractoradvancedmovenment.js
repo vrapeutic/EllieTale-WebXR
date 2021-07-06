@@ -20,7 +20,7 @@ AFRAME.registerComponent("advancedmovenment", {
             "animation",
             "property:position; to:" + (document.getElementById("targetthree").getAttribute("position").x + 1) +
             " 0 " +
-            document.getElementById("targetthree").getAttribute("position").z + "delay:5000; dur:8000"
+            document.getElementById("targetthree").getAttribute("position").z + ";delay:5000; dur:8000"
 
         );
         if (isCounting == true) {
@@ -137,9 +137,12 @@ AFRAME.registerComponent("advancedmovenment", {
         function AddPartical() {
 
             var distractingPartical = document.getElementById("distractingPartical");
-            distractingPartical.setAttribute("visible", "true");
-            distractingPartical.setAttribute("src", "#half");
+            //  distractingPartical.setAttribute("gltf-model", "#half"); 
+
+            distractingPartical.setAttribute("animation-mixer", "enabled:true");
+
             distractingPartical.setAttribute("position", nextTargetPosition);
+            distractingPartical.setAttribute("visible", "true");
 
             // ds.addEventListener("click", advancedDsMovement)
 

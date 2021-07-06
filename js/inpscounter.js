@@ -28,11 +28,11 @@ AFRAME.registerComponent('inpsscore', {
                             index++;
                             inpusCount = 0;
                             document.querySelector("#inps").setAttribute("value", index);
-                            fairy.setAttribute("animation",
+                            /*  fairy.setAttribute("animation",
                                 "property:position; to:" + document.getElementById("cam").getAttribute("position").x +
                                 " 0.5 " +
                                 (document.getElementById("cam").getAttribute("position").z - 3) + " dur:1000")
-
+*/
                             var soundEls = document.querySelectorAll('[sound]');
 
                             soundEls.forEach(soundEl => {
