@@ -49,7 +49,8 @@ AFRAME.registerComponent('menu', {
                 document.querySelector("#targetAud").addEventListener('sound-ended', function() {
 
                     document.querySelector("#targetAud").components.sound.stopSound();
-
+                    document.querySelector("#enviroAud").parentNode.removeChild(document.querySelector("#enviroAud"));
+                    document.querySelector("#helloAud").parentNode.removeChild(document.querySelector("#helloAud"));
                     if (document.getElementById("noah") != null)
                         document.getElementById("noah").parentNode.removeChild(document.getElementById("noah"));
                     document.getElementById("Fairy").setAttribute(
