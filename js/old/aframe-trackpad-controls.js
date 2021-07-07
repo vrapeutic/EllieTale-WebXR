@@ -1,14 +1,14 @@
 /**
  * 3dof (Gear VR, Daydream) controls for mobile.
  */
-module.exports = AFRAME.registerComponent('trackpad-controls', {
+module.exports = AFRAME.registerComponent("trackpad-controls", {
   schema: {
-    enabled: { default: true }
+    enabled: { default: true },
   },
 
   init: function () {
     this.dVelocity = new THREE.Vector3();
-    this.zVel      = 0;
+    this.zVel = 0;
     this.bindMethods();
   },
 
@@ -28,19 +28,17 @@ module.exports = AFRAME.registerComponent('trackpad-controls', {
   addEventListeners: function () {
     const sceneEl = this.el.sceneEl;
 
-    sceneEl.addEventListener('axismove', this.onAxisMove);
-    sceneEl.addEventListener('trackpadtouchstart', this.onTouchStart);
-    sceneEl.addEventListener('trackpadtouchend', this.onTouchEnd);
-
+    sceneEl.addEventListener("axismove", this.onAxisMove);
+    sceneEl.addEventListener("trackpadtouchstart", this.onTouchStart);
+    sceneEl.addEventListener("trackpadtouchend", this.onTouchEnd);
   },
 
   removeEventListeners: function () {
     const sceneEl = this.el.sceneEl;
 
-    sceneEl.removeEventListener('axismove', this.onAxisMove);
-    sceneEl.removeEventListener('trackpadtouchstart', this.onTouchStart);
-    sceneEl.removeEventListener('trackpadtouchend', this.onTouchEnd);
-
+    sceneEl.removeEventListener("axismove", this.onAxisMove);
+    sceneEl.removeEventListener("trackpadtouchstart", this.onTouchStart);
+    sceneEl.removeEventListener("trackpadtouchend", this.onTouchEnd);
   },
 
   isVelocityActive: function () {
@@ -68,17 +66,15 @@ module.exports = AFRAME.registerComponent('trackpad-controls', {
     e.preventDefault();
   },
 
-  onAxisMove: function(e){
+  onAxisMove: function (e) {
     var axis_data = e.detail.axis;
 
-    if(axis_data[1] < 0){
+    if (axis_data[1] < 0) {
       this.zVel = 1;
     }
 
-    if(axis_data[1] > 0){
+    if (axis_data[1] > 0) {
       this.zVel = -1;
     }
-
-  }
-
+  },
 });

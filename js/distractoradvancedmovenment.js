@@ -79,17 +79,17 @@ AFRAME.registerComponent("advancedmovenment", {
                 .setAttribute("animation", "enabled", false); // to stop fairy movement until the player respond to distractor
 
             /* if (
-          e.target.components["aabb-collider"]["intersectedEls"]
-            .map(x => x.id)
-            .includes(target[randomIndexTarget].id) 
-          
-          )
-          { 
-  
-      /*        document
-            .getElementById("myDistractor")
-            .setAttribute("animation", "enabled", false); 
-        }*/
+        e.target.components["aabb-collider"]["intersectedEls"]
+          .map(x => x.id)
+          .includes(target[randomIndexTarget].id) 
+        
+        )
+        { 
+
+    /*        document
+          .getElementById("myDistractor")
+          .setAttribute("animation", "enabled", false); 
+      }*/
 
 
             ds.addEventListener("click", advancedDsMovement)

@@ -86,10 +86,10 @@ AFRAME.registerComponent('menu', {
 
                         console.log(document.getElementById("myDistractor").getAttribute("position").z + " target " + lastTargetPos.z);
                         /* var partical= document.getElementById("distractingPartical");
- partical.setAttribute("visible","true");
+partical.setAttribute("visible","true");
 
-   partical.setAttribute("position", 
-          lastTargetPos )*/
+ partical.setAttribute("position", 
+        lastTargetPos )*/
                     }
                     //level two (Set distractor component and remove other components  )
                     else if (document.getElementById("level").getAttribute("value") == 2) {
@@ -129,80 +129,80 @@ AFRAME.registerComponent('menu', {
     }
 });
 /* document.getElementById('boxLevel').addEventListener("click",e => 
-  {
-  checkLevel();
-  disableMenu();
-  console.log(document.getElementById("counter").getAttribute("value"))
-  
-  
-  });
-  document.getElementById('boxLevel1').addEventListener("click",e => 
-  {
-  checkLevel();
-  disableMenu();
-  console.log(document.getElementById("level").getAttribute("value"))
-  
-  
-  });
-  document.getElementById('boxLevel2').addEventListener("click",e => 
-  {
-  checkLevel();
-  disableMenu();
-  console.log(document.getElementById("level").getAttribute("value"))
-  
-  });
-  
-  
-  
-    //select timer menu
-  
-    if(document.querySelectorAll('.timer')!="undefined"){
-  
-    document.querySelectorAll('.timer').forEach(element => {
-      element.addEventListener("click",e => {
-        document.getElementById("counter").setAttribute('timecounter',"enabled")
-   selectTimer();
-      })
-    });
-  let selectTimer= function time(){
-    
-  document.getElementById("boxtimer").parentNode.removeChild(document.getElementById('boxtimer'))
-  document.getElementById('boxtimer1').parentNode.removeChild(document.getElementById('boxtimer1'))
-  document.getElementById('boxtimer2').parentNode.removeChild(document.getElementById('boxtimer2'))
-  document.getElementById('noTimer').parentNode.removeChild(document.getElementById('noTimer'))
-  //document.getElementById("LevelsButton").setAttribute("visible",true)
-  
-  }
-   }
-  },
-  
-  play() 
-  {
-    var scene = document.querySelector('a-scene');
+{
+checkLevel();
+disableMenu();
+console.log(document.getElementById("counter").getAttribute("value"))
 
-    // Button element
-    
-    
-    // Check if scene has loaded, otherwise set up listener for when it does.
-   
-      scene.addEventListener('enter-vr', addButtonListener);
-    
-      scene.addEventListener('exit-vr', ()=>{
-        console.log("out");
+
+});
+document.getElementById('boxLevel1').addEventListener("click",e => 
+{
+checkLevel();
+disableMenu();
+console.log(document.getElementById("level").getAttribute("value"))
+
+
+});
+document.getElementById('boxLevel2').addEventListener("click",e => 
+{
+checkLevel();
+disableMenu();
+console.log(document.getElementById("level").getAttribute("value"))
+
+});
+
+
+
+  //select timer menu
+
+  if(document.querySelectorAll('.timer')!="undefined"){
+
+  document.querySelectorAll('.timer').forEach(element => {
+    element.addEventListener("click",e => {
+      document.getElementById("counter").setAttribute('timecounter',"enabled")
+ selectTimer();
+    })
+  });
+let selectTimer= function time(){
+  
+document.getElementById("boxtimer").parentNode.removeChild(document.getElementById('boxtimer'))
+document.getElementById('boxtimer1').parentNode.removeChild(document.getElementById('boxtimer1'))
+document.getElementById('boxtimer2').parentNode.removeChild(document.getElementById('boxtimer2'))
+document.getElementById('noTimer').parentNode.removeChild(document.getElementById('noTimer'))
+//document.getElementById("LevelsButton").setAttribute("visible",true)
+
+}
+ }
+},
+
+play() 
+{
+  var scene = document.querySelector('a-scene');
+
+  // Button element
+  
+  
+  // Check if scene has loaded, otherwise set up listener for when it does.
+ 
+    scene.addEventListener('enter-vr', addButtonListener);
+  
+    scene.addEventListener('exit-vr', ()=>{
+      console.log("out");
 //window.location.href="../index.html";
 
-      });
+    });
 
-    // Add our button click listener.
-    function addButtonListener() {
-   //   enterVRButton.addEventListener('click', function() {
+  // Add our button click listener.
+  function addButtonListener() {
+ //   enterVRButton.addEventListener('click', function() {
 console.log("In");
-    }
-    
+  }
+  
 if (navigator.xr) {
 /* WebXR can be used! */
 // window.location.href="../index.html";
 //} else {
 /* WebXR isn't available}
-  })
+})
 } */

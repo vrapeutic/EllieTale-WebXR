@@ -1,10 +1,3 @@
-AFRAME.registerComponent('fairytasktimer', {
-
-    init: function() {
-
-
-
-
-
-    }
-})
+AFRAME.registerComponent("fairytasktimer", {
+  init: function () {},
+});
