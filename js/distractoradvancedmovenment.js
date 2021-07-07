@@ -1,89 +1,98 @@
 AFRAME.registerComponent("advancedmovenment", {
+  init: function () {
+    var target = document.querySelectorAll(".Box"); //Array of targets
+    var ds = document.getElementById("myDistractor"); // distractor element
 
+    console.log(
+      target +
+        " this " +
+        ds +
+        document.getElementById("level").getAttribute("value")
+    );
 
-    init: function() {
+    //for level three
+    console.log("clicked");
+    var partical = document.getElementById("distractingPartical");
+    partical.setAttribute("visible", "true");
 
-        var target = document.querySelectorAll(".Box"); //Array of targets
-        var ds = document.getElementById("myDistractor"); // distractor element
+    partical.setAttribute(
+      "position",
+      document.getElementById("targetthree").getAttribute("position")
+    );
+    document
+      .getElementById("myDistractor")
+      .setAttribute(
+        "animation",
+        "property:position; to:" +
+          (document.getElementById("targetthree").getAttribute("position").x +
+            1) +
+          " 0 " +
+          document.getElementById("targetthree").getAttribute("position").z +
+          ";delay:5000; dur:8000"
+      );
 
-        console.log(target + " this " + ds + document.getElementById("level").getAttribute("value"));
+    let advancedDsMovement = function newRandomMovenment() {
+      document
+        .getElementById("distractingPartical")
+        .setAttribute("visible", "false");
 
-        //for level three
-        console.log("clicked");
-        var partical = document.getElementById("distractingPartical");
-        partical.setAttribute("visible", "true");
+      randomIndexTarget = Math.floor(Math.random() * Math.floor(target.length));
 
-        partical.setAttribute("position", document.getElementById("targetthree").getAttribute("position"));
-        document.getElementById("myDistractor").setAttribute(
-            "animation",
-            "property:position; to:" + (document.getElementById("targetthree").getAttribute("position").x + 1) +
-            " 0 " +
-            document.getElementById("targetthree").getAttribute("position").z + ";delay:5000; dur:8000"
+      if (
+        target[randomIndexTarget].getAttribute("position").x !=
+        ds.getAttribute("position").x
+      ) {
+        randomIndexTarget = randomIndexTarget;
+      } else {
+        randomIndexTarget--;
+      }
+      nextTargetPosition = target[randomIndexTarget].getAttribute("position");
 
-        );
+      var distractingTaskCounter = document
+        .getElementById("dscounter")
+        .getAttribute("value");
 
+      distractingTaskCounter++;
 
-        let advancedDsMovement = function newRandomMovenment() {
-            document.getElementById("distractingPartical").setAttribute("visible", "false");
+      document
+        .getElementById("dscounter")
+        .setAttribute("value", distractingTaskCounter);
 
-            randomIndexTarget = Math.floor(Math.random() * Math.floor(target.length));
+      // ds.setAttribute('aabb-collider','enabled',true);
+      console.log(ds);
+      ds.setAttribute(
+        "animation",
+        "property:position; to:" +
+          (nextTargetPosition.x + 1) +
+          " 0.1 " +
+          nextTargetPosition.z +
+          "  begin:bounce-start;end:bounce-stop;dur:2000"
+      );
 
-            if (target[randomIndexTarget].getAttribute("position").x != ds.getAttribute("position").x) {
-                randomIndexTarget = randomIndexTarget;
-            } else {
-                randomIndexTarget--;
+      console.log("dscounter: " + distractingTaskCounter);
+      document
+        .getElementById("Fairy")
+        .setAttribute("animation", "enabled", true);
 
-            }
-            nextTargetPosition = target[randomIndexTarget].getAttribute("position");
-
-            var distractingTaskCounter = document.getElementById("dscounter").getAttribute("value");
-
-            distractingTaskCounter++;
-
-            document.getElementById("dscounter").setAttribute("value", distractingTaskCounter);
-
-
-
-
-
-            // ds.setAttribute('aabb-collider','enabled',true);
-            console.log(ds);
-            ds.setAttribute(
-                "animation",
-                "property:position; to:" +
-                (nextTargetPosition.x + 1) +
-                " 0.1 " +
-                nextTargetPosition.z +
-                "  begin:bounce-start;end:bounce-stop;dur:2000"
-            );
-
-            console.log("dscounter: " + distractingTaskCounter);
-            document
-                .getElementById("Fairy")
-                .setAttribute("animation", "enabled", true);
-
-            console.log(
-                randomIndexTarget +
-                " here " +
-                target[randomIndexTarget].getAttribute("position").x +
-                "ds " +
-                ds.getAttribute("position").x
-            );
-            return randomIndexTarget;
-
-        };
-        ds.addEventListener('animationcomplete', e => {
-
-            document
-                .getElementById("Fairy")
-                .setAttribute("animation", "enabled", false); // to stop fairy movement until the player respond to distractor
-            if (isCounting == false) {
-                count = setInterval(function() {
-
-                    document.getElementById("dstime").setAttribute("value", timer);
-                    timer++;
-                }, 1000);
-                /* if (
+      console.log(
+        randomIndexTarget +
+          " here " +
+          target[randomIndexTarget].getAttribute("position").x +
+          "ds " +
+          ds.getAttribute("position").x
+      );
+      return randomIndexTarget;
+    };
+    ds.addEventListener("animationcomplete", (e) => {
+      document
+        .getElementById("Fairy")
+        .setAttribute("animation", "enabled", false); // to stop fairy movement until the player respond to distractor
+      if (isCounting == false) {
+        count = setInterval(function () {
+          document.getElementById("dstime").setAttribute("value", timer);
+          timer++;
+        }, 1000);
+        /* if (
           e.target.components["aabb-collider"]["intersectedEls"]
             .map(x => x.id)
             .includes(target[randomIndexTarget].id) 
@@ -95,36 +104,29 @@ AFRAME.registerComponent("advancedmovenment", {
             .getElementById("myDistractor")
             .setAttribute("animation", "enabled", false); 
         }*/
+      }
+      ds.addEventListener("click", advancedDsMovement);
+      if (
+        document
+          .getElementById("distractingPartical")
+          .getAttribute("visible") != true
+      ) {
+        AddPartical();
+      }
 
-            }
-            ds.addEventListener("click", advancedDsMovement)
-            if (document.getElementById("distractingPartical").getAttribute('visible') != true) {
-                AddPartical();
+      console.log(e);
+    });
 
-            }
+    function AddPartical() {
+      var distractingPartical = document.getElementById("distractingPartical");
+      //  distractingPartical.setAttribute("gltf-model", "#half");
 
+      distractingPartical.setAttribute("animation-mixer", "enabled:true");
 
-            console.log(e);
+      distractingPartical.setAttribute("position", nextTargetPosition);
+      distractingPartical.setAttribute("visible", "true");
 
-
-
-
-        });
-
-
-
-        function AddPartical() {
-
-            var distractingPartical = document.getElementById("distractingPartical");
-            //  distractingPartical.setAttribute("gltf-model", "#half"); 
-
-            distractingPartical.setAttribute("animation-mixer", "enabled:true");
-
-            distractingPartical.setAttribute("position", nextTargetPosition);
-            distractingPartical.setAttribute("visible", "true");
-
-            // ds.addEventListener("click", advancedDsMovement)
-
-        }
+      // ds.addEventListener("click", advancedDsMovement)
     }
-})
+  },
+});

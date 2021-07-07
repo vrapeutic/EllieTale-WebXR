@@ -1,7 +1,7 @@
 const LoopMode = {
   once: THREE.LoopOnce,
   repeat: THREE.LoopRepeat,
-  pingpong: THREE.LoopPingPong
+  pingpong: THREE.LoopPingPong,
 };
 
 /**
@@ -11,15 +11,15 @@ const LoopMode = {
  * skeletal or morph animations through THREE.AnimationMixer.
  * See: https://threejs.org/docs/?q=animation#Reference/Animation/AnimationMixer
  */
-AFRAME.registerComponent('animation-mixer', {
+AFRAME.registerComponent("animation-mixer", {
   schema: {
-    clip:  {default: '*'},
-    duration: {default: 0},
-    clampWhenFinished: {default: false, type: 'boolean'},
-    crossFadeDuration: {default: 0},
-    loop: {default: 'repeat', oneOf: Object.keys(LoopMode)},
-    repetitions: {default: Infinity, min: 0},
-    timeScale: {default: 1}
+    clip: { default: "*" },
+    duration: { default: 0 },
+    clampWhenFinished: { default: false, type: "boolean" },
+    crossFadeDuration: { default: 0 },
+    loop: { default: "repeat", oneOf: Object.keys(LoopMode) },
+    repetitions: { default: Infinity, min: 0 },
+    timeScale: { default: 1 },
   },
 
   init: function () {
@@ -30,12 +30,12 @@ AFRAME.registerComponent('animation-mixer', {
     /** @type {Array<THREE.AnimationAction>} */
     this.activeActions = [];
 
-    const model = this.el.getObject3D('mesh');
+    const model = this.el.getObject3D("mesh");
 
     if (model) {
       this.load(model);
     } else {
-      this.el.addEventListener('model-loaded', (e) => {
+      this.el.addEventListener("model-loaded", (e) => {
         this.load(e.detail.model);
       });
     }
@@ -45,11 +45,14 @@ AFRAME.registerComponent('animation-mixer', {
     const el = this.el;
     this.model = model;
     this.mixer = new THREE.AnimationMixer(model);
-    this.mixer.addEventListener('loop', (e) => {
-      el.emit('animation-loop', {action: e.action, loopDelta: e.loopDelta});
+    this.mixer.addEventListener("loop", (e) => {
+      el.emit("animation-loop", { action: e.action, loopDelta: e.loopDelta });
     });
-    this.mixer.addEventListener('finished', (e) => {
-      el.emit('animation-finished', {action: e.action, direction: e.direction});
+    this.mixer.addEventListener("finished", (e) => {
+      el.emit("animation-finished", {
+        action: e.action,
+        direction: e.direction,
+      });
     });
     if (this.data.clip) this.update({});
   },
@@ -65,7 +68,7 @@ AFRAME.registerComponent('animation-mixer', {
     const changes = AFRAME.utils.diff(data, prevData);
 
     // If selected clips have changed, restart animation.
-    if ('clip' in changes) {
+    if ("clip" in changes) {
       this.stopAction();
       if (data.clip) this.playAction();
       return;
@@ -73,16 +76,16 @@ AFRAME.registerComponent('animation-mixer', {
 
     // Otherwise, modify running actions.
     this.activeActions.forEach((action) => {
-      if ('duration' in changes && data.duration) {
+      if ("duration" in changes && data.duration) {
         action.setDuration(data.duration);
       }
-      if ('clampWhenFinished' in changes) {
+      if ("clampWhenFinished" in changes) {
         action.clampWhenFinished = data.clampWhenFinished;
       }
-      if ('loop' in changes || 'repetitions' in changes) {
+      if ("loop" in changes || "repetitions" in changes) {
         action.setLoop(LoopMode[data.loop], data.repetitions);
       }
-      if ('timeScale' in changes) {
+      if ("timeScale" in changes) {
         action.setEffectiveTimeScale(data.timeScale);
       }
     });
@@ -102,8 +105,8 @@ AFRAME.registerComponent('animation-mixer', {
     if (!this.mixer) return;
 
     const model = this.model,
-        data = this.data,
-        clips = model.animations || (model.geometry || {}).animations || [];
+      data = this.data,
+      clips = model.animations || (model.geometry || {}).animations || [];
 
     if (!clips.length) return;
 
@@ -127,20 +130,20 @@ AFRAME.registerComponent('animation-mixer', {
 
   tick: function (t, dt) {
     if (this.mixer && !isNaN(dt)) this.mixer.update(dt / 1000);
-  }
+  },
 });
 
 /**
  * Creates a RegExp from the given string, converting asterisks to .* expressions,
  * and escaping all other characters.
  */
-function wildcardToRegExp (s) {
-  return new RegExp('^' + s.split(/\*+/).map(regExpEscape).join('.*') + '$');
+function wildcardToRegExp(s) {
+  return new RegExp("^" + s.split(/\*+/).map(regExpEscape).join(".*") + "$");
 }
 
 /**
  * RegExp-escapes all characters in the given string.
  */
-function regExpEscape (s) {
-  return s.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
+function regExpEscape(s) {
+  return s.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&");
 }

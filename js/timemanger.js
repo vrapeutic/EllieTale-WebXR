@@ -1,27 +1,22 @@
-AFRAME.registerComponent('timecounter', {
+AFRAME.registerComponent("timecounter", {
+  play: function () {
+    var timeleft = document.getElementById("counter").getAttribute("value");
+    var countDown = setInterval(function () {
+      if (timeleft <= 0) {
+        clearInterval(countDown);
+      }
 
-  play: function() 
-     {
-       
- var timeleft =document.getElementById("counter").getAttribute("value");
- var countDown = setInterval(function(){
-   if(timeleft <= 0)
-   {
-     clearInterval(countDown);
+      document.getElementById("counter").setAttribute("value", timeleft);
 
-   }
+      timeleft -= 1;
+      console.log(timeleft);
 
-   document.getElementById("counter").setAttribute("value",timeleft) ;
+      if (timeleft == 0) {
+        window.location.reload();
+      }
+    }, 1000);
 
-   timeleft -= 1;   
-     console.log(timeleft);
-
-   if(timeleft==0)
-   {
-    window.location.reload(); }
- }, 1000);
- 
- 
- //var s = new Date()
- //console.log(s.getHours()+timeleft);
- }}) 
+    //var s = new Date()
+    //console.log(s.getHours()+timeleft);
+  },
+});
