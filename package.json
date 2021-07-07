@@ -1,24 +1,29 @@
 {
-  "name": "ellie-tale",
-  "version": "1.0.0",
-  "description": "Ellie-Tale  - WebXR version",
-  "main": "index.html",
-  "scripts": {
-    "dev": "live-server --no-browser",
-    "start": "live-server --port=$PORT --no-browser"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vrapeutic/Ellie-Tale.git"
-  },
-  "keywords": [],
-  "author": "hadeer gamal hadeer.gamal@myvrapeutic.com",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/vrapeutic/Ellie-Tale/issues"
-  },
-  "homepage": "https://github.com/vrapeutic/Ellie-Tale#readme",
-  "dependencies": {
-    "live-server": "^1.2.1"
-  }
+	"name": "ellie-tale",
+	"version": "1.0.0",
+	"description": "Ellie-Tale  - WebXR version",
+	"main": "index.html",
+	"scripts": {
+		"dev": "live-server --no-browser",
+		"start": "live-server --port=$PORT --no-browser",
+		"prettier": "prettier --check '**/*.js' '**/**/*.js'",
+		"prettier:fix": "prettier --write '**/*.js' '**/**/*.js'"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vrapeutic/Ellie-Tale.git"
+	},
+	"keywords": [],
+	"author": "hadeer gamal hadeer.gamal@myvrapeutic.com",
+	"license": "GPL-3.0",
+	"bugs": {
+		"url": "https://github.com/vrapeutic/Ellie-Tale/issues"
+	},
+	"homepage": "https://github.com/vrapeutic/Ellie-Tale#readme",
+	"dependencies": {
+		"live-server": "^1.2.1"
+	},
+	"devDependencies": {
+		"prettier": "^2.3.2"
+	}
 }
