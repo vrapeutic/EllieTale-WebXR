@@ -10,17 +10,21 @@ AFRAME.registerComponent("advancedmovenment", {
 
         //for level three
         console.log("clicked");
-        var partical = document.getElementById("distractingPartical");
-        partical.setAttribute("visible", "true");
+        setTimeout(() => {
+            var partical = document.getElementById("distractingPartical");
+            partical.setAttribute("visible", "true");
 
-        partical.setAttribute("position", document.getElementById("targetthree").getAttribute("position"));
-        document.getElementById("myDistractor").setAttribute(
-            "animation",
-            "property:position; to:" + (document.getElementById("targetthree").getAttribute("position").x + 1) +
-            " 0 " +
-            document.getElementById("targetthree").getAttribute("position").z + ";delay:5000; dur:8000"
+            partical.setAttribute("position", document.getElementById("targetthree").getAttribute("position"));
+            document.getElementById("myDistractor").setAttribute(
+                "animation",
+                "property:position; to:" + (document.getElementById("targetthree").getAttribute("position").x + 1) +
+                " 0 " +
+                document.getElementById("targetthree").getAttribute("position").z + "; dur:2000"
+            );
+        }, 4000);
 
-        );
+
+
 
 
         let advancedDsMovement = function newRandomMovenment() {
@@ -36,11 +40,8 @@ AFRAME.registerComponent("advancedmovenment", {
             }
             nextTargetPosition = target[randomIndexTarget].getAttribute("position");
 
-            var distractingTaskCounter = document.getElementById("dscounter").getAttribute("value");
 
-            distractingTaskCounter++;
 
-            document.getElementById("dscounter").setAttribute("value", distractingTaskCounter);
 
 
 
@@ -57,7 +58,6 @@ AFRAME.registerComponent("advancedmovenment", {
                 "  begin:bounce-start;end:bounce-stop;dur:2000"
             );
 
-            console.log("dscounter: " + distractingTaskCounter);
             document
                 .getElementById("Fairy")
                 .setAttribute("animation", "enabled", true);
@@ -77,13 +77,8 @@ AFRAME.registerComponent("advancedmovenment", {
             document
                 .getElementById("Fairy")
                 .setAttribute("animation", "enabled", false); // to stop fairy movement until the player respond to distractor
-            if (isCounting == false) {
-                count = setInterval(function() {
 
-                    document.getElementById("dstime").setAttribute("value", timer);
-                    timer++;
-                }, 1000);
-                /* if (
+            /* if (
           e.target.components["aabb-collider"]["intersectedEls"]
             .map(x => x.id)
             .includes(target[randomIndexTarget].id) 
@@ -96,7 +91,7 @@ AFRAME.registerComponent("advancedmovenment", {
             .setAttribute("animation", "enabled", false); 
         }*/
 
-            }
+
             ds.addEventListener("click", advancedDsMovement)
             if (document.getElementById("distractingPartical").getAttribute('visible') != true) {
                 AddPartical();

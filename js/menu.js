@@ -80,7 +80,7 @@ AFRAME.registerComponent('menu', {
                         setTimeout(() => {
                             document.getElementById("myDistractor").setAttribute('advancedmovenment', "enabled", true)
 
-                        }, 2000);
+                        }, 3000);
                         document.getElementById("myDistractor").setAttribute('visible', true);
                         /* */
 

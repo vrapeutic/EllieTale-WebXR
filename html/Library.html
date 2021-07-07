@@ -250,7 +250,8 @@
 
     <!--noah distractor-->
 
-    <a-box id="myDistractor" position="1.75 0 -7.224" lookat="#cam" clickable static-body="shape: box; mass: 0; sphereRadius: NaN" aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;" shadow visible="false" material="offset:  [object Object];  opacity:  0;  repeat:  [object Object];  ambientOcclusionTextureOffset:  [object Object];  ambientOcclusionTextureRepeat:  [object Object];  displacementTextureOffset:  [object Object];  displacementTextureRepeat:  [object Object];  metalnessTextureOffset:  [object Object];  metalnessTextureRepeat:  [object Object];  normalScale:  [object Object];  normalTextureOffset:  [object Object];  normalTextureRepeat:  [object Object];  roughnessTextureOffset:  [object Object];  roughnessTextureRepeat:  [object Object]"
+    <a-box id="myDistractor" position="1.75 0 -7.224" lookat="#cam" clickable static-body="shape: box; mass: 0; sphereRadius: NaN" aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;" aabb-collider="objects: a-entity,.Box; collideNonVisible: false; debug:false;"
+        shadow visible="false" material="offset:  [object Object];  opacity:  0;  repeat:  [object Object];  ambientOcclusionTextureOffset:  [object Object];  ambientOcclusionTextureRepeat:  [object Object];  displacementTextureOffset:  [object Object];  displacementTextureRepeat:  [object Object];  metalnessTextureOffset:  [object Object];  metalnessTextureRepeat:  [object Object];  normalScale:  [object Object];  normalTextureOffset:  [object Object];  normalTextureRepeat:  [object Object];  roughnessTextureOffset:  [object Object];  roughnessTextureRepeat:  [object Object]"
         geometry="depth:  1.4;  height:  7.07;  width:  1.51">
         <a-gltf-model position="-2 -0.1 0" gltf-model="#distractorModel">
         </a-gltf-model>
