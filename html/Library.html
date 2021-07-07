@@ -120,7 +120,7 @@
     </a-entity>
 
 
-    <a-entity id="targetthree" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box; debug: false; collideNonVisible: false; interval: 10000" shadow="receive: true" position="-0.47628 3.10047 -4.43031" showitem static-body="shape: auto; ; sphereRadius: 500; cylinderAxis: x"
+    <a-entity id="targetthree" class="Box" gltf-model="#target" aabb-collider="objects: a-gltf-model,a-box; debug: false; collideNonVisible: false; interval: 10000" shadow="receive: true" position="-0.47628 3.10047 -4.43031" showitem static-body="shape: sphere;  sphereRadius: 5"
         amimation-mixer="enabled:false" rotation="-0.48987891483685386 -62.0782582290393 0" shadow ontriggertarget>
 
     </a-entity>
@@ -250,7 +250,7 @@
 
     <!--noah distractor-->
 
-    <a-box id="myDistractor" position="1.75 0 -7.224" lookat="#cam" clickable static-body="shape: box; mass: 0; sphereRadius: NaN" aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;" aabb-collider="objects: a-entity,.Box; collideNonVisible: false; debug:false;"
+    <a-box id="myDistractor" position="-5.04878 0.00259 2.04221" lookat="#cam" clickable static-body="shape: box; mass: 0; sphereRadius: NaN" aabb-collider="objects: a-entity; collideNonVisible: false; debug:false;" aabb-collider="objects: a-entity,.Box; collideNonVisible: false; debug:false;"
         shadow visible="false" material="offset:  [object Object];  opacity:  0;  repeat:  [object Object];  ambientOcclusionTextureOffset:  [object Object];  ambientOcclusionTextureRepeat:  [object Object];  displacementTextureOffset:  [object Object];  displacementTextureRepeat:  [object Object];  metalnessTextureOffset:  [object Object];  metalnessTextureRepeat:  [object Object];  normalScale:  [object Object];  normalTextureOffset:  [object Object];  normalTextureRepeat:  [object Object];  roughnessTextureOffset:  [object Object];  roughnessTextureRepeat:  [object Object]"
         geometry="depth:  1.4;  height:  7.07;  width:  1.51">
         <a-gltf-model position="-2 -0.1 0" gltf-model="#distractorModel">
