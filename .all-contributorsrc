@@ -1,0 +1,54 @@
+{
+  "projectName": "EllieTale-WebXR",
+  "projectOwner": "vrapeutic",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "gitmoji",
+  "contributors": [
+    {
+      "login": "YahyaAlaaMassoud",
+      "name": "Yahya Alaa",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31636106?v=4",
+      "profile": "https://www.linkedin.com/in/yahya-alaa/",
+      "contributions": [
+        "bug",
+        "ideas",
+        "infra",
+        "mentoring",
+        "projectManagement"
+      ]
+    },
+    {
+      "login": "hadeergamal1",
+      "name": "hadeergamal1",
+      "avatar_url": "https://avatars.githubusercontent.com/u/52928785?v=4",
+      "profile": "https://github.com/hadeergamal1",
+      "contributions": [
+        "bug",
+        "code",
+        "content",
+        "design",
+        "ideas",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "alkabbany",
+      "name": "Ahmad Al-Kabbany",
+      "avatar_url": "https://avatars.githubusercontent.com/u/48055184?v=4",
+      "profile": "https://github.com/alkabbany",
+      "contributions": [
+        "business",
+        "content",
+        "mentoring",
+        "projectManagement"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
