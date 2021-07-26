@@ -14,8 +14,18 @@ AFRAME.registerComponent("showitem", {
                 document
                     .getElementById(el.firstElementChild.id)
                     .parentNode.removeChild(
-                        document.getElementById(el.firstElementChild.id)
-                    ); //destoy light from current target
+                        document.getElementById(el.firstElementChild.id));
+                fairy.setAttribute(
+                    "animation",
+                    "property:position; to:" +
+                    (fairyPosition.x + 1) +
+                    " " +
+                    (fairyPosition.y + 2) +
+                    " " +
+                    (fairyPosition.z - 1) +
+                    "; dur:1000"
+                );
+                //destoy light from current target
                 var soundEls = document.querySelectorAll("[sound]");
                 var pos = this.el.getAttribute("position");
                 var rotation = this.el.getAttribute("rotation");
@@ -33,16 +43,7 @@ AFRAME.registerComponent("showitem", {
                     "repetitions:2; clampWhenFinished:false"
                 );
 
-                fairy.setAttribute(
-                    "animation",
-                    "property:position; to:" +
-                    (fairyPosition.x + 1) +
-                    " " +
-                    (fairyPosition.y + 2) +
-                    " " +
-                    (fairyPosition.z - 1) +
-                    "; dur:1000"
-                );
+
                 this.el.setAttribute("aabb-collider", "enabled", false);
                 item = document.querySelectorAll(".items");
                 random = Math.floor(Math.random() * Math.floor(item.length));
