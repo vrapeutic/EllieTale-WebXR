@@ -41,7 +41,7 @@ The three environments are:
   - [SPE Particles](https://github.com/harlyq/aframe-spe-particles-component)
 - HTML, CSS, JavaScript
 
-## Installation Guide
+## Installation Guide 🖥
 
 ### Install and run the project locally using NPMv6
 
