@@ -13,7 +13,7 @@
     <br>
     <a href="https://github.com/vrapeutic"><img src="https://img.shields.io/github/stars/vrapeutic?affiliations=OWNER%2CCOLLABORATOR%2CORGANIZATION_MEMBER&style=social"></a>
     <a href="https://twitter.com/myvrapeutic"><img src="https://img.shields.io/twitter/follow/myvrapeutic?style=social"/></a>
-    <a><img src="https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square"/></a>
+    <a><img src="https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square"/></a>
 </p>
 
 ## Description 📝
